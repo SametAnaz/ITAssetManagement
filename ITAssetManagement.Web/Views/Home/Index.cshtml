@@ -12,7 +12,7 @@
         <h2>Latest Assets</h2>
         <hr />
         <!-- List of laptops will go here -->
-        @if (Model != null && Model.Any())
+        @if (Model?.Any() == true)
         {
             <div class="table-responsive">
                 <table class="table table-striped table-hover">
@@ -27,7 +27,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var laptop in Model)
+                        @foreach (var laptop in Model!)
                         {
                             <tr>
                                 <td>@laptop.EtiketNo</td>

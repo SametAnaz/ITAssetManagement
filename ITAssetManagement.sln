@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAssetManagement.Business"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAssetManagement.Web", "ITAssetManagement.Web\ITAssetManagement.Web.csproj", "{A4BFDEF2-0104-4E3F-9731-F650C22058E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAssetManagement", "ITAssetManagement\ITAssetManagement.csproj", "{F2A46A37-0AC9-4C2F-832D-63DD5B642125}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{A4BFDEF2-0104-4E3F-9731-F650C22058E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4BFDEF2-0104-4E3F-9731-F650C22058E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4BFDEF2-0104-4E3F-9731-F650C22058E9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F2A46A37-0AC9-4C2F-832D-63DD5B642125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F2A46A37-0AC9-4C2F-832D-63DD5B642125}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F2A46A37-0AC9-4C2F-832D-63DD5B642125}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F2A46A37-0AC9-4C2F-832D-63DD5B642125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
