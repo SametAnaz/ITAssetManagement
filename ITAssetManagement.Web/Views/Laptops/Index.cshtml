@@ -1,0 +1,44 @@
+@model IEnumerable<ITAssetManagement.Core.Entities.Laptop>
+
+@{
+    ViewData["Title"] = "Laptops";
+}
+
+<h1>Laptops</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.EtiketNo)</th>
+                <th>@Html.DisplayNameFor(model => model.Marka)</th>
+                <th>@Html.DisplayNameFor(model => model.Model)</th>
+                <th>@Html.DisplayNameFor(model => model.Durum)</th>
+                <th>@Html.DisplayNameFor(model => model.KayitTarihi)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.EtiketNo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Marka)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Durum)</td>
+                    <td>@Html.DisplayFor(modelItem => item.KayitTarihi)</td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

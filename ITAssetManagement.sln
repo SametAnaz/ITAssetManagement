@@ -3,6 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36221.1 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAssetManagement.Core", "ITAssetManagement.Core\ITAssetManagement.Core.csproj", "{A1BFDEF2-0101-4E3F-9731-F650C22058E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAssetManagement.DataAccess", "ITAssetManagement.DataAccess\ITAssetManagement.DataAccess.csproj", "{A2BFDEF2-0102-4E3F-9731-F650C22058E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAssetManagement.Business", "ITAssetManagement.Business\ITAssetManagement.Business.csproj", "{A3BFDEF2-0103-4E3F-9731-F650C22058E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAssetManagement.Web", "ITAssetManagement.Web\ITAssetManagement.Web.csproj", "{A4BFDEF2-0104-4E3F-9731-F650C22058E9}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITAssetManagement", "ITAssetManagement\ITAssetManagement.csproj", "{F2A46A37-0AC9-4C2F-832D-63DD5B642125}"
 EndProject
 Global
@@ -11,6 +19,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1BFDEF2-0101-4E3F-9731-F650C22058E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1BFDEF2-0101-4E3F-9731-F650C22058E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1BFDEF2-0101-4E3F-9731-F650C22058E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1BFDEF2-0101-4E3F-9731-F650C22058E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2BFDEF2-0102-4E3F-9731-F650C22058E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2BFDEF2-0102-4E3F-9731-F650C22058E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2BFDEF2-0102-4E3F-9731-F650C22058E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2BFDEF2-0102-4E3F-9731-F650C22058E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3BFDEF2-0103-4E3F-9731-F650C22058E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3BFDEF2-0103-4E3F-9731-F650C22058E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3BFDEF2-0103-4E3F-9731-F650C22058E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3BFDEF2-0103-4E3F-9731-F650C22058E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4BFDEF2-0104-4E3F-9731-F650C22058E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4BFDEF2-0104-4E3F-9731-F650C22058E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4BFDEF2-0104-4E3F-9731-F650C22058E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4BFDEF2-0104-4E3F-9731-F650C22058E9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F2A46A37-0AC9-4C2F-832D-63DD5B642125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F2A46A37-0AC9-4C2F-832D-63DD5B642125}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2A46A37-0AC9-4C2F-832D-63DD5B642125}.Release|Any CPU.ActiveCfg = Release|Any CPU
