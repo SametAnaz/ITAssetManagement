@@ -1,0 +1,62 @@
+@model ITAssetManagement.Web.Models.Laptop
+
+@{
+    ViewData["Title"] = "Laptop Düzenle";
+}
+
+<h1>Laptop Düzenle</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="KayitTarihi" />
+            
+            <div class="mb-3">
+                <label asp-for="EtiketNo" class="form-label">Etiket No</label>
+                <input asp-for="EtiketNo" class="form-control" />
+                <span asp-validation-for="EtiketNo" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Marka" class="form-label">Marka</label>
+                <input asp-for="Marka" class="form-control" />
+                <span asp-validation-for="Marka" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Model" class="form-label">Model</label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Ozellikler" class="form-label">Özellikler</label>
+                <textarea asp-for="Ozellikler" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Ozellikler" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Durum" class="form-label">Durum</label>
+                <select asp-for="Durum" class="form-select">
+                    <option value="Aktif">Aktif</option>
+                    <option value="Bakımda">Bakımda</option>
+                    <option value="Arızalı">Arızalı</option>
+                    <option value="Depo">Depo</option>
+                </select>
+                <span asp-validation-for="Durum" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Güncelle</button>
+                <a asp-action="Index" class="btn btn-secondary">İptal</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,67 @@
+@model ITAssetManagement.Web.Models.Laptop
+
+@{
+    ViewData["Title"] = "Laptop Sil";
+}
+
+<h1>Laptop Sil</h1>
+
+<div class="alert alert-warning">
+    <h4>Dikkat!</h4>
+    <p>Bu laptop'ı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Model.EtiketNo - @Model.Marka @Model.Model</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Etiket No:</dt>
+                    <dd class="col-sm-9">@Model.EtiketNo</dd>
+
+                    <dt class="col-sm-3">Marka:</dt>
+                    <dd class="col-sm-9">@Model.Marka</dd>
+
+                    <dt class="col-sm-3">Model:</dt>
+                    <dd class="col-sm-9">@Model.Model</dd>
+
+                    <dt class="col-sm-3">Özellikler:</dt>
+                    <dd class="col-sm-9">@Model.Ozellikler</dd>
+
+                    <dt class="col-sm-3">Durum:</dt>
+                    <dd class="col-sm-9">
+                        @if (Model.Durum == "Aktif")
+                        {
+                            <span class="badge bg-success">@Model.Durum</span>
+                        }
+                        else if (Model.Durum == "Bakımda")
+                        {
+                            <span class="badge bg-warning">@Model.Durum</span>
+                        }
+                        else if (Model.Durum == "Arızalı")
+                        {
+                            <span class="badge bg-danger">@Model.Durum</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@Model.Durum</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-3">Kayıt Tarihi:</dt>
+                    <dd class="col-sm-9">@Model.KayitTarihi.ToString("dd/MM/yyyy HH:mm")</dd>
+                </dl>
+            </div>
+            <div class="card-footer">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

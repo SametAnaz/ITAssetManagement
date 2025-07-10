@@ -1,0 +1,59 @@
+@model ITAssetManagement.Web.Models.Laptop
+
+@{
+    ViewData["Title"] = "Laptop Detayları";
+}
+
+<h1>Laptop Detayları</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Model.EtiketNo - @Model.Marka @Model.Model</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Etiket No:</dt>
+                    <dd class="col-sm-9">@Model.EtiketNo</dd>
+
+                    <dt class="col-sm-3">Marka:</dt>
+                    <dd class="col-sm-9">@Model.Marka</dd>
+
+                    <dt class="col-sm-3">Model:</dt>
+                    <dd class="col-sm-9">@Model.Model</dd>
+
+                    <dt class="col-sm-3">Özellikler:</dt>
+                    <dd class="col-sm-9">@Model.Ozellikler</dd>
+
+                    <dt class="col-sm-3">Durum:</dt>
+                    <dd class="col-sm-9">
+                        @if (Model.Durum == "Aktif")
+                        {
+                            <span class="badge bg-success">@Model.Durum</span>
+                        }
+                        else if (Model.Durum == "Bakımda")
+                        {
+                            <span class="badge bg-warning">@Model.Durum</span>
+                        }
+                        else if (Model.Durum == "Arızalı")
+                        {
+                            <span class="badge bg-danger">@Model.Durum</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary">@Model.Durum</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-3">Kayıt Tarihi:</dt>
+                    <dd class="col-sm-9">@Model.KayitTarihi.ToString("dd/MM/yyyy HH:mm")</dd>
+                </dl>
+            </div>
+            <div class="card-footer">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Düzenle</a>
+                <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+            </div>
+        </div>
+    </div>
+</div>
