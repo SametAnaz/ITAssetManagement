@@ -36,7 +36,7 @@
                                 <td>@laptop.Durum</td>
                                 <td>@laptop.KayitTarihi.ToShortDateString()</td>
                                 <td>
-                                    <a class="btn btn-sm btn-info" href="#">Details</a>
+                                    <a class="btn btn-sm btn-info" asp-controller="Laptops" asp-action="Details" asp-route-id="@laptop.Id">Details</a>
                                 </td>
                             </tr>
                         }

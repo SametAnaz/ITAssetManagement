@@ -1,0 +1,74 @@
+@model ITAssetManagement.Web.Models.User
+
+@{
+    ViewData["Title"] = "Kullanıcı Sil";
+}
+
+<h1>Kullanıcı Sil</h1>
+
+<div class="alert alert-warning">
+    <h4>Dikkat!</h4>
+    <p>Bu kullanıcıyı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Model.FullName</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Ad Soyad:</dt>
+                    <dd class="col-sm-9">@Model.FullName</dd>
+
+                    <dt class="col-sm-3">Email:</dt>
+                    <dd class="col-sm-9">@Model.Email</dd>
+
+                    <dt class="col-sm-3">Telefon:</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.Phone))
+                        {
+                            @Model.Phone
+                        }
+                        else
+                        {
+                            <span class="text-muted">Belirtilmemiş</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-3">Departman:</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.Department))
+                        {
+                            <span class="badge bg-info">@Model.Department</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Belirtilmemiş</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-3">Pozisyon:</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.Position))
+                        {
+                            @Model.Position
+                        }
+                        else
+                        {
+                            <span class="text-muted">Belirtilmemiş</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+            <div class="card-footer">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

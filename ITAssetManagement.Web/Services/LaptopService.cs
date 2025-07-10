@@ -49,7 +49,7 @@ namespace ITAssetManagement.Web.Services
             return await _laptopRepository.SaveChangesAsync();
         }
 
-        public async Task<bool> DeleteLaptopAsync(int id)
+        public async Task<bool> DeleteLaptopAsync(int id, string? silmeNedeni = null)
         {
             var laptop = await _laptopRepository.GetByIdAsync(id);
             if (laptop == null)
@@ -69,7 +69,7 @@ namespace ITAssetManagement.Web.Services
                 // TODO: Kullanıcı sistemi eklendikten sonra aktif edilecek
                 // SilenKullanici = currentUser.UserName,
                 SilenKullanici = "System Admin", // Geçici olarak
-                SilmeNedeni = "Manuel silme işlemi"
+                SilmeNedeni = !string.IsNullOrWhiteSpace(silmeNedeni) ? silmeNedeni : "Manuel silme işlemi"
             };
 
             _context.DeletedLaptops.Add(deletedLaptop);

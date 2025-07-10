@@ -56,8 +56,17 @@
                 </dl>
             </div>
             <div class="card-footer">
-                <form asp-action="Delete">
+                <form asp-action="DeleteConfirmed" method="post">
+                    @Html.AntiForgeryToken()
                     <input type="hidden" asp-for="Id" />
+                    
+                    <div class="mb-3">
+                        <label for="silmeNedeni" class="form-label">Silme Nedeni <span class="text-danger">*</span></label>
+                        <textarea name="silmeNedeni" id="silmeNedeni" class="form-control" rows="3" 
+                                  placeholder="Bu laptop'ın neden silindiğini açıklayınız..." required></textarea>
+                        <div class="form-text">Bu bilgi silinme geçmişinde kaydedilecektir.</div>
+                    </div>
+                    
                     <button type="submit" class="btn btn-danger">Sil</button>
                     <a asp-action="Index" class="btn btn-secondary">İptal</a>
                 </form>

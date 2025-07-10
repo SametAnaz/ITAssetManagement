@@ -1,0 +1,68 @@
+@model ITAssetManagement.Web.Models.User
+
+@{
+    ViewData["Title"] = "Kullanıcı Detayları";
+}
+
+<h1>Kullanıcı Detayları</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">@Model.FullName</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Ad Soyad:</dt>
+                    <dd class="col-sm-9">@Model.FullName</dd>
+
+                    <dt class="col-sm-3">Email:</dt>
+                    <dd class="col-sm-9">
+                        <a href="mailto:@Model.Email">@Model.Email</a>
+                    </dd>
+
+                    <dt class="col-sm-3">Telefon:</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.Phone))
+                        {
+                            <a href="tel:@Model.Phone">@Model.Phone</a>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Belirtilmemiş</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-3">Departman:</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.Department))
+                        {
+                            <span class="badge bg-info">@Model.Department</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Belirtilmemiş</span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-3">Pozisyon:</dt>
+                    <dd class="col-sm-9">
+                        @if (!string.IsNullOrEmpty(Model.Position))
+                        {
+                            @Model.Position
+                        }
+                        else
+                        {
+                            <span class="text-muted">Belirtilmemiş</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+            <div class="card-footer">
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Düzenle</a>
+                <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+            </div>
+        </div>
+    </div>
+</div>

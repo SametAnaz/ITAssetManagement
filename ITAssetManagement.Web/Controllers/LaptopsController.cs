@@ -41,6 +41,7 @@ namespace ITAssetManagement.Web.Controllers
             if (ModelState.IsValid)
             {
                 await _laptopService.CreateLaptopAsync(laptop);
+                TempData["SuccessMessage"] = "Laptop başarıyla eklendi.";
                 return RedirectToAction(nameof(Index));
             }
             return View(laptop);
@@ -68,6 +69,7 @@ namespace ITAssetManagement.Web.Controllers
             if (ModelState.IsValid)
             {
                 await _laptopService.UpdateLaptopAsync(laptop);
+                TempData["SuccessMessage"] = "Laptop başarıyla güncellendi.";
                 return RedirectToAction(nameof(Index));
             }
             return View(laptop);
@@ -83,11 +85,26 @@ namespace ITAssetManagement.Web.Controllers
             return View(laptop);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, string silmeNedeni)
         {
-            await _laptopService.DeleteLaptopAsync(id);
+            if (string.IsNullOrWhiteSpace(silmeNedeni))
+            {
+                TempData["ErrorMessage"] = "Silme nedeni belirtilmesi zorunludur.";
+                return RedirectToAction("Delete", new { id = id });
+            }
+
+            var result = await _laptopService.DeleteLaptopAsync(id, silmeNedeni);
+            if (result)
+            {
+                TempData["SuccessMessage"] = "Laptop başarıyla silindi.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Laptop silinirken bir hata oluştu.";
+            }
+            
             return RedirectToAction(nameof(Index));
         }
     }
