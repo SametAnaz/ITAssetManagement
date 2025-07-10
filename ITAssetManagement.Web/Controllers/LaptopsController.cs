@@ -1,5 +1,5 @@
-using ITAssetManagement.Business.Services.Interfaces;
-using ITAssetManagement.Core.Entities;
+using ITAssetManagement.Web.Services.Interfaces;
+using ITAssetManagement.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ITAssetManagement.Web.Controllers

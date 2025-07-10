@@ -1,9 +1,8 @@
-using ITAssetManagement.Core.Entities;
-using ITAssetManagement.DataAccess.Context;
-using ITAssetManagement.DataAccess.Repositories.Interfaces;
+using ITAssetManagement.Web.Models;
+using ITAssetManagement.Web.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITAssetManagement.DataAccess.Repositories
+namespace ITAssetManagement.Web.Data.Repositories
 {
     public class LaptopRepository : GenericRepository<Laptop>, ILaptopRepository
     {

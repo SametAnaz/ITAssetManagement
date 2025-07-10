@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ITAssetManagement.Core.Entities
+namespace ITAssetManagement.Web.Models
 {
     public class User
     {

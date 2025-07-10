@@ -1,6 +1,6 @@
-using ITAssetManagement.Core.Entities;
+using ITAssetManagement.Web.Models;
 
-namespace ITAssetManagement.DataAccess.Repositories.Interfaces
+namespace ITAssetManagement.Web.Data.Repositories
 {
     public interface ILaptopRepository : IGenericRepository<Laptop>
     {

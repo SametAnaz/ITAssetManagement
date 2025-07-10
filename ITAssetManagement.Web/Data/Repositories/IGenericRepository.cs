@@ -1,6 +1,6 @@
 using System.Linq.Expressions;
 
-namespace ITAssetManagement.DataAccess.Repositories.Interfaces
+namespace ITAssetManagement.Web.Data.Repositories
 {
     public interface IGenericRepository<T> where T : class
     {

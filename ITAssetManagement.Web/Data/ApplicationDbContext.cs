@@ -1,7 +1,7 @@
-using ITAssetManagement.Core.Entities;
+using ITAssetManagement.Web.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITAssetManagement.DataAccess.Context
+namespace ITAssetManagement.Web.Data
 {
     public class ApplicationDbContext : DbContext
     {

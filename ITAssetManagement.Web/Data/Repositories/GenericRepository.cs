@@ -1,10 +1,8 @@
-using ITAssetManagement.Core.Entities;
-using ITAssetManagement.DataAccess.Context;
-using ITAssetManagement.DataAccess.Repositories.Interfaces;
+using ITAssetManagement.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace ITAssetManagement.DataAccess.Repositories
+namespace ITAssetManagement.Web.Data.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {

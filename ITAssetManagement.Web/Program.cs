@@ -1,8 +1,7 @@
-using ITAssetManagement.Business.Services;
-using ITAssetManagement.Business.Services.Interfaces;
-using ITAssetManagement.DataAccess.Context;
-using ITAssetManagement.DataAccess.Repositories;
-using ITAssetManagement.DataAccess.Repositories.Interfaces;
+using ITAssetManagement.Web.Services;
+using ITAssetManagement.Web.Services.Interfaces;
+using ITAssetManagement.Web.Data;
+using ITAssetManagement.Web.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

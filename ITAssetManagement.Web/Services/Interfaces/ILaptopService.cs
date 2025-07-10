@@ -1,6 +1,6 @@
-using ITAssetManagement.Core.Entities;
+using ITAssetManagement.Web.Models;
 
-namespace ITAssetManagement.Business.Services.Interfaces
+namespace ITAssetManagement.Web.Services.Interfaces
 {
     public interface ILaptopService
     {

@@ -1,8 +1,8 @@
-using ITAssetManagement.Business.Services.Interfaces;
-using ITAssetManagement.Core.Entities;
-using ITAssetManagement.DataAccess.Repositories.Interfaces;
+using ITAssetManagement.Web.Services.Interfaces;
+using ITAssetManagement.Web.Models;
+using ITAssetManagement.Web.Data.Repositories;
 
-namespace ITAssetManagement.Business.Services
+namespace ITAssetManagement.Web.Services
 {
     public class LaptopService : ILaptopService
     {
