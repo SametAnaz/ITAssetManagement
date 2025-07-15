@@ -37,6 +37,22 @@ namespace ITAssetManagement.Web.Models
         [DataType(DataType.DateTime)]
         public DateTime KayitTarihi { get; set; } = DateTime.Now;
 
+        [Required]
+        [Display(Name = "Is Active")]
+        public bool IsActive { get; set; } = true;
+
+        [Display(Name = "Deletion Reason")]
+        [StringLength(500)]
+        public string? SilmeNedeni { get; set; }
+
+        [Display(Name = "Deletion Date")]
+        [DataType(DataType.DateTime)]
+        public DateTime? SilinmeTarihi { get; set; }
+
+        [Display(Name = "Deleted By")]
+        [StringLength(100)]
+        public string? SilenKullanici { get; set; }
+
         // Navigation properties for related entities
         [Display(Name = "Photos")]
         public virtual ICollection<LaptopPhoto>? Photos { get; set; }

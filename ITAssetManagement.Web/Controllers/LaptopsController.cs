@@ -107,5 +107,28 @@ namespace ITAssetManagement.Web.Controllers
             
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> DeletedLaptops()
+        {
+            var deletedLaptops = await _laptopService.GetDeletedLaptopsAsync();
+            return View(deletedLaptops);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RestoreLaptop(int id)
+        {
+            var result = await _laptopService.RestoreLaptopAsync(id);
+            if (result)
+            {
+                TempData["SuccessMessage"] = "Laptop başarıyla geri yüklendi.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Laptop geri yüklenirken bir hata oluştu.";
+            }
+            
+            return RedirectToAction(nameof(DeletedLaptops));
+        }
     }
 }

@@ -1,19 +1,16 @@
 using ITAssetManagement.Web.Services.Interfaces;
 using ITAssetManagement.Web.Models;
 using ITAssetManagement.Web.Data.Repositories;
-using ITAssetManagement.Web.Data;
 
 namespace ITAssetManagement.Web.Services
 {
     public class LaptopService : ILaptopService
     {
         private readonly ILaptopRepository _laptopRepository;
-        private readonly ApplicationDbContext _context;
 
-        public LaptopService(ILaptopRepository laptopRepository, ApplicationDbContext context)
+        public LaptopService(ILaptopRepository laptopRepository)
         {
             _laptopRepository = laptopRepository;
-            _context = context;
         }
 
         public async Task<IEnumerable<Laptop>> GetAllLaptopsAsync()
@@ -51,32 +48,39 @@ namespace ITAssetManagement.Web.Services
 
         public async Task<bool> DeleteLaptopAsync(int id, string? silmeNedeni = null)
         {
-            var laptop = await _laptopRepository.GetByIdAsync(id);
+            var laptop = await _laptopRepository.GetLaptopByIdIncludingDeletedAsync(id);
             if (laptop == null)
                 return false;
 
-            // Silinen laptop'ı DeletedLaptops tablosuna kaydet
-            var deletedLaptop = new DeletedLaptop
-            {
-                OriginalLaptopId = laptop.Id,
-                EtiketNo = laptop.EtiketNo,
-                Marka = laptop.Marka,
-                Model = laptop.Model,
-                Ozellikler = laptop.Ozellikler,
-                Durum = laptop.Durum,
-                KayitTarihi = laptop.KayitTarihi,
-                SilinmeTarihi = DateTime.Now,
-                // TODO: Kullanıcı sistemi eklendikten sonra aktif edilecek
-                // SilenKullanici = currentUser.UserName,
-                SilenKullanici = "System Admin", // Geçici olarak
-                SilmeNedeni = !string.IsNullOrWhiteSpace(silmeNedeni) ? silmeNedeni : "Manuel silme işlemi"
-            };
+            // Soft delete - laptop'ı veritabanından silmeyip sadece IsActive = false yapıyoruz
+            laptop.IsActive = false;
+            laptop.SilinmeTarihi = DateTime.Now;
+            laptop.SilmeNedeni = !string.IsNullOrWhiteSpace(silmeNedeni) ? silmeNedeni : "Manuel silme işlemi";
+            // TODO: Kullanıcı sistemi eklendikten sonra aktif edilecek
+            // laptop.SilenKullanici = currentUser.UserName;
+            laptop.SilenKullanici = "System Admin"; // Geçici olarak
 
-            _context.DeletedLaptops.Add(deletedLaptop);
-            await _context.SaveChangesAsync();
+            _laptopRepository.Update(laptop);
+            return await _laptopRepository.SaveChangesAsync();
+        }
 
-            // Orijinal laptop'ı sil
-            _laptopRepository.Remove(laptop);
+        public async Task<IEnumerable<Laptop>> GetDeletedLaptopsAsync()
+        {
+            return await _laptopRepository.GetAllDeletedLaptopsAsync();
+        }
+
+        public async Task<bool> RestoreLaptopAsync(int id)
+        {
+            var laptop = await _laptopRepository.GetLaptopByIdIncludingDeletedAsync(id);
+            if (laptop == null || laptop.IsActive)
+                return false;
+
+            laptop.IsActive = true;
+            laptop.SilinmeTarihi = null;
+            laptop.SilmeNedeni = null;
+            laptop.SilenKullanici = null;
+
+            _laptopRepository.Update(laptop);
             return await _laptopRepository.SaveChangesAsync();
         }
     }

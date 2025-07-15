@@ -14,7 +14,6 @@ namespace ITAssetManagement.Web.Data
         public DbSet<LaptopLog> LaptopLogs { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Assignment> Assignments { get; set; }
-        public DbSet<DeletedLaptop> DeletedLaptops { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

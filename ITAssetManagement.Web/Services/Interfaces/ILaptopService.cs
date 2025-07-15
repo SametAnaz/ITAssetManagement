@@ -10,5 +10,7 @@ namespace ITAssetManagement.Web.Services.Interfaces
         Task<bool> CreateLaptopAsync(Laptop laptop);
         Task<bool> UpdateLaptopAsync(Laptop laptop);
         Task<bool> DeleteLaptopAsync(int id, string? silmeNedeni = null);
+        Task<IEnumerable<Laptop>> GetDeletedLaptopsAsync();
+        Task<bool> RestoreLaptopAsync(int id);
     }
 }
