@@ -37,10 +37,7 @@
             <input type="text" name="searchTerm" id="searchInput" class="form-control me-2" value="@ViewData["CurrentFilter"]" 
                    placeholder="Search by brand, model, ID or tag number..." />
             <button type="submit" class="btn btn-primary me-2">Search</button>
-            <button type="button" class="btn btn-info me-2" id="barcodeButton">
-                <i class="fas fa-barcode me-1"></i>Scan Barcode
-            </button>
-            @if (!string.IsNullOrEmpty((string)ViewData["CurrentFilter"]))
+            @if (ViewData["CurrentFilter"]?.ToString() is string filter && !string.IsNullOrEmpty(filter))
             {
                 <a asp-action="Index" class="btn btn-secondary">Clear</a>
             }
@@ -51,30 +48,7 @@
             <i class="fas fa-plus me-1"></i>Create New
         </a>
     </div>
-
-<!-- Barcode Scanner Modal -->
-<div class="modal fade" id="barcodeScannerModal" tabindex="-1" aria-labelledby="barcodeScannerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="barcodeScannerModalLabel">Scan Barcode</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Please scan the barcode using your barcode scanner. The window will automatically close when a barcode is detected.</p>
-                <div class="text-center">
-                    <i class="fas fa-barcode fa-3x mb-3"></i>
-                    <div id="scanningStatus">Waiting for barcode scan...</div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-</div>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
-</p>
 <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead>
@@ -89,92 +63,36 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @if (Model != null)
             {
-                <tr>
-                    <td>@Html.DisplayFor(modelItem => item.EtiketNo)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Marka)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Model)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Durum)</td>
-                    <td>
-                        @if (item.CurrentAssignment != null)
-                        {
-                            @Html.DisplayFor(modelItem => item.CurrentAssignment.User.FullName)
-                        }
-                        else
-                        {
-                            <span class="text-muted">-</span>
-                        }
-                    </td>
-                    <td>@Html.DisplayFor(modelItem => item.KayitTarihi)</td>
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
-                        </div>
-                    </td>
-                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.EtiketNo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Marka)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Durum)</td>
+                        <td>
+                            @if (item.CurrentAssignment?.User != null)
+                            {
+                                @Html.DisplayFor(modelItem => item.CurrentAssignment.User.FullName)
+                            }
+                            else
+                            {
+                                <span class="text-muted">-</span>
+                            }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.KayitTarihi)</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
             }
         </tbody>
     </table>
 </div>
-
-@section Scripts {
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const searchInput = document.getElementById('searchInput');
-            const searchForm = document.getElementById('searchForm');
-            const barcodeButton = document.getElementById('barcodeButton');
-            const barcodeScannerModal = new bootstrap.Modal(document.getElementById('barcodeScannerModal'));
-            
-            let barcodeBuffer = '';
-            let lastKeyTime = Date.now();
-            const BARCODE_DELAY = 20; // Maximum delay between characters (ms)
-
-            // Handle barcode button click
-            barcodeButton.addEventListener('click', function() {
-                barcodeScannerModal.show();
-                searchInput.value = ''; // Clear the search input
-                barcodeBuffer = ''; // Reset the barcode buffer
-                searchInput.focus(); // Focus the input (hidden behind modal)
-            });
-
-            // Listen for keypress events on the document
-            document.addEventListener('keypress', function(e) {
-                const currentTime = Date.now();
-
-                // If the delay between keystrokes is small enough, treat it as a barcode scanner
-                if (currentTime - lastKeyTime <= BARCODE_DELAY) {
-                    barcodeBuffer += e.key;
-                } else {
-                    barcodeBuffer = e.key;
-                }
-
-                lastKeyTime = currentTime;
-
-                // If Enter key is pressed and we have a barcode
-                if (e.key === 'Enter' && barcodeBuffer.length > 1) {
-                    e.preventDefault();
-                    
-                    // Remove the Enter key from the buffer
-                    const barcode = barcodeBuffer.slice(0, -1);
-                    
-                    // Set the search input value
-                    searchInput.value = barcode;
-                    
-                    // Close the modal if it's open
-                    barcodeScannerModal.hide();
-                    
-                    // Submit the form
-                    searchForm.submit();
-                }
-            });
-
-            // Reset buffer on modal close
-            document.getElementById('barcodeScannerModal').addEventListener('hidden.bs.modal', function () {
-                barcodeBuffer = '';
-            });
-        });
-    </script>
-}

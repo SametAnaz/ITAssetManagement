@@ -15,8 +15,8 @@
                 <label asp-for="EtiketNo" class="form-label">Etiket No</label>
                 <div class="input-group">
                     <input asp-for="EtiketNo" class="form-control" id="etiketNoInput" />
-                    <button type="button" class="btn btn-info" id="barcodeButton">
-                        <i class="fas fa-barcode me-1"></i>Barkod Okut
+                    <button type="button" class="btn btn-outline-secondary" onclick="startScanning()">
+                        <i class="fas fa-camera"></i>
                     </button>
                 </div>
                 <span asp-validation-for="EtiketNo" class="text-danger"></span>
@@ -57,79 +57,94 @@
             </div>
         </form>
     </div>
-</div>
-
-<!-- Barcode Scanner Modal -->
-<div class="modal fade" id="barcodeScannerModal" tabindex="-1" aria-labelledby="barcodeScannerModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="barcodeScannerModalLabel">Barkod Okut</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Lütfen barkod okuyucu ile etiket numarasını okutun. Barkod okunduktan sonra pencere otomatik kapanacaktır.</p>
-                <div class="text-center">
-                    <i class="fas fa-barcode fa-3x mb-3"></i>
-                    <div id="scanningStatus">Barkod bekleniyor...</div>
-                </div>
-            </div>
-        </div>
+    <div class="col-md-4">
+        <div id="reader" class="mt-3" style="display: none;"></div>
+        <div id="scannerStatus" class="alert alert-info mt-3" style="display: none;"></div>
     </div>
 </div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    
+    <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const etiketNoInput = document.getElementById('etiketNoInput');
-            const barcodeButton = document.getElementById('barcodeButton');
-            const barcodeScannerModal = new bootstrap.Modal(document.getElementById('barcodeScannerModal'));
-            
-            let barcodeBuffer = '';
-            let lastKeyTime = Date.now();
-            const BARCODE_DELAY = 20; // Maximum delay between characters (ms)
+        let html5QrcodeScanner = null;
 
-            // Handle barcode button click
-            barcodeButton.addEventListener('click', function() {
-                barcodeScannerModal.show();
-                barcodeBuffer = ''; // Reset the barcode buffer
-                etiketNoInput.focus(); // Focus the input (hidden behind modal)
-            });
+        async function startScanning() {
+            try {
+                const scannerDiv = document.getElementById('reader');
+                const statusDiv = document.getElementById('scannerStatus');
+                
+                // Show the scanner elements
+                scannerDiv.style.display = 'block';
+                statusDiv.style.display = 'block';
+                statusDiv.textContent = 'Kamera başlatılıyor...';
 
-            // Listen for keypress events on the document
-            document.addEventListener('keypress', function(e) {
-                const currentTime = Date.now();
+                // Request camera permission first
+                await navigator.mediaDevices.getUserMedia({ video: true });
 
-                // If the delay between keystrokes is small enough, treat it as a barcode scanner
-                if (currentTime - lastKeyTime <= BARCODE_DELAY) {
-                    barcodeBuffer += e.key;
-                } else {
-                    barcodeBuffer = e.key;
+                // Initialize scanner if not already initialized
+                if (!html5QrcodeScanner) {
+                    html5QrcodeScanner = new Html5Qrcode("reader");
+
+                    const config = {
+                        fps: 10,
+                        qrbox: { width: 250, height: 250 },
+                        aspectRatio: 1.0,
+                        formatsToSupport: [
+                            Html5QrcodeSupportedFormats.QR_CODE,
+                            Html5QrcodeSupportedFormats.EAN_13,
+                            Html5QrcodeSupportedFormats.EAN_8,
+                            Html5QrcodeSupportedFormats.CODE_128,
+                            Html5QrcodeSupportedFormats.CODE_39,
+                            Html5QrcodeSupportedFormats.UPC_A,
+                            Html5QrcodeSupportedFormats.UPC_E,
+                        ]
+                    };
+
+                    await html5QrcodeScanner.start(
+                        { facingMode: "environment" },
+                        config,
+                        onScanSuccess,
+                        onScanError
+                    );
+
+                    statusDiv.textContent = 'Kamera hazır, barkodu okutun...';
                 }
+            } catch (err) {
+                const statusDiv = document.getElementById('scannerStatus');
+                statusDiv.className = 'alert alert-danger';
+                statusDiv.textContent = 'Kamera başlatılamadı: ' + (err.message || 'Bilinmeyen hata');
+                console.error('Kamera hatası:', err);
+            }
+        }
 
-                lastKeyTime = currentTime;
+        function onScanSuccess(decodedText) {
+            document.getElementById('etiketNoInput').value = decodedText;
+            stopScanning();
+        }
 
-                // If Enter key is pressed and we have a barcode
-                if (e.key === 'Enter' && barcodeBuffer.length > 1) {
-                    e.preventDefault();
+        function onScanError(error) {
+            // Silently handle scanning errors
+            console.debug('Barkod okuma:', error);
+        }
+
+        async function stopScanning() {
+            if (html5QrcodeScanner) {
+                try {
+                    await html5QrcodeScanner.stop();
+                    html5QrcodeScanner = null;
                     
-                    // Remove the Enter key from the buffer
-                    const barcode = barcodeBuffer.slice(0, -1);
-                    
-                    // Set the EtiketNo input value
-                    etiketNoInput.value = barcode;
-                    
-                    // Close the modal if it's open
-                    barcodeScannerModal.hide();
+                    // Hide the scanner elements
+                    document.getElementById('reader').style.display = 'none';
+                    document.getElementById('scannerStatus').style.display = 'none';
+                } catch (err) {
+                    console.error('Kamera kapatma hatası:', err);
                 }
-            });
+            }
+        }
 
-            // Reset buffer on modal close
-            document.getElementById('barcodeScannerModal').addEventListener('hidden.bs.modal', function () {
-                barcodeBuffer = '';
-            });
-        });
+        // Clean up when leaving the page
+        window.addEventListener('beforeunload', stopScanning);
     </script>
 }
+
