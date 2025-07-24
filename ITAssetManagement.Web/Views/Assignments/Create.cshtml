@@ -1,0 +1,54 @@
+@model ITAssetManagement.Web.Models.Assignment
+
+@{
+    ViewData["Title"] = "Yeni Atama";
+}
+
+<h1>Yeni Laptop Ataması</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Kullanıcı</label>
+                <select asp-for="UserId" class="form-control" 
+                    asp-items="@(new SelectList(ViewBag.Users, "Id", "FullName"))">
+                    <option value="">-- Kullanıcı Seçin --</option>
+                </select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LaptopId" class="control-label">Laptop</label>
+                <select asp-for="LaptopId" class="form-control" 
+                    asp-items="@(new SelectList(ViewBag.Laptops, "Id", "DisplayName"))">
+                    <option value="">-- Laptop Seçin --</option>
+                </select>
+                <span asp-validation-for="LaptopId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AssignmentDate" class="control-label">Atama Tarihi</label>
+                <input asp-for="AssignmentDate" class="form-control" type="date" />
+                <span asp-validation-for="AssignmentDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ReturnDate" class="control-label">İade Tarihi (Opsiyonel)</label>
+                <input asp-for="ReturnDate" class="form-control" type="date" />
+                <span asp-validation-for="ReturnDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

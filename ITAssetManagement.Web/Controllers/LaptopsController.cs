@@ -1,4 +1,5 @@
 using ITAssetManagement.Web.Services.Interfaces;
+using ITAssetManagement.Web.Services;
 using ITAssetManagement.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +8,12 @@ namespace ITAssetManagement.Web.Controllers
     public class LaptopsController : Controller
     {
         private readonly ILaptopService _laptopService;
+        private readonly IBarcodeService _barcodeService;
 
-        public LaptopsController(ILaptopService laptopService)
+        public LaptopsController(ILaptopService laptopService, IBarcodeService barcodeService)
         {
             _laptopService = laptopService;
+            _barcodeService = barcodeService;
         }
 
         public async Task<IActionResult> Index()
@@ -40,11 +43,27 @@ namespace ITAssetManagement.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Otomatik EtiketNo oluştur
+                laptop.EtiketNo = $"LPT-{Guid.NewGuid().ToString().Substring(0, 8).ToUpper()}";
+                
                 await _laptopService.CreateLaptopAsync(laptop);
                 TempData["SuccessMessage"] = "Laptop başarıyla eklendi.";
                 return RedirectToAction(nameof(Index));
             }
             return View(laptop);
+        }
+
+        // GET: Laptops/DownloadBarcode/5
+        public async Task<IActionResult> DownloadBarcode(int id)
+        {
+            var laptop = await _laptopService.GetLaptopByIdAsync(id);
+            if (laptop == null || string.IsNullOrEmpty(laptop.EtiketNo))
+            {
+                return NotFound("Laptop veya EtiketNo bulunamadı.");
+            }
+
+            var barcodeStream = _barcodeService.GenerateBarcode(laptop.EtiketNo);
+            return File(barcodeStream, "image/png", $"barcode-{laptop.EtiketNo}.png");
         }
 
         public async Task<IActionResult> Edit(int id)

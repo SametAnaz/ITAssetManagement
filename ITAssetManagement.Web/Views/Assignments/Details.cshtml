@@ -1,0 +1,27 @@
+@model ITAssetManagement.Web.Models.Assignment
+
+@{
+    ViewData["Title"] = "Atama Detayları";
+}
+
+<h1>Atama Detayları</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Kullanıcı</dt>
+        <dd class="col-sm-9">@(Model.User?.FullName ?? "-")</dd>
+
+        <dt class="col-sm-3">Laptop</dt>
+        <dd class="col-sm-9">@(Model.Laptop != null ? $"{Model.Laptop.Marka} {Model.Laptop.Model}" : "-")</dd>
+
+        <dt class="col-sm-3">Atama Tarihi</dt>
+        <dd class="col-sm-9">@Model.AssignmentDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">İade Tarihi</dt>
+        <dd class="col-sm-9">@(Model.ReturnDate?.ToShortDateString() ?? "-")</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Düzenle</a>
+    <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+</div>

@@ -1,21 +1,37 @@
 using ITAssetManagement.Web.Services.Interfaces;
 using ITAssetManagement.Web.Models;
+using ITAssetManagement.Web.Data;
 using ITAssetManagement.Web.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITAssetManagement.Web.Services
 {
     public class LaptopService : ILaptopService
     {
         private readonly ILaptopRepository _laptopRepository;
+        private readonly ApplicationDbContext _context;
 
-        public LaptopService(ILaptopRepository laptopRepository)
+        public LaptopService(ILaptopRepository laptopRepository, ApplicationDbContext context)
         {
             _laptopRepository = laptopRepository;
+            _context = context;
         }
 
         public async Task<IEnumerable<Laptop>> GetAllLaptopsAsync()
         {
             return await _laptopRepository.GetAllAsync();
+        }
+
+        public async Task<IEnumerable<Laptop>> GetAvailableLaptopsAsync()
+        {
+            var assignedLaptopIds = await _context.Assignments
+                .Where(a => a.ReturnDate == null)
+                .Select(a => a.LaptopId)
+                .ToListAsync();
+
+            return await _context.Laptops
+                .Where(l => l.IsActive && !assignedLaptopIds.Contains(l.Id))
+                .ToListAsync();
         }
 
         public async Task<Laptop?> GetLaptopByIdAsync(int id)

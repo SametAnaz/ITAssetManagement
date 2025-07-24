@@ -1,0 +1,37 @@
+@model IEnumerable<ITAssetManagement.Web.Models.Assignment>
+
+@{
+    ViewData["Title"] = "Atamalar";
+}
+
+<h1>Laptop Atamaları</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Yeni Atama</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kullanıcı</th>
+            <th>Laptop</th>
+            <th>Atama Tarihi</th>
+            <th>İade Tarihi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@(item.User?.FullName ?? "-")</td>
+            <td>@(item.Laptop != null ? $"{item.Laptop.Marka} {item.Laptop.Model}" : "-")</td>
+            <td>@item.AssignmentDate.ToShortDateString()</td>
+            <td>@(item.ReturnDate?.ToShortDateString() ?? "-")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Düzenle</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detaylar</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

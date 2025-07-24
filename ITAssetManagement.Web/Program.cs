@@ -20,10 +20,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddScoped<ILaptopRepository, LaptopRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAssignmentRepository, AssignmentRepository>();
 
 // Register services
 builder.Services.AddScoped<ILaptopService, LaptopService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAssignmentService, AssignmentService>();
+builder.Services.AddScoped<IBarcodeService, BarcodeService>();
 
 var app = builder.Build();
 

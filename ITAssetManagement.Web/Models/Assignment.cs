@@ -15,9 +15,18 @@ namespace ITAssetManagement.Web.Models
         public virtual Laptop? Laptop { get; set; }
 
         [Required]
-        [StringLength(100)]
-        [Display(Name = "User ID")]
-        public string UserId { get; set; } = string.Empty;
+        [Display(Name = "User")]
+        public int UserId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual User? User { get; set; }
+
+        [Required]
+        [Display(Name = "Assignment Date")]
+        public DateTime AssignmentDate { get; set; } = DateTime.Now;
+
+        [Display(Name = "Return Date")]
+        public DateTime? ReturnDate { get; set; }
 
         [Required]
         [Display(Name = "Date")]
@@ -28,13 +37,5 @@ namespace ITAssetManagement.Web.Models
         [StringLength(50)]
         [Display(Name = "Operation Type")]
         public string IslemTipi { get; set; } = string.Empty; // "Teslim", "İade", etc.
-
-        [StringLength(1000)]
-        [Display(Name = "Description")]
-        public string? Aciklama { get; set; }
-
-        [StringLength(255)]
-        [Display(Name = "Signature Path")]
-        public string? ImzaYolu { get; set; }
     }
 }

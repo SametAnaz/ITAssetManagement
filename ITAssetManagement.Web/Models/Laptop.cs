@@ -13,6 +13,9 @@ namespace ITAssetManagement.Web.Models
         [Display(Name = "Tag Number")]
         public string EtiketNo { get; set; } = string.Empty;
 
+        [NotMapped]
+        public string DisplayName => $"{Marka} {Model} ({EtiketNo})";
+
         [Required]
         [StringLength(100)]
         [Display(Name = "Brand")]

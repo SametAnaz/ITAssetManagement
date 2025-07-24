@@ -1,0 +1,30 @@
+@model ITAssetManagement.Web.Models.Assignment
+
+@{
+    ViewData["Title"] = "Atama Sil";
+}
+
+<h1>Atama Sil</h1>
+
+<h3>Bu atamayı silmek istediğinizden emin misiniz?</h3>
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Kullanıcı</dt>
+        <dd class="col-sm-9">@(Model.User?.FullName ?? "-")</dd>
+
+        <dt class="col-sm-3">Laptop</dt>
+        <dd class="col-sm-9">@(Model.Laptop != null ? $"{Model.Laptop.Marka} {Model.Laptop.Model}" : "-")</dd>
+
+        <dt class="col-sm-3">Atama Tarihi</dt>
+        <dd class="col-sm-9">@Model.AssignmentDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">İade Tarihi</dt>
+        <dd class="col-sm-9">@(Model.ReturnDate?.ToShortDateString() ?? "-")</dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+    </form>
+</div>
