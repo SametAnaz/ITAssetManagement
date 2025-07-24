@@ -51,6 +51,19 @@
                         }
                     </dd>
 
+                    <dt class="col-sm-3">Zimmetli Kullanıcı:</dt>
+                    <dd class="col-sm-9">
+                        @if (Model.CurrentAssignment != null)
+                        {
+                            @Model.CurrentAssignment.User.FullName
+                            <span class="text-muted">(@Model.CurrentAssignment.AssignmentDate.ToString("dd/MM/yyyy"))</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Zimmetli değil</span>
+                        }
+                    </dd>
+
                     <dt class="col-sm-3">Kayıt Tarihi:</dt>
                     <dd class="col-sm-9">@Model.KayitTarihi.ToString("dd/MM/yyyy HH:mm")</dd>
                 </dl>

@@ -63,6 +63,9 @@ namespace ITAssetManagement.Web.Models
         [Display(Name = "Logs")]
         public virtual ICollection<LaptopLog>? Loglar { get; set; }
 
+        [Display(Name = "Current Assignment")]
+        public virtual Assignment? CurrentAssignment { get; set; }
+
         // Constructor to initialize collections
         public Laptop()
         {

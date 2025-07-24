@@ -18,5 +18,13 @@ namespace ITAssetManagement.Web.Data.Repositories
         {
             return await _dbSet.Where(u => u.Department == department).ToListAsync();
         }
+
+        public async Task<User?> GetUserWithAssignmentsAsync(int id)
+        {
+            return await _dbSet
+                .Include(u => u.Assignments)
+                    .ThenInclude(a => a.Laptop)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
     }
 }

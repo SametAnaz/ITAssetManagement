@@ -20,7 +20,7 @@ namespace ITAssetManagement.Web.Services
 
         public async Task<User?> GetUserByIdAsync(int id)
         {
-            return await _userRepository.GetByIdAsync(id);
+            return await _userRepository.GetUserWithAssignmentsAsync(id);
         }
 
         public async Task<User?> GetUserByEmailAsync(string email)

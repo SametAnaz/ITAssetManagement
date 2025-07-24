@@ -19,7 +19,10 @@ namespace ITAssetManagement.Web.Services
 
         public async Task<IEnumerable<Laptop>> GetAllLaptopsAsync()
         {
-            return await _laptopRepository.GetAllAsync();
+            return await _context.Laptops
+                .Include(l => l.CurrentAssignment)
+                    .ThenInclude(a => a.User)
+                .ToListAsync();
         }
 
         public async Task<IEnumerable<Laptop>> GetAvailableLaptopsAsync()

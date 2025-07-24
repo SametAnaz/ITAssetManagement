@@ -57,6 +57,27 @@
                             <span class="text-muted">Belirtilmemiş</span>
                         }
                     </dd>
+                    <dt class="col-sm-3">Zimmetli Laptoplar:</dt>
+                    <dd class="col-sm-9">
+                        @if (Model.Assignments?.Any() == true)
+                        {
+                            <ul class="list-unstyled">
+                                @foreach (var assignment in Model.Assignments.OrderByDescending(a => a.AssignmentDate))
+                                {
+                                    <li class="mb-2">
+                                        <a asp-controller="Laptops" asp-action="Details" asp-route-id="@assignment.LaptopId">
+                                            @assignment.Laptop.Marka @assignment.Laptop.Model
+                                        </a>
+                                        <small class="text-muted">(@assignment.AssignmentDate.ToString("dd/MM/yyyy"))</small>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Zimmetli laptop yok</span>
+                        }
+                    </dd>
                 </dl>
             </div>
             <div class="card-footer">

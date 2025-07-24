@@ -6,5 +6,6 @@ namespace ITAssetManagement.Web.Data.Repositories
     {
         Task<User?> GetUserByEmailAsync(string email);
         Task<IEnumerable<User>> GetUsersByDepartmentAsync(string department);
+        Task<User?> GetUserWithAssignmentsAsync(int id);
     }
 }

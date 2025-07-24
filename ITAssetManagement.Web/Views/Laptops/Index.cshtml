@@ -42,6 +42,7 @@
                 <th>@Html.DisplayNameFor(model => model.Marka)</th>
                 <th>@Html.DisplayNameFor(model => model.Model)</th>
                 <th>@Html.DisplayNameFor(model => model.Durum)</th>
+                <th>Zimmetli Kullanıcı</th>
                 <th>@Html.DisplayNameFor(model => model.KayitTarihi)</th>
                 <th>Actions</th>
             </tr>
@@ -54,6 +55,16 @@
                     <td>@Html.DisplayFor(modelItem => item.Marka)</td>
                     <td>@Html.DisplayFor(modelItem => item.Model)</td>
                     <td>@Html.DisplayFor(modelItem => item.Durum)</td>
+                    <td>
+                        @if (item.CurrentAssignment != null)
+                        {
+                            @Html.DisplayFor(modelItem => item.CurrentAssignment.User.FullName)
+                        }
+                        else
+                        {
+                            <span class="text-muted">-</span>
+                        }
+                    </td>
                     <td>@Html.DisplayFor(modelItem => item.KayitTarihi)</td>
                     <td>
                         <div class="btn-group" role="group">

@@ -29,5 +29,8 @@ namespace ITAssetManagement.Web.Models
         [StringLength(100)]
         [Display(Name = "Position")]
         public string? Position { get; set; }
+
+        // Navigation property for assignments
+        public List<Assignment> Assignments { get; set; } = new List<Assignment>();
     }
 }
