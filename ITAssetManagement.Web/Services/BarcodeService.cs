@@ -1,9 +1,12 @@
+using System;
+using System.IO;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Formats.Png;
 using SixLabors.ImageSharp.PixelFormats;
 using ZXing;
 using ZXing.Common;
 using ZXing.ImageSharp;
+using ZXing.ImageSharp.Rendering;
 
 namespace ITAssetManagement.Web.Services
 {
@@ -22,8 +25,9 @@ namespace ITAssetManagement.Web.Services
                 Options = new EncodingOptions
                 {
                     Width = 300,
-                    Height = 100,
-                    Margin = 10
+                    Height = 150,
+                    Margin = 10,
+                    PureBarcode = false
                 }
             };
 
