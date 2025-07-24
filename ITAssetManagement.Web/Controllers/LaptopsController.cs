@@ -46,8 +46,20 @@ namespace ITAssetManagement.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Otomatik EtiketNo oluştur
-                laptop.EtiketNo = $"LPT-{Guid.NewGuid().ToString().Substring(0, 8).ToUpper()}";
+                // EtiketNo boş ise hata döndür
+                if (string.IsNullOrWhiteSpace(laptop.EtiketNo))
+                {
+                    ModelState.AddModelError("EtiketNo", "Etiket numarası gereklidir.");
+                    return View(laptop);
+                }
+
+                // EtiketNo'nun benzersiz olup olmadığını kontrol et
+                var existingLaptop = await _laptopService.GetAllLaptopsAsync();
+                if (existingLaptop.Any(l => l.EtiketNo.Equals(laptop.EtiketNo, StringComparison.OrdinalIgnoreCase)))
+                {
+                    ModelState.AddModelError("EtiketNo", "Bu etiket numarası zaten kullanımda.");
+                    return View(laptop);
+                }
                 
                 await _laptopService.CreateLaptopAsync(laptop);
                 TempData["SuccessMessage"] = "Laptop başarıyla eklendi.";

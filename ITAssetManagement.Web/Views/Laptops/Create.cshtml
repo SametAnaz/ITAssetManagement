@@ -13,7 +13,12 @@
             
             <div class="mb-3">
                 <label asp-for="EtiketNo" class="form-label">Etiket No</label>
-                <input asp-for="EtiketNo" class="form-control" />
+                <div class="input-group">
+                    <input asp-for="EtiketNo" class="form-control" id="etiketNoInput" />
+                    <button type="button" class="btn btn-info" id="barcodeButton">
+                        <i class="fas fa-barcode me-1"></i>Barkod Okut
+                    </button>
+                </div>
                 <span asp-validation-for="EtiketNo" class="text-danger"></span>
             </div>
 
@@ -54,6 +59,77 @@
     </div>
 </div>
 
+<!-- Barcode Scanner Modal -->
+<div class="modal fade" id="barcodeScannerModal" tabindex="-1" aria-labelledby="barcodeScannerModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="barcodeScannerModalLabel">Barkod Okut</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Lütfen barkod okuyucu ile etiket numarasını okutun. Barkod okunduktan sonra pencere otomatik kapanacaktır.</p>
+                <div class="text-center">
+                    <i class="fas fa-barcode fa-3x mb-3"></i>
+                    <div id="scanningStatus">Barkod bekleniyor...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const etiketNoInput = document.getElementById('etiketNoInput');
+            const barcodeButton = document.getElementById('barcodeButton');
+            const barcodeScannerModal = new bootstrap.Modal(document.getElementById('barcodeScannerModal'));
+            
+            let barcodeBuffer = '';
+            let lastKeyTime = Date.now();
+            const BARCODE_DELAY = 20; // Maximum delay between characters (ms)
+
+            // Handle barcode button click
+            barcodeButton.addEventListener('click', function() {
+                barcodeScannerModal.show();
+                barcodeBuffer = ''; // Reset the barcode buffer
+                etiketNoInput.focus(); // Focus the input (hidden behind modal)
+            });
+
+            // Listen for keypress events on the document
+            document.addEventListener('keypress', function(e) {
+                const currentTime = Date.now();
+
+                // If the delay between keystrokes is small enough, treat it as a barcode scanner
+                if (currentTime - lastKeyTime <= BARCODE_DELAY) {
+                    barcodeBuffer += e.key;
+                } else {
+                    barcodeBuffer = e.key;
+                }
+
+                lastKeyTime = currentTime;
+
+                // If Enter key is pressed and we have a barcode
+                if (e.key === 'Enter' && barcodeBuffer.length > 1) {
+                    e.preventDefault();
+                    
+                    // Remove the Enter key from the buffer
+                    const barcode = barcodeBuffer.slice(0, -1);
+                    
+                    // Set the EtiketNo input value
+                    etiketNoInput.value = barcode;
+                    
+                    // Close the modal if it's open
+                    barcodeScannerModal.hide();
+                }
+            });
+
+            // Reset buffer on modal close
+            document.getElementById('barcodeScannerModal').addEventListener('hidden.bs.modal', function () {
+                barcodeBuffer = '';
+            });
+        });
+    </script>
 }
