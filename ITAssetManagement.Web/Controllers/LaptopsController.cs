@@ -16,9 +16,12 @@ namespace ITAssetManagement.Web.Controllers
             _barcodeService = barcodeService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchTerm)
         {
-            var laptops = await _laptopService.GetAllLaptopsAsync();
+            var laptops = string.IsNullOrEmpty(searchTerm)
+                ? await _laptopService.GetAllLaptopsAsync()
+                : await _laptopService.SearchLaptopsAsync(searchTerm);
+            ViewData["CurrentFilter"] = searchTerm;
             return View(laptops);
         }
 

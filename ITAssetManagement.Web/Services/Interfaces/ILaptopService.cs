@@ -13,5 +13,6 @@ namespace ITAssetManagement.Web.Services.Interfaces
         Task<IEnumerable<Laptop>> GetDeletedLaptopsAsync();
         Task<bool> RestoreLaptopAsync(int id);
         Task<IEnumerable<Laptop>> GetAvailableLaptopsAsync();
+        Task<IEnumerable<Laptop>> SearchLaptopsAsync(string searchTerm);
     }
 }

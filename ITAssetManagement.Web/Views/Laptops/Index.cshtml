@@ -31,6 +31,25 @@
     </div>
 }
 
+<div class="row mb-3">
+    <div class="col-md-6">
+        <form asp-action="Index" method="get" class="d-flex">
+            <input type="text" name="searchTerm" class="form-control me-2" value="@ViewData["CurrentFilter"]" 
+                   placeholder="Search by brand, model, ID or tag number..." />
+            <button type="submit" class="btn btn-primary me-2">Search</button>
+            @if (!string.IsNullOrEmpty((string)ViewData["CurrentFilter"]))
+            {
+                <a asp-action="Index" class="btn btn-secondary">Clear</a>
+            }
+        </form>
+    </div>
+    <div class="col-md-6 text-end">
+        <a asp-action="Create" class="btn btn-success">
+            <i class="fas fa-plus me-1"></i>Create New
+        </a>
+    </div>
+</div>
+
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>

@@ -102,5 +102,20 @@ namespace ITAssetManagement.Web.Services
             _laptopRepository.Update(laptop);
             return await _laptopRepository.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<Laptop>> SearchLaptopsAsync(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return await GetAllLaptopsAsync();
+
+            searchTerm = searchTerm.ToLower();
+            return await _context.Laptops
+                .Where(l => l.IsActive &&
+                    (l.Marka.ToLower().Contains(searchTerm) ||
+                     l.Model.ToLower().Contains(searchTerm) ||
+                     l.Id.ToString() == searchTerm ||
+                     l.EtiketNo.ToLower().Contains(searchTerm)))
+                .ToListAsync();
+        }
     }
 }
