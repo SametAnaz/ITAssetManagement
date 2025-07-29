@@ -1,6 +1,7 @@
 using ITAssetManagement.Web.Services.Interfaces;
 using ITAssetManagement.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using ITAssetManagement.Web.Extensions;
 
 namespace ITAssetManagement.Web.Controllers
 {
@@ -13,9 +14,15 @@ namespace ITAssetManagement.Web.Controllers
             _laptopService = laptopService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page)
         {
-            var laptops = await _laptopService.GetAllLaptopsAsync();
+            int pageSize = 10;
+            int pageNumber = page ?? 1;
+
+            var laptopsQuery = _laptopService.GetAllLaptopsQueryable();
+            var laptops = await PaginatedList<Laptop>.CreateAsync(laptopsQuery, pageNumber, pageSize);
+
+            ViewData["CurrentPage"] = pageNumber;
             return View(laptops);
         }
     }

@@ -17,24 +17,32 @@ namespace ITAssetManagement.Web.Services
             _context = context;
         }
 
+        public IQueryable<Laptop> GetAllLaptopsQueryable()
+        {
+            return _context.Laptops
+                .Include(l => l.CurrentAssignment)
+                .ThenInclude(a => a!.User)
+                .Where(l => l.IsActive);
+        }
+
         public async Task<IEnumerable<Laptop>> GetAllLaptopsAsync()
         {
-            return await _context.Laptops
-                .Include(l => l.CurrentAssignment)
-                    .ThenInclude(a => a.User)
-                .ToListAsync();
+            return await GetAllLaptopsQueryable().ToListAsync();
+        }
+
+        public IQueryable<Laptop> GetAvailableLaptopsQueryable()
+        {
+            var assignedLaptopIds = _context.Assignments
+                .Where(a => a.ReturnDate == null)
+                .Select(a => a.LaptopId);
+
+            return _context.Laptops
+                .Where(l => l.IsActive && !assignedLaptopIds.Contains(l.Id));
         }
 
         public async Task<IEnumerable<Laptop>> GetAvailableLaptopsAsync()
         {
-            var assignedLaptopIds = await _context.Assignments
-                .Where(a => a.ReturnDate == null)
-                .Select(a => a.LaptopId)
-                .ToListAsync();
-
-            return await _context.Laptops
-                .Where(l => l.IsActive && !assignedLaptopIds.Contains(l.Id))
-                .ToListAsync();
+            return await GetAvailableLaptopsQueryable().ToListAsync();
         }
 
         public async Task<Laptop?> GetLaptopByIdAsync(int id)
@@ -83,9 +91,15 @@ namespace ITAssetManagement.Web.Services
             return await _laptopRepository.SaveChangesAsync();
         }
 
+        public IQueryable<Laptop> GetDeletedLaptopsQueryable()
+        {
+            return _context.Laptops
+                .Where(l => !l.IsActive);
+        }
+
         public async Task<IEnumerable<Laptop>> GetDeletedLaptopsAsync()
         {
-            return await _laptopRepository.GetAllDeletedLaptopsAsync();
+            return await GetDeletedLaptopsQueryable().ToListAsync();
         }
 
         public async Task<bool> RestoreLaptopAsync(int id)
@@ -103,19 +117,25 @@ namespace ITAssetManagement.Web.Services
             return await _laptopRepository.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Laptop>> SearchLaptopsAsync(string searchTerm)
+        public IQueryable<Laptop> SearchLaptopsQueryable(string searchTerm)
         {
             if (string.IsNullOrWhiteSpace(searchTerm))
-                return await GetAllLaptopsAsync();
+                return GetAllLaptopsQueryable();
 
             searchTerm = searchTerm.ToLower();
-            return await _context.Laptops
+            return _context.Laptops
+                .Include(l => l.CurrentAssignment)
+                .ThenInclude(a => a!.User)
                 .Where(l => l.IsActive &&
                     (l.Marka.ToLower().Contains(searchTerm) ||
                      l.Model.ToLower().Contains(searchTerm) ||
                      l.Id.ToString() == searchTerm ||
-                     l.EtiketNo.ToLower().Contains(searchTerm)))
-                .ToListAsync();
+                     l.EtiketNo.ToLower().Contains(searchTerm)));
+        }
+
+        public async Task<IEnumerable<Laptop>> SearchLaptopsAsync(string searchTerm)
+        {
+            return await SearchLaptopsQueryable(searchTerm).ToListAsync();
         }
     }
 }

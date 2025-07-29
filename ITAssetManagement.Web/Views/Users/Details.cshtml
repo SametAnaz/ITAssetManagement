@@ -66,7 +66,7 @@
                                 {
                                     <li class="mb-2">
                                         <a asp-controller="Laptops" asp-action="Details" asp-route-id="@assignment.LaptopId">
-                                            @assignment.Laptop.Marka @assignment.Laptop.Model
+                                            @(assignment.Laptop != null ? $"{assignment.Laptop.Marka} {assignment.Laptop.Model}" : "Silinmiş Laptop")
                                         </a>
                                         <small class="text-muted">(@assignment.AssignmentDate.ToString("dd/MM/yyyy"))</small>
                                     </li>

@@ -2,6 +2,7 @@ using ITAssetManagement.Web.Services.Interfaces;
 using ITAssetManagement.Web.Services;
 using ITAssetManagement.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using ITAssetManagement.Web.Extensions;
 
 namespace ITAssetManagement.Web.Controllers
 {
@@ -16,13 +17,15 @@ namespace ITAssetManagement.Web.Controllers
             _barcodeService = barcodeService;
         }
 
-        public async Task<IActionResult> Index(string searchTerm)
+        public async Task<IActionResult> Index(string searchTerm, int? pageNumber)
         {
-            var laptops = string.IsNullOrEmpty(searchTerm)
-                ? await _laptopService.GetAllLaptopsAsync()
-                : await _laptopService.SearchLaptopsAsync(searchTerm);
+            var laptopsQuery = string.IsNullOrEmpty(searchTerm)
+                ? _laptopService.GetAllLaptopsQueryable()
+                : _laptopService.SearchLaptopsQueryable(searchTerm);
+
             ViewData["CurrentFilter"] = searchTerm;
-            return View(laptops);
+            int pageSize = 10;
+            return View(await PaginatedList<Laptop>.CreateAsync(laptopsQuery.Where(l => l.IsActive), pageNumber ?? 1, pageSize));
         }
 
         public async Task<IActionResult> Details(int id)
