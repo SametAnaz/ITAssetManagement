@@ -23,7 +23,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>@(item.User?.FullName ?? "-")</td>
-            <td>@(item.Laptop != null ? $"{item.Laptop.Marka} {item.Laptop.Model}" : "-")</td>
+            <td>@(item.Laptop != null ? $"{item.Laptop.Marka} {item.Laptop.Model} (ID: {item.Laptop.Id})" : "-")</td>
             <td>@item.AssignmentDate.ToShortDateString()</td>
             <td>@(item.ReturnDate?.ToShortDateString() ?? "-")</td>
             <td>
