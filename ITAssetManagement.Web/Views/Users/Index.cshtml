@@ -23,7 +23,9 @@
 }
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Yeni Kullanıcı Ekle</a>
+    <a asp-action="Create" class="btn btn-success">
+        <i class="fas fa-user-plus me-1"></i>Yeni Kullanıcı Ekle
+    </a>
 </p>
 
 <div class="table-responsive">
@@ -51,9 +53,15 @@
                         <td>@Html.DisplayFor(modelItem => item.Phone)</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Düzenle</a>
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detay</a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Sil</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit me-1"></i>Düzenle
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                    <i class="fas fa-info-circle me-1"></i>Detaylar
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i>Sil
+                                </a>
                             </div>
                         </td>
                     </tr>

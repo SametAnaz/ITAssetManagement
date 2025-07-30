@@ -1,13 +1,15 @@
 @model IEnumerable<ITAssetManagement.Web.Models.Assignment>
 
 @{
-    ViewData["Title"] = "Atamalar";
+    ViewData["Title"] = "Zimmet Listesi";
 }
 
-<h1>Laptop Atamaları</h1>
+<h1>Zimmet Listesi</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Yeni Atama</a>
+    <a asp-action="Create" class="btn btn-success">
+        <i class="fas fa-plus-circle me-1"></i>Yeni Zimmet Oluştur
+    </a>
 </p>
 <table class="table">
     <thead>
@@ -27,9 +29,15 @@
             <td>@item.AssignmentDate.ToShortDateString()</td>
             <td>@(item.ReturnDate?.ToShortDateString() ?? "-")</td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Düzenle</a>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detaylar</a>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Sil</a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">
+                    <i class="fas fa-edit me-1"></i>Düzenle
+                </a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                    <i class="fas fa-info-circle me-1"></i>Detaylar
+                </a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                    <i class="fas fa-trash me-1"></i>Sil
+                </a>
             </td>
         </tr>
 }

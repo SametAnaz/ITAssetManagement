@@ -1,13 +1,13 @@
 @model ITAssetManagement.Web.Extensions.PaginatedList<ITAssetManagement.Web.Models.Laptop>
 
 @{
-    ViewData["Title"] = "Laptops";
+    ViewData["Title"] = "Dizüstü Bilgisayarlar";
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
     var currentFilter = ViewData["CurrentFilter"]?.ToString();
 }
 
-<h1>Laptops</h1>
+<h1>Dizüstü Bilgisayarlar</h1>
 
 @* TempData Mesajları *@
 @if (TempData["SuccessMessage"] != null)
@@ -38,17 +38,21 @@
     <div class="col-md-6">
         <form asp-action="Index" method="get" class="d-flex" id="searchForm">
             <input type="text" name="searchTerm" id="searchInput" class="form-control me-2" value="@ViewData["CurrentFilter"]" 
-                   placeholder="Search by brand, model, ID or tag number..." />
-            <button type="submit" class="btn btn-primary me-2">Search</button>
+                   placeholder="Marka, model, ID veya etiket numarası ile arama yapın..." />
+            <button type="submit" class="btn btn-primary me-2">
+                <i class="fas fa-search me-1"></i>Ara
+            </button>
             @if (ViewData["CurrentFilter"]?.ToString() is string filter && !string.IsNullOrEmpty(filter))
             {
-                <a asp-action="Index" class="btn btn-secondary">Clear</a>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-times me-1"></i>Temizle
+                </a>
             }
         </form>
     </div>
     <div class="col-md-6 text-end">
         <a asp-action="Create" class="btn btn-success">
-            <i class="fas fa-plus me-1"></i>Create New
+            <i class="fas fa-plus me-1"></i>Yeni Ekle
         </a>
     </div>
 </div>
@@ -62,7 +66,7 @@
                 <th>Durum</th>
                 <th>Zimmetli Kullanıcı</th>
                 <th>Kayıt Tarihi</th>
-                <th>Actions</th>
+                <th>İşlemler</th>
             </tr>
         </thead>
         <tbody>
@@ -88,9 +92,15 @@
                         <td>@Html.DisplayFor(modelItem => item.KayitTarihi)</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
-                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Details</a>
-                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-edit me-1"></i>Düzenle
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">
+                                    <i class="fas fa-info-circle me-1"></i>Detaylar
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i>Sil
+                                </a>
                             </div>
                         </td>
                     </tr>
