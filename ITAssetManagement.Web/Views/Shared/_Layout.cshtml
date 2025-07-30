@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/lib/toastr/toastr.min.css" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body class="bg-light">
@@ -73,7 +74,45 @@
     </footer>
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/toastr/toastr.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        // Toastr ayarları
+        toastr.options = {
+            "closeButton": true,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "timeOut": "3000",
+            "extendedTimeOut": "1000",
+            "preventDuplicates": true,
+            "showDuration": "300",
+            "hideDuration": "1000"
+        };
+
+        // TempData mesajlarını kontrol et ve göster
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <text>
+            toastr.success('@TempData["SuccessMessage"]', 'Başarılı');
+            </text>
+        }
+
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <text>
+            toastr.error('@TempData["ErrorMessage"]', 'Hata');
+            </text>
+        }
+
+        @if (TempData["InfoMessage"] != null)
+        {
+            <text>
+            toastr.info('@TempData["InfoMessage"]', 'Bilgi');
+            </text>
+        }
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
