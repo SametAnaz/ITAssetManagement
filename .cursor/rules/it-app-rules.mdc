@@ -1,6 +1,4 @@
 ---
-description: 
-globs:
 alwaysApply: false
 ---
 # Cursor Rules for IT Asset Management Project
@@ -64,3 +62,5 @@ This is an ASP.NET Core MVC application for IT Asset Management. The project man
 -Do not rename files or folders unless explicitly instructed.
 -Follow the existing folder structure and naming patterns.
 -All code outputs must be in English.
+-Try to achieve my request by writing as little code as possible.
+-Don't stop until you complete my request

@@ -361,3 +361,10 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+#Environment variables
+.env.local
+
+#Unnecessary files
+mssqldatabase.md
+EMAIL_NOTIFICATION_PLAN.md 

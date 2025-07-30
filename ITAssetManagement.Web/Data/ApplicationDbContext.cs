@@ -1,4 +1,5 @@
 using ITAssetManagement.Web.Models;
+using ITAssetManagement.Web.Models.Email;
 using Microsoft.EntityFrameworkCore;
 
 namespace ITAssetManagement.Web.Data
@@ -14,6 +15,7 @@ namespace ITAssetManagement.Web.Data
         public DbSet<LaptopLog> LaptopLogs { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<EmailLog> EmailLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

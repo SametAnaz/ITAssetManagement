@@ -2,6 +2,7 @@ using ITAssetManagement.Web.Services;
 using ITAssetManagement.Web.Services.Interfaces;
 using ITAssetManagement.Web.Data;
 using ITAssetManagement.Web.Data.Repositories;
+using ITAssetManagement.Web.Models.Email;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,11 @@ builder.Services.AddScoped<ILaptopService, LaptopService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddScoped<IBarcodeService, BarcodeService>();
+
+// Configure Email Service
+builder.Services.Configure<EmailConfiguration>(
+    builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 
