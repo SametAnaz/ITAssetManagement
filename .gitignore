@@ -368,3 +368,4 @@ FodyWeavers.xsd
 #Unnecessary files
 mssqldatabase.md
 EMAIL_NOTIFICATION_PLAN.md 
+.cursor/

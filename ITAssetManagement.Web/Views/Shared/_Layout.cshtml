@@ -1,54 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - IT Asset Management</title>
+    <title>@ViewData["Title"] - BT Varlık Yönetimi</title>
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
-<body>
+<body class="bg-light">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">IT Asset Management</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-lg navbar-glass">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-laptop-code me-2"></i>
+                    IT Varlık Yönetimi
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i> Ana Sayfa
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Laptops" asp-action="Index">Laptops</a>
+                            <a class="nav-link" asp-controller="Laptops" asp-action="Index">
+                                <i class="fas fa-laptop me-1"></i> Dizüstü Bilgisayarlar
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Laptops" asp-action="DeletedLaptops">Silinmiş Laptoplar</a>
+                            <a class="nav-link" asp-controller="Laptops" asp-action="DeletedLaptops">
+                                <i class="fas fa-trash-alt me-1"></i> Silinen Cihazlar
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Kullanıcılar</a>
+                            <a class="nav-link" asp-controller="Users" asp-action="Index">
+                                <i class="fas fa-users me-1"></i> Personel Listesi
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Assignments" asp-action="Index">Atamalar</a>
+                            <a class="nav-link" asp-controller="Assignments" asp-action="Index">
+                                <i class="fas fa-tasks me-1"></i> Zimmetler
+                            </a>
                         </li>
                     </ul>
+                    <div class="d-flex">
+                        <a class="nav-link" asp-controller="EmailTest" asp-action="Index">
+                            <i class="fas fa-envelope me-1"></i> E-posta Testi
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <div class="container-fluid px-4 py-4">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
- 
+    <footer class="footer py-3 mt-auto">
+        <div class="container text-center">
+            <span class="text-muted">
+                <i class="fas fa-code me-1"></i> BT Varlık Yönetimi &copy; @DateTime.Now.Year
+            </span>
         </div>
     </footer>
     <script src="~/lib/jquery/jquery.min.js"></script>

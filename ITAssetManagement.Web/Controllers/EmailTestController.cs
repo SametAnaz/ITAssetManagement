@@ -28,28 +28,28 @@ namespace ITAssetManagement.Web.Controllers
             {
                 var result = await _emailService.SendEmailAsync(
                     "test@local.dev",
-                    "Test Email from IT Asset Management",
-                    @"<h1>Test Email</h1>
-                    <p>Bu bir test emailidir.</p>
-                    <p>IT Asset Management sisteminden gönderilmiştir.</p>
+                    "BT Varlık Yönetimi - Test E-postası",
+                    @"<h1>Test E-postası</h1>
+                    <p>Bu bir test e-postasıdır.</p>
+                    <p>BT Varlık Yönetimi sisteminden gönderilmiştir.</p>
                     <br/>
                     <p>Tarih: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss") + "</p>");
 
                 if (result)
                 {
-                    TempData["SuccessMessage"] = "Test email başarıyla gönderildi!";
-                    _logger.LogInformation("Test email sent successfully");
+                    TempData["SuccessMessage"] = "Test e-postası başarıyla gönderildi!";
+                    _logger.LogInformation("Test e-postası başarıyla gönderildi");
                 }
                 else
                 {
-                    TempData["ErrorMessage"] = "Test email gönderilemedi!";
-                    _logger.LogError("Failed to send test email");
+                    TempData["ErrorMessage"] = "Test e-postası gönderilemedi!";
+                    _logger.LogError("Test e-postası gönderilemedi");
                 }
             }
             catch (Exception ex)
             {
-                TempData["ErrorMessage"] = "Test email gönderilirken bir hata oluştu: " + ex.Message;
-                _logger.LogError(ex, "Error sending test email");
+                TempData["ErrorMessage"] = "Test e-postası gönderilirken bir hata oluştu: " + ex.Message;
+                _logger.LogError(ex, "Test e-postası gönderilirken hata oluştu");
             }
 
             return RedirectToAction(nameof(Index));
