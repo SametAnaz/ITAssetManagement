@@ -56,6 +56,11 @@ namespace ITAssetManagement.Web.Models
         [StringLength(100)]
         public string? SilenKullanici { get; set; }
 
+        [Display(Name = "Notes")]
+        [StringLength(1000)]
+        [DataType(DataType.MultilineText)]
+        public string? Notes { get; set; }
+
         // Navigation properties for related entities
         [Display(Name = "Photos")]
         public virtual ICollection<LaptopPhoto>? Photos { get; set; }

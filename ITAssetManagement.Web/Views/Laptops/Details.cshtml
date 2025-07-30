@@ -31,6 +31,9 @@
                     <dt class="col-sm-3">Özellikler:</dt>
                     <dd class="col-sm-9">@Model.Ozellikler</dd>
 
+                    <dt class="col-sm-3">Notlar:</dt>
+                    <dd class="col-sm-9">@(string.IsNullOrEmpty(Model.Notes) ? "-" : Model.Notes)</dd>
+
                     <dt class="col-sm-3">Durum:</dt>
                     <dd class="col-sm-9">
                         @if (Model.Durum == "Aktif")

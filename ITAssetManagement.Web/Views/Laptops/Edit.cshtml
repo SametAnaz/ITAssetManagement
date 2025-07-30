@@ -39,6 +39,12 @@
             </div>
 
             <div class="mb-3">
+                <label asp-for="Notes" class="form-label">Notlar</label>
+                <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
                 <label asp-for="Durum" class="form-label">Durum</label>
                 <select asp-for="Durum" class="form-select">
                     <option value="Aktif">Aktif</option>

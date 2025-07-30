@@ -1,0 +1,66 @@
+---
+description: 
+globs:
+alwaysApply: false
+---
+# Cursor Rules for IT Asset Management Project
+
+## Project Overview
+This is an ASP.NET Core MVC application for IT Asset Management. The project manages laptops, users, and assignments.
+
+## Code Style Guidelines
+- Use C# naming conventions (PascalCase for classes, camelCase for variables)
+- Follow SOLID principles
+- Use async/await for database operations
+- Implement proper error handling with try-catch blocks
+- Use dependency injection for services
+
+## Architecture Patterns
+- Repository pattern for data access
+- Service layer for business logic
+- Controller layer for HTTP handling
+- Entity Framework Core for ORM
+
+## File Organization
+- Controllers in `/Controllers` directory
+- Models in `/Models` directory
+- Services in `/Services` directory
+- Repositories in `/Data/Repositories` directory
+- Views in `/Views` directory
+
+## Database Guidelines
+- Use Entity Framework Core migrations
+- Use proper data annotations for validation
+- Include audit fields (CreatedDate, ModifiedDate) where needed
+
+## Security Considerations
+- Validate all user inputs
+- Use proper authentication and authorization
+- Sanitize data before database operations
+- Implement proper error handling without exposing sensitive information
+
+## Performance Guidelines
+- Use async/await for I/O operations
+- Implement proper caching strategies
+- Optimize database queries
+- Use pagination for large datasets
+
+
+## Specific Rules for This Project
+- Laptops should have soft delete functionality
+- Users should be properly validated
+- Assignments should track assignment and return dates
+- Implement proper logging for asset tracking
+- Use barcode functionality for asset identification
+
+## Code Editing Rules
+-Just edit code where is user asked for do not broke other companents
+-Only modify the requested part of the code; do not alter unrelated lines.
+-Preserve file structure and indentation when editing existing code.
+-Never introduce syntax errors; ensure all code is compilable and valid.
+-Keep consistent naming conventions (PascalCase for classes, camelCase for variables, English only).
+-Reuse existing method/class names where appropriate instead of creating duplicates.
+-Do not remove any include . If removing an import is very necesaary then ask me to delete, don't delete it by yourself.
+-Do not rename files or folders unless explicitly instructed.
+-Follow the existing folder structure and naming patterns.
+-All code outputs must be in English.
