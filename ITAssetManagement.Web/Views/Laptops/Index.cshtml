@@ -1,13 +1,13 @@
 @model ITAssetManagement.Web.Extensions.PaginatedList<ITAssetManagement.Web.Models.Laptop>
 
 @{
-    ViewData["Title"] = "Dizüstü Bilgisayarlar";
+    ViewData["Title"] = "Bilgisayarlar";
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
     var currentFilter = ViewData["CurrentFilter"]?.ToString();
 }
 
-<h1>Dizüstü Bilgisayarlar</h1>
+<h1>Bilgisayarlar</h1>
 
 
 

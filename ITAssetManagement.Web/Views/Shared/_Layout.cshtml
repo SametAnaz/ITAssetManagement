@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - BT Varlık Yönetimi</title>
+    <title>@ViewData["Title"] - IT Varlık Yönetimi</title>
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
@@ -13,46 +13,56 @@
 <body class="bg-light">
     <header>
         <nav class="navbar navbar-expand-lg navbar-glass">
-            <div class="container-fluid px-4">
-                <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
-                    <i class="fas fa-laptop-code me-2"></i>
-                    IT Varlık Yönetimi
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>IT Varlık Yönetimi</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">
-                                <i class="fas fa-home me-1"></i> Ana Sayfa
+                                <i class="fas fa-home"></i>
+                                <span>Ana Sayfa</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Laptops" asp-action="Index">
-                                <i class="fas fa-laptop me-1"></i> Dizüstü Bilgisayarlar
+                                <i class="fas fa-laptop"></i>
+                                <span>Bilgisayarlar</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Laptops" asp-action="DeletedLaptops">
-                                <i class="fas fa-trash-alt me-1"></i> Silinen Cihazlar
+                                <i class="fas fa-trash-alt"></i>
+                                <span>Silinen Cihazlar</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Users" asp-action="Index">
-                                <i class="fas fa-users me-1"></i> Personel Listesi
+                                <i class="fas fa-users"></i>
+                                <span>Personel Listesi</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Assignments" asp-action="Index">
-                                <i class="fas fa-tasks me-1"></i> Zimmetler
+                                <i class="fas fa-tasks"></i>
+                                <span>Zimmetler</span>
                             </a>
                         </li>
                     </ul>
-                    <div class="d-flex">
+                    <div class="navbar-nav-right">
                         <a class="nav-link" asp-controller="EmailTest" asp-action="Index">
-                            <i class="fas fa-envelope me-1"></i> E-posta Testi
+                            <i class="fas fa-envelope"></i>
+                            <span>E-posta Testi</span>
                         </a>
+                        <button id="themeToggle" class="nav-link" type="button">
+                            <i class="fas fa-sun" id="themeIcon"></i>
+                            <span id="themeText">Tema</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -68,7 +78,7 @@
     <footer class="footer py-3 mt-auto">
         <div class="container text-center">
             <span class="text-muted">
-                <i class="fas fa-code me-1"></i> BT Varlık Yönetimi &copy; @DateTime.Now.Year
+                <i class="fas fa-code me-1"></i> IT Varlık Yönetimi &copy; @DateTime.Now.Year
             </span>
         </div>
     </footer>
