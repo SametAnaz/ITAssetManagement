@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Email Notification System Implementation Plan | mysite </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Email Notification System Implementation Plan | mysite ">
+      
+      
+      <link rel="icon" href="favicon.ico">
+      <link rel="stylesheet" href="public/docfx.min.css">
+      <link rel="stylesheet" href="public/main.css">
+      <meta name="docfx:navrel" content="toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/SametAnaz/ITAssetManagement/blob/master/EMAIL_NOTIFICATION_PLAN.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="index.html">
+            <img id="logo" class="svg" src="logo.svg" alt="mysite">
+            mysite
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+
+      <div class="content">
+        <div class="actionbar">
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="email-notification-system-implementation-plan">Email Notification System Implementation Plan</h1>
+
+<h2 id="-proje-hedefi">📋 Proje Hedefi</h2>
+<p>Zimmet teslim tarihi yaklaşan kullanıcılara otomatik email bildirimleri gönderen bir sistem geliştirmek.</p>
+<h2 id="-sistem-mimarisi">🏗️ Sistem Mimarisi</h2>
+<h3 id="bileşenler">Bileşenler:</h3>
+<ol>
+<li><strong>Email Service</strong> - SMTP ile email gönderimi</li>
+<li><strong>Notification Service</strong> - İş kuralları ve bildirim mantığı</li>
+<li><strong>Background Job</strong> - Otomatik görev çalıştırma</li>
+<li><strong>SQL Server Job</strong> - Zamanlanmış görev yürütme</li>
+<li><strong>Template Engine</strong> - Email şablonları</li>
+</ol>
+<h2 id="-gereksinimler">🎯 Gereksinimler</h2>
+<h3 id="fonksiyonel-gereksinimler">Fonksiyonel Gereksinimler:</h3>
+<ul>
+<li>[ ] Teslim tarihi 3 gün kala uyarı maili gönderme</li>
+<li>[ ] Teslim tarihi geçen laptoplar için gecikme maili</li>
+<li>[ ] Çoklu uyarı seviyesi (7 gün, 3 gün, 1 gün, gecikme)</li>
+<li>[ ] HTML email template'leri</li>
+<li>[ ] Email gönderim logları</li>
+<li>[+] SMTP ayarları yapılandırma</li>
+</ul>
+<h3 id="teknik-gereksinimler">Teknik Gereksinimler:</h3>
+<ul>
+<li>[+] .NET 8.0 MailKit/SmtpClient kullanımı</li>
+<li>[+] SQL Server Agent Job oluşturma</li>
+<li>[+] Configuration-based SMTP settings</li>
+<li>[+] Error handling ve retry mechanism</li>
+<li>[+] Logging ve monitoring</li>
+</ul>
+<h2 id="-detaylı-İmplementasyon-planı">📐 Detaylı İmplementasyon Planı</h2>
+<h3 id="phase-1-email-infrastructure-adım-1-3">Phase 1: Email Infrastructure (Adım 1-3)</h3>
+<h4 id="adım-1-email-models-ve-configuration">Adım 1: Email Models ve Configuration</h4>
+<ul>
+<li>[+] Email configuration model oluşturma</li>
+<li>[+] SMTP settings appsettings.json'a ekleme</li>
+<li>[+] Email template modelleri oluşturma</li>
+</ul>
+<h4 id="adım-2-email-service-implementation">Adım 2: Email Service Implementation</h4>
+<ul>
+<li>[+] IEmailService interface oluşturma</li>
+<li>[+] EmailService class implementasyonu</li>
+<li>[+] SMTP client configuration</li>
+<li>[+] HTML email template support</li>
+</ul>
+<h4 id="adım-3-email-templates">Adım 3: Email Templates</h4>
+<ul>
+<li>[ ] Uyarı email template'i</li>
+<li>[ ] Gecikme email template'i</li>
+<li>[+] Template engine (Razor/Liquid) entegrasyonu</li>
+</ul>
+<h3 id="phase-2-notification-logic-adım-4-6">Phase 2: Notification Logic (Adım 4-6)</h3>
+<h4 id="adım-4-notification-service">Adım 4: Notification Service</h4>
+<ul>
+<li>[ ] INotificationService interface</li>
+<li>[ ] NotificationService implementation</li>
+<li>[ ] İş kuralları: hangi durumlarda mail gönderileceği</li>
+<li>[ ] Assignment due date calculations</li>
+</ul>
+<h4 id="adım-5-database-enhancements">Adım 5: Database Enhancements</h4>
+<ul>
+<li>[ ] Email log tablosu oluşturma</li>
+<li>[ ] Notification settings tablosu</li>
+<li>[ ] Assignment tablosuna notification fields ekleme</li>
+</ul>
+<h4 id="adım-6-background-job-service">Adım 6: Background Job Service</h4>
+<ul>
+<li>[ ] IBackgroundJobService interface</li>
+<li>[ ] Console application veya hosted service</li>
+<li>[ ] SQL Server job'dan çağrılabilir endpoint</li>
+</ul>
+<h3 id="phase-3-sql-server-integration-adım-7-9">Phase 3: SQL Server Integration (Adım 7-9)</h3>
+<h4 id="adım-7-sql-server-job-creation">Adım 7: SQL Server Job Creation</h4>
+<ul>
+<li>[ ] SQL Server Agent job oluşturma</li>
+<li>[ ] Scheduled execution (günlük, haftalık)</li>
+<li>[ ] Job parameters ve configuration</li>
+</ul>
+<h4 id="adım-8-error-handling--logging">Adım 8: Error Handling &amp; Logging</h4>
+<ul>
+<li>[ ] Comprehensive error handling</li>
+<li>[ ] Email sending failure retry logic</li>
+<li>[ ] Detailed logging (Serilog integration)</li>
+<li>[ ] Job execution monitoring</li>
+</ul>
+<h4 id="adım-9-testing--validation">Adım 9: Testing &amp; Validation</h4>
+<ul>
+<li>[ ] Unit tests for email service</li>
+<li>[ ] Integration tests</li>
+<li>[ ] Manual testing with test emails</li>
+<li>[ ] Performance testing</li>
+</ul>
+<h3 id="phase-4-advanced-features-adım-10-12">Phase 4: Advanced Features (Adım 10-12)</h3>
+<h4 id="adım-10-advanced-notifications">Adım 10: Advanced Notifications</h4>
+<ul>
+<li>[ ] Multiple notification levels</li>
+<li>[ ] User preferences (email frequency)</li>
+<li>[ ] Manager notifications</li>
+<li>[ ] Bulk assignment notifications</li>
+</ul>
+<h4 id="adım-11-monitoring--analytics">Adım 11: Monitoring &amp; Analytics</h4>
+<ul>
+<li>[ ] Email delivery tracking</li>
+<li>[ ] Open rate tracking (optional)</li>
+<li>[ ] Notification effectiveness metrics</li>
+<li>[ ] Dashboard for email statistics</li>
+</ul>
+<h4 id="adım-12-security--compliance">Adım 12: Security &amp; Compliance</h4>
+<ul>
+<li>[ ] SMTP authentication security</li>
+<li>[ ] Email content sanitization</li>
+<li>[ ] GDPR compliance considerations</li>
+<li>[ ] Opt-out mechanisms</li>
+</ul>
+<h2 id="-dosya-yapısı-ekleme-planı">🗂️ Dosya Yapısı (Ekleme Planı)</h2>
+<pre><code>ITAssetManagement.Web/
+├── Models/
+│   ├── Email/
+│   │   ├── EmailConfiguration.cs
+│   │   ├── EmailTemplate.cs
+│   │   ├── EmailLog.cs
+│   │   └── NotificationSettings.cs
+│   └── Notifications/
+│       ├── NotificationRequest.cs
+│       └── NotificationResult.cs
+├── Services/
+│   ├── Interfaces/
+│   │   ├── IEmailService.cs
+│   │   ├── INotificationService.cs
+│   │   └── IBackgroundJobService.cs
+│   ├── EmailService.cs
+│   ├── NotificationService.cs
+│   └── BackgroundJobService.cs
+├── Templates/
+│   ├── Email/
+│   │   ├── AssignmentDueWarning.html
+│   │   ├── AssignmentOverdue.html
+│   │   └── AssignmentReminder.html
+├── Jobs/
+│   └── NotificationJob.cs (Console App veya Hosted Service)
+└── Scripts/
+    └── SQL/
+        ├── CreateEmailLogTable.sql
+        ├── CreateNotificationSettingsTable.sql
+        └── CreateSQLServerJob.sql
+</code></pre>
+<h2 id="-configuration-örneği">⚙️ Configuration Örneği</h2>
+<pre><code class="lang-json">{
+  &quot;EmailSettings&quot;: {
+    &quot;SmtpHost&quot;: &quot;smtp.company.com&quot;,
+    &quot;SmtpPort&quot;: 587,
+    &quot;SmtpUsername&quot;: &quot;noreply@company.com&quot;,
+    &quot;SmtpPassword&quot;: &quot;password&quot;,
+    &quot;EnableSsl&quot;: true,
+    &quot;FromEmail&quot;: &quot;noreply@company.com&quot;,
+    &quot;FromName&quot;: &quot;IT Asset Management System&quot;
+  },
+  &quot;NotificationSettings&quot;: {
+    &quot;WarningDaysBefore&quot;: [7, 3, 1],
+    &quot;CheckFrequencyHours&quot;: 24,
+    &quot;EnableNotifications&quot;: true,
+    &quot;MaxRetryAttempts&quot;: 3
+  }
+}
+</code></pre>
+<h2 id="-İş-akışı">🔄 İş Akışı</h2>
+<ol>
+<li><strong>SQL Server Job</strong> günlük çalışır</li>
+<li><strong>Background Service</strong> tetiklenir</li>
+<li><strong>Notification Service</strong> assignment'ları kontrol eder</li>
+<li>Kriterlere uyan kayıtlar için <strong>Email Service</strong> devreye girer</li>
+<li><strong>SMTP</strong> ile email gönderimi</li>
+<li><strong>Email Log</strong> kaydı oluşturulur</li>
+<li><strong>Error handling</strong> ve retry logic</li>
+</ol>
+<h2 id="-bildirim-kriterleri">📊 Bildirim Kriterleri</h2>
+<h3 id="uyarı-seviyeleri">Uyarı Seviyeleri:</h3>
+<ul>
+<li><strong>7 Gün Öncesi</strong>: İlk uyarı</li>
+<li><strong>3 Gün Öncesi</strong>: İkinci uyarı</li>
+<li><strong>1 Gün Öncesi</strong>: Son uyarı</li>
+<li><strong>Gecikme</strong>: Teslim tarihi geçenler için</li>
+</ul>
+<h3 id="email-İçeriği">Email İçeriği:</h3>
+<ul>
+<li>Kullanıcı adı ve iletişim bilgileri</li>
+<li>Laptop detayları (marka, model, tag no)</li>
+<li>Teslim tarihi</li>
+<li>Kalan gün sayısı</li>
+<li>İletişim bilgileri (IT departmanı)</li>
+</ul>
+<h2 id="-uygulama-sırası">🚀 Uygulama Sırası</h2>
+<ol>
+<li><strong>Haftaici 1</strong>: Phase 1 (Email Infrastructure)</li>
+<li><strong>Haftaici 2</strong>: Phase 2 (Notification Logic)</li>
+<li><strong>Haftaici 3</strong>: Phase 3 (SQL Server Integration)</li>
+<li><strong>Haftaici 4</strong>: Phase 4 (Advanced Features)</li>
+</ol>
+<h2 id="-başlangıç-adımları-İlk-3-adım">🎯 Başlangıç Adımları (İlk 3 Adım)</h2>
+<h3 id="adım-1-email-configuration-ve-models">Adım 1: Email Configuration ve Models</h3>
+<ul>
+<li>EmailConfiguration.cs model oluşturma</li>
+<li>appsettings.json'a SMTP ayarları ekleme</li>
+<li>EmailLog.cs model oluşturma</li>
+</ul>
+<h3 id="adım-2-iemailservice-interface-ve-basic-implementation">Adım 2: IEmailService Interface ve Basic Implementation</h3>
+<ul>
+<li>Interface tanımlama</li>
+<li>Basic SMTP client implementation</li>
+<li>DI container'a service ekleme</li>
+</ul>
+<h3 id="adım-3-İlk-email-template">Adım 3: İlk Email Template</h3>
+<ul>
+<li>Simple HTML template oluşturma</li>
+<li>Template test endpoint oluşturma</li>
+<li>Manual email sending test</li>
+</ul>
+<p>Bu planla başlayıp adım adım ilerleyebiliriz. Hangi adımdan başlamak istiyorsunuz?</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/EMAIL_NOTIFICATION_PLAN.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

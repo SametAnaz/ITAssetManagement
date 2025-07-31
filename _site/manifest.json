@@ -1,0 +1,105 @@
+{
+  "source_base_path": "C:/Users/samet/OneDrive/Masaüstü/samet.code/ITAssetManagement",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "EMAIL_NOTIFICATION_PLAN.md",
+      "output": {
+        ".html": {
+          "relative_path": "EMAIL_NOTIFICATION_PLAN.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ITAssetManagement.Web/Documentation/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "ITAssetManagement.Web/Documentation/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ITAssetManagement.Web/Documentation/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "ITAssetManagement.Web/Documentation/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "ITAssetManagement.Web/Documentation/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "ITAssetManagement.Web/Documentation/toc.html"
+        },
+        ".json": {
+          "relative_path": "ITAssetManagement.Web/Documentation/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "ITAssetManagement.Web/mssqldatabase.md",
+      "output": {
+        ".html": {
+          "relative_path": "ITAssetManagement.Web/mssqldatabase.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
