@@ -1,23 +1,30 @@
 using ITAssetManagement.Web.Services.Interfaces;
 using ITAssetManagement.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using ITAssetManagement.Web.Extensions;
+using ITAssetManagement.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITAssetManagement.Web.Controllers
 {
     public class UsersController : Controller
     {
         private readonly IUserService _userService;
+        private readonly ApplicationDbContext _context;
 
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, ApplicationDbContext context)
         {
             _userService = userService;
+            _context = context;
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchTerm, int? pageNumber)
         {
-            var users = await _userService.GetAllUsersAsync();
-            return View(users);
+            var usersQuery = _userService.SearchUsersQueryable(searchTerm ?? string.Empty);
+            ViewData["CurrentFilter"] = searchTerm;
+            int pageSize = 10;
+            return View(await PaginatedList<User>.CreateAsync(usersQuery, pageNumber ?? 1, pageSize));
         }
 
         // GET: Users/Details/5
