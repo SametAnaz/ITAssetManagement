@@ -12,18 +12,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ITAssetManagement.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250710212840_AddDeletedLaptopsTable")]
-    partial class AddDeletedLaptopsTable
+    [Migration("20250801110737_CreateTables")]
+    partial class CreateTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.11")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation("ProductVersion", "8.0.13")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+            MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
             modelBuilder.Entity("ITAssetManagement.Web.Models.Assignment", b =>
                 {
@@ -31,91 +31,78 @@ namespace ITAssetManagement.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Aciklama")
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
-
-                    b.Property<string>("ImzaYolu")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                    b.Property<DateTime>("AssignmentDate")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("IslemTipi")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("LaptopId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Tarih")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime?>("ReturnDate")
+                        .HasColumnType("datetime(6)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<DateTime>("Tarih")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("LaptopId");
+                    b.HasIndex("LaptopId")
+                        .IsUnique();
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Assignments");
                 });
 
-            modelBuilder.Entity("ITAssetManagement.Web.Models.DeletedLaptop", b =>
+            modelBuilder.Entity("ITAssetManagement.Web.Models.Email.EmailLog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Durum")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<string>("Body")
+                        .HasColumnType("longtext");
 
-                    b.Property<string>("EtiketNo")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<string>("ErrorMessage")
+                        .HasColumnType("longtext");
 
-                    b.Property<DateTime>("KayitTarihi")
-                        .HasColumnType("datetime2");
+                    b.Property<bool>("IsSuccess")
+                        .HasColumnType("tinyint(1)");
 
-                    b.Property<string>("Marka")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Model")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("OriginalLaptopId")
+                    b.Property<int?>("RelatedEntityId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Ozellikler")
-                        .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                    b.Property<string>("RelatedEntityType")
+                        .HasColumnType("longtext");
 
-                    b.Property<string>("SilenKullanici")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<int?>("RetryCount")
+                        .HasColumnType("int");
 
-                    b.Property<DateTime>("SilinmeTarihi")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>("SentDate")
+                        .HasColumnType("datetime(6)");
 
-                    b.Property<string>("SilmeNedeni")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ToEmail")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("DeletedLaptops");
+                    b.ToTable("EmailLogs");
                 });
 
             modelBuilder.Entity("ITAssetManagement.Web.Models.Laptop", b =>
@@ -124,34 +111,52 @@ namespace ITAssetManagement.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Durum")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("EtiketNo")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<DateTime>("KayitTarihi")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("Marka")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Model")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<string>("Notes")
+                        .HasMaxLength(1000)
+                        .HasColumnType("varchar(1000)");
 
                     b.Property<string>("Ozellikler")
                         .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("varchar(1000)");
+
+                    b.Property<string>("SilenKullanici")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime?>("SilinmeTarihi")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("SilmeNedeni")
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
 
                     b.HasKey("Id");
 
@@ -164,26 +169,26 @@ namespace ITAssetManagement.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Action")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Details")
                         .HasMaxLength(1000)
-                        .HasColumnType("nvarchar(1000)");
+                        .HasColumnType("varchar(1000)");
 
                     b.Property<int>("LaptopId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("LogDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.Property<string>("UserId")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
@@ -198,11 +203,11 @@ namespace ITAssetManagement.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("varchar(500)");
 
                     b.Property<int>("LaptopId")
                         .HasColumnType("int");
@@ -210,10 +215,10 @@ namespace ITAssetManagement.Web.Migrations
                     b.Property<string>("Path")
                         .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("YuklemeTarihi")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 
@@ -228,29 +233,32 @@ namespace ITAssetManagement.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Department")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Phone")
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Position")
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
@@ -260,12 +268,20 @@ namespace ITAssetManagement.Web.Migrations
             modelBuilder.Entity("ITAssetManagement.Web.Models.Assignment", b =>
                 {
                     b.HasOne("ITAssetManagement.Web.Models.Laptop", "Laptop")
-                        .WithMany()
-                        .HasForeignKey("LaptopId")
+                        .WithOne("CurrentAssignment")
+                        .HasForeignKey("ITAssetManagement.Web.Models.Assignment", "LaptopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ITAssetManagement.Web.Models.User", "User")
+                        .WithMany("Assignments")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Laptop");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ITAssetManagement.Web.Models.LaptopLog", b =>
@@ -292,9 +308,16 @@ namespace ITAssetManagement.Web.Migrations
 
             modelBuilder.Entity("ITAssetManagement.Web.Models.Laptop", b =>
                 {
+                    b.Navigation("CurrentAssignment");
+
                     b.Navigation("Loglar");
 
                     b.Navigation("Photos");
+                });
+
+            modelBuilder.Entity("ITAssetManagement.Web.Models.User", b =>
+                {
+                    b.Navigation("Assignments");
                 });
 #pragma warning restore 612, 618
         }

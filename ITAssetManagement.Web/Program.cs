@@ -4,18 +4,41 @@ using ITAssetManagement.Web.Data;
 using ITAssetManagement.Web.Data.Repositories;
 using ITAssetManagement.Web.Models.Email;
 using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+
+// Load environment variables from .env.local file
+string envPath = Path.Combine(Directory.GetCurrentDirectory(), "..", ".env.local");
+Console.WriteLine($"Looking for .env.local at: {envPath}");
+if (File.Exists(envPath))
+{
+    foreach (var line in File.ReadAllLines(envPath))
+    {
+        var parts = line.Split('=', 2, StringSplitOptions.RemoveEmptyEntries);
+        if (parts.Length == 2)
+        {
+            Environment.SetEnvironmentVariable(parts[0].Trim(), parts[1].Trim());
+        }
+    }
+}
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 // Add DbContext
+var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+Console.WriteLine($"Environment variable connection string: {connectionString}");
+
+connectionString = connectionString ?? builder.Configuration.GetConnectionString("DefaultConnection");
+Console.WriteLine($"Final connection string being used: {connectionString}");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")
-    )
-);
+{
+    var serverVersion = new MySqlServerVersion(new Version(8, 0, 3));
+    options.UseMySql(connectionString, serverVersion);
+});
 
 // Register repositories
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));

@@ -1,16 +1,20 @@
 using ITAssetManagement.Web.Services.Interfaces;
 using ITAssetManagement.Web.Models;
 using ITAssetManagement.Web.Data.Repositories;
+using ITAssetManagement.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ITAssetManagement.Web.Services
 {
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly ApplicationDbContext _context;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, ApplicationDbContext context)
         {
             _userRepository = userRepository;
+            _context = context;
         }
 
         public async Task<IEnumerable<User>> GetAllUsersAsync()
@@ -64,6 +68,27 @@ namespace ITAssetManagement.Web.Services
 
             _userRepository.Remove(user);
             return await _userRepository.SaveChangesAsync();
+        }
+
+        public IQueryable<User> SearchUsersQueryable(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return _context.Users.Include(u => u.Assignments);
+
+            searchTerm = searchTerm.ToLower();
+            return _context.Users
+                .Include(u => u.Assignments)
+                .Where(u => 
+                    u.FullName.ToLower().Contains(searchTerm) ||
+                    u.Email.ToLower().Contains(searchTerm) ||
+                    (u.Department != null && u.Department.ToLower().Contains(searchTerm)) ||
+                    (u.Position != null && u.Position.ToLower().Contains(searchTerm)) ||
+                    (u.Phone != null && u.Phone.Contains(searchTerm)));
+        }
+
+        public async Task<IEnumerable<User>> SearchUsersAsync(string searchTerm)
+        {
+            return await SearchUsersQueryable(searchTerm).ToListAsync();
         }
     }
 }

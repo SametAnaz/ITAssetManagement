@@ -11,5 +11,7 @@ namespace ITAssetManagement.Web.Services.Interfaces
         Task<bool> CreateUserAsync(User user);
         Task<bool> UpdateUserAsync(User user);
         Task<bool> DeleteUserAsync(int id);
+        IQueryable<User> SearchUsersQueryable(string searchTerm);
+        Task<IEnumerable<User>> SearchUsersAsync(string searchTerm);
     }
 }
