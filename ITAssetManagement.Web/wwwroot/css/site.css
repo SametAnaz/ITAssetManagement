@@ -26,18 +26,19 @@
 
 /* Karanlık Tema */
 [data-theme="dark"] {
+    color-scheme: dark;
     --primary-color: #818cf8;
     --primary-light: #4f46e5;
     --secondary-color: #1e293b;
     --success-color: #34d399;
     --danger-color: #f87171;
     --warning-color: #fbbf24;
-    --text-color: #0a1b2c;
+    --text-color: #e2e8f0;
     --text-light: #94a3b8;
-    --bg-main: #1a1a1a;          /* Soft gri arka plan */
-    --bg-card: #1e293b;
-    --bg-navbar: rgba(30, 41, 59, 0.9);
-    --border-color: #334155;
+    --bg-main: #1a1a1a;        
+    --bg-card: #242424;
+    --bg-navbar: rgba(26, 26, 26, 0.95);
+    --border-color: #333333;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
     --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
@@ -58,16 +59,52 @@ html {
     }
 }
 
+/* Bootstrap bg-light sınıfını ezme */
+.bg-light {
+    background-color: var(--bg-main) !important;
+}
+
+[data-theme="dark"] .bg-light {
+    background-color: var(--bg-main) !important;
+}
+
+/* Table renk düzenlemeleri */
+[data-theme="dark"] .table {
+    color: var(--text-color) !important;
+}
+
+[data-theme="dark"] .table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     color: var(--text-color);
     line-height: 1.5;
-    background-color: var(--bg-main);
+    background-color: var(--bg-main) !important;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     transition: background-color var(--transition-speed) ease,
                 color var(--transition-speed) ease;
+}
+
+/* Footer Stili */
+footer {
+    margin-top: auto;
+    padding: 1rem 0;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
+    transition: background-color var(--transition-speed) ease,
+                color var(--transition-speed) ease,
+                border-color var(--transition-speed) ease;
+}
+
+[data-theme="dark"] footer {
+    background-color: var(--bg-card);
+    color: var(--text-light);
+    border-color: var(--border-color);
 }
 
 /* Header ve Navigasyon */

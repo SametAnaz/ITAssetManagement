@@ -1,7 +1,6 @@
 // Tema değiştirme fonksiyonları
 const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
-const themeText = document.getElementById('themeText');
 
 // Tema tercihini localStorage'dan al
 const currentTheme = localStorage.getItem('theme') || 'light';
@@ -23,11 +22,13 @@ function updateThemeUI(theme) {
     if (theme === 'dark') {
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
-        themeText.textContent = 'Aydınlık Tema';
+        themeToggle.setAttribute('title', 'Aydınlık Temaya Geç');
+        document.body.setAttribute('data-bs-theme', 'dark');
     } else {
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
-        themeText.textContent = 'Karanlık Tema';
+        themeToggle.setAttribute('title', 'Karanlık Temaya Geç');
+        document.body.setAttribute('data-bs-theme', 'light');
     }
 }
 
