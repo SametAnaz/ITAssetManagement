@@ -1,9 +1,11 @@
 using ITAssetManagement.Web.Models;
 using ITAssetManagement.Web.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ITAssetManagement.Web.Controllers
 {
+    [Authorize]
     public class AssignmentsController : Controller
     {
         private readonly IAssignmentService _assignmentService;

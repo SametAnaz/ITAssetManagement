@@ -3,9 +3,11 @@ using ITAssetManagement.Web.Services;
 using ITAssetManagement.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using ITAssetManagement.Web.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITAssetManagement.Web.Controllers
 {
+    [Authorize]
     public class LaptopsController : Controller
     {
         private readonly ILaptopService _laptopService;

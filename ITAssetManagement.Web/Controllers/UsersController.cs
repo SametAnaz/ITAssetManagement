@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using ITAssetManagement.Web.Extensions;
 using ITAssetManagement.Web.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ITAssetManagement.Web.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly IUserService _userService;
