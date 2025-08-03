@@ -4,7 +4,7 @@ _layout: landing
 
 # IT Varlık Yönetim Sistemi
 
-![IT Asset Management](/images/banner.png)
+![IT Asset Management](images/banner.png)
 
 > Modern ve etkili IT varlık yönetimi için kapsamlı çözüm
 
