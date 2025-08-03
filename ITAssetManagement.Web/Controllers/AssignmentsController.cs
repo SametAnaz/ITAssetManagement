@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ITAssetManagement.Web.Controllers
 {
+    /// <summary>
+    /// Zimmet işlemlerini yöneten controller sınıfı
+    /// </summary>
     [Authorize]
     public class AssignmentsController : Controller
     {
@@ -12,6 +15,12 @@ namespace ITAssetManagement.Web.Controllers
         private readonly IUserService _userService;
         private readonly ILaptopService _laptopService;
 
+        /// <summary>
+        /// AssignmentsController constructor
+        /// </summary>
+        /// <param name="assignmentService">Zimmet işlemleri servisi</param>
+        /// <param name="userService">Kullanıcı işlemleri servisi</param>
+        /// <param name="laptopService">Laptop işlemleri servisi</param>
         public AssignmentsController(
             IAssignmentService assignmentService,
             IUserService userService,
@@ -22,14 +31,21 @@ namespace ITAssetManagement.Web.Controllers
             _laptopService = laptopService;
         }
 
-        // GET: Assignments
+        /// <summary>
+        /// Tüm zimmet kayıtlarını listeler
+        /// </summary>
+        /// <returns>Zimmet listesi view'i</returns>
         public async Task<IActionResult> Index()
         {
             var assignments = await _assignmentService.GetAllAssignmentsAsync();
             return View(assignments);
         }
 
-        // GET: Assignments/Details/5
+        /// <summary>
+        /// Belirli bir zimmet kaydının detaylarını gösterir
+        /// </summary>
+        /// <param name="id">Zimmet ID</param>
+        /// <returns>Zimmet detay view'i</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,7 +62,10 @@ namespace ITAssetManagement.Web.Controllers
             return View(assignment);
         }
 
-        // GET: Assignments/Create
+        /// <summary>
+        /// Yeni zimmet oluşturma formunu gösterir
+        /// </summary>
+        /// <returns>Zimmet oluşturma view'i</returns>
         public async Task<IActionResult> Create()
         {
             var users = await _userService.GetAllUsersAsync();

@@ -3,11 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ITAssetManagement.Web.Controllers
 {
+    /// <summary>
+    /// E-posta gönderim testlerini yöneten controller sınıfı
+    /// </summary>
     public class EmailTestController : Controller
     {
         private readonly IEmailService _emailService;
         private readonly ILogger<EmailTestController> _logger;
 
+        /// <summary>
+        /// EmailTestController constructor
+        /// </summary>
+        /// <param name="emailService">E-posta gönderim servisi</param>
+        /// <param name="logger">Loglama servisi</param>
         public EmailTestController(
             IEmailService emailService,
             ILogger<EmailTestController> logger)
@@ -16,11 +24,19 @@ namespace ITAssetManagement.Web.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// E-posta test sayfasını gösterir
+        /// </summary>
+        /// <returns>E-posta test view'i</returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Test e-postası gönderir
+        /// </summary>
+        /// <returns>Başarı veya hata mesajı ile Index sayfasına yönlendirir</returns>
         [HttpPost]
         public async Task<IActionResult> SendTestEmail()
         {

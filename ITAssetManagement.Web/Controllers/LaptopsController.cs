@@ -7,18 +7,32 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ITAssetManagement.Web.Controllers
 {
+    /// <summary>
+    /// Laptop işlemlerini yöneten controller sınıfı
+    /// </summary>
     [Authorize]
     public class LaptopsController : Controller
     {
         private readonly ILaptopService _laptopService;
         private readonly IBarcodeService _barcodeService;
 
+        /// <summary>
+        /// LaptopsController constructor
+        /// </summary>
+        /// <param name="laptopService">Laptop işlemleri servisi</param>
+        /// <param name="barcodeService">Barkod işlemleri servisi</param>
         public LaptopsController(ILaptopService laptopService, IBarcodeService barcodeService)
         {
             _laptopService = laptopService;
             _barcodeService = barcodeService;
         }
 
+        /// <summary>
+        /// Laptop listesini sayfalı şekilde gösterir ve arama yapmayı sağlar
+        /// </summary>
+        /// <param name="searchTerm">Arama terimi</param>
+        /// <param name="pageNumber">Sayfa numarası</param>
+        /// <returns>Sayfalanmış laptop listesi view'i</returns>
         public async Task<IActionResult> Index(string searchTerm, int? pageNumber)
         {
             var laptopsQuery = string.IsNullOrEmpty(searchTerm)
@@ -30,6 +44,11 @@ namespace ITAssetManagement.Web.Controllers
             return View(await PaginatedList<Laptop>.CreateAsync(laptopsQuery.Where(l => l.IsActive), pageNumber ?? 1, pageSize));
         }
 
+        /// <summary>
+        /// Belirli bir laptop'un detaylarını gösterir
+        /// </summary>
+        /// <param name="id">Laptop ID</param>
+        /// <returns>Laptop detay view'i</returns>
         public async Task<IActionResult> Details(int id)
         {
             var laptop = await _laptopService.GetLaptopWithDetailsAsync(id);
@@ -40,11 +59,20 @@ namespace ITAssetManagement.Web.Controllers
             return View(laptop);
         }
 
+        /// <summary>
+        /// Yeni laptop ekleme formunu gösterir
+        /// </summary>
+        /// <returns>Laptop ekleme view'i</returns>
         public IActionResult Create()
         {
             return View();
         }
 
+        /// <summary>
+        /// Yeni laptop ekler
+        /// </summary>
+        /// <param name="laptop">Eklenecek laptop bilgileri</param>
+        /// <returns>Başarılı ise Index sayfasına yönlendirir</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Laptop laptop)

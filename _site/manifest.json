@@ -1,15 +1,7 @@
 {
-  "source_base_path": "C:/Users/samet/OneDrive/Masaüstü/samet.code/ITAssetManagement",
+  "source_base_path": "C:/Users/F-M/Desktop/samet.code/ITAssetManagement",
   "xrefmap": "xrefmap.yml",
   "files": [
-    {
-      "type": "Resource",
-      "output": {
-        "resource": {
-          "relative_path": "index.json"
-        }
-      }
-    },
     {
       "type": "Conceptual",
       "source_relative_path": "EMAIL_NOTIFICATION_PLAN.md",
@@ -22,53 +14,686 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "ITAssetManagement.Web/Documentation/getting-started.md",
+      "source_relative_path": "README.md",
       "output": {
         ".html": {
-          "relative_path": "ITAssetManagement.Web/Documentation/getting-started.html"
+          "relative_path": "README.html"
         }
       },
       "version": ""
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "ITAssetManagement.Web/Documentation/introduction.md",
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Controllers.AssignmentsController.yml",
       "output": {
         ".html": {
-          "relative_path": "ITAssetManagement.Web/Documentation/introduction.html"
+          "relative_path": "api/ITAssetManagement.Web.Controllers.AssignmentsController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Controllers.AssignmentsController",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Controllers.AssignmentsController.yml\" sourcestartlinenumber=\"1\">Zimmet işlemlerini yöneten controller sınıfı</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Controllers.AuthController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Controllers.AuthController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Controllers.AuthController",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Controllers.AuthController.yml\" sourcestartlinenumber=\"1\">Kimlik doğrulama işlemlerini yöneten controller sınıfı</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Controllers.EmailTestController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Controllers.EmailTestController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Controllers.EmailTestController",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Controllers.EmailTestController.yml\" sourcestartlinenumber=\"1\">E-posta gönderim testlerini yöneten controller sınıfı</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Controllers.HomeController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Controllers.HomeController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Controllers.HomeController",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Controllers.HomeController.yml\" sourcestartlinenumber=\"1\">Ana sayfa işlemlerini yöneten controller sınıfı</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Controllers.LaptopsController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Controllers.LaptopsController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Controllers.LaptopsController",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Controllers.LaptopsController.yml\" sourcestartlinenumber=\"1\">Laptop işlemlerini yöneten controller sınıfı</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Controllers.UsersController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Controllers.UsersController.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Controllers.UsersController",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Controllers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Controllers.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Controllers",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.ApplicationDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.ApplicationDbContext.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.ApplicationDbContext",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.AssignmentRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.AssignmentRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories.AssignmentRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.GenericRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories.GenericRepository<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.IAssignmentRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.IAssignmentRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories.IAssignmentRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.ILaptopRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.ILaptopRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories.ILaptopRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.IUserRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.IUserRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories.IUserRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.LaptopRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.LaptopRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories.LaptopRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.UserRepository.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.UserRepository.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories.UserRepository",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.Repositories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.Repositories.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data.Repositories",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Data.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Data",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Extensions.PaginatedList-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Extensions.PaginatedList-1.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Extensions.PaginatedList<T>",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Extensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Extensions.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Extensions",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Migrations.CreateTables.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Migrations.CreateTables.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Migrations.CreateTables",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Migrations.CreateTables.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Migrations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Migrations.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Migrations",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.Assignment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.Assignment.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.Assignment",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.Assignment.yml\" sourcestartlinenumber=\"1\">Laptop zimmet işlemlerini temsil eden sınıf</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.Email.EmailConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.Email.EmailConfiguration.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.Email.EmailConfiguration",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.Email.EmailConfiguration.yml\" sourcestartlinenumber=\"1\">E-posta gönderimi için SMTP yapılandırma sınıfı</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.Email.EmailLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.Email.EmailLog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.Email.EmailLog",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.Email.EmailLog.yml\" sourcestartlinenumber=\"1\">Gönderilen e-postaların log kayıtlarını tutan sınıf</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.Email.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.Email.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.Email",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.ErrorViewModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.ErrorViewModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.ErrorViewModel",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.ErrorViewModel.yml\" sourcestartlinenumber=\"1\">Hata sayfalarında kullanılan görünüm modeli</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.Laptop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.Laptop.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.Laptop",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.Laptop.yml\" sourcestartlinenumber=\"1\">Sistemdeki laptop varlıklarını temsil eden sınıf</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.LaptopLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.LaptopLog.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.LaptopLog",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.LaptopLog.yml\" sourcestartlinenumber=\"1\">Laptop üzerinde yapılan işlemlerin loglarını tutan sınıf</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.LaptopPhoto.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.LaptopPhoto.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.LaptopPhoto",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.LaptopPhoto.yml\" sourcestartlinenumber=\"1\">Laptop'lara ait fotoğrafları temsil eden sınıf</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.LoginModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.LoginModel.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.LoginModel",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.LoginModel.yml\" sourcestartlinenumber=\"1\">Kullanıcı girişi için kullanılan model sınıfı</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.User.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models.User",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.User.yml\" sourcestartlinenumber=\"1\">Sistemdeki kullanıcıları temsil eden sınıf</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Models.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Models",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.AssignmentService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.AssignmentService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.AssignmentService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.BarcodeService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.BarcodeService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.BarcodeService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.EmailService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.EmailService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.EmailService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.IBarcodeService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.IBarcodeService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.IBarcodeService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.Interfaces.IAssignmentService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.Interfaces.IAssignmentService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.Interfaces.IEmailService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.Interfaces.IEmailService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.Interfaces.IEmailService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.Interfaces.ILaptopService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.Interfaces.ILaptopService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.Interfaces.ILaptopService",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.Interfaces.ILaptopService.yml\" sourcestartlinenumber=\"1\">Laptop işlemlerini yöneten servis arayüzü</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.Interfaces.IUserService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.Interfaces.IUserService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.Interfaces.IUserService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.Interfaces.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.Interfaces.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.Interfaces",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.LaptopService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.LaptopService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.LaptopService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.UserService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.UserService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.UserService",
+      "Summary": null
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services",
+      "Summary": null
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
         }
       },
       "version": ""
     },
     {
       "type": "Toc",
-      "source_relative_path": "ITAssetManagement.Web/Documentation/toc.yml",
+      "source_relative_path": "api/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "ITAssetManagement.Web/Documentation/toc.html"
+          "relative_path": "api/toc.html"
         },
         ".json": {
-          "relative_path": "ITAssetManagement.Web/Documentation/toc.json"
+          "relative_path": "api/toc.json"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "ITAssetManagement.Web/mssqldatabase.md",
+      "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
-          "relative_path": "ITAssetManagement.Web/mssqldatabase.html"
+          "relative_path": "articles/intro.html"
         }
       },
       "version": ""
     },
     {
-      "type": "Conceptual",
-      "source_relative_path": "README.md",
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "README.html"
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
         }
       },
       "version": ""

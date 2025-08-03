@@ -6,15 +6,26 @@ using System.Security.Claims;
 
 namespace ITAssetManagement.Web.Controllers
 {
+    /// <summary>
+    /// Kimlik doğrulama işlemlerini yöneten controller sınıfı
+    /// </summary>
     public class AuthController : Controller
     {
         private readonly IConfiguration _configuration;
 
+        /// <summary>
+        /// AuthController constructor
+        /// </summary>
+        /// <param name="configuration">Uygulama yapılandırma servisi</param>
         public AuthController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
 
+        /// <summary>
+        /// Giriş sayfasını gösterir
+        /// </summary>
+        /// <returns>Login view'i veya giriş yapmış kullanıcı için ana sayfa yönlendirmesi</returns>
         [HttpGet]
         public IActionResult Login()
         {
@@ -25,6 +36,11 @@ namespace ITAssetManagement.Web.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Kullanıcı girişi işlemini gerçekleştirir
+        /// </summary>
+        /// <param name="model">Kullanıcı giriş bilgileri</param>
+        /// <returns>Başarılı ise ana sayfaya yönlendirir</returns>
         [HttpPost]
         public async Task<IActionResult> Login(LoginModel model)
         {
@@ -61,6 +77,10 @@ namespace ITAssetManagement.Web.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Kullanıcı çıkış işlemini gerçekleştirir
+        /// </summary>
+        /// <returns>Login sayfasına yönlendirme</returns>
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
