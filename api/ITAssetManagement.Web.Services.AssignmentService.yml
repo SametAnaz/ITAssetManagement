@@ -1,0 +1,1041 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Services.AssignmentService
+  commentId: T:ITAssetManagement.Web.Services.AssignmentService
+  id: AssignmentService
+  parent: ITAssetManagement.Web.Services
+  children:
+  - ITAssetManagement.Web.Services.AssignmentService.#ctor(ITAssetManagement.Web.Data.Repositories.IAssignmentRepository)
+  - ITAssetManagement.Web.Services.AssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  - ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync(System.Int32)
+  - ITAssetManagement.Web.Services.AssignmentService.GetAllAssignmentsAsync
+  - ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync(System.Int32)
+  - ITAssetManagement.Web.Services.AssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  langs:
+  - csharp
+  - vb
+  name: AssignmentService
+  nameWithType: AssignmentService
+  fullName: ITAssetManagement.Web.Services.AssignmentService
+  type: Class
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/AssignmentService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: AssignmentService
+    path: ITAssetManagement.Web/Services/AssignmentService.cs
+    startLine: 21
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  summary: >-
+    Zimmet işlemlerini yöneten servis sınıfı.
+
+    IAssignmentService arayüzünü implement eder.
+  remarks: >-
+    <p>
+
+    Bu servis şu işlemleri gerçekleştirir:
+
+    <ul><li>Zimmet kayıtlarının oluşturulması ve yönetimi</li><li>Zimmet detaylarının sorgulanması</li><li>Zimmet güncelleme ve silme işlemleri</li><li>İlişkili varlıkların (Laptop, User) yönetimi</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: 'public class AssignmentService : IAssignmentService'
+    content.vb: Public Class AssignmentService Implements IAssignmentService
+  inheritance:
+  - System.Object
+  implements:
+  - ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ITAssetManagement.Web.Services.AssignmentService.#ctor(ITAssetManagement.Web.Data.Repositories.IAssignmentRepository)
+  commentId: M:ITAssetManagement.Web.Services.AssignmentService.#ctor(ITAssetManagement.Web.Data.Repositories.IAssignmentRepository)
+  id: '#ctor(ITAssetManagement.Web.Data.Repositories.IAssignmentRepository)'
+  parent: ITAssetManagement.Web.Services.AssignmentService
+  langs:
+  - csharp
+  - vb
+  name: AssignmentService(IAssignmentRepository)
+  nameWithType: AssignmentService.AssignmentService(IAssignmentRepository)
+  fullName: ITAssetManagement.Web.Services.AssignmentService.AssignmentService(ITAssetManagement.Web.Data.Repositories.IAssignmentRepository)
+  type: Constructor
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/AssignmentService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: .ctor
+    path: ITAssetManagement.Web/Services/AssignmentService.cs
+    startLine: 32
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  summary: AssignmentService sınıfının yeni bir instance'ını oluşturur.
+  remarks: Dependency injection ile IAssignmentRepository bağımlılığını alır.
+  example: []
+  syntax:
+    content: public AssignmentService(IAssignmentRepository assignmentRepository)
+    parameters:
+    - id: assignmentRepository
+      type: ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+      description: Zimmet repository'si
+    content.vb: Public Sub New(assignmentRepository As IAssignmentRepository)
+  overload: ITAssetManagement.Web.Services.AssignmentService.#ctor*
+  nameWithType.vb: AssignmentService.New(IAssignmentRepository)
+  fullName.vb: ITAssetManagement.Web.Services.AssignmentService.New(ITAssetManagement.Web.Data.Repositories.IAssignmentRepository)
+  name.vb: New(IAssignmentRepository)
+- uid: ITAssetManagement.Web.Services.AssignmentService.GetAllAssignmentsAsync
+  commentId: M:ITAssetManagement.Web.Services.AssignmentService.GetAllAssignmentsAsync
+  id: GetAllAssignmentsAsync
+  parent: ITAssetManagement.Web.Services.AssignmentService
+  langs:
+  - csharp
+  - vb
+  name: GetAllAssignmentsAsync()
+  nameWithType: AssignmentService.GetAllAssignmentsAsync()
+  fullName: ITAssetManagement.Web.Services.AssignmentService.GetAllAssignmentsAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/AssignmentService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAllAssignmentsAsync
+    path: ITAssetManagement.Web/Services/AssignmentService.cs
+    startLine: 51
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  summary: Tüm zimmet kayıtlarını ilişkili detaylarıyla birlikte getirir.
+  remarks: >-
+    <p>
+
+    Bu metot şu detayları içerir:
+
+    <ul><li>Laptop bilgileri</li><li>Kullanıcı bilgileri</li><li>Zimmet tarihleri</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public Task<IEnumerable<Assignment>> GetAllAssignmentsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Assignment}}
+      description: Zimmet kayıtlarının listesi
+    content.vb: Public Function GetAllAssignmentsAsync() As Task(Of IEnumerable(Of Assignment))
+  overload: ITAssetManagement.Web.Services.AssignmentService.GetAllAssignmentsAsync*
+  implements:
+  - ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAllAssignmentsAsync
+- uid: ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync(System.Int32)
+  id: GetAssignmentByIdAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.AssignmentService
+  langs:
+  - csharp
+  - vb
+  name: GetAssignmentByIdAsync(int)
+  nameWithType: AssignmentService.GetAssignmentByIdAsync(int)
+  fullName: ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/AssignmentService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAssignmentByIdAsync
+    path: ITAssetManagement.Web/Services/AssignmentService.cs
+    startLine: 64
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  summary: ID'ye göre zimmet kaydını detaylarıyla birlikte getirir.
+  remarks: İlgili Laptop ve User bilgilerini Include eder.
+  example: []
+  syntax:
+    content: public Task<Assignment?> GetAssignmentByIdAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Zimmet kaydının ID'si
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Assignment}
+      description: Bulunan zimmet kaydı veya null
+    content.vb: Public Function GetAssignmentByIdAsync(id As Integer) As Task(Of Assignment)
+  overload: ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync*
+  implements:
+  - ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAssignmentByIdAsync(System.Int32)
+  nameWithType.vb: AssignmentService.GetAssignmentByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync(Integer)
+  name.vb: GetAssignmentByIdAsync(Integer)
+- uid: ITAssetManagement.Web.Services.AssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  commentId: M:ITAssetManagement.Web.Services.AssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  id: CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  parent: ITAssetManagement.Web.Services.AssignmentService
+  langs:
+  - csharp
+  - vb
+  name: CreateAssignmentAsync(Assignment)
+  nameWithType: AssignmentService.CreateAssignmentAsync(Assignment)
+  fullName: ITAssetManagement.Web.Services.AssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/AssignmentService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: CreateAssignmentAsync
+    path: ITAssetManagement.Web/Services/AssignmentService.cs
+    startLine: 83
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  summary: Yeni bir zimmet kaydı oluşturur.
+  remarks: >-
+    <p>
+
+    Bu metot şu işlemleri gerçekleştirir:
+
+    <ul><li>Veri doğrulama kontrolleri</li><li>Zimmet kaydının oluşturulması</li><li>Veritabanına kaydetme</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public Task CreateAssignmentAsync(Assignment assignment)
+    parameters:
+    - id: assignment
+      type: ITAssetManagement.Web.Models.Assignment
+      description: Oluşturulacak zimmet kaydı
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function CreateAssignmentAsync(assignment As Assignment) As Task
+  overload: ITAssetManagement.Web.Services.AssignmentService.CreateAssignmentAsync*
+  implements:
+  - ITAssetManagement.Web.Services.Interfaces.IAssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+- uid: ITAssetManagement.Web.Services.AssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  commentId: M:ITAssetManagement.Web.Services.AssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  id: UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  parent: ITAssetManagement.Web.Services.AssignmentService
+  langs:
+  - csharp
+  - vb
+  name: UpdateAssignmentAsync(Assignment)
+  nameWithType: AssignmentService.UpdateAssignmentAsync(Assignment)
+  fullName: ITAssetManagement.Web.Services.AssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/AssignmentService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UpdateAssignmentAsync
+    path: ITAssetManagement.Web/Services/AssignmentService.cs
+    startLine: 103
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  summary: Mevcut bir zimmet kaydını günceller.
+  remarks: >-
+    <p>
+
+    Bu metot şu işlemleri gerçekleştirir:
+
+    <ul><li>Veri doğrulama kontrolleri</li><li>İlgili alanların güncellenmesi</li><li>Değişikliklerin kaydedilmesi</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public Task UpdateAssignmentAsync(Assignment assignment)
+    parameters:
+    - id: assignment
+      type: ITAssetManagement.Web.Models.Assignment
+      description: Güncellenecek zimmet kaydı
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function UpdateAssignmentAsync(assignment As Assignment) As Task
+  overload: ITAssetManagement.Web.Services.AssignmentService.UpdateAssignmentAsync*
+  implements:
+  - ITAssetManagement.Web.Services.Interfaces.IAssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+- uid: ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync(System.Int32)
+  id: DeleteAssignmentAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.AssignmentService
+  langs:
+  - csharp
+  - vb
+  name: DeleteAssignmentAsync(int)
+  nameWithType: AssignmentService.DeleteAssignmentAsync(int)
+  fullName: ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/AssignmentService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: DeleteAssignmentAsync
+    path: ITAssetManagement.Web/Services/AssignmentService.cs
+    startLine: 123
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  summary: Bir zimmet kaydını siler.
+  remarks: >-
+    <p>
+
+    Bu metot şu işlemleri gerçekleştirir:
+
+    <ul><li>Zimmet kaydının varlığının kontrolü</li><li>İlgili zimmetin silinmesi</li><li>Değişikliklerin kaydedilmesi</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public Task DeleteAssignmentAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Silinecek zimmet kaydının ID'si
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function DeleteAssignmentAsync(id As Integer) As Task
+  overload: ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync*
+  implements:
+  - ITAssetManagement.Web.Services.Interfaces.IAssignmentService.DeleteAssignmentAsync(System.Int32)
+  nameWithType.vb: AssignmentService.DeleteAssignmentAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync(Integer)
+  name.vb: DeleteAssignmentAsync(Integer)
+references:
+- uid: ITAssetManagement.Web.Services
+  commentId: N:ITAssetManagement.Web.Services
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Services
+  nameWithType: ITAssetManagement.Web.Services
+  fullName: ITAssetManagement.Web.Services
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html
+  name: IAssignmentService
+  nameWithType: IAssignmentService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ITAssetManagement.Web.Services.Interfaces
+  commentId: N:ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Services.Interfaces
+  nameWithType: ITAssetManagement.Web.Services.Interfaces
+  fullName: ITAssetManagement.Web.Services.Interfaces
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+- uid: ITAssetManagement.Web.Services.AssignmentService.#ctor*
+  commentId: Overload:ITAssetManagement.Web.Services.AssignmentService.#ctor
+  href: ITAssetManagement.Web.Services.AssignmentService.html#ITAssetManagement_Web_Services_AssignmentService__ctor_ITAssetManagement_Web_Data_Repositories_IAssignmentRepository_
+  name: AssignmentService
+  nameWithType: AssignmentService.AssignmentService
+  fullName: ITAssetManagement.Web.Services.AssignmentService.AssignmentService
+  nameWithType.vb: AssignmentService.New
+  fullName.vb: ITAssetManagement.Web.Services.AssignmentService.New
+  name.vb: New
+- uid: ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+  parent: ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.Web.Data.Repositories.IAssignmentRepository.html
+  name: IAssignmentRepository
+  nameWithType: IAssignmentRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+- uid: ITAssetManagement.Web.Data.Repositories
+  commentId: N:ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Data.Repositories
+  nameWithType: ITAssetManagement.Web.Data.Repositories
+  fullName: ITAssetManagement.Web.Data.Repositories
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+- uid: ITAssetManagement.Web.Services.AssignmentService.GetAllAssignmentsAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.AssignmentService.GetAllAssignmentsAsync
+  href: ITAssetManagement.Web.Services.AssignmentService.html#ITAssetManagement_Web_Services_AssignmentService_GetAllAssignmentsAsync
+  name: GetAllAssignmentsAsync
+  nameWithType: AssignmentService.GetAllAssignmentsAsync
+  fullName: ITAssetManagement.Web.Services.AssignmentService.GetAllAssignmentsAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAllAssignmentsAsync
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAllAssignmentsAsync
+  parent: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_GetAllAssignmentsAsync
+  name: GetAllAssignmentsAsync()
+  nameWithType: IAssignmentService.GetAllAssignmentsAsync()
+  fullName: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAllAssignmentsAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAllAssignmentsAsync
+    name: GetAllAssignmentsAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_GetAllAssignmentsAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAllAssignmentsAsync
+    name: GetAllAssignmentsAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_GetAllAssignmentsAsync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Assignment}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Assignment}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IEnumerable<Assignment>>
+  nameWithType: Task<IEnumerable<Assignment>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.Assignment>>
+  nameWithType.vb: Task(Of IEnumerable(Of Assignment))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.Assignment))
+  name.vb: Task(Of IEnumerable(Of Assignment))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    href: ITAssetManagement.Web.Models.Assignment.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    href: ITAssetManagement.Web.Models.Assignment.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync
+  href: ITAssetManagement.Web.Services.AssignmentService.html#ITAssetManagement_Web_Services_AssignmentService_GetAssignmentByIdAsync_System_Int32_
+  name: GetAssignmentByIdAsync
+  nameWithType: AssignmentService.GetAssignmentByIdAsync
+  fullName: ITAssetManagement.Web.Services.AssignmentService.GetAssignmentByIdAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAssignmentByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAssignmentByIdAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  isExternal: true
+  href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_GetAssignmentByIdAsync_System_Int32_
+  name: GetAssignmentByIdAsync(int)
+  nameWithType: IAssignmentService.GetAssignmentByIdAsync(int)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAssignmentByIdAsync(int)
+  nameWithType.vb: IAssignmentService.GetAssignmentByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAssignmentByIdAsync(Integer)
+  name.vb: GetAssignmentByIdAsync(Integer)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAssignmentByIdAsync(System.Int32)
+    name: GetAssignmentByIdAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_GetAssignmentByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.GetAssignmentByIdAsync(System.Int32)
+    name: GetAssignmentByIdAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_GetAssignmentByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Assignment}
+  commentId: T:System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Assignment}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Assignment>
+  nameWithType: Task<Assignment>
+  fullName: System.Threading.Tasks.Task<ITAssetManagement.Web.Models.Assignment>
+  nameWithType.vb: Task(Of Assignment)
+  fullName.vb: System.Threading.Tasks.Task(Of ITAssetManagement.Web.Models.Assignment)
+  name.vb: Task(Of Assignment)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    href: ITAssetManagement.Web.Models.Assignment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    href: ITAssetManagement.Web.Models.Assignment.html
+  - name: )
+- uid: ITAssetManagement.Web.Services.AssignmentService.CreateAssignmentAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.AssignmentService.CreateAssignmentAsync
+  href: ITAssetManagement.Web.Services.AssignmentService.html#ITAssetManagement_Web_Services_AssignmentService_CreateAssignmentAsync_ITAssetManagement_Web_Models_Assignment_
+  name: CreateAssignmentAsync
+  nameWithType: AssignmentService.CreateAssignmentAsync
+  fullName: ITAssetManagement.Web.Services.AssignmentService.CreateAssignmentAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IAssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  parent: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_CreateAssignmentAsync_ITAssetManagement_Web_Models_Assignment_
+  name: CreateAssignmentAsync(Assignment)
+  nameWithType: IAssignmentService.CreateAssignmentAsync(Assignment)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+    name: CreateAssignmentAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_CreateAssignmentAsync_ITAssetManagement_Web_Models_Assignment_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    href: ITAssetManagement.Web.Models.Assignment.html
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.CreateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+    name: CreateAssignmentAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_CreateAssignmentAsync_ITAssetManagement_Web_Models_Assignment_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    href: ITAssetManagement.Web.Models.Assignment.html
+  - name: )
+- uid: ITAssetManagement.Web.Models.Assignment
+  commentId: T:ITAssetManagement.Web.Models.Assignment
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.Assignment.html
+  name: Assignment
+  nameWithType: Assignment
+  fullName: ITAssetManagement.Web.Models.Assignment
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: ITAssetManagement.Web.Models
+  commentId: N:ITAssetManagement.Web.Models
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Models
+  nameWithType: ITAssetManagement.Web.Models
+  fullName: ITAssetManagement.Web.Models
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+- uid: ITAssetManagement.Web.Services.AssignmentService.UpdateAssignmentAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.AssignmentService.UpdateAssignmentAsync
+  href: ITAssetManagement.Web.Services.AssignmentService.html#ITAssetManagement_Web_Services_AssignmentService_UpdateAssignmentAsync_ITAssetManagement_Web_Models_Assignment_
+  name: UpdateAssignmentAsync
+  nameWithType: AssignmentService.UpdateAssignmentAsync
+  fullName: ITAssetManagement.Web.Services.AssignmentService.UpdateAssignmentAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IAssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  parent: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_UpdateAssignmentAsync_ITAssetManagement_Web_Models_Assignment_
+  name: UpdateAssignmentAsync(Assignment)
+  nameWithType: IAssignmentService.UpdateAssignmentAsync(Assignment)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+    name: UpdateAssignmentAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_UpdateAssignmentAsync_ITAssetManagement_Web_Models_Assignment_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    href: ITAssetManagement.Web.Models.Assignment.html
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.UpdateAssignmentAsync(ITAssetManagement.Web.Models.Assignment)
+    name: UpdateAssignmentAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_UpdateAssignmentAsync_ITAssetManagement_Web_Models_Assignment_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    href: ITAssetManagement.Web.Models.Assignment.html
+  - name: )
+- uid: ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync
+  href: ITAssetManagement.Web.Services.AssignmentService.html#ITAssetManagement_Web_Services_AssignmentService_DeleteAssignmentAsync_System_Int32_
+  name: DeleteAssignmentAsync
+  nameWithType: AssignmentService.DeleteAssignmentAsync
+  fullName: ITAssetManagement.Web.Services.AssignmentService.DeleteAssignmentAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.DeleteAssignmentAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IAssignmentService.DeleteAssignmentAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  isExternal: true
+  href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_DeleteAssignmentAsync_System_Int32_
+  name: DeleteAssignmentAsync(int)
+  nameWithType: IAssignmentService.DeleteAssignmentAsync(int)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.DeleteAssignmentAsync(int)
+  nameWithType.vb: IAssignmentService.DeleteAssignmentAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.DeleteAssignmentAsync(Integer)
+  name.vb: DeleteAssignmentAsync(Integer)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.DeleteAssignmentAsync(System.Int32)
+    name: DeleteAssignmentAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_DeleteAssignmentAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.DeleteAssignmentAsync(System.Int32)
+    name: DeleteAssignmentAsync
+    href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html#ITAssetManagement_Web_Services_Interfaces_IAssignmentService_DeleteAssignmentAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )

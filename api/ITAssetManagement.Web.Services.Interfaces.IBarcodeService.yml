@@ -1,0 +1,186 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  id: IBarcodeService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  children:
+  - ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IBarcodeService
+  nameWithType: IBarcodeService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  type: Interface
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IBarcodeService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: IBarcodeService
+    path: ITAssetManagement.Web/Services/Interfaces/IBarcodeService.cs
+    startLine: 20
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: >-
+    Barkod ve QR kod oluşturma işlemlerini yöneten servis arayüzü.
+
+    Bu servis, varlık takibi için gerekli barkod/QR kod işlemlerini sağlar.
+  remarks: >-
+    <p>
+
+    Bu servis aşağıdaki işlevleri sağlar:
+
+    <ul><li>Metin içeriğinden barkod oluşturma</li><li>QR kod oluşturma ve özelleştirme</li><li>Farklı barkod formatları desteği</li><li>Bellek üzerinde görüntü işleme</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IBarcodeService
+    content.vb: Public Interface IBarcodeService
+- uid: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(System.String)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(System.String)
+  id: GenerateBarcode(System.String)
+  parent: ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  langs:
+  - csharp
+  - vb
+  name: GenerateBarcode(string)
+  nameWithType: IBarcodeService.GenerateBarcode(string)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IBarcodeService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GenerateBarcode
+    path: ITAssetManagement.Web/Services/Interfaces/IBarcodeService.cs
+    startLine: 37
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Verilen metin içeriğinden barkod/QR kod oluşturur.
+  remarks: >-
+    <p>
+
+    Bu metot şu özelliklere sahiptir:
+
+    <ul><li>PNG formatında görüntü üretir</li><li>Yüksek çözünürlüklü çıktı sağlar</li><li>UTF-8 karakter desteği sunar</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: MemoryStream GenerateBarcode(string content)
+    parameters:
+    - id: content
+      type: System.String
+      description: Barkoda dönüştürülecek metin içeriği
+    return:
+      type: System.IO.MemoryStream
+      description: Oluşturulan barkod görüntüsünü içeren MemoryStream
+    content.vb: Function GenerateBarcode(content As String) As MemoryStream
+  overload: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode*
+  nameWithType.vb: IBarcodeService.GenerateBarcode(String)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(String)
+  name.vb: GenerateBarcode(String)
+references:
+- uid: ITAssetManagement.Web.Services.Interfaces
+  commentId: N:ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Services.Interfaces
+  nameWithType: ITAssetManagement.Web.Services.Interfaces
+  fullName: ITAssetManagement.Web.Services.Interfaces
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+- uid: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode
+  href: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.html#ITAssetManagement_Web_Services_Interfaces_IBarcodeService_GenerateBarcode_System_String_
+  name: GenerateBarcode
+  nameWithType: IBarcodeService.GenerateBarcode
+  fullName: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.IO.MemoryStream
+  commentId: T:System.IO.MemoryStream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.memorystream
+  name: MemoryStream
+  nameWithType: MemoryStream
+  fullName: System.IO.MemoryStream
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io

@@ -379,8 +379,6 @@ EMAIL_NOTIFICATION_PLAN.md
 
 # DocFX specific
 _site/
-api/
-articles/
 _exported_templates/
 obj/.cache/
 .manifest

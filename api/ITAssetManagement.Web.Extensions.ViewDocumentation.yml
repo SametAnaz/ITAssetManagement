@@ -1,0 +1,1183 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation
+  commentId: T:ITAssetManagement.Web.Extensions.ViewDocumentation
+  id: ViewDocumentation
+  parent: ITAssetManagement.Web.Extensions
+  children:
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentCreate
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentDetails
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentEdit
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentIndex
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.DeletedLaptops
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.EmailTest
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.Error
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopCreate
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopDetails
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopEdit
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopIndex
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.Layout
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.Login
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.UserCreate
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.UserDetails
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.UserEdit
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.UserIndex
+  - ITAssetManagement.Web.Extensions.ViewDocumentation.ValidationScripts
+  langs:
+  - csharp
+  - vb
+  name: ViewDocumentation
+  nameWithType: ViewDocumentation
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation
+  type: Class
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: ViewDocumentation
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 5
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Documentation for Views in the ITAssetManagement application
+  example: []
+  syntax:
+    content: public static class ViewDocumentation
+    content.vb: Public Module ViewDocumentation
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.Layout
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.Layout
+  id: Layout
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: Layout()
+  nameWithType: ViewDocumentation.Layout()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.Layout()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Layout
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 31
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: The main layout template (_Layout.cshtml) that provides the common structure for all pages.
+  remarks: >-
+    Features:
+
+    - Responsive design with Bootstrap 5
+
+    - Navigation bar and sidebar menu
+
+    - Footer and notification areas
+
+    - Common CSS/JS includes
+
+    - User session display
+
+
+    Sections:
+
+    - Title: Page title override
+
+    - Styles: Additional CSS includes
+
+    - Scripts: Additional JavaScript includes
+
+    - Content: Main page content
+
+
+    ViewData Properties:
+
+    - Title: Page title
+
+    - ActiveMenu: Current active menu item
+
+    - UserName: Logged in user's name
+
+    - Notifications: Alert messages
+  example: []
+  syntax:
+    content: public static void Layout()
+    content.vb: Public Shared Sub Layout()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.Layout*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.ValidationScripts
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.ValidationScripts
+  id: ValidationScripts
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: ValidationScripts()
+  nameWithType: ViewDocumentation.ValidationScripts()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.ValidationScripts()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: ValidationScripts
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 42
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Partial view for validation scripts (_ValidationScriptsPartial.cshtml)
+  remarks: >-
+    Includes:
+
+    - jQuery validation
+
+    - jQuery unobtrusive validation
+
+    - Custom validation rules
+  example: []
+  syntax:
+    content: public static void ValidationScripts()
+    content.vb: Public Shared Sub ValidationScripts()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.ValidationScripts*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.Error
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.Error
+  id: Error
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: Error()
+  nameWithType: ViewDocumentation.Error()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.Error()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Error
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 53
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Error view (Error.cshtml) for displaying application errors
+  remarks: >-
+    Features:
+
+    - Error details display
+
+    - Stack trace in development
+
+    - User-friendly messages
+  example: []
+  syntax:
+    content: public static void Error()
+    content.vb: Public Shared Sub [Error]()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.Error*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentIndex
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentIndex
+  id: AssignmentIndex
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: AssignmentIndex()
+  nameWithType: ViewDocumentation.AssignmentIndex()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentIndex()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: AssignmentIndex
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 73
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Assignment index view (Index.cshtml) displays list of all assignments
+  remarks: >-
+    Features:
+
+    - Paginated list of assignments
+
+    - Search and filter options
+
+    - Sort by columns
+
+    - Quick actions (Edit, Details, Delete)
+
+    - Assignment status indicators
+
+
+    ViewData:
+
+    - CurrentSort: Active sort column
+
+    - SearchString: Current search term
+
+    - PageSize: Items per page
+  example: []
+  syntax:
+    content: public static void AssignmentIndex()
+    content.vb: Public Shared Sub AssignmentIndex()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentIndex*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentCreate
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentCreate
+  id: AssignmentCreate
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: AssignmentCreate()
+  nameWithType: ViewDocumentation.AssignmentCreate()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentCreate()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: AssignmentCreate
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 97
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Assignment creation view (Create.cshtml)
+  remarks: >-
+    Features:
+
+    - User selection with search
+
+    - Laptop selection with availability check
+
+    - Date range picker
+
+    - QR code generation
+
+    - File attachments
+
+
+    JavaScript Functions:
+
+    - generateQRCode(): Creates QR code for assignment
+
+    - validateDates(): Ensures valid date selections
+
+    - searchUsers(): AJAX user search
+
+    - searchLaptops(): AJAX laptop search
+
+
+    Validation:
+
+    - Required fields validation
+
+    - Date range validation
+
+    - Business rules check
+  example: []
+  syntax:
+    content: public static void AssignmentCreate()
+    content.vb: Public Shared Sub AssignmentCreate()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentCreate*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentEdit
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentEdit
+  id: AssignmentEdit
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: AssignmentEdit()
+  nameWithType: ViewDocumentation.AssignmentEdit()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentEdit()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: AssignmentEdit
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 108
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Assignment edit view (Edit.cshtml)
+  remarks: >-
+    Similar features to Create view with:
+
+    - Pre-populated form fields
+
+    - Assignment history
+
+    - Status updates
+  example: []
+  syntax:
+    content: public static void AssignmentEdit()
+    content.vb: Public Shared Sub AssignmentEdit()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentEdit*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentDetails
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentDetails
+  id: AssignmentDetails
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: AssignmentDetails()
+  nameWithType: ViewDocumentation.AssignmentDetails()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentDetails()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: AssignmentDetails
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 121
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Assignment details view (Details.cshtml)
+  remarks: >-
+    Features:
+
+    - Complete assignment information
+
+    - User and laptop details
+
+    - QR code display
+
+    - Assignment timeline
+
+    - Related documents
+  example: []
+  syntax:
+    content: public static void AssignmentDetails()
+    content.vb: Public Shared Sub AssignmentDetails()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentDetails*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopIndex
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopIndex
+  id: LaptopIndex
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: LaptopIndex()
+  nameWithType: ViewDocumentation.LaptopIndex()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopIndex()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LaptopIndex
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 136
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Laptop index view (Index.cshtml) displays list of all laptops
+  remarks: >-
+    Features:
+
+    - Paginated list of laptops
+
+    - Search and filter functionality
+
+    - Status indicators
+
+    - Quick actions
+
+    - Stock level warnings
+  example: []
+  syntax:
+    content: public static void LaptopIndex()
+    content.vb: Public Shared Sub LaptopIndex()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopIndex*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopCreate
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopCreate
+  id: LaptopCreate
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: LaptopCreate()
+  nameWithType: ViewDocumentation.LaptopCreate()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopCreate()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LaptopCreate
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 149
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Laptop creation view (Create.cshtml)
+  remarks: >-
+    Features:
+
+    - Basic laptop information
+
+    - Serial number validation
+
+    - Photo upload
+
+    - Specifications input
+
+    - Warranty information
+  example: []
+  syntax:
+    content: public static void LaptopCreate()
+    content.vb: Public Shared Sub LaptopCreate()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopCreate*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopEdit
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopEdit
+  id: LaptopEdit
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: LaptopEdit()
+  nameWithType: ViewDocumentation.LaptopEdit()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopEdit()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LaptopEdit
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 161
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Laptop edit view (Edit.cshtml)
+  remarks: >-
+    Features:
+
+    - Update laptop information
+
+    - Photo management
+
+    - Maintenance records
+
+    - Assignment history
+  example: []
+  syntax:
+    content: public static void LaptopEdit()
+    content.vb: Public Shared Sub LaptopEdit()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopEdit*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopDetails
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopDetails
+  id: LaptopDetails
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: LaptopDetails()
+  nameWithType: ViewDocumentation.LaptopDetails()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopDetails()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LaptopDetails
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 174
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Laptop details view (Details.cshtml)
+  remarks: >-
+    Features:
+
+    - Complete laptop information
+
+    - Photo gallery
+
+    - Assignment history
+
+    - Maintenance logs
+
+    - QR code display
+  example: []
+  syntax:
+    content: public static void LaptopDetails()
+    content.vb: Public Shared Sub LaptopDetails()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopDetails*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.DeletedLaptops
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.DeletedLaptops
+  id: DeletedLaptops
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: DeletedLaptops()
+  nameWithType: ViewDocumentation.DeletedLaptops()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.DeletedLaptops()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: DeletedLaptops
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 186
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Deleted laptops view (DeletedLaptops.cshtml)
+  remarks: >-
+    Features:
+
+    - List of soft-deleted laptops
+
+    - Restore functionality
+
+    - Deletion history
+
+    - Filter and search
+  example: []
+  syntax:
+    content: public static void DeletedLaptops()
+    content.vb: Public Shared Sub DeletedLaptops()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.DeletedLaptops*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.UserIndex
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.UserIndex
+  id: UserIndex
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: UserIndex()
+  nameWithType: ViewDocumentation.UserIndex()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.UserIndex()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UserIndex
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 201
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: User index view (Index.cshtml) displays list of all users
+  remarks: >-
+    Features:
+
+    - Paginated user list
+
+    - Search and filter
+
+    - Role indicators
+
+    - Active assignments count
+
+    - Quick actions
+  example: []
+  syntax:
+    content: public static void UserIndex()
+    content.vb: Public Shared Sub UserIndex()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.UserIndex*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.UserCreate
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.UserCreate
+  id: UserCreate
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: UserCreate()
+  nameWithType: ViewDocumentation.UserCreate()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.UserCreate()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UserCreate
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 214
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: User creation view (Create.cshtml)
+  remarks: >-
+    Features:
+
+    - Basic user information
+
+    - Role assignment
+
+    - Department selection
+
+    - Contact details
+
+    - Profile photo upload
+  example: []
+  syntax:
+    content: public static void UserCreate()
+    content.vb: Public Shared Sub UserCreate()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.UserCreate*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.UserEdit
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.UserEdit
+  id: UserEdit
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: UserEdit()
+  nameWithType: ViewDocumentation.UserEdit()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.UserEdit()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UserEdit
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 226
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: User edit view (Edit.cshtml)
+  remarks: >-
+    Features:
+
+    - Update user information
+
+    - Role management
+
+    - Status updates
+
+    - Assignment history
+  example: []
+  syntax:
+    content: public static void UserEdit()
+    content.vb: Public Shared Sub UserEdit()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.UserEdit*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.UserDetails
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.UserDetails
+  id: UserDetails
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: UserDetails()
+  nameWithType: ViewDocumentation.UserDetails()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.UserDetails()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UserDetails
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 238
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: User details view (Details.cshtml)
+  remarks: >-
+    Features:
+
+    - Complete user information
+
+    - Current assignments
+
+    - Assignment history
+
+    - Activity logs
+  example: []
+  syntax:
+    content: public static void UserDetails()
+    content.vb: Public Shared Sub UserDetails()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.UserDetails*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.Login
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.Login
+  id: Login
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: Login()
+  nameWithType: ViewDocumentation.Login()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.Login()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Login
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 253
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Login view (Login.cshtml)
+  remarks: >-
+    Features:
+
+    - Username/password login
+
+    - Remember me option
+
+    - Validation
+
+    - Error messages
+
+    - Password reset link
+  example: []
+  syntax:
+    content: public static void Login()
+    content.vb: Public Shared Sub Login()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.Login*
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.EmailTest
+  commentId: M:ITAssetManagement.Web.Extensions.ViewDocumentation.EmailTest
+  id: EmailTest
+  parent: ITAssetManagement.Web.Extensions.ViewDocumentation
+  langs:
+  - csharp
+  - vb
+  name: EmailTest()
+  nameWithType: ViewDocumentation.EmailTest()
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.EmailTest()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: EmailTest
+    path: ITAssetManagement.Web/Extensions/ViewDocumentation.cs
+    startLine: 267
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Extensions
+  summary: Email test view (Index.cshtml) for testing email functionality
+  remarks: >-
+    Features:
+
+    - Email template preview
+
+    - Test email sending
+
+    - Template variables
+
+    - Logging
+  example: []
+  syntax:
+    content: public static void EmailTest()
+    content.vb: Public Shared Sub EmailTest()
+  overload: ITAssetManagement.Web.Extensions.ViewDocumentation.EmailTest*
+references:
+- uid: ITAssetManagement.Web.Extensions
+  commentId: N:ITAssetManagement.Web.Extensions
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Extensions
+  nameWithType: ITAssetManagement.Web.Extensions
+  fullName: ITAssetManagement.Web.Extensions
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Extensions
+    name: Extensions
+    href: ITAssetManagement.Web.Extensions.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Extensions
+    name: Extensions
+    href: ITAssetManagement.Web.Extensions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.Layout*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.Layout
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_Layout
+  name: Layout
+  nameWithType: ViewDocumentation.Layout
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.Layout
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.ValidationScripts*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.ValidationScripts
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_ValidationScripts
+  name: ValidationScripts
+  nameWithType: ViewDocumentation.ValidationScripts
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.ValidationScripts
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.Error*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.Error
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_Error
+  name: Error
+  nameWithType: ViewDocumentation.Error
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.Error
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentIndex*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentIndex
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_AssignmentIndex
+  name: AssignmentIndex
+  nameWithType: ViewDocumentation.AssignmentIndex
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentIndex
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentCreate*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentCreate
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_AssignmentCreate
+  name: AssignmentCreate
+  nameWithType: ViewDocumentation.AssignmentCreate
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentCreate
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentEdit*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentEdit
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_AssignmentEdit
+  name: AssignmentEdit
+  nameWithType: ViewDocumentation.AssignmentEdit
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentEdit
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentDetails*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentDetails
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_AssignmentDetails
+  name: AssignmentDetails
+  nameWithType: ViewDocumentation.AssignmentDetails
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.AssignmentDetails
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopIndex*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopIndex
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_LaptopIndex
+  name: LaptopIndex
+  nameWithType: ViewDocumentation.LaptopIndex
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopIndex
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopCreate*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopCreate
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_LaptopCreate
+  name: LaptopCreate
+  nameWithType: ViewDocumentation.LaptopCreate
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopCreate
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopEdit*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopEdit
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_LaptopEdit
+  name: LaptopEdit
+  nameWithType: ViewDocumentation.LaptopEdit
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopEdit
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopDetails*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopDetails
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_LaptopDetails
+  name: LaptopDetails
+  nameWithType: ViewDocumentation.LaptopDetails
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.LaptopDetails
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.DeletedLaptops*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.DeletedLaptops
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_DeletedLaptops
+  name: DeletedLaptops
+  nameWithType: ViewDocumentation.DeletedLaptops
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.DeletedLaptops
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.UserIndex*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.UserIndex
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_UserIndex
+  name: UserIndex
+  nameWithType: ViewDocumentation.UserIndex
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.UserIndex
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.UserCreate*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.UserCreate
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_UserCreate
+  name: UserCreate
+  nameWithType: ViewDocumentation.UserCreate
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.UserCreate
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.UserEdit*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.UserEdit
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_UserEdit
+  name: UserEdit
+  nameWithType: ViewDocumentation.UserEdit
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.UserEdit
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.UserDetails*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.UserDetails
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_UserDetails
+  name: UserDetails
+  nameWithType: ViewDocumentation.UserDetails
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.UserDetails
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.Login*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.Login
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_Login
+  name: Login
+  nameWithType: ViewDocumentation.Login
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.Login
+- uid: ITAssetManagement.Web.Extensions.ViewDocumentation.EmailTest*
+  commentId: Overload:ITAssetManagement.Web.Extensions.ViewDocumentation.EmailTest
+  href: ITAssetManagement.Web.Extensions.ViewDocumentation.html#ITAssetManagement_Web_Extensions_ViewDocumentation_EmailTest
+  name: EmailTest
+  nameWithType: ViewDocumentation.EmailTest
+  fullName: ITAssetManagement.Web.Extensions.ViewDocumentation.EmailTest

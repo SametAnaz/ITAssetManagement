@@ -1,0 +1,153 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Services.IBarcodeService
+  commentId: T:ITAssetManagement.Web.Services.IBarcodeService
+  id: IBarcodeService
+  parent: ITAssetManagement.Web.Services
+  children:
+  - ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IBarcodeService
+  nameWithType: IBarcodeService
+  fullName: ITAssetManagement.Web.Services.IBarcodeService
+  type: Interface
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/BarcodeService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: IBarcodeService
+    path: ITAssetManagement.Web/Services/BarcodeService.cs
+    startLine: 12
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  syntax:
+    content: public interface IBarcodeService
+    content.vb: Public Interface IBarcodeService
+- uid: ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode(System.String)
+  commentId: M:ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode(System.String)
+  id: GenerateBarcode(System.String)
+  parent: ITAssetManagement.Web.Services.IBarcodeService
+  langs:
+  - csharp
+  - vb
+  name: GenerateBarcode(string)
+  nameWithType: IBarcodeService.GenerateBarcode(string)
+  fullName: ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/BarcodeService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GenerateBarcode
+    path: ITAssetManagement.Web/Services/BarcodeService.cs
+    startLine: 14
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services
+  syntax:
+    content: MemoryStream GenerateBarcode(string content)
+    parameters:
+    - id: content
+      type: System.String
+    return:
+      type: System.IO.MemoryStream
+    content.vb: Function GenerateBarcode(content As String) As MemoryStream
+  overload: ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode*
+  nameWithType.vb: IBarcodeService.GenerateBarcode(String)
+  fullName.vb: ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode(String)
+  name.vb: GenerateBarcode(String)
+references:
+- uid: ITAssetManagement.Web.Services
+  commentId: N:ITAssetManagement.Web.Services
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Services
+  nameWithType: ITAssetManagement.Web.Services
+  fullName: ITAssetManagement.Web.Services
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+- uid: ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode*
+  commentId: Overload:ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode
+  href: ITAssetManagement.Web.Services.IBarcodeService.html#ITAssetManagement_Web_Services_IBarcodeService_GenerateBarcode_System_String_
+  name: GenerateBarcode
+  nameWithType: IBarcodeService.GenerateBarcode
+  fullName: ITAssetManagement.Web.Services.IBarcodeService.GenerateBarcode
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.IO.MemoryStream
+  commentId: T:System.IO.MemoryStream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.memorystream
+  name: MemoryStream
+  nameWithType: MemoryStream
+  fullName: System.IO.MemoryStream
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io

@@ -1,0 +1,699 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Models.LaptopLog
+  commentId: T:ITAssetManagement.Web.Models.LaptopLog
+  id: LaptopLog
+  parent: ITAssetManagement.Web.Models
+  children:
+  - ITAssetManagement.Web.Models.LaptopLog.Action
+  - ITAssetManagement.Web.Models.LaptopLog.Details
+  - ITAssetManagement.Web.Models.LaptopLog.Id
+  - ITAssetManagement.Web.Models.LaptopLog.Laptop
+  - ITAssetManagement.Web.Models.LaptopLog.LaptopId
+  - ITAssetManagement.Web.Models.LaptopLog.LogDate
+  - ITAssetManagement.Web.Models.LaptopLog.UserId
+  langs:
+  - csharp
+  - vb
+  name: LaptopLog
+  nameWithType: LaptopLog
+  fullName: ITAssetManagement.Web.Models.LaptopLog
+  type: Class
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/LaptopLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LaptopLog
+    path: ITAssetManagement.Web/Models/LaptopLog.cs
+    startLine: 8
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: Laptop üzerinde yapılan işlemlerin loglarını tutan sınıf
+  example: []
+  syntax:
+    content: public class LaptopLog
+    content.vb: Public Class LaptopLog
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ITAssetManagement.Web.Models.LaptopLog.Id
+  commentId: P:ITAssetManagement.Web.Models.LaptopLog.Id
+  id: Id
+  parent: ITAssetManagement.Web.Models.LaptopLog
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: LaptopLog.Id
+  fullName: ITAssetManagement.Web.Models.LaptopLog.Id
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/LaptopLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Id
+    path: ITAssetManagement.Web/Models/LaptopLog.cs
+    startLine: 13
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: Log kaydının benzersiz kimlik numarası
+  example: []
+  syntax:
+    content: >-
+      [Key]
+
+      public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Key>
+
+      Public Property Id As Integer
+  overload: ITAssetManagement.Web.Models.LaptopLog.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.LaptopLog.LaptopId
+  commentId: P:ITAssetManagement.Web.Models.LaptopLog.LaptopId
+  id: LaptopId
+  parent: ITAssetManagement.Web.Models.LaptopLog
+  langs:
+  - csharp
+  - vb
+  name: LaptopId
+  nameWithType: LaptopLog.LaptopId
+  fullName: ITAssetManagement.Web.Models.LaptopLog.LaptopId
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/LaptopLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LaptopId
+    path: ITAssetManagement.Web/Models/LaptopLog.cs
+    startLine: 19
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: İşlem yapılan laptop'un ID'si
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public int LaptopId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      Public Property LaptopId As Integer
+  overload: ITAssetManagement.Web.Models.LaptopLog.LaptopId*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.LaptopLog.Laptop
+  commentId: P:ITAssetManagement.Web.Models.LaptopLog.Laptop
+  id: Laptop
+  parent: ITAssetManagement.Web.Models.LaptopLog
+  langs:
+  - csharp
+  - vb
+  name: Laptop
+  nameWithType: LaptopLog.Laptop
+  fullName: ITAssetManagement.Web.Models.LaptopLog.Laptop
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/LaptopLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Laptop
+    path: ITAssetManagement.Web/Models/LaptopLog.cs
+    startLine: 25
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: İşlem yapılan laptop nesnesi
+  example: []
+  syntax:
+    content: >-
+      [ForeignKey("LaptopId")]
+
+      public virtual Laptop? Laptop { get; set; }
+    parameters: []
+    return:
+      type: ITAssetManagement.Web.Models.Laptop
+    content.vb: >-
+      <ForeignKey("LaptopId")>
+
+      Public Overridable Property Laptop As Laptop
+  overload: ITAssetManagement.Web.Models.LaptopLog.Laptop*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: LaptopId
+- uid: ITAssetManagement.Web.Models.LaptopLog.Action
+  commentId: P:ITAssetManagement.Web.Models.LaptopLog.Action
+  id: Action
+  parent: ITAssetManagement.Web.Models.LaptopLog
+  langs:
+  - csharp
+  - vb
+  name: Action
+  nameWithType: LaptopLog.Action
+  fullName: ITAssetManagement.Web.Models.LaptopLog.Action
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/LaptopLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Action
+    path: ITAssetManagement.Web/Models/LaptopLog.cs
+    startLine: 31
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: Yapılan işlemin tipi (Ekleme, Güncelleme, Silme vb.)
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [StringLength(100)]
+
+      public string Action { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      <StringLength(100)>
+
+      Public Property Action As String
+  overload: ITAssetManagement.Web.Models.LaptopLog.Action*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.StringLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.StringLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 100
+- uid: ITAssetManagement.Web.Models.LaptopLog.Details
+  commentId: P:ITAssetManagement.Web.Models.LaptopLog.Details
+  id: Details
+  parent: ITAssetManagement.Web.Models.LaptopLog
+  langs:
+  - csharp
+  - vb
+  name: Details
+  nameWithType: LaptopLog.Details
+  fullName: ITAssetManagement.Web.Models.LaptopLog.Details
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/LaptopLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Details
+    path: ITAssetManagement.Web/Models/LaptopLog.cs
+    startLine: 38
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: İşlem detayları
+  example: []
+  syntax:
+    content: >-
+      [StringLength(1000)]
+
+      public string? Details { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <StringLength(1000)>
+
+      Public Property Details As String
+  overload: ITAssetManagement.Web.Models.LaptopLog.Details*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.StringLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.StringLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 1000
+- uid: ITAssetManagement.Web.Models.LaptopLog.LogDate
+  commentId: P:ITAssetManagement.Web.Models.LaptopLog.LogDate
+  id: LogDate
+  parent: ITAssetManagement.Web.Models.LaptopLog
+  langs:
+  - csharp
+  - vb
+  name: LogDate
+  nameWithType: LaptopLog.LogDate
+  fullName: ITAssetManagement.Web.Models.LaptopLog.LogDate
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/LaptopLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LogDate
+    path: ITAssetManagement.Web/Models/LaptopLog.cs
+    startLine: 44
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: İşlemin gerçekleştiği tarih
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public DateTime LogDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <Required>
+
+      Public Property LogDate As Date
+  overload: ITAssetManagement.Web.Models.LaptopLog.LogDate*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.LaptopLog.UserId
+  commentId: P:ITAssetManagement.Web.Models.LaptopLog.UserId
+  id: UserId
+  parent: ITAssetManagement.Web.Models.LaptopLog
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: LaptopLog.UserId
+  fullName: ITAssetManagement.Web.Models.LaptopLog.UserId
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/LaptopLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UserId
+    path: ITAssetManagement.Web/Models/LaptopLog.cs
+    startLine: 50
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: İşlemi yapan kullanıcının ID'si
+  example: []
+  syntax:
+    content: >-
+      [StringLength(100)]
+
+      public string? UserId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <StringLength(100)>
+
+      Public Property UserId As String
+  overload: ITAssetManagement.Web.Models.LaptopLog.UserId*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.StringLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.StringLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 100
+references:
+- uid: ITAssetManagement.Web.Models
+  commentId: N:ITAssetManagement.Web.Models
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Models
+  nameWithType: ITAssetManagement.Web.Models
+  fullName: ITAssetManagement.Web.Models
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ITAssetManagement.Web.Models.LaptopLog.Id*
+  commentId: Overload:ITAssetManagement.Web.Models.LaptopLog.Id
+  href: ITAssetManagement.Web.Models.LaptopLog.html#ITAssetManagement_Web_Models_LaptopLog_Id
+  name: Id
+  nameWithType: LaptopLog.Id
+  fullName: ITAssetManagement.Web.Models.LaptopLog.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ITAssetManagement.Web.Models.LaptopLog.LaptopId*
+  commentId: Overload:ITAssetManagement.Web.Models.LaptopLog.LaptopId
+  href: ITAssetManagement.Web.Models.LaptopLog.html#ITAssetManagement_Web_Models_LaptopLog_LaptopId
+  name: LaptopId
+  nameWithType: LaptopLog.LaptopId
+  fullName: ITAssetManagement.Web.Models.LaptopLog.LaptopId
+- uid: ITAssetManagement.Web.Models.LaptopLog.Laptop*
+  commentId: Overload:ITAssetManagement.Web.Models.LaptopLog.Laptop
+  href: ITAssetManagement.Web.Models.LaptopLog.html#ITAssetManagement_Web_Models_LaptopLog_Laptop
+  name: Laptop
+  nameWithType: LaptopLog.Laptop
+  fullName: ITAssetManagement.Web.Models.LaptopLog.Laptop
+- uid: ITAssetManagement.Web.Models.Laptop
+  commentId: T:ITAssetManagement.Web.Models.Laptop
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.Laptop.html
+  name: Laptop
+  nameWithType: Laptop
+  fullName: ITAssetManagement.Web.Models.Laptop
+- uid: ITAssetManagement.Web.Models.LaptopLog.Action*
+  commentId: Overload:ITAssetManagement.Web.Models.LaptopLog.Action
+  href: ITAssetManagement.Web.Models.LaptopLog.html#ITAssetManagement_Web_Models_LaptopLog_Action
+  name: Action
+  nameWithType: LaptopLog.Action
+  fullName: ITAssetManagement.Web.Models.LaptopLog.Action
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ITAssetManagement.Web.Models.LaptopLog.Details*
+  commentId: Overload:ITAssetManagement.Web.Models.LaptopLog.Details
+  href: ITAssetManagement.Web.Models.LaptopLog.html#ITAssetManagement_Web_Models_LaptopLog_Details
+  name: Details
+  nameWithType: LaptopLog.Details
+  fullName: ITAssetManagement.Web.Models.LaptopLog.Details
+- uid: ITAssetManagement.Web.Models.LaptopLog.LogDate*
+  commentId: Overload:ITAssetManagement.Web.Models.LaptopLog.LogDate
+  href: ITAssetManagement.Web.Models.LaptopLog.html#ITAssetManagement_Web_Models_LaptopLog_LogDate
+  name: LogDate
+  nameWithType: LaptopLog.LogDate
+  fullName: ITAssetManagement.Web.Models.LaptopLog.LogDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: ITAssetManagement.Web.Models.LaptopLog.UserId*
+  commentId: Overload:ITAssetManagement.Web.Models.LaptopLog.UserId
+  href: ITAssetManagement.Web.Models.LaptopLog.html#ITAssetManagement_Web_Models_LaptopLog_UserId
+  name: UserId
+  nameWithType: LaptopLog.UserId
+  fullName: ITAssetManagement.Web.Models.LaptopLog.UserId

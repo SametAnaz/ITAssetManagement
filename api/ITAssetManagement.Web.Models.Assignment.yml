@@ -1,0 +1,1011 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Models.Assignment
+  commentId: T:ITAssetManagement.Web.Models.Assignment
+  id: Assignment
+  parent: ITAssetManagement.Web.Models
+  children:
+  - ITAssetManagement.Web.Models.Assignment.AssignmentDate
+  - ITAssetManagement.Web.Models.Assignment.Id
+  - ITAssetManagement.Web.Models.Assignment.IslemTipi
+  - ITAssetManagement.Web.Models.Assignment.Laptop
+  - ITAssetManagement.Web.Models.Assignment.LaptopId
+  - ITAssetManagement.Web.Models.Assignment.ReturnDate
+  - ITAssetManagement.Web.Models.Assignment.Tarih
+  - ITAssetManagement.Web.Models.Assignment.User
+  - ITAssetManagement.Web.Models.Assignment.UserId
+  langs:
+  - csharp
+  - vb
+  name: Assignment
+  nameWithType: Assignment
+  fullName: ITAssetManagement.Web.Models.Assignment
+  type: Class
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Assignment
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 39
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    Laptop zimmet işlemlerini temsil eden sınıf.
+
+    Bu sınıf, bir laptopun bir kullanıcıya zimmetlenmesi ve iade süreçlerini yönetir.
+  remarks: >-
+    <p>
+
+    Bu sınıf aşağıdaki işlemleri destekler:
+
+    <ul><li>Yeni zimmet kaydı oluşturma</li><li>Zimmet iade işlemi</li><li>Zimmet geçmişi takibi</li><li>Aktif zimmetlerin yönetimi</li></ul>
+
+    </p>
+
+    <p>
+
+    İlişkili tablolar:
+
+    <ul><li>Laptops - Zimmetlenen cihaz bilgileri</li><li>Users - Zimmeti alan kullanıcı bilgileri</li></ul>
+
+    </p>
+  example:
+  - >-
+    Yeni bir zimmet kaydı oluşturma örneği:
+
+    <pre><code class="lang-csharp">var assignment = new Assignment
+
+    {
+        LaptopId = 1,
+        UserId = 1,
+        AssignmentDate = DateTime.Now,
+        IslemTipi = "Teslim"
+    };</code></pre>
+  syntax:
+    content: public class Assignment
+    content.vb: Public Class Assignment
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ITAssetManagement.Web.Models.Assignment.Id
+  commentId: P:ITAssetManagement.Web.Models.Assignment.Id
+  id: Id
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Assignment.Id
+  fullName: ITAssetManagement.Web.Models.Assignment.Id
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Id
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 44
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: Zimmet kaydının benzersiz kimlik numarası
+  example: []
+  syntax:
+    content: >-
+      [Key]
+
+      public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Key>
+
+      Public Property Id As Integer
+  overload: ITAssetManagement.Web.Models.Assignment.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.Assignment.LaptopId
+  commentId: P:ITAssetManagement.Web.Models.Assignment.LaptopId
+  id: LaptopId
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: LaptopId
+  nameWithType: Assignment.LaptopId
+  fullName: ITAssetManagement.Web.Models.Assignment.LaptopId
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LaptopId
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 55
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    Zimmetlenen laptopun ID'si.
+
+    Bu alan, zimmetlenen cihazı benzersiz şekilde tanımlar.
+  remarks: >-
+    Foreign key olarak Laptop tablosuna referans verir.
+
+    Her laptop aynı anda sadece bir kullanıcıya zimmetlenebilir.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public int LaptopId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      Public Property LaptopId As Integer
+  overload: ITAssetManagement.Web.Models.Assignment.LaptopId*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.Assignment.Laptop
+  commentId: P:ITAssetManagement.Web.Models.Assignment.Laptop
+  id: Laptop
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: Laptop
+  nameWithType: Assignment.Laptop
+  fullName: ITAssetManagement.Web.Models.Assignment.Laptop
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Laptop
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 66
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    Zimmetlenen laptop nesnesi.
+
+    Navigation property olarak laptop detaylarına erişim sağlar.
+  remarks: >-
+    Lazy loading ile ihtiyaç durumunda yüklenir.
+
+    Include() metodu ile eager loading de yapılabilir.
+  example: []
+  syntax:
+    content: >-
+      [ForeignKey("LaptopId")]
+
+      public virtual Laptop? Laptop { get; set; }
+    parameters: []
+    return:
+      type: ITAssetManagement.Web.Models.Laptop
+    content.vb: >-
+      <ForeignKey("LaptopId")>
+
+      Public Overridable Property Laptop As Laptop
+  overload: ITAssetManagement.Web.Models.Assignment.Laptop*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: LaptopId
+- uid: ITAssetManagement.Web.Models.Assignment.UserId
+  commentId: P:ITAssetManagement.Web.Models.Assignment.UserId
+  id: UserId
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: Assignment.UserId
+  fullName: ITAssetManagement.Web.Models.Assignment.UserId
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UserId
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 77
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    Zimmeti alan kullanıcının ID'si.
+
+    Bu alan, zimmeti alan kişiyi benzersiz şekilde tanımlar.
+  remarks: >-
+    Foreign key olarak User tablosuna referans verir.
+
+    Bir kullanıcı birden fazla zimmete sahip olabilir.
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [Display(Name = "User")]
+
+      public int UserId { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Required>
+
+      <Display(Name:="User")>
+
+      Public Property UserId As Integer
+  overload: ITAssetManagement.Web.Models.Assignment.UserId*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: User
+- uid: ITAssetManagement.Web.Models.Assignment.User
+  commentId: P:ITAssetManagement.Web.Models.Assignment.User
+  id: User
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: User
+  nameWithType: Assignment.User
+  fullName: ITAssetManagement.Web.Models.Assignment.User
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: User
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 89
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    Zimmeti alan kullanıcı nesnesi.
+
+    Navigation property olarak kullanıcı detaylarına erişim sağlar.
+  remarks: >-
+    Lazy loading ile ihtiyaç durumunda yüklenir.
+
+    Include() metodu ile eager loading de yapılabilir.
+  example: []
+  syntax:
+    content: >-
+      [ForeignKey("UserId")]
+
+      public virtual User? User { get; set; }
+    parameters: []
+    return:
+      type: ITAssetManagement.Web.Models.User
+    content.vb: >-
+      <ForeignKey("UserId")>
+
+      Public Overridable Property User As User
+  overload: ITAssetManagement.Web.Models.Assignment.User*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.Schema.ForeignKeyAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: UserId
+- uid: ITAssetManagement.Web.Models.Assignment.AssignmentDate
+  commentId: P:ITAssetManagement.Web.Models.Assignment.AssignmentDate
+  id: AssignmentDate
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: AssignmentDate
+  nameWithType: Assignment.AssignmentDate
+  fullName: ITAssetManagement.Web.Models.Assignment.AssignmentDate
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: AssignmentDate
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 106
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    Zimmetin verildiği tarih.
+
+    Varsayılan olarak işlemin yapıldığı anı kaydeder.
+  remarks: >-
+    <p>
+
+    Bu alan şu durumlarda önemlidir:
+
+    <ul><li>Zimmet süresinin takibi</li><li>Raporlama ve istatistik</li><li>Denetim ve kontrol</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [Display(Name = "Assignment Date")]
+
+      public DateTime AssignmentDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <Required>
+
+      <Display(Name:="Assignment Date")>
+
+      Public Property AssignmentDate As Date
+  overload: ITAssetManagement.Web.Models.Assignment.AssignmentDate*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Assignment Date
+- uid: ITAssetManagement.Web.Models.Assignment.ReturnDate
+  commentId: P:ITAssetManagement.Web.Models.Assignment.ReturnDate
+  id: ReturnDate
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: ReturnDate
+  nameWithType: Assignment.ReturnDate
+  fullName: ITAssetManagement.Web.Models.Assignment.ReturnDate
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: ReturnDate
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 124
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    Zimmetin iade edildiği tarih (varsa).
+
+    Null değer, zimmetin hala aktif olduğunu gösterir.
+  remarks: >-
+    <p>
+
+    Bu alan şu amaçlarla kullanılır:
+
+    <ul><li>İade durumunun kontrolü</li><li>Zimmet süresinin hesaplanması</li><li>Aktif/Pasif zimmet filtresi</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: >-
+      [Display(Name = "Return Date")]
+
+      public DateTime? ReturnDate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTime}
+    content.vb: >-
+      <Display(Name:="Return Date")>
+
+      Public Property ReturnDate As Date?
+  overload: ITAssetManagement.Web.Models.Assignment.ReturnDate*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Return Date
+- uid: ITAssetManagement.Web.Models.Assignment.Tarih
+  commentId: P:ITAssetManagement.Web.Models.Assignment.Tarih
+  id: Tarih
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: Tarih
+  nameWithType: Assignment.Tarih
+  fullName: ITAssetManagement.Web.Models.Assignment.Tarih
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Tarih
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 141
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    İşlem tarihi.
+
+    Her zimmet işleminin (veriliş/iade) gerçekleştiği anı kaydeder.
+  remarks: >-
+    <p>
+
+    Bu alan şu amaçlarla kullanılır:
+
+    <ul><li>İşlem geçmişinin takibi</li><li>Audit logging</li><li>Kronolojik sıralama</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [Display(Name = "Date")]
+
+      [DataType(DataType.DateTime)]
+
+      public DateTime Tarih { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <Required>
+
+      <Display(Name:="Date")>
+
+      <DataType(DataType.DateTime)>
+
+      Public Property Tarih As Date
+  overload: ITAssetManagement.Web.Models.Assignment.Tarih*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Date
+  - type: System.ComponentModel.DataAnnotations.DataTypeAttribute
+    ctor: System.ComponentModel.DataAnnotations.DataTypeAttribute.#ctor(System.ComponentModel.DataAnnotations.DataType)
+    arguments:
+    - type: System.ComponentModel.DataAnnotations.DataType
+      value: 1
+- uid: ITAssetManagement.Web.Models.Assignment.IslemTipi
+  commentId: P:ITAssetManagement.Web.Models.Assignment.IslemTipi
+  id: IslemTipi
+  parent: ITAssetManagement.Web.Models.Assignment
+  langs:
+  - csharp
+  - vb
+  name: IslemTipi
+  nameWithType: Assignment.IslemTipi
+  fullName: ITAssetManagement.Web.Models.Assignment.IslemTipi
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Assignment.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: IslemTipi
+    path: ITAssetManagement.Web/Models/Assignment.cs
+    startLine: 160
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models
+  summary: >-
+    İşlem tipi (Teslim, İade vb.).
+
+    Zimmet işleminin türünü belirtir.
+  remarks: >-
+    <p>
+
+    Geçerli işlem tipleri:
+
+    <ul><li>"Teslim" - Yeni zimmet verilişi</li><li>"İade" - Zimmet iadesi</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      [StringLength(50)]
+
+      [Display(Name = "Operation Type")]
+
+      public string IslemTipi { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: İşlem tipini belirten string değer
+    content.vb: >-
+      <Required>
+
+      <StringLength(50)>
+
+      <Display(Name:="Operation Type")>
+
+      Public Property IslemTipi As String
+  overload: ITAssetManagement.Web.Models.Assignment.IslemTipi*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+  - type: System.ComponentModel.DataAnnotations.StringLengthAttribute
+    ctor: System.ComponentModel.DataAnnotations.StringLengthAttribute.#ctor(System.Int32)
+    arguments:
+    - type: System.Int32
+      value: 50
+  - type: System.ComponentModel.DataAnnotations.DisplayAttribute
+    ctor: System.ComponentModel.DataAnnotations.DisplayAttribute.#ctor
+    arguments: []
+    namedArguments:
+    - name: Name
+      type: System.String
+      value: Operation Type
+references:
+- uid: ITAssetManagement.Web.Models
+  commentId: N:ITAssetManagement.Web.Models
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Models
+  nameWithType: ITAssetManagement.Web.Models
+  fullName: ITAssetManagement.Web.Models
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ITAssetManagement.Web.Models.Assignment.Id*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.Id
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_Id
+  name: Id
+  nameWithType: Assignment.Id
+  fullName: ITAssetManagement.Web.Models.Assignment.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ITAssetManagement.Web.Models.Assignment.LaptopId*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.LaptopId
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_LaptopId
+  name: LaptopId
+  nameWithType: Assignment.LaptopId
+  fullName: ITAssetManagement.Web.Models.Assignment.LaptopId
+- uid: ITAssetManagement.Web.Models.Assignment.Laptop*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.Laptop
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_Laptop
+  name: Laptop
+  nameWithType: Assignment.Laptop
+  fullName: ITAssetManagement.Web.Models.Assignment.Laptop
+- uid: ITAssetManagement.Web.Models.Laptop
+  commentId: T:ITAssetManagement.Web.Models.Laptop
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.Laptop.html
+  name: Laptop
+  nameWithType: Laptop
+  fullName: ITAssetManagement.Web.Models.Laptop
+- uid: ITAssetManagement.Web.Models.Assignment.UserId*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.UserId
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_UserId
+  name: UserId
+  nameWithType: Assignment.UserId
+  fullName: ITAssetManagement.Web.Models.Assignment.UserId
+- uid: ITAssetManagement.Web.Models.Assignment.User*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.User
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_User
+  name: User
+  nameWithType: Assignment.User
+  fullName: ITAssetManagement.Web.Models.Assignment.User
+- uid: ITAssetManagement.Web.Models.User
+  commentId: T:ITAssetManagement.Web.Models.User
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.User.html
+  name: User
+  nameWithType: User
+  fullName: ITAssetManagement.Web.Models.User
+- uid: ITAssetManagement.Web.Models.Assignment.AssignmentDate*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.AssignmentDate
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_AssignmentDate
+  name: AssignmentDate
+  nameWithType: Assignment.AssignmentDate
+  fullName: ITAssetManagement.Web.Models.Assignment.AssignmentDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: ITAssetManagement.Web.Models.Assignment.ReturnDate*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.ReturnDate
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_ReturnDate
+  name: ReturnDate
+  nameWithType: Assignment.ReturnDate
+  fullName: ITAssetManagement.Web.Models.Assignment.ReturnDate
+- uid: System.Nullable{System.DateTime}
+  commentId: T:System.Nullable{System.DateTime}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime?
+  nameWithType: DateTime?
+  fullName: System.DateTime?
+  nameWithType.vb: Date?
+  fullName.vb: Date?
+  name.vb: Date?
+  spec.csharp:
+  - uid: System.DateTime
+    name: DateTime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+  spec.vb:
+  - uid: System.DateTime
+    name: Date
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.datetime
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Models.Assignment.Tarih*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.Tarih
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_Tarih
+  name: Tarih
+  nameWithType: Assignment.Tarih
+  fullName: ITAssetManagement.Web.Models.Assignment.Tarih
+- uid: ITAssetManagement.Web.Models.Assignment.IslemTipi*
+  commentId: Overload:ITAssetManagement.Web.Models.Assignment.IslemTipi
+  href: ITAssetManagement.Web.Models.Assignment.html#ITAssetManagement_Web_Models_Assignment_IslemTipi
+  name: IslemTipi
+  nameWithType: Assignment.IslemTipi
+  fullName: ITAssetManagement.Web.Models.Assignment.IslemTipi
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

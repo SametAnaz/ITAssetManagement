@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Models.Email
+  commentId: N:ITAssetManagement.Web.Models.Email
+  id: ITAssetManagement.Web.Models.Email
+  children:
+  - ITAssetManagement.Web.Models.Email.EmailConfiguration
+  - ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Models.Email
+  nameWithType: ITAssetManagement.Web.Models.Email
+  fullName: ITAssetManagement.Web.Models.Email
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Models.Email.EmailConfiguration
+  commentId: T:ITAssetManagement.Web.Models.Email.EmailConfiguration
+  href: ITAssetManagement.Web.Models.Email.EmailConfiguration.html
+  name: EmailConfiguration
+  nameWithType: EmailConfiguration
+  fullName: ITAssetManagement.Web.Models.Email.EmailConfiguration
+- uid: ITAssetManagement.Web.Models.Email.EmailLog
+  commentId: T:ITAssetManagement.Web.Models.Email.EmailLog
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html
+  name: EmailLog
+  nameWithType: EmailLog
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog

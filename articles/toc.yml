@@ -1,0 +1,32 @@
+- name: Introduction
+  href: intro.md
+- name: Getting Started
+  items:
+    - name: Kurulum Kılavuzu
+      href: setup.md
+    - name: Kullanıcı Yönetimi
+      href: user-management.md
+    - name: Varlık Yönetimi
+      href: asset-management.md
+    - name: Zimmet İşlemleri
+      href: assignment-process.md
+    - name: Veritabanı Geçişi
+      href: db-update.md
+- name: Architecture
+  items:
+    - name: System Overview
+      href: architecture/index.md
+    - name: Components & Workflows
+      href: architecture/components.md
+    - name: Implementation Examples
+      href: architecture/implementation-examples.md
+- name: Views
+  items:
+    - name: Overview
+      href: views/index.md
+    - name: View Categories
+      href: views/categories.md
+- name: Frontend
+  items:
+    - name: Static Assets
+      href: frontend/assets.md

@@ -1,0 +1,843 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IUserService
+  id: IUserService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  children:
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.CreateUserAsync(ITAssetManagement.Web.Models.User)
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync(System.Int32)
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.GetAllUsersAsync
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync(System.String)
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync(System.Int32)
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync(System.String)
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync(System.String)
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable(System.String)
+  - ITAssetManagement.Web.Services.Interfaces.IUserService.UpdateUserAsync(ITAssetManagement.Web.Models.User)
+  langs:
+  - csharp
+  - vb
+  name: IUserService
+  nameWithType: IUserService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService
+  type: Interface
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: IUserService
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 19
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: >-
+    Kullanıcı işlemlerini yöneten servis arayüzü.
+
+    Bu servis, kullanıcı yönetimi ve zimmet sahiplerinin bilgilerini yönetir.
+  remarks: >-
+    <p>
+
+    Bu servis aşağıdaki temel işlevleri sağlar:
+
+    <ul><li>Kullanıcı kaydı ve profil yönetimi</li><li>Departman bazlı kullanıcı organizasyonu</li><li>Kullanıcı arama ve filtreleme</li><li>Zimmet sahiplerinin takibi</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IUserService
+    content.vb: Public Interface IUserService
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.GetAllUsersAsync
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.GetAllUsersAsync
+  id: GetAllUsersAsync
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: GetAllUsersAsync()
+  nameWithType: IUserService.GetAllUsersAsync()
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.GetAllUsersAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAllUsersAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 28
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Tüm kullanıcıları getirir.
+  remarks: Varsayılan olarak aktif kullanıcıları alfabetik sırada getirir.
+  example: []
+  syntax:
+    content: Task<IEnumerable<User>> GetAllUsersAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User}}
+      description: Kullanıcı listesi
+    content.vb: Function GetAllUsersAsync() As Task(Of IEnumerable(Of User))
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.GetAllUsersAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync(System.Int32)
+  id: GetUserByIdAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: GetUserByIdAsync(int)
+  nameWithType: IUserService.GetUserByIdAsync(int)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetUserByIdAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 38
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: ID'ye göre kullanıcı getirir.
+  remarks: Kullanıcı ile birlikte aktif zimmetlerini de getirir.
+  example: []
+  syntax:
+    content: Task<User?> GetUserByIdAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Kullanıcı ID'si
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.User}
+      description: Bulunan kullanıcı veya null
+    content.vb: Function GetUserByIdAsync(id As Integer) As Task(Of User)
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync*
+  nameWithType.vb: IUserService.GetUserByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync(Integer)
+  name.vb: GetUserByIdAsync(Integer)
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync(System.String)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync(System.String)
+  id: GetUserByEmailAsync(System.String)
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: GetUserByEmailAsync(string)
+  nameWithType: IUserService.GetUserByEmailAsync(string)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetUserByEmailAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 48
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Email adresine göre kullanıcı getirir.
+  remarks: Email adresleri benzersiz olmalıdır.
+  example: []
+  syntax:
+    content: Task<User?> GetUserByEmailAsync(string email)
+    parameters:
+    - id: email
+      type: System.String
+      description: Kullanıcı email adresi
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.User}
+      description: Bulunan kullanıcı veya null
+    content.vb: Function GetUserByEmailAsync(email As String) As Task(Of User)
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync*
+  nameWithType.vb: IUserService.GetUserByEmailAsync(String)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync(String)
+  name.vb: GetUserByEmailAsync(String)
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync(System.String)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync(System.String)
+  id: GetUsersByDepartmentAsync(System.String)
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: GetUsersByDepartmentAsync(string)
+  nameWithType: IUserService.GetUsersByDepartmentAsync(string)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetUsersByDepartmentAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 58
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Belirli bir departmandaki tüm kullanıcıları getirir.
+  remarks: Sonuçlar pozisyona göre sıralanır.
+  example: []
+  syntax:
+    content: Task<IEnumerable<User>> GetUsersByDepartmentAsync(string department)
+    parameters:
+    - id: department
+      type: System.String
+      description: Departman adı
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User}}
+      description: Departmandaki kullanıcı listesi
+    content.vb: Function GetUsersByDepartmentAsync(department As String) As Task(Of IEnumerable(Of User))
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync*
+  nameWithType.vb: IUserService.GetUsersByDepartmentAsync(String)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync(String)
+  name.vb: GetUsersByDepartmentAsync(String)
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.CreateUserAsync(ITAssetManagement.Web.Models.User)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.CreateUserAsync(ITAssetManagement.Web.Models.User)
+  id: CreateUserAsync(ITAssetManagement.Web.Models.User)
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: CreateUserAsync(User)
+  nameWithType: IUserService.CreateUserAsync(User)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.CreateUserAsync(ITAssetManagement.Web.Models.User)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: CreateUserAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 75
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Yeni bir kullanıcı oluşturur.
+  remarks: >-
+    <p>
+
+    Oluşturma sırasında:
+
+    <ul><li>Email benzersizliği kontrol edilir</li><li>Gerekli validasyonlar yapılır</li><li>Hoşgeldin emaili gönderilir</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: Task<bool> CreateUserAsync(User user)
+    parameters:
+    - id: user
+      type: ITAssetManagement.Web.Models.User
+      description: Oluşturulacak kullanıcı bilgileri
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: İşlem başarılı ise true
+    content.vb: Function CreateUserAsync(user As User) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.CreateUserAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.UpdateUserAsync(ITAssetManagement.Web.Models.User)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.UpdateUserAsync(ITAssetManagement.Web.Models.User)
+  id: UpdateUserAsync(ITAssetManagement.Web.Models.User)
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: UpdateUserAsync(User)
+  nameWithType: IUserService.UpdateUserAsync(User)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.UpdateUserAsync(ITAssetManagement.Web.Models.User)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UpdateUserAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 92
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Kullanıcı bilgilerini günceller.
+  remarks: >-
+    <p>
+
+    Güncelleme sırasında:
+
+    <ul><li>Email değişikliğinde benzersizlik kontrolü yapılır</li><li>Departman değişikliğinde zimmetler kontrol edilir</li><li>İlgili bildirimler gönderilir</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: Task<bool> UpdateUserAsync(User user)
+    parameters:
+    - id: user
+      type: ITAssetManagement.Web.Models.User
+      description: Güncellenecek kullanıcı bilgileri
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: İşlem başarılı ise true
+    content.vb: Function UpdateUserAsync(user As User) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.UpdateUserAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync(System.Int32)
+  id: DeleteUserAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: DeleteUserAsync(int)
+  nameWithType: IUserService.DeleteUserAsync(int)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: DeleteUserAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 109
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Kullanıcıyı siler.
+  remarks: >-
+    <p>
+
+    Silme işlemi öncesinde:
+
+    <ul><li>Aktif zimmetler kontrol edilir</li><li>Soft delete uygulanır</li><li>İlgili kayıtlar arşivlenir</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: Task<bool> DeleteUserAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Silinecek kullanıcı ID'si
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: İşlem başarılı ise true
+    content.vb: Function DeleteUserAsync(id As Integer) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync*
+  nameWithType.vb: IUserService.DeleteUserAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync(Integer)
+  name.vb: DeleteUserAsync(Integer)
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable(System.String)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable(System.String)
+  id: SearchUsersQueryable(System.String)
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: SearchUsersQueryable(string)
+  nameWithType: IUserService.SearchUsersQueryable(string)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SearchUsersQueryable
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 127
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Kullanıcıları arama terimlerine göre sorgulanabilir şekilde filtreler.
+  remarks: >-
+    <p>
+
+    Arama şu alanlarda yapılır:
+
+    <ul><li>Ad Soyad</li><li>Email</li><li>Departman</li><li>Pozisyon</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: IQueryable<User> SearchUsersQueryable(string searchTerm)
+    parameters:
+    - id: searchTerm
+      type: System.String
+      description: Arama terimi
+    return:
+      type: System.Linq.IQueryable{ITAssetManagement.Web.Models.User}
+      description: Sorgulanabilir filtrelenmiş kullanıcı listesi
+    content.vb: Function SearchUsersQueryable(searchTerm As String) As IQueryable(Of User)
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable*
+  nameWithType.vb: IUserService.SearchUsersQueryable(String)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable(String)
+  name.vb: SearchUsersQueryable(String)
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync(System.String)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync(System.String)
+  id: SearchUsersAsync(System.String)
+  parent: ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: SearchUsersAsync(string)
+  nameWithType: IUserService.SearchUsersAsync(string)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SearchUsersAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IUserService.cs
+    startLine: 137
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Kullanıcıları arama terimlerine göre filtreler.
+  remarks: SearchUsersQueryable metodunun execute edilmiş halidir.
+  example: []
+  syntax:
+    content: Task<IEnumerable<User>> SearchUsersAsync(string searchTerm)
+    parameters:
+    - id: searchTerm
+      type: System.String
+      description: Arama terimi
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User}}
+      description: Filtrelenmiş kullanıcı listesi
+    content.vb: Function SearchUsersAsync(searchTerm As String) As Task(Of IEnumerable(Of User))
+  overload: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync*
+  nameWithType.vb: IUserService.SearchUsersAsync(String)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync(String)
+  name.vb: SearchUsersAsync(String)
+references:
+- uid: ITAssetManagement.Web.Services.Interfaces
+  commentId: N:ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Services.Interfaces
+  nameWithType: ITAssetManagement.Web.Services.Interfaces
+  fullName: ITAssetManagement.Web.Services.Interfaces
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.GetAllUsersAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.GetAllUsersAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_GetAllUsersAsync
+  name: GetAllUsersAsync
+  nameWithType: IUserService.GetAllUsersAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.GetAllUsersAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IEnumerable<User>>
+  nameWithType: Task<IEnumerable<User>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.User>>
+  nameWithType.vb: Task(Of IEnumerable(Of User))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.User))
+  name.vb: Task(Of IEnumerable(Of User))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_GetUserByIdAsync_System_Int32_
+  name: GetUserByIdAsync
+  nameWithType: IUserService.GetUserByIdAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByIdAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.User}
+  commentId: T:System.Threading.Tasks.Task{ITAssetManagement.Web.Models.User}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<User>
+  nameWithType: Task<User>
+  fullName: System.Threading.Tasks.Task<ITAssetManagement.Web.Models.User>
+  nameWithType.vb: Task(Of User)
+  fullName.vb: System.Threading.Tasks.Task(Of ITAssetManagement.Web.Models.User)
+  name.vb: Task(Of User)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_GetUserByEmailAsync_System_String_
+  name: GetUserByEmailAsync
+  nameWithType: IUserService.GetUserByEmailAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUserByEmailAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_GetUsersByDepartmentAsync_System_String_
+  name: GetUsersByDepartmentAsync
+  nameWithType: IUserService.GetUsersByDepartmentAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.GetUsersByDepartmentAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.CreateUserAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.CreateUserAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_CreateUserAsync_ITAssetManagement_Web_Models_User_
+  name: CreateUserAsync
+  nameWithType: IUserService.CreateUserAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.CreateUserAsync
+- uid: ITAssetManagement.Web.Models.User
+  commentId: T:ITAssetManagement.Web.Models.User
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.User.html
+  name: User
+  nameWithType: User
+  fullName: ITAssetManagement.Web.Models.User
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ITAssetManagement.Web.Models
+  commentId: N:ITAssetManagement.Web.Models
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Models
+  nameWithType: ITAssetManagement.Web.Models
+  fullName: ITAssetManagement.Web.Models
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.UpdateUserAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.UpdateUserAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_UpdateUserAsync_ITAssetManagement_Web_Models_User_
+  name: UpdateUserAsync
+  nameWithType: IUserService.UpdateUserAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.UpdateUserAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_DeleteUserAsync_System_Int32_
+  name: DeleteUserAsync
+  nameWithType: IUserService.DeleteUserAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.DeleteUserAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_SearchUsersQueryable_System_String_
+  name: SearchUsersQueryable
+  nameWithType: IUserService.SearchUsersQueryable
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersQueryable
+- uid: System.Linq.IQueryable{ITAssetManagement.Web.Models.User}
+  commentId: T:System.Linq.IQueryable{ITAssetManagement.Web.Models.User}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<User>
+  nameWithType: IQueryable<User>
+  fullName: System.Linq.IQueryable<ITAssetManagement.Web.Models.User>
+  nameWithType.vb: IQueryable(Of User)
+  fullName.vb: System.Linq.IQueryable(Of ITAssetManagement.Web.Models.User)
+  name.vb: IQueryable(Of User)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html#ITAssetManagement_Web_Services_Interfaces_IUserService_SearchUsersAsync_System_String_
+  name: SearchUsersAsync
+  nameWithType: IUserService.SearchUsersAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService.SearchUsersAsync

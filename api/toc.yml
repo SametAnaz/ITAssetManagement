@@ -1,0 +1,147 @@
+### YamlMime:TableOfContent
+items:
+- uid: ITAssetManagement.Web.Controllers
+  name: ITAssetManagement.Web.Controllers
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Controllers.AssignmentsController
+    name: AssignmentsController
+    type: Class
+  - uid: ITAssetManagement.Web.Controllers.AuthController
+    name: AuthController
+    type: Class
+  - uid: ITAssetManagement.Web.Controllers.EmailTestController
+    name: EmailTestController
+    type: Class
+  - uid: ITAssetManagement.Web.Controllers.HomeController
+    name: HomeController
+    type: Class
+  - uid: ITAssetManagement.Web.Controllers.LaptopsController
+    name: LaptopsController
+    type: Class
+  - uid: ITAssetManagement.Web.Controllers.UsersController
+    name: UsersController
+    type: Class
+- uid: ITAssetManagement.Web.Data
+  name: ITAssetManagement.Web.Data
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Data.ApplicationDbContext
+    name: ApplicationDbContext
+    type: Class
+- uid: ITAssetManagement.Web.Data.Repositories
+  name: ITAssetManagement.Web.Data.Repositories
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Data.Repositories.AssignmentRepository
+    name: AssignmentRepository
+    type: Class
+  - uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+    name: GenericRepository<T>
+    type: Class
+  - uid: ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+    name: IAssignmentRepository
+    type: Interface
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository<T>
+    type: Interface
+  - uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+    name: ILaptopRepository
+    type: Interface
+  - uid: ITAssetManagement.Web.Data.Repositories.IUserRepository
+    name: IUserRepository
+    type: Interface
+  - uid: ITAssetManagement.Web.Data.Repositories.LaptopRepository
+    name: LaptopRepository
+    type: Class
+  - uid: ITAssetManagement.Web.Data.Repositories.UserRepository
+    name: UserRepository
+    type: Class
+- uid: ITAssetManagement.Web.Extensions
+  name: ITAssetManagement.Web.Extensions
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Extensions.PaginatedList`1
+    name: PaginatedList<T>
+    type: Class
+- uid: ITAssetManagement.Web.Migrations
+  name: ITAssetManagement.Web.Migrations
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Migrations.CreateTables
+    name: CreateTables
+    type: Class
+- uid: ITAssetManagement.Web.Models
+  name: ITAssetManagement.Web.Models
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Models.Assignment
+    name: Assignment
+    type: Class
+  - uid: ITAssetManagement.Web.Models.ErrorViewModel
+    name: ErrorViewModel
+    type: Class
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    type: Class
+  - uid: ITAssetManagement.Web.Models.LaptopLog
+    name: LaptopLog
+    type: Class
+  - uid: ITAssetManagement.Web.Models.LaptopPhoto
+    name: LaptopPhoto
+    type: Class
+  - uid: ITAssetManagement.Web.Models.LoginModel
+    name: LoginModel
+    type: Class
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    type: Class
+- uid: ITAssetManagement.Web.Models.Email
+  name: ITAssetManagement.Web.Models.Email
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Models.Email.EmailConfiguration
+    name: EmailConfiguration
+    type: Class
+  - uid: ITAssetManagement.Web.Models.Email.EmailLog
+    name: EmailLog
+    type: Class
+- uid: ITAssetManagement.Web.Services
+  name: ITAssetManagement.Web.Services
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Services.AssignmentService
+    name: AssignmentService
+    type: Class
+  - uid: ITAssetManagement.Web.Services.BarcodeService
+    name: BarcodeService
+    type: Class
+  - uid: ITAssetManagement.Web.Services.EmailService
+    name: EmailService
+    type: Class
+  - uid: ITAssetManagement.Web.Services.LaptopService
+    name: LaptopService
+    type: Class
+  - uid: ITAssetManagement.Web.Services.UserService
+    name: UserService
+    type: Class
+- uid: ITAssetManagement.Web.Services.Interfaces
+  name: ITAssetManagement.Web.Services.Interfaces
+  type: Namespace
+  items:
+  - uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+    name: IAssignmentService
+    type: Interface
+  - uid: ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+    name: IBarcodeService
+    type: Interface
+  - uid: ITAssetManagement.Web.Services.Interfaces.IEmailService
+    name: IEmailService
+    type: Interface
+  - uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+    name: ILaptopService
+    type: Interface
+  - uid: ITAssetManagement.Web.Services.Interfaces.IUserService
+    name: IUserService
+    type: Interface
+memberLayout: SamePage

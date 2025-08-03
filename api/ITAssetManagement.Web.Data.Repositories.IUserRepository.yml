@@ -1,0 +1,1034 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Data.Repositories.IUserRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IUserRepository
+  id: IUserRepository
+  parent: ITAssetManagement.Web.Data.Repositories
+  children:
+  - ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync(System.String)
+  - ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync(System.Int32)
+  - ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync(System.String)
+  langs:
+  - csharp
+  - vb
+  name: IUserRepository
+  nameWithType: IUserRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.IUserRepository
+  type: Interface
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/IUserRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: IUserRepository
+    path: ITAssetManagement.Web/Data/Repositories/IUserRepository.cs
+    startLine: 7
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Kullanıcı repository arayüzü
+  example: []
+  syntax:
+    content: 'public interface IUserRepository : IGenericRepository<User>'
+    content.vb: Public Interface IUserRepository Inherits IGenericRepository(Of User)
+  inheritedMembers:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetByIdAsync(System.Int32)
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetAllAsync
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.User,System.Boolean}})
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddAsync(ITAssetManagement.Web.Models.User)
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Update(ITAssetManagement.Web.Models.User)
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Remove(ITAssetManagement.Web.Models.User)
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.SaveChangesAsync
+- uid: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync(System.String)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync(System.String)
+  id: GetUserByEmailAsync(System.String)
+  parent: ITAssetManagement.Web.Data.Repositories.IUserRepository
+  langs:
+  - csharp
+  - vb
+  name: GetUserByEmailAsync(string)
+  nameWithType: IUserRepository.GetUserByEmailAsync(string)
+  fullName: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/IUserRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetUserByEmailAsync
+    path: ITAssetManagement.Web/Data/Repositories/IUserRepository.cs
+    startLine: 14
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: E-posta adresine göre kullanıcı getirir
+  example: []
+  syntax:
+    content: Task<User?> GetUserByEmailAsync(string email)
+    parameters:
+    - id: email
+      type: System.String
+      description: Kullanıcı e-posta adresi
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.User}
+      description: Kullanıcı bilgisi veya null
+    content.vb: Function GetUserByEmailAsync(email As String) As Task(Of User)
+  overload: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync*
+  nameWithType.vb: IUserRepository.GetUserByEmailAsync(String)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync(String)
+  name.vb: GetUserByEmailAsync(String)
+- uid: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync(System.String)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync(System.String)
+  id: GetUsersByDepartmentAsync(System.String)
+  parent: ITAssetManagement.Web.Data.Repositories.IUserRepository
+  langs:
+  - csharp
+  - vb
+  name: GetUsersByDepartmentAsync(string)
+  nameWithType: IUserRepository.GetUsersByDepartmentAsync(string)
+  fullName: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/IUserRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetUsersByDepartmentAsync
+    path: ITAssetManagement.Web/Data/Repositories/IUserRepository.cs
+    startLine: 21
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Departmana göre kullanıcıları filtreler
+  example: []
+  syntax:
+    content: Task<IEnumerable<User>> GetUsersByDepartmentAsync(string department)
+    parameters:
+    - id: department
+      type: System.String
+      description: Departman adı
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User}}
+      description: Filtrelenmiş kullanıcı listesi
+    content.vb: Function GetUsersByDepartmentAsync(department As String) As Task(Of IEnumerable(Of User))
+  overload: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync*
+  nameWithType.vb: IUserRepository.GetUsersByDepartmentAsync(String)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync(String)
+  name.vb: GetUsersByDepartmentAsync(String)
+- uid: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync(System.Int32)
+  id: GetUserWithAssignmentsAsync(System.Int32)
+  parent: ITAssetManagement.Web.Data.Repositories.IUserRepository
+  langs:
+  - csharp
+  - vb
+  name: GetUserWithAssignmentsAsync(int)
+  nameWithType: IUserRepository.GetUserWithAssignmentsAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/IUserRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetUserWithAssignmentsAsync
+    path: ITAssetManagement.Web/Data/Repositories/IUserRepository.cs
+    startLine: 28
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: ID'ye göre kullanıcıyı zimmetleriyle birlikte getirir
+  example: []
+  syntax:
+    content: Task<User?> GetUserWithAssignmentsAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Kullanıcı ID
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.User}
+      description: Detaylı kullanıcı bilgisi veya null
+    content.vb: Function GetUserWithAssignmentsAsync(id As Integer) As Task(Of User)
+  overload: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync*
+  nameWithType.vb: IUserRepository.GetUserWithAssignmentsAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync(Integer)
+  name.vb: GetUserWithAssignmentsAsync(Integer)
+references:
+- uid: ITAssetManagement.Web.Data.Repositories
+  commentId: N:ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Data.Repositories
+  nameWithType: ITAssetManagement.Web.Data.Repositories
+  fullName: ITAssetManagement.Web.Data.Repositories
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetByIdAsync(System.Int32)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  name: GetByIdAsync(int)
+  nameWithType: IGenericRepository<User>.GetByIdAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.GetByIdAsync(int)
+  nameWithType.vb: IGenericRepository(Of User).GetByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).GetByIdAsync(Integer)
+  name.vb: GetByIdAsync(Integer)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetAllAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetAllAsync
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  name: GetAllAsync()
+  nameWithType: IGenericRepository<User>.GetAllAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.GetAllAsync()
+  nameWithType.vb: IGenericRepository(Of User).GetAllAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).GetAllAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.User,System.Boolean}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.User,System.Boolean}})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  name: FindAsync(Expression<Func<User, bool>>)
+  nameWithType: IGenericRepository<User>.FindAsync(Expression<Func<User, bool>>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.FindAsync(System.Linq.Expressions.Expression<System.Func<ITAssetManagement.Web.Models.User, bool>>)
+  nameWithType.vb: IGenericRepository(Of User).FindAsync(Expression(Of Func(Of User, Boolean)))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).FindAsync(System.Linq.Expressions.Expression(Of System.Func(Of ITAssetManagement.Web.Models.User, Boolean)))
+  name.vb: FindAsync(Expression(Of Func(Of User, Boolean)))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.User,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.User,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddAsync(ITAssetManagement.Web.Models.User)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddAsync(ITAssetManagement.Web.Models.User)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  name: AddAsync(User)
+  nameWithType: IGenericRepository<User>.AddAsync(User)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.AddAsync(ITAssetManagement.Web.Models.User)
+  nameWithType.vb: IGenericRepository(Of User).AddAsync(User)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).AddAsync(ITAssetManagement.Web.Models.User)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddAsync(ITAssetManagement.Web.Models.User)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddAsync(ITAssetManagement.Web.Models.User)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: AddRangeAsync(IEnumerable<User>)
+  nameWithType: IGenericRepository<User>.AddRangeAsync(IEnumerable<User>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.AddRangeAsync(System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.User>)
+  nameWithType.vb: IGenericRepository(Of User).AddRangeAsync(IEnumerable(Of User))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).AddRangeAsync(System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.User))
+  name.vb: AddRangeAsync(IEnumerable(Of User))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Update(ITAssetManagement.Web.Models.User)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Update(ITAssetManagement.Web.Models.User)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  name: Update(User)
+  nameWithType: IGenericRepository<User>.Update(User)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.Update(ITAssetManagement.Web.Models.User)
+  nameWithType.vb: IGenericRepository(Of User).Update(User)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).Update(ITAssetManagement.Web.Models.User)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Update(ITAssetManagement.Web.Models.User)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Update(ITAssetManagement.Web.Models.User)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Remove(ITAssetManagement.Web.Models.User)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Remove(ITAssetManagement.Web.Models.User)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  name: Remove(User)
+  nameWithType: IGenericRepository<User>.Remove(User)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.Remove(ITAssetManagement.Web.Models.User)
+  nameWithType.vb: IGenericRepository(Of User).Remove(User)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).Remove(ITAssetManagement.Web.Models.User)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Remove(ITAssetManagement.Web.Models.User)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.Remove(ITAssetManagement.Web.Models.User)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  name: RemoveRange(IEnumerable<User>)
+  nameWithType: IGenericRepository<User>.RemoveRange(IEnumerable<User>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.RemoveRange(System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.User>)
+  nameWithType.vb: IGenericRepository(Of User).RemoveRange(IEnumerable(Of User))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).RemoveRange(System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.User))
+  name.vb: RemoveRange(IEnumerable(Of User))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.SaveChangesAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.SaveChangesAsync
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  name: SaveChangesAsync()
+  nameWithType: IGenericRepository<User>.SaveChangesAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>.SaveChangesAsync()
+  nameWithType.vb: IGenericRepository(Of User).SaveChangesAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User).SaveChangesAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  name: GetByIdAsync(int)
+  nameWithType: IGenericRepository<T>.GetByIdAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.GetByIdAsync(int)
+  nameWithType.vb: IGenericRepository(Of T).GetByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).GetByIdAsync(Integer)
+  name.vb: GetByIdAsync(Integer)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.User}
+  parent: ITAssetManagement.Web.Data.Repositories
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  name: IGenericRepository<User>
+  nameWithType: IGenericRepository<User>
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.User>
+  nameWithType.vb: IGenericRepository(Of User)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.User)
+  name.vb: IGenericRepository(Of User)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  name: GetAllAsync()
+  nameWithType: IGenericRepository<T>.GetAllAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.GetAllAsync()
+  nameWithType.vb: IGenericRepository(Of T).GetAllAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).GetAllAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  name: FindAsync(Expression<Func<T, bool>>)
+  nameWithType: IGenericRepository<T>.FindAsync(Expression<Func<T, bool>>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.FindAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)
+  nameWithType.vb: IGenericRepository(Of T).FindAsync(Expression(Of Func(Of T, Boolean)))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).FindAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)))
+  name.vb: FindAsync(Expression(Of Func(Of T, Boolean)))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  name: AddAsync(T)
+  nameWithType: IGenericRepository<T>.AddAsync(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.AddAsync(T)
+  nameWithType.vb: IGenericRepository(Of T).AddAsync(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).AddAsync(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: AddRangeAsync(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.AddRangeAsync(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.AddRangeAsync(System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).AddRangeAsync(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).AddRangeAsync(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: AddRangeAsync(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  name: Remove(T)
+  nameWithType: IGenericRepository<T>.Remove(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.Remove(T)
+  nameWithType.vb: IGenericRepository(Of T).Remove(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).Remove(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  name: RemoveRange(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.RemoveRange(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).RemoveRange(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).RemoveRange(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: RemoveRange(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  name: SaveChangesAsync()
+  nameWithType: IGenericRepository<T>.SaveChangesAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.SaveChangesAsync()
+  nameWithType.vb: IGenericRepository(Of T).SaveChangesAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).SaveChangesAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync
+  href: ITAssetManagement.Web.Data.Repositories.IUserRepository.html#ITAssetManagement_Web_Data_Repositories_IUserRepository_GetUserByEmailAsync_System_String_
+  name: GetUserByEmailAsync
+  nameWithType: IUserRepository.GetUserByEmailAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserByEmailAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.User}
+  commentId: T:System.Threading.Tasks.Task{ITAssetManagement.Web.Models.User}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<User>
+  nameWithType: Task<User>
+  fullName: System.Threading.Tasks.Task<ITAssetManagement.Web.Models.User>
+  nameWithType.vb: Task(Of User)
+  fullName.vb: System.Threading.Tasks.Task(Of ITAssetManagement.Web.Models.User)
+  name.vb: Task(Of User)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync
+  href: ITAssetManagement.Web.Data.Repositories.IUserRepository.html#ITAssetManagement_Web_Data_Repositories_IUserRepository_GetUsersByDepartmentAsync_System_String_
+  name: GetUsersByDepartmentAsync
+  nameWithType: IUserRepository.GetUsersByDepartmentAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUsersByDepartmentAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.User}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IEnumerable<User>>
+  nameWithType: Task<IEnumerable<User>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.User>>
+  nameWithType.vb: Task(Of IEnumerable(Of User))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.User))
+  name.vb: Task(Of IEnumerable(Of User))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.User
+    name: User
+    href: ITAssetManagement.Web.Models.User.html
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync
+  href: ITAssetManagement.Web.Data.Repositories.IUserRepository.html#ITAssetManagement_Web_Data_Repositories_IUserRepository_GetUserWithAssignmentsAsync_System_Int32_
+  name: GetUserWithAssignmentsAsync
+  nameWithType: IUserRepository.GetUserWithAssignmentsAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.IUserRepository.GetUserWithAssignmentsAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

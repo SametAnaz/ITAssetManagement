@@ -1,0 +1,42 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Extensions
+  commentId: N:ITAssetManagement.Web.Extensions
+  id: ITAssetManagement.Web.Extensions
+  children:
+  - ITAssetManagement.Web.Extensions.PaginatedList`1
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Extensions
+  nameWithType: ITAssetManagement.Web.Extensions
+  fullName: ITAssetManagement.Web.Extensions
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Extensions.PaginatedList`1
+  commentId: T:ITAssetManagement.Web.Extensions.PaginatedList`1
+  href: ITAssetManagement.Web.Extensions.PaginatedList-1.html
+  name: PaginatedList<T>
+  nameWithType: PaginatedList<T>
+  fullName: ITAssetManagement.Web.Extensions.PaginatedList<T>
+  nameWithType.vb: PaginatedList(Of T)
+  fullName.vb: ITAssetManagement.Web.Extensions.PaginatedList(Of T)
+  name.vb: PaginatedList(Of T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Extensions.PaginatedList`1
+    name: PaginatedList
+    href: ITAssetManagement.Web.Extensions.PaginatedList-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Extensions.PaginatedList`1
+    name: PaginatedList
+    href: ITAssetManagement.Web.Extensions.PaginatedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

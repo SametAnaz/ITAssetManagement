@@ -1,0 +1,151 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Data.Repositories
+  commentId: N:ITAssetManagement.Web.Data.Repositories
+  id: ITAssetManagement.Web.Data.Repositories
+  children:
+  - ITAssetManagement.Web.Data.Repositories.AssignmentRepository
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  - ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  - ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  - ITAssetManagement.Web.Data.Repositories.IUserRepository
+  - ITAssetManagement.Web.Data.Repositories.LaptopRepository
+  - ITAssetManagement.Web.Data.Repositories.UserRepository
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Data.Repositories
+  nameWithType: ITAssetManagement.Web.Data.Repositories
+  fullName: ITAssetManagement.Web.Data.Repositories
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Data.Repositories.AssignmentRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.AssignmentRepository
+  href: ITAssetManagement.Web.Data.Repositories.AssignmentRepository.html
+  name: AssignmentRepository
+  nameWithType: AssignmentRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.AssignmentRepository
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  commentId: T:ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html
+  name: GenericRepository<T>
+  nameWithType: GenericRepository<T>
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>
+  nameWithType.vb: GenericRepository(Of T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T)
+  name.vb: GenericRepository(Of T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+    name: GenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+    name: GenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+  parent: ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.Web.Data.Repositories.IAssignmentRepository.html
+  name: IAssignmentRepository
+  nameWithType: IAssignmentRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.IAssignmentRepository
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  parent: ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.html
+  name: ILaptopRepository
+  nameWithType: ILaptopRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+- uid: ITAssetManagement.Web.Data.Repositories.IUserRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IUserRepository
+  parent: ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.Web.Data.Repositories.IUserRepository.html
+  name: IUserRepository
+  nameWithType: IUserRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.IUserRepository
+- uid: ITAssetManagement.Web.Data.Repositories.LaptopRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.LaptopRepository
+  href: ITAssetManagement.Web.Data.Repositories.LaptopRepository.html
+  name: LaptopRepository
+  nameWithType: LaptopRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.LaptopRepository
+- uid: ITAssetManagement.Web.Data.Repositories.UserRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.UserRepository
+  href: ITAssetManagement.Web.Data.Repositories.UserRepository.html
+  name: UserRepository
+  nameWithType: UserRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.UserRepository
+- uid: ITAssetManagement.Web.Data.Repositories
+  commentId: N:ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Data.Repositories
+  nameWithType: ITAssetManagement.Web.Data.Repositories
+  fullName: ITAssetManagement.Web.Data.Repositories
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html

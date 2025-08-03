@@ -735,6 +735,36 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/asset-management.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/asset-management.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/assignment-process.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/assignment-process.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/db-update.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/db-update.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/frontend/assets.md",
       "output": {
         ".html": {
@@ -764,6 +794,16 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "articles/setup.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/setup.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
@@ -772,6 +812,16 @@
         },
         ".json": {
           "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/user-management.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/user-management.html"
         }
       },
       "version": ""

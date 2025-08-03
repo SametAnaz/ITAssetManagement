@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Migrations
+  commentId: N:ITAssetManagement.Web.Migrations
+  id: ITAssetManagement.Web.Migrations
+  children:
+  - ITAssetManagement.Web.Migrations.CreateTables
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Migrations
+  nameWithType: ITAssetManagement.Web.Migrations
+  fullName: ITAssetManagement.Web.Migrations
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Migrations.CreateTables
+  commentId: T:ITAssetManagement.Web.Migrations.CreateTables
+  href: ITAssetManagement.Web.Migrations.CreateTables.html
+  name: CreateTables
+  nameWithType: CreateTables
+  fullName: ITAssetManagement.Web.Migrations.CreateTables

@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Data
+  commentId: N:ITAssetManagement.Web.Data
+  id: ITAssetManagement.Web.Data
+  children:
+  - ITAssetManagement.Web.Data.ApplicationDbContext
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Data
+  nameWithType: ITAssetManagement.Web.Data
+  fullName: ITAssetManagement.Web.Data
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Data.ApplicationDbContext
+  commentId: T:ITAssetManagement.Web.Data.ApplicationDbContext
+  parent: ITAssetManagement.Web.Data
+  href: ITAssetManagement.Web.Data.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: ITAssetManagement.Web.Data.ApplicationDbContext
+- uid: ITAssetManagement.Web.Data
+  commentId: N:ITAssetManagement.Web.Data
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Data
+  nameWithType: ITAssetManagement.Web.Data
+  fullName: ITAssetManagement.Web.Data
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html

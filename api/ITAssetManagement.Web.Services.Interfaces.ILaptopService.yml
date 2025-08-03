@@ -1,0 +1,912 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  id: ILaptopService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  children:
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.CreateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync(System.Int32,System.String)
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsAsync
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsQueryable
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAvailableLaptopsAsync
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetDeletedLaptopsAsync
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync(System.Int32)
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync(System.Int32)
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync(System.Int32)
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync(System.String)
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable(System.String)
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService.UpdateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  langs:
+  - csharp
+  - vb
+  name: ILaptopService
+  nameWithType: ILaptopService
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  type: Interface
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: ILaptopService
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 8
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Laptop işlemlerini yöneten servis arayüzü
+  example: []
+  syntax:
+    content: public interface ILaptopService
+    content.vb: Public Interface ILaptopService
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsAsync
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsAsync
+  id: GetAllLaptopsAsync
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: GetAllLaptopsAsync()
+  nameWithType: ILaptopService.GetAllLaptopsAsync()
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAllLaptopsAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 14
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Tüm laptopları getirir
+  example: []
+  syntax:
+    content: Task<IEnumerable<Laptop>> GetAllLaptopsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+      description: Laptop listesi
+    content.vb: Function GetAllLaptopsAsync() As Task(Of IEnumerable(Of Laptop))
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsQueryable
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsQueryable
+  id: GetAllLaptopsQueryable
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: GetAllLaptopsQueryable()
+  nameWithType: ILaptopService.GetAllLaptopsQueryable()
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsQueryable()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAllLaptopsQueryable
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 20
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Tüm laptopları sorgulanabilir şekilde getirir
+  example: []
+  syntax:
+    content: IQueryable<Laptop> GetAllLaptopsQueryable()
+    return:
+      type: System.Linq.IQueryable{ITAssetManagement.Web.Models.Laptop}
+      description: Sorgulanabilir laptop listesi
+    content.vb: Function GetAllLaptopsQueryable() As IQueryable(Of Laptop)
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsQueryable*
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync(System.Int32)
+  id: GetLaptopByIdAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: GetLaptopByIdAsync(int)
+  nameWithType: ILaptopService.GetLaptopByIdAsync(int)
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetLaptopByIdAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 27
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: ID'ye göre laptop getirir
+  example: []
+  syntax:
+    content: Task<Laptop?> GetLaptopByIdAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Laptop ID
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Laptop}
+      description: Laptop nesnesi veya null
+    content.vb: Function GetLaptopByIdAsync(id As Integer) As Task(Of Laptop)
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync*
+  nameWithType.vb: ILaptopService.GetLaptopByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync(Integer)
+  name.vb: GetLaptopByIdAsync(Integer)
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync(System.Int32)
+  id: GetLaptopWithDetailsAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: GetLaptopWithDetailsAsync(int)
+  nameWithType: ILaptopService.GetLaptopWithDetailsAsync(int)
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetLaptopWithDetailsAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 34
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: ID'ye göre laptop ve ilişkili detaylarını getirir
+  example: []
+  syntax:
+    content: Task<Laptop?> GetLaptopWithDetailsAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Laptop ID
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Laptop}
+      description: Detaylı laptop nesnesi veya null
+    content.vb: Function GetLaptopWithDetailsAsync(id As Integer) As Task(Of Laptop)
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync*
+  nameWithType.vb: ILaptopService.GetLaptopWithDetailsAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync(Integer)
+  name.vb: GetLaptopWithDetailsAsync(Integer)
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.CreateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.CreateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  id: CreateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: CreateLaptopAsync(Laptop)
+  nameWithType: ILaptopService.CreateLaptopAsync(Laptop)
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.CreateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: CreateLaptopAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 41
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Yeni laptop oluşturur
+  example: []
+  syntax:
+    content: Task<bool> CreateLaptopAsync(Laptop laptop)
+    parameters:
+    - id: laptop
+      type: ITAssetManagement.Web.Models.Laptop
+      description: Laptop nesnesi
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: İşlem başarılı ise true
+    content.vb: Function CreateLaptopAsync(laptop As Laptop) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.CreateLaptopAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.UpdateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.UpdateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  id: UpdateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: UpdateLaptopAsync(Laptop)
+  nameWithType: ILaptopService.UpdateLaptopAsync(Laptop)
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.UpdateLaptopAsync(ITAssetManagement.Web.Models.Laptop)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: UpdateLaptopAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 48
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Laptop bilgilerini günceller
+  example: []
+  syntax:
+    content: Task<bool> UpdateLaptopAsync(Laptop laptop)
+    parameters:
+    - id: laptop
+      type: ITAssetManagement.Web.Models.Laptop
+      description: Güncellenecek laptop nesnesi
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: İşlem başarılı ise true
+    content.vb: Function UpdateLaptopAsync(laptop As Laptop) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.UpdateLaptopAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync(System.Int32,System.String)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync(System.Int32,System.String)
+  id: DeleteLaptopAsync(System.Int32,System.String)
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: DeleteLaptopAsync(int, string?)
+  nameWithType: ILaptopService.DeleteLaptopAsync(int, string?)
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync(int, string?)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: DeleteLaptopAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 56
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Laptop'u siler (soft delete)
+  example: []
+  syntax:
+    content: Task<bool> DeleteLaptopAsync(int id, string? silmeNedeni = null)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Laptop ID
+    - id: silmeNedeni
+      type: System.String
+      description: Silme nedeni
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: İşlem başarılı ise true
+    content.vb: Function DeleteLaptopAsync(id As Integer, silmeNedeni As String = Nothing) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync*
+  nameWithType.vb: ILaptopService.DeleteLaptopAsync(Integer, String)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync(Integer, String)
+  name.vb: DeleteLaptopAsync(Integer, String)
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetDeletedLaptopsAsync
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetDeletedLaptopsAsync
+  id: GetDeletedLaptopsAsync
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: GetDeletedLaptopsAsync()
+  nameWithType: ILaptopService.GetDeletedLaptopsAsync()
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetDeletedLaptopsAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetDeletedLaptopsAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 62
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Silinmiş laptopları getirir
+  example: []
+  syntax:
+    content: Task<IEnumerable<Laptop>> GetDeletedLaptopsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+      description: Silinmiş laptop listesi
+    content.vb: Function GetDeletedLaptopsAsync() As Task(Of IEnumerable(Of Laptop))
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetDeletedLaptopsAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync(System.Int32)
+  id: RestoreLaptopAsync(System.Int32)
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: RestoreLaptopAsync(int)
+  nameWithType: ILaptopService.RestoreLaptopAsync(int)
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: RestoreLaptopAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 69
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Silinmiş laptop'u geri yükler
+  example: []
+  syntax:
+    content: Task<bool> RestoreLaptopAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Laptop ID
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: İşlem başarılı ise true
+    content.vb: Function RestoreLaptopAsync(id As Integer) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync*
+  nameWithType.vb: ILaptopService.RestoreLaptopAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync(Integer)
+  name.vb: RestoreLaptopAsync(Integer)
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAvailableLaptopsAsync
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAvailableLaptopsAsync
+  id: GetAvailableLaptopsAsync
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: GetAvailableLaptopsAsync()
+  nameWithType: ILaptopService.GetAvailableLaptopsAsync()
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAvailableLaptopsAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAvailableLaptopsAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 75
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Zimmetlenmemiş laptopları getirir
+  example: []
+  syntax:
+    content: Task<IEnumerable<Laptop>> GetAvailableLaptopsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+      description: Müsait laptop listesi
+    content.vb: Function GetAvailableLaptopsAsync() As Task(Of IEnumerable(Of Laptop))
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAvailableLaptopsAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync(System.String)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync(System.String)
+  id: SearchLaptopsAsync(System.String)
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: SearchLaptopsAsync(string)
+  nameWithType: ILaptopService.SearchLaptopsAsync(string)
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SearchLaptopsAsync
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 82
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Laptop'ları arama terimlerine göre filtreler
+  example: []
+  syntax:
+    content: Task<IEnumerable<Laptop>> SearchLaptopsAsync(string searchTerm)
+    parameters:
+    - id: searchTerm
+      type: System.String
+      description: Arama terimi
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+      description: Filtrelenmiş laptop listesi
+    content.vb: Function SearchLaptopsAsync(searchTerm As String) As Task(Of IEnumerable(Of Laptop))
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync*
+  nameWithType.vb: ILaptopService.SearchLaptopsAsync(String)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync(String)
+  name.vb: SearchLaptopsAsync(String)
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable(System.String)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable(System.String)
+  id: SearchLaptopsQueryable(System.String)
+  parent: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  langs:
+  - csharp
+  - vb
+  name: SearchLaptopsQueryable(string)
+  nameWithType: ILaptopService.SearchLaptopsQueryable(string)
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable(string)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SearchLaptopsQueryable
+    path: ITAssetManagement.Web/Services/Interfaces/ILaptopService.cs
+    startLine: 89
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Laptop'ları arama terimlerine göre sorgulanabilir şekilde filtreler
+  example: []
+  syntax:
+    content: IQueryable<Laptop> SearchLaptopsQueryable(string searchTerm)
+    parameters:
+    - id: searchTerm
+      type: System.String
+      description: Arama terimi
+    return:
+      type: System.Linq.IQueryable{ITAssetManagement.Web.Models.Laptop}
+      description: Sorgulanabilir filtrelenmiş laptop listesi
+    content.vb: Function SearchLaptopsQueryable(searchTerm As String) As IQueryable(Of Laptop)
+  overload: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable*
+  nameWithType.vb: ILaptopService.SearchLaptopsQueryable(String)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable(String)
+  name.vb: SearchLaptopsQueryable(String)
+references:
+- uid: ITAssetManagement.Web.Services.Interfaces
+  commentId: N:ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Services.Interfaces
+  nameWithType: ITAssetManagement.Web.Services.Interfaces
+  fullName: ITAssetManagement.Web.Services.Interfaces
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_GetAllLaptopsAsync
+  name: GetAllLaptopsAsync
+  nameWithType: ILaptopService.GetAllLaptopsAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IEnumerable<Laptop>>
+  nameWithType: Task<IEnumerable<Laptop>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.Laptop>>
+  nameWithType.vb: Task(Of IEnumerable(Of Laptop))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.Laptop))
+  name.vb: Task(Of IEnumerable(Of Laptop))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsQueryable*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsQueryable
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_GetAllLaptopsQueryable
+  name: GetAllLaptopsQueryable
+  nameWithType: ILaptopService.GetAllLaptopsQueryable
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAllLaptopsQueryable
+- uid: System.Linq.IQueryable{ITAssetManagement.Web.Models.Laptop}
+  commentId: T:System.Linq.IQueryable{ITAssetManagement.Web.Models.Laptop}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<Laptop>
+  nameWithType: IQueryable<Laptop>
+  fullName: System.Linq.IQueryable<ITAssetManagement.Web.Models.Laptop>
+  nameWithType.vb: IQueryable(Of Laptop)
+  fullName.vb: System.Linq.IQueryable(Of ITAssetManagement.Web.Models.Laptop)
+  name.vb: IQueryable(Of Laptop)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_GetLaptopByIdAsync_System_Int32_
+  name: GetLaptopByIdAsync
+  nameWithType: ILaptopService.GetLaptopByIdAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopByIdAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Laptop}
+  commentId: T:System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Laptop}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Laptop>
+  nameWithType: Task<Laptop>
+  fullName: System.Threading.Tasks.Task<ITAssetManagement.Web.Models.Laptop>
+  nameWithType.vb: Task(Of Laptop)
+  fullName.vb: System.Threading.Tasks.Task(Of ITAssetManagement.Web.Models.Laptop)
+  name.vb: Task(Of Laptop)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_GetLaptopWithDetailsAsync_System_Int32_
+  name: GetLaptopWithDetailsAsync
+  nameWithType: ILaptopService.GetLaptopWithDetailsAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetLaptopWithDetailsAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.CreateLaptopAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.CreateLaptopAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_CreateLaptopAsync_ITAssetManagement_Web_Models_Laptop_
+  name: CreateLaptopAsync
+  nameWithType: ILaptopService.CreateLaptopAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.CreateLaptopAsync
+- uid: ITAssetManagement.Web.Models.Laptop
+  commentId: T:ITAssetManagement.Web.Models.Laptop
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.Laptop.html
+  name: Laptop
+  nameWithType: Laptop
+  fullName: ITAssetManagement.Web.Models.Laptop
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ITAssetManagement.Web.Models
+  commentId: N:ITAssetManagement.Web.Models
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Models
+  nameWithType: ITAssetManagement.Web.Models
+  fullName: ITAssetManagement.Web.Models
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.UpdateLaptopAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.UpdateLaptopAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_UpdateLaptopAsync_ITAssetManagement_Web_Models_Laptop_
+  name: UpdateLaptopAsync
+  nameWithType: ILaptopService.UpdateLaptopAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.UpdateLaptopAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_DeleteLaptopAsync_System_Int32_System_String_
+  name: DeleteLaptopAsync
+  nameWithType: ILaptopService.DeleteLaptopAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.DeleteLaptopAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetDeletedLaptopsAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetDeletedLaptopsAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_GetDeletedLaptopsAsync
+  name: GetDeletedLaptopsAsync
+  nameWithType: ILaptopService.GetDeletedLaptopsAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetDeletedLaptopsAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_RestoreLaptopAsync_System_Int32_
+  name: RestoreLaptopAsync
+  nameWithType: ILaptopService.RestoreLaptopAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.RestoreLaptopAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAvailableLaptopsAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAvailableLaptopsAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_GetAvailableLaptopsAsync
+  name: GetAvailableLaptopsAsync
+  nameWithType: ILaptopService.GetAvailableLaptopsAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.GetAvailableLaptopsAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_SearchLaptopsAsync_System_String_
+  name: SearchLaptopsAsync
+  nameWithType: ILaptopService.SearchLaptopsAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html#ITAssetManagement_Web_Services_Interfaces_ILaptopService_SearchLaptopsQueryable_System_String_
+  name: SearchLaptopsQueryable
+  nameWithType: ILaptopService.SearchLaptopsQueryable
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService.SearchLaptopsQueryable

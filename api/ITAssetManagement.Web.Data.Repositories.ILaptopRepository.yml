@@ -1,0 +1,1092 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  commentId: T:ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  id: ILaptopRepository
+  parent: ITAssetManagement.Web.Data.Repositories
+  children:
+  - ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllActiveLaptopsAsync
+  - ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllDeletedLaptopsAsync
+  - ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync(System.Int32)
+  - ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync(System.Int32)
+  - ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopsWithDetailsAsync
+  langs:
+  - csharp
+  - vb
+  name: ILaptopRepository
+  nameWithType: ILaptopRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  type: Interface
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: ILaptopRepository
+    path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+    startLine: 7
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Laptop repository arayüzü
+  example: []
+  syntax:
+    content: 'public interface ILaptopRepository : IGenericRepository<Laptop>'
+    content.vb: Public Interface ILaptopRepository Inherits IGenericRepository(Of Laptop)
+  inheritedMembers:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetByIdAsync(System.Int32)
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetAllAsync
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.Laptop,System.Boolean}})
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddAsync(ITAssetManagement.Web.Models.Laptop)
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Update(ITAssetManagement.Web.Models.Laptop)
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Remove(ITAssetManagement.Web.Models.Laptop)
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.SaveChangesAsync
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync(System.Int32)
+  id: GetLaptopWithDetailsAsync(System.Int32)
+  parent: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  langs:
+  - csharp
+  - vb
+  name: GetLaptopWithDetailsAsync(int)
+  nameWithType: ILaptopRepository.GetLaptopWithDetailsAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetLaptopWithDetailsAsync
+    path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+    startLine: 14
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: ID'ye göre laptop'u ilişkili verilerle birlikte getirir
+  example: []
+  syntax:
+    content: Task<Laptop?> GetLaptopWithDetailsAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Laptop ID
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Laptop}
+      description: Detaylı laptop bilgisi veya null
+    content.vb: Function GetLaptopWithDetailsAsync(id As Integer) As Task(Of Laptop)
+  overload: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync*
+  nameWithType.vb: ILaptopRepository.GetLaptopWithDetailsAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync(Integer)
+  name.vb: GetLaptopWithDetailsAsync(Integer)
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopsWithDetailsAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopsWithDetailsAsync
+  id: GetLaptopsWithDetailsAsync
+  parent: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  langs:
+  - csharp
+  - vb
+  name: GetLaptopsWithDetailsAsync()
+  nameWithType: ILaptopRepository.GetLaptopsWithDetailsAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopsWithDetailsAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetLaptopsWithDetailsAsync
+    path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+    startLine: 20
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Tüm laptop'ları ilişkili verilerle birlikte getirir
+  example: []
+  syntax:
+    content: Task<IEnumerable<Laptop>> GetLaptopsWithDetailsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+      description: Detaylı laptop listesi
+    content.vb: Function GetLaptopsWithDetailsAsync() As Task(Of IEnumerable(Of Laptop))
+  overload: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopsWithDetailsAsync*
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllActiveLaptopsAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllActiveLaptopsAsync
+  id: GetAllActiveLaptopsAsync
+  parent: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  langs:
+  - csharp
+  - vb
+  name: GetAllActiveLaptopsAsync()
+  nameWithType: ILaptopRepository.GetAllActiveLaptopsAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllActiveLaptopsAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAllActiveLaptopsAsync
+    path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+    startLine: 26
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Aktif durumdaki tüm laptop'ları getirir
+  example: []
+  syntax:
+    content: Task<IEnumerable<Laptop>> GetAllActiveLaptopsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+      description: Aktif laptop listesi
+    content.vb: Function GetAllActiveLaptopsAsync() As Task(Of IEnumerable(Of Laptop))
+  overload: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllActiveLaptopsAsync*
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllDeletedLaptopsAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllDeletedLaptopsAsync
+  id: GetAllDeletedLaptopsAsync
+  parent: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  langs:
+  - csharp
+  - vb
+  name: GetAllDeletedLaptopsAsync()
+  nameWithType: ILaptopRepository.GetAllDeletedLaptopsAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllDeletedLaptopsAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAllDeletedLaptopsAsync
+    path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+    startLine: 32
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Silinmiş durumdaki tüm laptop'ları getirir
+  example: []
+  syntax:
+    content: Task<IEnumerable<Laptop>> GetAllDeletedLaptopsAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+      description: Silinmiş laptop listesi
+    content.vb: Function GetAllDeletedLaptopsAsync() As Task(Of IEnumerable(Of Laptop))
+  overload: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllDeletedLaptopsAsync*
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync(System.Int32)
+  id: GetLaptopByIdIncludingDeletedAsync(System.Int32)
+  parent: ITAssetManagement.Web.Data.Repositories.ILaptopRepository
+  langs:
+  - csharp
+  - vb
+  name: GetLaptopByIdIncludingDeletedAsync(int)
+  nameWithType: ILaptopRepository.GetLaptopByIdIncludingDeletedAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetLaptopByIdIncludingDeletedAsync
+    path: ITAssetManagement.Web/Data/Repositories/ILaptopRepository.cs
+    startLine: 39
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: ID'ye göre laptop'u silinmiş olsa bile getirir
+  example: []
+  syntax:
+    content: Task<Laptop?> GetLaptopByIdIncludingDeletedAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Laptop ID
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Laptop}
+      description: Laptop bilgisi veya null
+    content.vb: Function GetLaptopByIdIncludingDeletedAsync(id As Integer) As Task(Of Laptop)
+  overload: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync*
+  nameWithType.vb: ILaptopRepository.GetLaptopByIdIncludingDeletedAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync(Integer)
+  name.vb: GetLaptopByIdIncludingDeletedAsync(Integer)
+references:
+- uid: ITAssetManagement.Web.Data.Repositories
+  commentId: N:ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Data.Repositories
+  nameWithType: ITAssetManagement.Web.Data.Repositories
+  fullName: ITAssetManagement.Web.Data.Repositories
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetByIdAsync(System.Int32)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  name: GetByIdAsync(int)
+  nameWithType: IGenericRepository<Laptop>.GetByIdAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.GetByIdAsync(int)
+  nameWithType.vb: IGenericRepository(Of Laptop).GetByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).GetByIdAsync(Integer)
+  name.vb: GetByIdAsync(Integer)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetAllAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetAllAsync
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  name: GetAllAsync()
+  nameWithType: IGenericRepository<Laptop>.GetAllAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.GetAllAsync()
+  nameWithType.vb: IGenericRepository(Of Laptop).GetAllAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).GetAllAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.Laptop,System.Boolean}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.Laptop,System.Boolean}})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  name: FindAsync(Expression<Func<Laptop, bool>>)
+  nameWithType: IGenericRepository<Laptop>.FindAsync(Expression<Func<Laptop, bool>>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.FindAsync(System.Linq.Expressions.Expression<System.Func<ITAssetManagement.Web.Models.Laptop, bool>>)
+  nameWithType.vb: IGenericRepository(Of Laptop).FindAsync(Expression(Of Func(Of Laptop, Boolean)))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).FindAsync(System.Linq.Expressions.Expression(Of System.Func(Of ITAssetManagement.Web.Models.Laptop, Boolean)))
+  name.vb: FindAsync(Expression(Of Func(Of Laptop, Boolean)))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.Laptop,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.FindAsync(System.Linq.Expressions.Expression{System.Func{ITAssetManagement.Web.Models.Laptop,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddAsync(ITAssetManagement.Web.Models.Laptop)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddAsync(ITAssetManagement.Web.Models.Laptop)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  name: AddAsync(Laptop)
+  nameWithType: IGenericRepository<Laptop>.AddAsync(Laptop)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.AddAsync(ITAssetManagement.Web.Models.Laptop)
+  nameWithType.vb: IGenericRepository(Of Laptop).AddAsync(Laptop)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).AddAsync(ITAssetManagement.Web.Models.Laptop)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddAsync(ITAssetManagement.Web.Models.Laptop)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddAsync(ITAssetManagement.Web.Models.Laptop)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: AddRangeAsync(IEnumerable<Laptop>)
+  nameWithType: IGenericRepository<Laptop>.AddRangeAsync(IEnumerable<Laptop>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.AddRangeAsync(System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.Laptop>)
+  nameWithType.vb: IGenericRepository(Of Laptop).AddRangeAsync(IEnumerable(Of Laptop))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).AddRangeAsync(System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.Laptop))
+  name.vb: AddRangeAsync(IEnumerable(Of Laptop))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.AddRangeAsync(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Update(ITAssetManagement.Web.Models.Laptop)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Update(ITAssetManagement.Web.Models.Laptop)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  name: Update(Laptop)
+  nameWithType: IGenericRepository<Laptop>.Update(Laptop)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.Update(ITAssetManagement.Web.Models.Laptop)
+  nameWithType.vb: IGenericRepository(Of Laptop).Update(Laptop)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).Update(ITAssetManagement.Web.Models.Laptop)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Update(ITAssetManagement.Web.Models.Laptop)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Update(ITAssetManagement.Web.Models.Laptop)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Remove(ITAssetManagement.Web.Models.Laptop)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Remove(ITAssetManagement.Web.Models.Laptop)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  name: Remove(Laptop)
+  nameWithType: IGenericRepository<Laptop>.Remove(Laptop)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.Remove(ITAssetManagement.Web.Models.Laptop)
+  nameWithType.vb: IGenericRepository(Of Laptop).Remove(Laptop)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).Remove(ITAssetManagement.Web.Models.Laptop)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Remove(ITAssetManagement.Web.Models.Laptop)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.Remove(ITAssetManagement.Web.Models.Laptop)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  name: RemoveRange(IEnumerable<Laptop>)
+  nameWithType: IGenericRepository<Laptop>.RemoveRange(IEnumerable<Laptop>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.RemoveRange(System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.Laptop>)
+  nameWithType.vb: IGenericRepository(Of Laptop).RemoveRange(IEnumerable(Of Laptop))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).RemoveRange(System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.Laptop))
+  name.vb: RemoveRange(IEnumerable(Of Laptop))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.RemoveRange(System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.SaveChangesAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.SaveChangesAsync
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  name: SaveChangesAsync()
+  nameWithType: IGenericRepository<Laptop>.SaveChangesAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>.SaveChangesAsync()
+  nameWithType.vb: IGenericRepository(Of Laptop).SaveChangesAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop).SaveChangesAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  name: GetByIdAsync(int)
+  nameWithType: IGenericRepository<T>.GetByIdAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.GetByIdAsync(int)
+  nameWithType.vb: IGenericRepository(Of T).GetByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).GetByIdAsync(Integer)
+  name.vb: GetByIdAsync(Integer)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IGenericRepository{ITAssetManagement.Web.Models.Laptop}
+  parent: ITAssetManagement.Web.Data.Repositories
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  name: IGenericRepository<Laptop>
+  nameWithType: IGenericRepository<Laptop>
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<ITAssetManagement.Web.Models.Laptop>
+  nameWithType.vb: IGenericRepository(Of Laptop)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of ITAssetManagement.Web.Models.Laptop)
+  name.vb: IGenericRepository(Of Laptop)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  name: GetAllAsync()
+  nameWithType: IGenericRepository<T>.GetAllAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.GetAllAsync()
+  nameWithType.vb: IGenericRepository(Of T).GetAllAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).GetAllAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  name: FindAsync(Expression<Func<T, bool>>)
+  nameWithType: IGenericRepository<T>.FindAsync(Expression<Func<T, bool>>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.FindAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)
+  nameWithType.vb: IGenericRepository(Of T).FindAsync(Expression(Of Func(Of T, Boolean)))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).FindAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)))
+  name.vb: FindAsync(Expression(Of Func(Of T, Boolean)))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  name: AddAsync(T)
+  nameWithType: IGenericRepository<T>.AddAsync(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.AddAsync(T)
+  nameWithType.vb: IGenericRepository(Of T).AddAsync(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).AddAsync(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: AddRangeAsync(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.AddRangeAsync(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.AddRangeAsync(System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).AddRangeAsync(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).AddRangeAsync(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: AddRangeAsync(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  name: Remove(T)
+  nameWithType: IGenericRepository<T>.Remove(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.Remove(T)
+  nameWithType.vb: IGenericRepository(Of T).Remove(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).Remove(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  name: RemoveRange(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.RemoveRange(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).RemoveRange(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).RemoveRange(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: RemoveRange(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  name: SaveChangesAsync()
+  nameWithType: IGenericRepository<T>.SaveChangesAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.SaveChangesAsync()
+  nameWithType.vb: IGenericRepository(Of T).SaveChangesAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).SaveChangesAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync
+  href: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.html#ITAssetManagement_Web_Data_Repositories_ILaptopRepository_GetLaptopWithDetailsAsync_System_Int32_
+  name: GetLaptopWithDetailsAsync
+  nameWithType: ILaptopRepository.GetLaptopWithDetailsAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopWithDetailsAsync
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Laptop}
+  commentId: T:System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Laptop}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Laptop>
+  nameWithType: Task<Laptop>
+  fullName: System.Threading.Tasks.Task<ITAssetManagement.Web.Models.Laptop>
+  nameWithType.vb: Task(Of Laptop)
+  fullName.vb: System.Threading.Tasks.Task(Of ITAssetManagement.Web.Models.Laptop)
+  name.vb: Task(Of Laptop)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopsWithDetailsAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopsWithDetailsAsync
+  href: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.html#ITAssetManagement_Web_Data_Repositories_ILaptopRepository_GetLaptopsWithDetailsAsync
+  name: GetLaptopsWithDetailsAsync
+  nameWithType: ILaptopRepository.GetLaptopsWithDetailsAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopsWithDetailsAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{ITAssetManagement.Web.Models.Laptop}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IEnumerable<Laptop>>
+  nameWithType: Task<IEnumerable<Laptop>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<ITAssetManagement.Web.Models.Laptop>>
+  nameWithType.vb: Task(Of IEnumerable(Of Laptop))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of ITAssetManagement.Web.Models.Laptop))
+  name.vb: Task(Of IEnumerable(Of Laptop))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Laptop
+    name: Laptop
+    href: ITAssetManagement.Web.Models.Laptop.html
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllActiveLaptopsAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllActiveLaptopsAsync
+  href: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.html#ITAssetManagement_Web_Data_Repositories_ILaptopRepository_GetAllActiveLaptopsAsync
+  name: GetAllActiveLaptopsAsync
+  nameWithType: ILaptopRepository.GetAllActiveLaptopsAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllActiveLaptopsAsync
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllDeletedLaptopsAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllDeletedLaptopsAsync
+  href: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.html#ITAssetManagement_Web_Data_Repositories_ILaptopRepository_GetAllDeletedLaptopsAsync
+  name: GetAllDeletedLaptopsAsync
+  nameWithType: ILaptopRepository.GetAllDeletedLaptopsAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetAllDeletedLaptopsAsync
+- uid: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync
+  href: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.html#ITAssetManagement_Web_Data_Repositories_ILaptopRepository_GetLaptopByIdIncludingDeletedAsync_System_Int32_
+  name: GetLaptopByIdIncludingDeletedAsync
+  nameWithType: ILaptopRepository.GetLaptopByIdIncludingDeletedAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.ILaptopRepository.GetLaptopByIdIncludingDeletedAsync

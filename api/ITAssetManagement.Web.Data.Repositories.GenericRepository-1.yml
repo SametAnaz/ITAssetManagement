@@ -1,0 +1,2008 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  commentId: T:ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  id: GenericRepository`1
+  parent: ITAssetManagement.Web.Data.Repositories
+  children:
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.#ctor(ITAssetManagement.Web.Data.ApplicationDbContext)
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddAsync(`0)
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetAllAsync
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetByIdAsync(System.Int32)
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Remove(`0)
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.SaveChangesAsync
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Update(`0)
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1._context
+  - ITAssetManagement.Web.Data.Repositories.GenericRepository`1._dbSet
+  langs:
+  - csharp
+  - vb
+  name: GenericRepository<T>
+  nameWithType: GenericRepository<T>
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>
+  type: Class
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GenericRepository
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 10
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Genel repository sınıfı implementasyonu
+  example: []
+  syntax:
+    content: 'public class GenericRepository<T> : IGenericRepository<T> where T : class'
+    typeParameters:
+    - id: T
+      description: Entity tipi
+    content.vb: Public Class GenericRepository(Of T As Class) Implements IGenericRepository(Of T)
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - ITAssetManagement.Web.Data.Repositories.AssignmentRepository
+  - ITAssetManagement.Web.Data.Repositories.LaptopRepository
+  - ITAssetManagement.Web.Data.Repositories.UserRepository
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: GenericRepository(Of T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T)
+  name.vb: GenericRepository(Of T)
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1._context
+  commentId: F:ITAssetManagement.Web.Data.Repositories.GenericRepository`1._context
+  id: _context
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: _context
+  nameWithType: GenericRepository<T>._context
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>._context
+  type: Field
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: _context
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 15
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Veritabanı bağlamı
+  example: []
+  syntax:
+    content: protected readonly ApplicationDbContext _context
+    return:
+      type: ITAssetManagement.Web.Data.ApplicationDbContext
+    content.vb: Protected ReadOnly _context As ApplicationDbContext
+  nameWithType.vb: GenericRepository(Of T)._context
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T)._context
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1._dbSet
+  commentId: F:ITAssetManagement.Web.Data.Repositories.GenericRepository`1._dbSet
+  id: _dbSet
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: _dbSet
+  nameWithType: GenericRepository<T>._dbSet
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>._dbSet
+  type: Field
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: _dbSet
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 20
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Entity için DbSet
+  example: []
+  syntax:
+    content: protected readonly DbSet<T> _dbSet
+    return:
+      type: Microsoft.EntityFrameworkCore.DbSet{{T}}
+    content.vb: Protected ReadOnly _dbSet As DbSet(Of T)
+  nameWithType.vb: GenericRepository(Of T)._dbSet
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T)._dbSet
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.#ctor(ITAssetManagement.Web.Data.ApplicationDbContext)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.#ctor(ITAssetManagement.Web.Data.ApplicationDbContext)
+  id: '#ctor(ITAssetManagement.Web.Data.ApplicationDbContext)'
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: GenericRepository(ApplicationDbContext)
+  nameWithType: GenericRepository<T>.GenericRepository(ApplicationDbContext)
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.GenericRepository(ITAssetManagement.Web.Data.ApplicationDbContext)
+  type: Constructor
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: .ctor
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 26
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: GenericRepository constructor
+  example: []
+  syntax:
+    content: public GenericRepository(ApplicationDbContext context)
+    parameters:
+    - id: context
+      type: ITAssetManagement.Web.Data.ApplicationDbContext
+      description: Veritabanı bağlamı
+    content.vb: Public Sub New(context As ApplicationDbContext)
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.#ctor*
+  nameWithType.vb: GenericRepository(Of T).New(ApplicationDbContext)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).New(ITAssetManagement.Web.Data.ApplicationDbContext)
+  name.vb: New(ApplicationDbContext)
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetByIdAsync(System.Int32)
+  id: GetByIdAsync(System.Int32)
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: GetByIdAsync(int)
+  nameWithType: GenericRepository<T>.GetByIdAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.GetByIdAsync(int)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetByIdAsync
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 37
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: ID'ye göre entity getirir
+  example: []
+  syntax:
+    content: public Task<T?> GetByIdAsync(int id)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: Entity ID
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+      description: Bulunan entity veya null
+    content.vb: Public Function GetByIdAsync(id As Integer) As Task(Of T)
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetByIdAsync*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.GetByIdAsync(System.Int32)
+  nameWithType.vb: GenericRepository(Of T).GetByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).GetByIdAsync(Integer)
+  name.vb: GetByIdAsync(Integer)
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetAllAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetAllAsync
+  id: GetAllAsync
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: GetAllAsync()
+  nameWithType: GenericRepository<T>.GetAllAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.GetAllAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: GetAllAsync
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 46
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Tüm entity'leri getirir
+  example: []
+  syntax:
+    content: public Task<IEnumerable<T>> GetAllAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{{T}}}
+      description: Entity listesi
+    content.vb: Public Function GetAllAsync() As Task(Of IEnumerable(Of T))
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetAllAsync*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.GetAllAsync
+  nameWithType.vb: GenericRepository(Of T).GetAllAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).GetAllAsync()
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  id: FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: FindAsync(Expression<Func<T, bool>>)
+  nameWithType: GenericRepository<T>.FindAsync(Expression<Func<T, bool>>)
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.FindAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: FindAsync
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 56
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Belirtilen koşula göre entity'leri filtreler
+  example: []
+  syntax:
+    content: public Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+    parameters:
+    - id: predicate
+      type: System.Linq.Expressions.Expression{System.Func{{T},System.Boolean}}
+      description: Filtreleme koşulu
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{{T}}}
+      description: Filtrelenmiş entity listesi
+    content.vb: Public Function FindAsync(predicate As Expression(Of Func(Of T, Boolean))) As Task(Of IEnumerable(Of T))
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.FindAsync*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.FindAsync(System.Linq.Expressions.Expression{System.Func{{T},System.Boolean}})
+  nameWithType.vb: GenericRepository(Of T).FindAsync(Expression(Of Func(Of T, Boolean)))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).FindAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)))
+  name.vb: FindAsync(Expression(Of Func(Of T, Boolean)))
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddAsync(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddAsync(`0)
+  id: AddAsync(`0)
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: AddAsync(T)
+  nameWithType: GenericRepository<T>.AddAsync(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.AddAsync(T)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: AddAsync
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 65
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Yeni bir entity ekler
+  example: []
+  syntax:
+    content: public Task AddAsync(T entity)
+    parameters:
+    - id: entity
+      type: '{T}'
+      description: Eklenecek entity
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function AddAsync(entity As T) As Task
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddAsync*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.AddAsync({T})
+  nameWithType.vb: GenericRepository(Of T).AddAsync(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).AddAsync(T)
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  id: AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: AddRangeAsync(IEnumerable<T>)
+  nameWithType: GenericRepository<T>.AddRangeAsync(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.AddRangeAsync(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: AddRangeAsync
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 74
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Birden fazla entity ekler
+  example: []
+  syntax:
+    content: public Task AddRangeAsync(IEnumerable<T> entities)
+    parameters:
+    - id: entities
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: Eklenecek entity'lerin koleksiyonu
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function AddRangeAsync(entities As IEnumerable(Of T)) As Task
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddRangeAsync*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.AddRangeAsync(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: GenericRepository(Of T).AddRangeAsync(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).AddRangeAsync(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: AddRangeAsync(IEnumerable(Of T))
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Update(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Update(`0)
+  id: Update(`0)
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Update(T)
+  nameWithType: GenericRepository<T>.Update(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.Update(T)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Update
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 83
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Var olan bir entity'yi günceller
+  example: []
+  syntax:
+    content: public void Update(T entity)
+    parameters:
+    - id: entity
+      type: '{T}'
+      description: Güncellenecek entity
+    content.vb: Public Sub Update(entity As T)
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Update*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.Update({T})
+  nameWithType.vb: GenericRepository(Of T).Update(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).Update(T)
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Remove(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Remove(`0)
+  id: Remove(`0)
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: Remove(T)
+  nameWithType: GenericRepository<T>.Remove(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.Remove(T)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Remove
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 93
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Bir entity'yi siler
+  example: []
+  syntax:
+    content: public void Remove(T entity)
+    parameters:
+    - id: entity
+      type: '{T}'
+      description: Silinecek entity
+    content.vb: Public Sub Remove(entity As T)
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Remove*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.Remove({T})
+  nameWithType.vb: GenericRepository(Of T).Remove(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).Remove(T)
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  id: RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: RemoveRange(IEnumerable<T>)
+  nameWithType: GenericRepository<T>.RemoveRange(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: RemoveRange
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 102
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Birden fazla entity'yi siler
+  example: []
+  syntax:
+    content: public void RemoveRange(IEnumerable<T> entities)
+    parameters:
+    - id: entities
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: Silinecek entity'lerin koleksiyonu
+    content.vb: Public Sub RemoveRange(entities As IEnumerable(Of T))
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.RemoveRange*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.RemoveRange(System.Collections.Generic.IEnumerable{{T}})
+  nameWithType.vb: GenericRepository(Of T).RemoveRange(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).RemoveRange(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: RemoveRange(IEnumerable(Of T))
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.SaveChangesAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.SaveChangesAsync
+  id: SaveChangesAsync
+  parent: ITAssetManagement.Web.Data.Repositories.GenericRepository`1
+  langs:
+  - csharp
+  - vb
+  name: SaveChangesAsync()
+  nameWithType: GenericRepository<T>.SaveChangesAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.SaveChangesAsync()
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SaveChangesAsync
+    path: ITAssetManagement.Web/Data/Repositories/GenericRepository.cs
+    startLine: 111
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Data.Repositories
+  summary: Değişiklikleri kaydeder
+  example: []
+  syntax:
+    content: public Task<bool> SaveChangesAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: Kaydetme işlemi başarılıysa true, aksi halde false
+    content.vb: Public Function SaveChangesAsync() As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.SaveChangesAsync*
+  implements:
+  - ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.SaveChangesAsync
+  nameWithType.vb: GenericRepository(Of T).SaveChangesAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).SaveChangesAsync()
+references:
+- uid: ITAssetManagement.Web.Data.Repositories
+  commentId: N:ITAssetManagement.Web.Data.Repositories
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Data.Repositories
+  nameWithType: ITAssetManagement.Web.Data.Repositories
+  fullName: ITAssetManagement.Web.Data.Repositories
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data.Repositories
+    name: Repositories
+    href: ITAssetManagement.Web.Data.Repositories.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}
+  parent: ITAssetManagement.Web.Data.Repositories
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  commentId: T:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  name: IGenericRepository<T>
+  nameWithType: IGenericRepository<T>
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>
+  nameWithType.vb: IGenericRepository(Of T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T)
+  name.vb: IGenericRepository(Of T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1
+    name: IGenericRepository
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.ApplicationDbContext
+  commentId: T:ITAssetManagement.Web.Data.ApplicationDbContext
+  parent: ITAssetManagement.Web.Data
+  href: ITAssetManagement.Web.Data.ApplicationDbContext.html
+  name: ApplicationDbContext
+  nameWithType: ApplicationDbContext
+  fullName: ITAssetManagement.Web.Data.ApplicationDbContext
+- uid: ITAssetManagement.Web.Data
+  commentId: N:ITAssetManagement.Web.Data
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Data
+  nameWithType: ITAssetManagement.Web.Data
+  fullName: ITAssetManagement.Web.Data
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Data
+    name: Data
+    href: ITAssetManagement.Web.Data.html
+- uid: Microsoft.EntityFrameworkCore.DbSet{{T}}
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet{`0}
+  parent: Microsoft.EntityFrameworkCore
+  definition: Microsoft.EntityFrameworkCore.DbSet`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  name: DbSet<T>
+  nameWithType: DbSet<T>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<T>
+  nameWithType.vb: DbSet(Of T)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of T)
+  name.vb: DbSet(Of T)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Microsoft.EntityFrameworkCore.DbSet`1
+  commentId: T:Microsoft.EntityFrameworkCore.DbSet`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  name: DbSet<TEntity>
+  nameWithType: DbSet<TEntity>
+  fullName: Microsoft.EntityFrameworkCore.DbSet<TEntity>
+  nameWithType.vb: DbSet(Of TEntity)
+  fullName.vb: Microsoft.EntityFrameworkCore.DbSet(Of TEntity)
+  name.vb: DbSet(Of TEntity)
+  spec.csharp:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.EntityFrameworkCore.DbSet`1
+    name: DbSet
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: Microsoft.EntityFrameworkCore
+  commentId: N:Microsoft.EntityFrameworkCore
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.EntityFrameworkCore
+  nameWithType: Microsoft.EntityFrameworkCore
+  fullName: Microsoft.EntityFrameworkCore
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.#ctor*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.#ctor
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1__ctor_ITAssetManagement_Web_Data_ApplicationDbContext_
+  name: GenericRepository
+  nameWithType: GenericRepository<T>.GenericRepository
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.GenericRepository
+  nameWithType.vb: GenericRepository(Of T).New
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).New
+  name.vb: New
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetByIdAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetByIdAsync
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_GetByIdAsync_System_Int32_
+  name: GetByIdAsync
+  nameWithType: GenericRepository<T>.GetByIdAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.GetByIdAsync
+  nameWithType.vb: GenericRepository(Of T).GetByIdAsync
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).GetByIdAsync
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.GetByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.GetByIdAsync(System.Int32)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  name: GetByIdAsync(int)
+  nameWithType: IGenericRepository<T>.GetByIdAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.GetByIdAsync(int)
+  nameWithType.vb: IGenericRepository(Of T).GetByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).GetByIdAsync(Integer)
+  name.vb: GetByIdAsync(Integer)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{`0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  name: GetByIdAsync(int)
+  nameWithType: IGenericRepository<T>.GetByIdAsync(int)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.GetByIdAsync(int)
+  nameWithType.vb: IGenericRepository(Of T).GetByIdAsync(Integer)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).GetByIdAsync(Integer)
+  name.vb: GetByIdAsync(Integer)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetByIdAsync(System.Int32)
+    name: GetByIdAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetByIdAsync_System_Int32_
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetAllAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.GetAllAsync
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_GetAllAsync
+  name: GetAllAsync
+  nameWithType: GenericRepository<T>.GetAllAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.GetAllAsync
+  nameWithType.vb: GenericRepository(Of T).GetAllAsync
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).GetAllAsync
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.GetAllAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.GetAllAsync
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  name: GetAllAsync()
+  nameWithType: IGenericRepository<T>.GetAllAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.GetAllAsync()
+  nameWithType.vb: IGenericRepository(Of T).GetAllAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).GetAllAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{{T}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{`0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IEnumerable<T>>
+  nameWithType: Task<IEnumerable<T>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<T>>
+  nameWithType.vb: Task(Of IEnumerable(Of T))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of T))
+  name.vb: Task(Of IEnumerable(Of T))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  name: GetAllAsync()
+  nameWithType: IGenericRepository<T>.GetAllAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.GetAllAsync()
+  nameWithType.vb: IGenericRepository(Of T).GetAllAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).GetAllAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.GetAllAsync
+    name: GetAllAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_GetAllAsync
+  - name: (
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.FindAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.FindAsync
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  name: FindAsync
+  nameWithType: GenericRepository<T>.FindAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.FindAsync
+  nameWithType.vb: GenericRepository(Of T).FindAsync
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).FindAsync
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.FindAsync(System.Linq.Expressions.Expression{System.Func{{T},System.Boolean}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  name: FindAsync(Expression<Func<T, bool>>)
+  nameWithType: IGenericRepository<T>.FindAsync(Expression<Func<T, bool>>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.FindAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)
+  nameWithType.vb: IGenericRepository(Of T).FindAsync(Expression(Of Func(Of T, Boolean)))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).FindAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)))
+  name.vb: FindAsync(Expression(Of Func(Of T, Boolean)))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Linq.Expressions.Expression{System.Func{{T},System.Boolean}}
+  commentId: T:System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}}
+  parent: System.Linq.Expressions
+  definition: System.Linq.Expressions.Expression`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<Func<T, bool>>
+  nameWithType: Expression<Func<T, bool>>
+  fullName: System.Linq.Expressions.Expression<System.Func<T, bool>>
+  nameWithType.vb: Expression(Of Func(Of T, Boolean))
+  fullName.vb: System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean))
+  name.vb: Expression(Of Func(Of T, Boolean))
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  name: FindAsync(Expression<Func<T, bool>>)
+  nameWithType: IGenericRepository<T>.FindAsync(Expression<Func<T, bool>>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.FindAsync(System.Linq.Expressions.Expression<System.Func<T, bool>>)
+  nameWithType.vb: IGenericRepository(Of T).FindAsync(Expression(Of Func(Of T, Boolean)))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).FindAsync(System.Linq.Expressions.Expression(Of System.Func(Of T, Boolean)))
+  name.vb: FindAsync(Expression(Of Func(Of T, Boolean)))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.FindAsync(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})
+    name: FindAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_FindAsync_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___
+  - name: (
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Linq.Expressions.Expression`1
+  commentId: T:System.Linq.Expressions.Expression`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<TDelegate>
+  nameWithType: Expression<TDelegate>
+  fullName: System.Linq.Expressions.Expression<TDelegate>
+  nameWithType.vb: Expression(Of TDelegate)
+  fullName.vb: System.Linq.Expressions.Expression(Of TDelegate)
+  name.vb: Expression(Of TDelegate)
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - name: TDelegate
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDelegate
+  - name: )
+- uid: System.Linq.Expressions
+  commentId: N:System.Linq.Expressions
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq.Expressions
+  nameWithType: System.Linq.Expressions
+  fullName: System.Linq.Expressions
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  - name: .
+  - uid: System.Linq.Expressions
+    name: Expressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  - name: .
+  - uid: System.Linq.Expressions
+    name: Expressions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddAsync
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_AddAsync__0_
+  name: AddAsync
+  nameWithType: GenericRepository<T>.AddAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.AddAsync
+  nameWithType.vb: GenericRepository(Of T).AddAsync
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).AddAsync
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.AddAsync({T})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.AddAsync(`0)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  name: AddAsync(T)
+  nameWithType: IGenericRepository<T>.AddAsync(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.AddAsync(T)
+  nameWithType.vb: IGenericRepository(Of T).AddAsync(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).AddAsync(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.AddAsync(`0)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.AddAsync(`0)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  name: AddAsync(T)
+  nameWithType: IGenericRepository<T>.AddAsync(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.AddAsync(T)
+  nameWithType.vb: IGenericRepository(Of T).AddAsync(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).AddAsync(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddAsync(`0)
+    name: AddAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddAsync__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddRangeAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.AddRangeAsync
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: AddRangeAsync
+  nameWithType: GenericRepository<T>.AddRangeAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.AddRangeAsync
+  nameWithType.vb: GenericRepository(Of T).AddRangeAsync
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).AddRangeAsync
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.AddRangeAsync(System.Collections.Generic.IEnumerable{{T}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: AddRangeAsync(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.AddRangeAsync(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.AddRangeAsync(System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).AddRangeAsync(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).AddRangeAsync(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: AddRangeAsync(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: AddRangeAsync(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.AddRangeAsync(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.AddRangeAsync(System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).AddRangeAsync(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).AddRangeAsync(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: AddRangeAsync(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.AddRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: AddRangeAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_AddRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Update*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Update
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_Update__0_
+  name: Update
+  nameWithType: GenericRepository<T>.Update
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.Update
+  nameWithType.vb: GenericRepository(Of T).Update
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).Update
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.Update({T})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.Update(`0)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.Update(`0)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.Update(`0)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  name: Update(T)
+  nameWithType: IGenericRepository<T>.Update(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.Update(T)
+  nameWithType.vb: IGenericRepository(Of T).Update(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).Update(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Update(`0)
+    name: Update
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Update__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Remove*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.Remove
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_Remove__0_
+  name: Remove
+  nameWithType: GenericRepository<T>.Remove
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.Remove
+  nameWithType.vb: GenericRepository(Of T).Remove
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).Remove
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.Remove({T})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.Remove(`0)
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  name: Remove(T)
+  nameWithType: IGenericRepository<T>.Remove(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.Remove(T)
+  nameWithType.vb: IGenericRepository(Of T).Remove(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).Remove(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.Remove(`0)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.Remove(`0)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  name: Remove(T)
+  nameWithType: IGenericRepository<T>.Remove(T)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.Remove(T)
+  nameWithType.vb: IGenericRepository(Of T).Remove(T)
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).Remove(T)
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.Remove(`0)
+    name: Remove
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_Remove__0_
+  - name: (
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.RemoveRange*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.RemoveRange
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  name: RemoveRange
+  nameWithType: GenericRepository<T>.RemoveRange
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.RemoveRange
+  nameWithType.vb: GenericRepository(Of T).RemoveRange
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).RemoveRange
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.RemoveRange(System.Collections.Generic.IEnumerable{{T}})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  name: RemoveRange(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.RemoveRange(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).RemoveRange(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).RemoveRange(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: RemoveRange(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+  isExternal: true
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  name: RemoveRange(IEnumerable<T>)
+  nameWithType: IGenericRepository<T>.RemoveRange(IEnumerable<T>)
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.RemoveRange(System.Collections.Generic.IEnumerable<T>)
+  nameWithType.vb: IGenericRepository(Of T).RemoveRange(IEnumerable(Of T))
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).RemoveRange(System.Collections.Generic.IEnumerable(Of T))
+  name.vb: RemoveRange(IEnumerable(Of T))
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.RemoveRange(System.Collections.Generic.IEnumerable{`0})
+    name: RemoveRange
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_RemoveRange_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.GenericRepository`1.SaveChangesAsync*
+  commentId: Overload:ITAssetManagement.Web.Data.Repositories.GenericRepository`1.SaveChangesAsync
+  href: ITAssetManagement.Web.Data.Repositories.GenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_GenericRepository_1_SaveChangesAsync
+  name: SaveChangesAsync
+  nameWithType: GenericRepository<T>.SaveChangesAsync
+  fullName: ITAssetManagement.Web.Data.Repositories.GenericRepository<T>.SaveChangesAsync
+  nameWithType.vb: GenericRepository(Of T).SaveChangesAsync
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.GenericRepository(Of T).SaveChangesAsync
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}.SaveChangesAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.SaveChangesAsync
+  parent: ITAssetManagement.Web.Data.Repositories.IGenericRepository{{T}}
+  definition: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  name: SaveChangesAsync()
+  nameWithType: IGenericRepository<T>.SaveChangesAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.SaveChangesAsync()
+  nameWithType.vb: IGenericRepository(Of T).SaveChangesAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).SaveChangesAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository{`0}.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  commentId: M:ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+  href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  name: SaveChangesAsync()
+  nameWithType: IGenericRepository<T>.SaveChangesAsync()
+  fullName: ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>.SaveChangesAsync()
+  nameWithType.vb: IGenericRepository(Of T).SaveChangesAsync()
+  fullName.vb: ITAssetManagement.Web.Data.Repositories.IGenericRepository(Of T).SaveChangesAsync()
+  spec.csharp:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: ITAssetManagement.Web.Data.Repositories.IGenericRepository`1.SaveChangesAsync
+    name: SaveChangesAsync
+    href: ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.html#ITAssetManagement_Web_Data_Repositories_IGenericRepository_1_SaveChangesAsync
+  - name: (
+  - name: )

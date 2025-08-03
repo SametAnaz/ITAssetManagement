@@ -1,0 +1,94 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Services.Interfaces
+  commentId: N:ITAssetManagement.Web.Services.Interfaces
+  id: ITAssetManagement.Web.Services.Interfaces
+  children:
+  - ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  - ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  - ITAssetManagement.Web.Services.Interfaces.IEmailService
+  - ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  - ITAssetManagement.Web.Services.Interfaces.IUserService
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Services.Interfaces
+  nameWithType: ITAssetManagement.Web.Services.Interfaces
+  fullName: ITAssetManagement.Web.Services.Interfaces
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.html
+  name: IAssignmentService
+  nameWithType: IAssignmentService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IAssignmentService
+- uid: ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.html
+  name: IBarcodeService
+  nameWithType: IBarcodeService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IEmailService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.Web.Services.Interfaces.IEmailService.html
+  name: IEmailService
+  nameWithType: IEmailService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService
+- uid: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.ILaptopService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.Web.Services.Interfaces.ILaptopService.html
+  name: ILaptopService
+  nameWithType: ILaptopService
+  fullName: ITAssetManagement.Web.Services.Interfaces.ILaptopService
+- uid: ITAssetManagement.Web.Services.Interfaces.IUserService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IUserService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.Web.Services.Interfaces.IUserService.html
+  name: IUserService
+  nameWithType: IUserService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IUserService
+- uid: ITAssetManagement.Web.Services.Interfaces
+  commentId: N:ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Services.Interfaces
+  nameWithType: ITAssetManagement.Web.Services.Interfaces
+  fullName: ITAssetManagement.Web.Services.Interfaces
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html

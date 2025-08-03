@@ -1,0 +1,51 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Services
+  commentId: N:ITAssetManagement.Web.Services
+  id: ITAssetManagement.Web.Services
+  children:
+  - ITAssetManagement.Web.Services.AssignmentService
+  - ITAssetManagement.Web.Services.BarcodeService
+  - ITAssetManagement.Web.Services.EmailService
+  - ITAssetManagement.Web.Services.LaptopService
+  - ITAssetManagement.Web.Services.UserService
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Services
+  nameWithType: ITAssetManagement.Web.Services
+  fullName: ITAssetManagement.Web.Services
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Services.AssignmentService
+  commentId: T:ITAssetManagement.Web.Services.AssignmentService
+  href: ITAssetManagement.Web.Services.AssignmentService.html
+  name: AssignmentService
+  nameWithType: AssignmentService
+  fullName: ITAssetManagement.Web.Services.AssignmentService
+- uid: ITAssetManagement.Web.Services.BarcodeService
+  commentId: T:ITAssetManagement.Web.Services.BarcodeService
+  href: ITAssetManagement.Web.Services.BarcodeService.html
+  name: BarcodeService
+  nameWithType: BarcodeService
+  fullName: ITAssetManagement.Web.Services.BarcodeService
+- uid: ITAssetManagement.Web.Services.EmailService
+  commentId: T:ITAssetManagement.Web.Services.EmailService
+  href: ITAssetManagement.Web.Services.EmailService.html
+  name: EmailService
+  nameWithType: EmailService
+  fullName: ITAssetManagement.Web.Services.EmailService
+- uid: ITAssetManagement.Web.Services.LaptopService
+  commentId: T:ITAssetManagement.Web.Services.LaptopService
+  href: ITAssetManagement.Web.Services.LaptopService.html
+  name: LaptopService
+  nameWithType: LaptopService
+  fullName: ITAssetManagement.Web.Services.LaptopService
+- uid: ITAssetManagement.Web.Services.UserService
+  commentId: T:ITAssetManagement.Web.Services.UserService
+  href: ITAssetManagement.Web.Services.UserService.html
+  name: UserService
+  nameWithType: UserService
+  fullName: ITAssetManagement.Web.Services.UserService

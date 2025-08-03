@@ -1,0 +1,58 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Controllers
+  commentId: N:ITAssetManagement.Web.Controllers
+  id: ITAssetManagement.Web.Controllers
+  children:
+  - ITAssetManagement.Web.Controllers.AssignmentsController
+  - ITAssetManagement.Web.Controllers.AuthController
+  - ITAssetManagement.Web.Controllers.EmailTestController
+  - ITAssetManagement.Web.Controllers.HomeController
+  - ITAssetManagement.Web.Controllers.LaptopsController
+  - ITAssetManagement.Web.Controllers.UsersController
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Controllers
+  nameWithType: ITAssetManagement.Web.Controllers
+  fullName: ITAssetManagement.Web.Controllers
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Controllers.AssignmentsController
+  commentId: T:ITAssetManagement.Web.Controllers.AssignmentsController
+  href: ITAssetManagement.Web.Controllers.AssignmentsController.html
+  name: AssignmentsController
+  nameWithType: AssignmentsController
+  fullName: ITAssetManagement.Web.Controllers.AssignmentsController
+- uid: ITAssetManagement.Web.Controllers.AuthController
+  commentId: T:ITAssetManagement.Web.Controllers.AuthController
+  href: ITAssetManagement.Web.Controllers.AuthController.html
+  name: AuthController
+  nameWithType: AuthController
+  fullName: ITAssetManagement.Web.Controllers.AuthController
+- uid: ITAssetManagement.Web.Controllers.EmailTestController
+  commentId: T:ITAssetManagement.Web.Controllers.EmailTestController
+  href: ITAssetManagement.Web.Controllers.EmailTestController.html
+  name: EmailTestController
+  nameWithType: EmailTestController
+  fullName: ITAssetManagement.Web.Controllers.EmailTestController
+- uid: ITAssetManagement.Web.Controllers.HomeController
+  commentId: T:ITAssetManagement.Web.Controllers.HomeController
+  href: ITAssetManagement.Web.Controllers.HomeController.html
+  name: HomeController
+  nameWithType: HomeController
+  fullName: ITAssetManagement.Web.Controllers.HomeController
+- uid: ITAssetManagement.Web.Controllers.LaptopsController
+  commentId: T:ITAssetManagement.Web.Controllers.LaptopsController
+  href: ITAssetManagement.Web.Controllers.LaptopsController.html
+  name: LaptopsController
+  nameWithType: LaptopsController
+  fullName: ITAssetManagement.Web.Controllers.LaptopsController
+- uid: ITAssetManagement.Web.Controllers.UsersController
+  commentId: T:ITAssetManagement.Web.Controllers.UsersController
+  href: ITAssetManagement.Web.Controllers.UsersController.html
+  name: UsersController
+  nameWithType: UsersController
+  fullName: ITAssetManagement.Web.Controllers.UsersController

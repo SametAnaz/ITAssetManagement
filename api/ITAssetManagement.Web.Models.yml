@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Models
+  commentId: N:ITAssetManagement.Web.Models
+  id: ITAssetManagement.Web.Models
+  children:
+  - ITAssetManagement.Web.Models.Assignment
+  - ITAssetManagement.Web.Models.ErrorViewModel
+  - ITAssetManagement.Web.Models.Laptop
+  - ITAssetManagement.Web.Models.LaptopLog
+  - ITAssetManagement.Web.Models.LaptopPhoto
+  - ITAssetManagement.Web.Models.LoginModel
+  - ITAssetManagement.Web.Models.User
+  langs:
+  - csharp
+  - vb
+  name: ITAssetManagement.Web.Models
+  nameWithType: ITAssetManagement.Web.Models
+  fullName: ITAssetManagement.Web.Models
+  type: Namespace
+  assemblies:
+  - ITAssetManagement.Web
+references:
+- uid: ITAssetManagement.Web.Models.Assignment
+  commentId: T:ITAssetManagement.Web.Models.Assignment
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.Assignment.html
+  name: Assignment
+  nameWithType: Assignment
+  fullName: ITAssetManagement.Web.Models.Assignment
+- uid: ITAssetManagement.Web.Models.ErrorViewModel
+  commentId: T:ITAssetManagement.Web.Models.ErrorViewModel
+  href: ITAssetManagement.Web.Models.ErrorViewModel.html
+  name: ErrorViewModel
+  nameWithType: ErrorViewModel
+  fullName: ITAssetManagement.Web.Models.ErrorViewModel
+- uid: ITAssetManagement.Web.Models.Laptop
+  commentId: T:ITAssetManagement.Web.Models.Laptop
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.Laptop.html
+  name: Laptop
+  nameWithType: Laptop
+  fullName: ITAssetManagement.Web.Models.Laptop
+- uid: ITAssetManagement.Web.Models.LaptopLog
+  commentId: T:ITAssetManagement.Web.Models.LaptopLog
+  href: ITAssetManagement.Web.Models.LaptopLog.html
+  name: LaptopLog
+  nameWithType: LaptopLog
+  fullName: ITAssetManagement.Web.Models.LaptopLog
+- uid: ITAssetManagement.Web.Models.LaptopPhoto
+  commentId: T:ITAssetManagement.Web.Models.LaptopPhoto
+  href: ITAssetManagement.Web.Models.LaptopPhoto.html
+  name: LaptopPhoto
+  nameWithType: LaptopPhoto
+  fullName: ITAssetManagement.Web.Models.LaptopPhoto
+- uid: ITAssetManagement.Web.Models.LoginModel
+  commentId: T:ITAssetManagement.Web.Models.LoginModel
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.LoginModel.html
+  name: LoginModel
+  nameWithType: LoginModel
+  fullName: ITAssetManagement.Web.Models.LoginModel
+- uid: ITAssetManagement.Web.Models.User
+  commentId: T:ITAssetManagement.Web.Models.User
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.User.html
+  name: User
+  nameWithType: User
+  fullName: ITAssetManagement.Web.Models.User
+- uid: ITAssetManagement.Web.Models
+  commentId: N:ITAssetManagement.Web.Models
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Models
+  nameWithType: ITAssetManagement.Web.Models
+  fullName: ITAssetManagement.Web.Models
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html

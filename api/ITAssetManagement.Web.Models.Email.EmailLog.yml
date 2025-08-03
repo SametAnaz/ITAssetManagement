@@ -1,0 +1,831 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Models.Email.EmailLog
+  commentId: T:ITAssetManagement.Web.Models.Email.EmailLog
+  id: EmailLog
+  parent: ITAssetManagement.Web.Models.Email
+  children:
+  - ITAssetManagement.Web.Models.Email.EmailLog.Body
+  - ITAssetManagement.Web.Models.Email.EmailLog.ErrorMessage
+  - ITAssetManagement.Web.Models.Email.EmailLog.Id
+  - ITAssetManagement.Web.Models.Email.EmailLog.IsSuccess
+  - ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityId
+  - ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityType
+  - ITAssetManagement.Web.Models.Email.EmailLog.RetryCount
+  - ITAssetManagement.Web.Models.Email.EmailLog.SentDate
+  - ITAssetManagement.Web.Models.Email.EmailLog.Subject
+  - ITAssetManagement.Web.Models.Email.EmailLog.ToEmail
+  langs:
+  - csharp
+  - vb
+  name: EmailLog
+  nameWithType: EmailLog
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog
+  type: Class
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: EmailLog
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 8
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: Gönderilen e-postaların log kayıtlarını tutan sınıf
+  example: []
+  syntax:
+    content: public class EmailLog
+    content.vb: Public Class EmailLog
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.Id
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.Id
+  id: Id
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: EmailLog.Id
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.Id
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Id
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 13
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: Log kaydının benzersiz kimlik numarası
+  example: []
+  syntax:
+    content: >-
+      [Key]
+
+      public int Id { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: >-
+      <Key>
+
+      Public Property Id As Integer
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.Id*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.KeyAttribute
+    ctor: System.ComponentModel.DataAnnotations.KeyAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.ToEmail
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.ToEmail
+  id: ToEmail
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: ToEmail
+  nameWithType: EmailLog.ToEmail
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.ToEmail
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: ToEmail
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 19
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: Alıcının e-posta adresi
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public string ToEmail { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      Public Property ToEmail As String
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.ToEmail*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.Subject
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.Subject
+  id: Subject
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: Subject
+  nameWithType: EmailLog.Subject
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.Subject
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Subject
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 25
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: E-posta konusu
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public string Subject { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: >-
+      <Required>
+
+      Public Property Subject As String
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.Subject*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.Body
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.Body
+  id: Body
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: Body
+  nameWithType: EmailLog.Body
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.Body
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: Body
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 31
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: E-posta içeriği
+  example: []
+  syntax:
+    content: public string? Body { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Body As String
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.Body*
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.SentDate
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.SentDate
+  id: SentDate
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: SentDate
+  nameWithType: EmailLog.SentDate
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.SentDate
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SentDate
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 36
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: E-postanın gönderildiği tarih
+  example: []
+  syntax:
+    content: >-
+      [Required]
+
+      public DateTime SentDate { get; set; }
+    parameters: []
+    return:
+      type: System.DateTime
+    content.vb: >-
+      <Required>
+
+      Public Property SentDate As Date
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.SentDate*
+  attributes:
+  - type: System.ComponentModel.DataAnnotations.RequiredAttribute
+    ctor: System.ComponentModel.DataAnnotations.RequiredAttribute.#ctor
+    arguments: []
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.IsSuccess
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.IsSuccess
+  id: IsSuccess
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: IsSuccess
+  nameWithType: EmailLog.IsSuccess
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.IsSuccess
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: IsSuccess
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 42
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: E-posta gönderiminin başarılı olup olmadığı
+  example: []
+  syntax:
+    content: public bool IsSuccess { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSuccess As Boolean
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.IsSuccess*
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.ErrorMessage
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.ErrorMessage
+  id: ErrorMessage
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: ErrorMessage
+  nameWithType: EmailLog.ErrorMessage
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.ErrorMessage
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: ErrorMessage
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 47
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: Hata durumunda hata mesajı
+  example: []
+  syntax:
+    content: public string? ErrorMessage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ErrorMessage As String
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.ErrorMessage*
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityType
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityType
+  id: RelatedEntityType
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: RelatedEntityType
+  nameWithType: EmailLog.RelatedEntityType
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityType
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: RelatedEntityType
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 52
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: E-postanın ilişkili olduğu entity tipi (Zimmet, Laptop vb.)
+  example: []
+  syntax:
+    content: public string? RelatedEntityType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property RelatedEntityType As String
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityType*
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityId
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityId
+  id: RelatedEntityId
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: RelatedEntityId
+  nameWithType: EmailLog.RelatedEntityId
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityId
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: RelatedEntityId
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 57
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: İlişkili entity'nin ID'si
+  example: []
+  syntax:
+    content: public int? RelatedEntityId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property RelatedEntityId As Integer?
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityId*
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.RetryCount
+  commentId: P:ITAssetManagement.Web.Models.Email.EmailLog.RetryCount
+  id: RetryCount
+  parent: ITAssetManagement.Web.Models.Email.EmailLog
+  langs:
+  - csharp
+  - vb
+  name: RetryCount
+  nameWithType: EmailLog.RetryCount
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.RetryCount
+  type: Property
+  source:
+    remote:
+      path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: RetryCount
+    path: ITAssetManagement.Web/Models/Email/EmailLog.cs
+    startLine: 62
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Models.Email
+  summary: Başarısız gönderim durumunda deneme sayısı
+  example: []
+  syntax:
+    content: public int? RetryCount { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property RetryCount As Integer?
+  overload: ITAssetManagement.Web.Models.Email.EmailLog.RetryCount*
+references:
+- uid: ITAssetManagement.Web.Models.Email
+  commentId: N:ITAssetManagement.Web.Models.Email
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Models.Email
+  nameWithType: ITAssetManagement.Web.Models.Email
+  fullName: ITAssetManagement.Web.Models.Email
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models.Email
+    name: Email
+    href: ITAssetManagement.Web.Models.Email.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models.Email
+    name: Email
+    href: ITAssetManagement.Web.Models.Email.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.Id*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.Id
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_Id
+  name: Id
+  nameWithType: EmailLog.Id
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.Id
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.ToEmail*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.ToEmail
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_ToEmail
+  name: ToEmail
+  nameWithType: EmailLog.ToEmail
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.ToEmail
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.Subject*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.Subject
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_Subject
+  name: Subject
+  nameWithType: EmailLog.Subject
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.Subject
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.Body*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.Body
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_Body
+  name: Body
+  nameWithType: EmailLog.Body
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.Body
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.SentDate*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.SentDate
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_SentDate
+  name: SentDate
+  nameWithType: EmailLog.SentDate
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.SentDate
+- uid: System.DateTime
+  commentId: T:System.DateTime
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetime
+  name: DateTime
+  nameWithType: DateTime
+  fullName: System.DateTime
+  nameWithType.vb: Date
+  fullName.vb: Date
+  name.vb: Date
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.IsSuccess*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.IsSuccess
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_IsSuccess
+  name: IsSuccess
+  nameWithType: EmailLog.IsSuccess
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.IsSuccess
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.ErrorMessage*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.ErrorMessage
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_ErrorMessage
+  name: ErrorMessage
+  nameWithType: EmailLog.ErrorMessage
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.ErrorMessage
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityType*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityType
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_RelatedEntityType
+  name: RelatedEntityType
+  nameWithType: EmailLog.RelatedEntityType
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityType
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityId*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityId
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_RelatedEntityId
+  name: RelatedEntityId
+  nameWithType: EmailLog.RelatedEntityId
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.RelatedEntityId
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: ITAssetManagement.Web.Models.Email.EmailLog.RetryCount*
+  commentId: Overload:ITAssetManagement.Web.Models.Email.EmailLog.RetryCount
+  href: ITAssetManagement.Web.Models.Email.EmailLog.html#ITAssetManagement_Web_Models_Email_EmailLog_RetryCount
+  name: RetryCount
+  nameWithType: EmailLog.RetryCount
+  fullName: ITAssetManagement.Web.Models.Email.EmailLog.RetryCount

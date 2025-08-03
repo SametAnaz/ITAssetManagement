@@ -1,0 +1,566 @@
+### YamlMime:ManagedReference
+items:
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IEmailService
+  id: IEmailService
+  parent: ITAssetManagement.Web.Services.Interfaces
+  children:
+  - ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Nullable{System.Int32})
+  - ITAssetManagement.Web.Services.Interfaces.IEmailService.SendAssignmentReminderAsync(ITAssetManagement.Web.Models.Assignment)
+  - ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync(System.String,System.String,System.String,System.String,System.Nullable{System.Int32})
+  - ITAssetManagement.Web.Services.Interfaces.IEmailService.SendOverdueNotificationAsync(ITAssetManagement.Web.Models.Assignment)
+  langs:
+  - csharp
+  - vb
+  name: IEmailService
+  nameWithType: IEmailService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService
+  type: Interface
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: IEmailService
+    path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+    startLine: 20
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: >-
+    Email gönderme ve loglama işlemlerini yöneten servis arayüzü.
+
+    Bu servis, sistem genelinde email iletişimini ve kayıtlarını yönetir.
+  remarks: >-
+    <p>
+
+    Bu servis aşağıdaki temel işlevleri sağlar:
+
+    <ul><li>Genel email gönderimi</li><li>Zimmet hatırlatmaları</li><li>Gecikme bildirimleri</li><li>Email loglama ve takip</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: public interface IEmailService
+    content.vb: Public Interface IEmailService
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync(System.String,System.String,System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync(System.String,System.String,System.String,System.String,System.Nullable{System.Int32})
+  id: SendEmailAsync(System.String,System.String,System.String,System.String,System.Nullable{System.Int32})
+  parent: ITAssetManagement.Web.Services.Interfaces.IEmailService
+  langs:
+  - csharp
+  - vb
+  name: SendEmailAsync(string, string, string, string?, int?)
+  nameWithType: IEmailService.SendEmailAsync(string, string, string, string?, int?)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync(string, string, string, string?, int?)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SendEmailAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+    startLine: 41
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Genel amaçlı email gönderme metodu.
+  remarks: >-
+    <p>
+
+    Bu metot:
+
+    <ul><li>HTML formatında email gönderir</li><li>Gönderim sonucunu loglar</li><li>Hata durumunda retry mekanizması çalıştırır</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: Task<bool> SendEmailAsync(string to, string subject, string body, string? relatedEntityType = null, int? relatedEntityId = null)
+    parameters:
+    - id: to
+      type: System.String
+      description: Alıcı email adresi
+    - id: subject
+      type: System.String
+      description: Email konusu
+    - id: body
+      type: System.String
+      description: Email içeriği
+    - id: relatedEntityType
+      type: System.String
+      description: İlişkili varlık tipi (opsiyonel)
+    - id: relatedEntityId
+      type: System.Nullable{System.Int32}
+      description: İlişkili varlık ID'si (opsiyonel)
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: Email gönderimi başarılı ise true
+    content.vb: Function SendEmailAsync([to] As String, subject As String, body As String, relatedEntityType As String = Nothing, relatedEntityId As Integer? = Nothing) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync*
+  nameWithType.vb: IEmailService.SendEmailAsync(String, String, String, String, Integer?)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync(String, String, String, String, Integer?)
+  name.vb: SendEmailAsync(String, String, String, String, Integer?)
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendAssignmentReminderAsync(ITAssetManagement.Web.Models.Assignment)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IEmailService.SendAssignmentReminderAsync(ITAssetManagement.Web.Models.Assignment)
+  id: SendAssignmentReminderAsync(ITAssetManagement.Web.Models.Assignment)
+  parent: ITAssetManagement.Web.Services.Interfaces.IEmailService
+  langs:
+  - csharp
+  - vb
+  name: SendAssignmentReminderAsync(Assignment)
+  nameWithType: IEmailService.SendAssignmentReminderAsync(Assignment)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendAssignmentReminderAsync(ITAssetManagement.Web.Models.Assignment)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SendAssignmentReminderAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+    startLine: 58
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Zimmet süresi yaklaşan kullanıcılara hatırlatma emaili gönderir.
+  remarks: >-
+    <p>
+
+    Bu metot şu durumlarda kullanılır:
+
+    <ul><li>Zimmet bitiş tarihi yaklaşanlar</li><li>İade süresi gecikmiş olanlar</li><li>Periyodik hatırlatmalar</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: Task<bool> SendAssignmentReminderAsync(Assignment assignment)
+    parameters:
+    - id: assignment
+      type: ITAssetManagement.Web.Models.Assignment
+      description: İlgili zimmet kaydı
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: Email gönderimi başarılı ise true
+    content.vb: Function SendAssignmentReminderAsync(assignment As Assignment) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendAssignmentReminderAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendOverdueNotificationAsync(ITAssetManagement.Web.Models.Assignment)
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IEmailService.SendOverdueNotificationAsync(ITAssetManagement.Web.Models.Assignment)
+  id: SendOverdueNotificationAsync(ITAssetManagement.Web.Models.Assignment)
+  parent: ITAssetManagement.Web.Services.Interfaces.IEmailService
+  langs:
+  - csharp
+  - vb
+  name: SendOverdueNotificationAsync(Assignment)
+  nameWithType: IEmailService.SendOverdueNotificationAsync(Assignment)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendOverdueNotificationAsync(ITAssetManagement.Web.Models.Assignment)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: SendOverdueNotificationAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+    startLine: 75
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Zimmet süresi geçmiş kullanıcılara bildirim emaili gönderir.
+  remarks: >-
+    <p>
+
+    Bu metot şu özelliklere sahiptir:
+
+    <ul><li>Yöneticileri CC'ye ekler</li><li>Gecikme süresini hesaplar</li><li>Aciliyet durumuna göre önceliklendirme yapar</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: Task<bool> SendOverdueNotificationAsync(Assignment assignment)
+    parameters:
+    - id: assignment
+      type: ITAssetManagement.Web.Models.Assignment
+      description: İlgili zimmet kaydı
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: Email gönderimi başarılı ise true
+    content.vb: Function SendOverdueNotificationAsync(assignment As Assignment) As Task(Of Boolean)
+  overload: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendOverdueNotificationAsync*
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Nullable{System.Int32})
+  id: LogEmailAsync(System.String,System.String,System.String,System.Boolean,System.String,System.String,System.Nullable{System.Int32})
+  parent: ITAssetManagement.Web.Services.Interfaces.IEmailService
+  langs:
+  - csharp
+  - vb
+  name: LogEmailAsync(string, string, string, bool, string?, string?, int?)
+  nameWithType: IEmailService.LogEmailAsync(string, string, string, bool, string?, string?, int?)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync(string, string, string, bool, string?, string?, int?)
+  type: Method
+  source:
+    remote:
+      path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+      branch: master
+      repo: https://github.com/SametAnaz/ITAssetManagement.git
+    id: LogEmailAsync
+    path: ITAssetManagement.Web/Services/Interfaces/IEmailService.cs
+    startLine: 98
+  assemblies:
+  - ITAssetManagement.Web
+  namespace: ITAssetManagement.Web.Services.Interfaces
+  summary: Email gönderim işlemlerini loglar.
+  remarks: >-
+    <p>
+
+    Log kaydı şu bilgileri içerir:
+
+    <ul><li>Gönderim zamanı ve durumu</li><li>Başarısızlık nedeni ve retry sayısı</li><li>İlişkili varlık referansları</li></ul>
+
+    </p>
+  example: []
+  syntax:
+    content: Task<EmailLog> LogEmailAsync(string to, string subject, string body, bool isSuccess, string? errorMessage = null, string? relatedEntityType = null, int? relatedEntityId = null)
+    parameters:
+    - id: to
+      type: System.String
+      description: Alıcı email adresi
+    - id: subject
+      type: System.String
+      description: Email konusu
+    - id: body
+      type: System.String
+      description: Email içeriği
+    - id: isSuccess
+      type: System.Boolean
+      description: Gönderim başarılı mı?
+    - id: errorMessage
+      type: System.String
+      description: Hata mesajı (başarısız durumda)
+    - id: relatedEntityType
+      type: System.String
+      description: İlişkili varlık tipi (opsiyonel)
+    - id: relatedEntityId
+      type: System.Nullable{System.Int32}
+      description: İlişkili varlık ID'si (opsiyonel)
+    return:
+      type: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Email.EmailLog}
+      description: Oluşturulan log kaydı
+    content.vb: Function LogEmailAsync([to] As String, subject As String, body As String, isSuccess As Boolean, errorMessage As String = Nothing, relatedEntityType As String = Nothing, relatedEntityId As Integer? = Nothing) As Task(Of EmailLog)
+  overload: ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync*
+  nameWithType.vb: IEmailService.LogEmailAsync(String, String, String, Boolean, String, String, Integer?)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync(String, String, String, Boolean, String, String, Integer?)
+  name.vb: LogEmailAsync(String, String, String, Boolean, String, String, Integer?)
+references:
+- uid: ITAssetManagement.Web.Services.Interfaces
+  commentId: N:ITAssetManagement.Web.Services.Interfaces
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Services.Interfaces
+  nameWithType: ITAssetManagement.Web.Services.Interfaces
+  fullName: ITAssetManagement.Web.Services.Interfaces
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services
+    name: Services
+    href: ITAssetManagement.Web.Services.html
+  - name: .
+  - uid: ITAssetManagement.Web.Services.Interfaces
+    name: Interfaces
+    href: ITAssetManagement.Web.Services.Interfaces.html
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IEmailService.html#ITAssetManagement_Web_Services_Interfaces_IEmailService_SendEmailAsync_System_String_System_String_System_String_System_String_System_Nullable_System_Int32__
+  name: SendEmailAsync
+  nameWithType: IEmailService.SendEmailAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendEmailAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendAssignmentReminderAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IEmailService.SendAssignmentReminderAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IEmailService.html#ITAssetManagement_Web_Services_Interfaces_IEmailService_SendAssignmentReminderAsync_ITAssetManagement_Web_Models_Assignment_
+  name: SendAssignmentReminderAsync
+  nameWithType: IEmailService.SendAssignmentReminderAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendAssignmentReminderAsync
+- uid: ITAssetManagement.Web.Models.Assignment
+  commentId: T:ITAssetManagement.Web.Models.Assignment
+  parent: ITAssetManagement.Web.Models
+  href: ITAssetManagement.Web.Models.Assignment.html
+  name: Assignment
+  nameWithType: Assignment
+  fullName: ITAssetManagement.Web.Models.Assignment
+- uid: ITAssetManagement.Web.Models
+  commentId: N:ITAssetManagement.Web.Models
+  href: ITAssetManagement.html
+  name: ITAssetManagement.Web.Models
+  nameWithType: ITAssetManagement.Web.Models
+  fullName: ITAssetManagement.Web.Models
+  spec.csharp:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+  spec.vb:
+  - uid: ITAssetManagement
+    name: ITAssetManagement
+    href: ITAssetManagement.html
+  - name: .
+  - uid: ITAssetManagement.Web
+    name: Web
+    href: ITAssetManagement.Web.html
+  - name: .
+  - uid: ITAssetManagement.Web.Models
+    name: Models
+    href: ITAssetManagement.Web.Models.html
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendOverdueNotificationAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IEmailService.SendOverdueNotificationAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IEmailService.html#ITAssetManagement_Web_Services_Interfaces_IEmailService_SendOverdueNotificationAsync_ITAssetManagement_Web_Models_Assignment_
+  name: SendOverdueNotificationAsync
+  nameWithType: IEmailService.SendOverdueNotificationAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService.SendOverdueNotificationAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync*
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync
+  href: ITAssetManagement.Web.Services.Interfaces.IEmailService.html#ITAssetManagement_Web_Services_Interfaces_IEmailService_LogEmailAsync_System_String_System_String_System_String_System_Boolean_System_String_System_String_System_Nullable_System_Int32__
+  name: LogEmailAsync
+  nameWithType: IEmailService.LogEmailAsync
+  fullName: ITAssetManagement.Web.Services.Interfaces.IEmailService.LogEmailAsync
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Email.EmailLog}
+  commentId: T:System.Threading.Tasks.Task{ITAssetManagement.Web.Models.Email.EmailLog}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<EmailLog>
+  nameWithType: Task<EmailLog>
+  fullName: System.Threading.Tasks.Task<ITAssetManagement.Web.Models.Email.EmailLog>
+  nameWithType.vb: Task(Of EmailLog)
+  fullName.vb: System.Threading.Tasks.Task(Of ITAssetManagement.Web.Models.Email.EmailLog)
+  name.vb: Task(Of EmailLog)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: ITAssetManagement.Web.Models.Email.EmailLog
+    name: EmailLog
+    href: ITAssetManagement.Web.Models.Email.EmailLog.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ITAssetManagement.Web.Models.Email.EmailLog
+    name: EmailLog
+    href: ITAssetManagement.Web.Models.Email.EmailLog.html
+  - name: )
