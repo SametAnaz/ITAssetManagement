@@ -286,7 +286,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Extensions.PaginatedList<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Extensions.PaginatedList-1.yml\" sourcestartlinenumber=\"1\">Veri listelerinin sayfalama işlemleri için kullanılan generic liste sınıfı.\nEntity Framework sorguları için sayfalama yapar ve sayfa navigasyonu için gerekli özellikleri sağlar.</p>\n"
     },
     {
       "type": "ManagedReference",
