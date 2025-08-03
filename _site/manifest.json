@@ -290,6 +290,20 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Extensions.ViewDocumentation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Extensions.ViewDocumentation.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Extensions.ViewDocumentation",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Extensions.ViewDocumentation.yml\" sourcestartlinenumber=\"1\">Documentation for Views in the ITAssetManagement application</p>\n"
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/ITAssetManagement.Web.Extensions.yml",
       "output": {
         ".html": {
@@ -685,6 +699,26 @@
         },
         ".json": {
           "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/frontend/assets.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/frontend/assets.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/frontend/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/frontend/index.html"
         }
       },
       "version": ""

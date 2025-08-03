@@ -1,4 +1,5 @@
-- name: Docs
-  href: C:\Users\samet\OneDrive\Masaüstü\samet.code\ITAssetManagement\ITAssetManagement.Web\Documentation/
-- name: API
+- name: API Documentation
   href: api/
+- name: Articles
+  href: articles/
+  homepage: articles/intro.md
