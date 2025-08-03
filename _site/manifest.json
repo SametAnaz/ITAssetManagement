@@ -748,6 +748,26 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/views/categories.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/views/categories.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/views/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/views/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
