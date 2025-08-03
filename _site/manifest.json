@@ -496,7 +496,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Services.AssignmentService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.AssignmentService.yml\" sourcestartlinenumber=\"1\">Zimmet işlemlerini yöneten servis sınıfı.\nIAssignmentService arayüzünü implement eder.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -510,7 +510,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Services.BarcodeService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.BarcodeService.yml\" sourcestartlinenumber=\"1\">Barkod ve QR kod oluşturma servisi.\nZXing kütüphanesi kullanarak çeşitli formatlarda barkod/QR kod üretir.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -524,7 +524,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Services.EmailService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.EmailService.yml\" sourcestartlinenumber=\"1\">Email gönderme ve loglama işlemlerini yöneten servis sınıfı.\nIEmailService arayüzünü implement eder.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -552,7 +552,21 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Services.Interfaces.IAssignmentService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.Interfaces.IAssignmentService.yml\" sourcestartlinenumber=\"1\">Zimmet işlemlerini yöneten servis arayüzü.\nBu servis, laptop zimmet atama, güncelleme ve silme işlemlerini yönetir.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ITAssetManagement.Web.Services.Interfaces.IBarcodeService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ITAssetManagement.Web.Services.Interfaces.IBarcodeService.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "ITAssetManagement.Web.Services.Interfaces.IBarcodeService",
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.Interfaces.IBarcodeService.yml\" sourcestartlinenumber=\"1\">Barkod ve QR kod oluşturma işlemlerini yöneten servis arayüzü.\nBu servis, varlık takibi için gerekli barkod/QR kod işlemlerini sağlar.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -566,7 +580,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Services.Interfaces.IEmailService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.Interfaces.IEmailService.yml\" sourcestartlinenumber=\"1\">Email gönderme ve loglama işlemlerini yöneten servis arayüzü.\nBu servis, sistem genelinde email iletişimini ve kayıtlarını yönetir.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -594,7 +608,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Services.Interfaces.IUserService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.Interfaces.IUserService.yml\" sourcestartlinenumber=\"1\">Kullanıcı işlemlerini yöneten servis arayüzü.\nBu servis, kullanıcı yönetimi ve zimmet sahiplerinin bilgilerini yönetir.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -622,7 +636,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Services.LaptopService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.LaptopService.yml\" sourcestartlinenumber=\"1\">Laptop varlıklarını yöneten servis sınıfı.\nILaptopService arayüzünü implement eder.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -636,7 +650,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Services.UserService",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Services.UserService.yml\" sourcestartlinenumber=\"1\">Kullanıcı işlemlerini yöneten servis sınıfı.\nIUserService arayüzünü implement eder.</p>\n"
     },
     {
       "type": "ManagedReference",

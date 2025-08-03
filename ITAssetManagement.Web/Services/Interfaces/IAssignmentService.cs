@@ -2,12 +2,92 @@ using ITAssetManagement.Web.Models;
 
 namespace ITAssetManagement.Web.Services.Interfaces
 {
+    /// <summary>
+    /// Zimmet işlemlerini yöneten servis arayüzü.
+    /// Bu servis, laptop zimmet atama, güncelleme ve silme işlemlerini yönetir.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Bu servis aşağıdaki temel işlevleri sağlar:
+    /// <list type="bullet">
+    /// <item><description>Zimmet kayıtlarının listelenmesi ve filtrelenmesi</description></item>
+    /// <item><description>Yeni zimmet oluşturma ve güncelleme</description></item>
+    /// <item><description>Zimmet iade işlemleri</description></item>
+    /// <item><description>Zimmet geçmişi takibi</description></item>
+    /// </list>
+    /// </para>
+    /// </remarks>
     public interface IAssignmentService
     {
+        /// <summary>
+        /// Tüm zimmet kayıtlarını getirir.
+        /// </summary>
+        /// <returns>Zimmet kayıtlarının listesi</returns>
+        /// <remarks>
+        /// Bu metot aktif ve geçmiş tüm zimmetleri içerir.
+        /// Sonuçlar tarihe göre azalan sırada döner.
+        /// </remarks>
         Task<IEnumerable<Assignment>> GetAllAssignmentsAsync();
+
+        /// <summary>
+        /// Belirtilen ID'ye sahip zimmet kaydını getirir.
+        /// </summary>
+        /// <param name="id">Zimmet kaydının ID'si</param>
+        /// <returns>Bulunan zimmet kaydı veya null</returns>
+        /// <remarks>
+        /// Bu metot, ilişkili Laptop ve User bilgilerini de include eder.
+        /// </remarks>
         Task<Assignment?> GetAssignmentByIdAsync(int id);
+
+        /// <summary>
+        /// Yeni bir zimmet kaydı oluşturur.
+        /// </summary>
+        /// <param name="assignment">Oluşturulacak zimmet kaydı</param>
+        /// <returns>Oluşturma işlemi tamamlandığında dönen task</returns>
+        /// <remarks>
+        /// <para>
+        /// Bu metot şu işlemleri gerçekleştirir:
+        /// <list type="bullet">
+        /// <item><description>Laptop durumunu günceller</description></item>
+        /// <item><description>Zimmet kaydını oluşturur</description></item>
+        /// <item><description>İlgili log kayıtlarını oluşturur</description></item>
+        /// </list>
+        /// </para>
+        /// </remarks>
         Task CreateAssignmentAsync(Assignment assignment);
+
+        /// <summary>
+        /// Mevcut bir zimmet kaydını günceller.
+        /// </summary>
+        /// <param name="assignment">Güncellenecek zimmet kaydı</param>
+        /// <returns>Güncelleme işlemi tamamlandığında dönen task</returns>
+        /// <remarks>
+        /// <para>
+        /// Bu metot şu durumları yönetir:
+        /// <list type="bullet">
+        /// <item><description>Zimmet süre uzatma</description></item>
+        /// <item><description>İade tarihi güncelleme</description></item>
+        /// <item><description>Notlar ve detay güncelleme</description></item>
+        /// </list>
+        /// </para>
+        /// </remarks>
         Task UpdateAssignmentAsync(Assignment assignment);
+
+        /// <summary>
+        /// Bir zimmet kaydını siler.
+        /// </summary>
+        /// <param name="id">Silinecek zimmet kaydının ID'si</param>
+        /// <returns>Silme işlemi tamamlandığında dönen task</returns>
+        /// <remarks>
+        /// <para>
+        /// Bu metot şu işlemleri gerçekleştirir:
+        /// <list type="bullet">
+        /// <item><description>İlgili laptop durumunu günceller</description></item>
+        /// <item><description>Zimmet kaydını arşivler</description></item>
+        /// <item><description>İlgili log kayıtlarını oluşturur</description></item>
+        /// </list>
+        /// </para>
+        /// </remarks>
         Task DeleteAssignmentAsync(int id);
     }
 }

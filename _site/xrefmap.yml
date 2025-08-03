@@ -292,13 +292,13 @@ references:
   commentId: T:ITAssetManagement.Web.Controllers.LaptopsController
   fullName: ITAssetManagement.Web.Controllers.LaptopsController
   nameWithType: LaptopsController
-- uid: ITAssetManagement.Web.Controllers.LaptopsController.#ctor(ITAssetManagement.Web.Services.Interfaces.ILaptopService,ITAssetManagement.Web.Services.IBarcodeService)
+- uid: ITAssetManagement.Web.Controllers.LaptopsController.#ctor(ITAssetManagement.Web.Services.Interfaces.ILaptopService,ITAssetManagement.Web.Services.Interfaces.IBarcodeService)
   name: LaptopsController(ILaptopService, IBarcodeService)
-  href: api/ITAssetManagement.Web.Controllers.LaptopsController.html#ITAssetManagement_Web_Controllers_LaptopsController__ctor_ITAssetManagement_Web_Services_Interfaces_ILaptopService_ITAssetManagement_Web_Services_IBarcodeService_
-  commentId: M:ITAssetManagement.Web.Controllers.LaptopsController.#ctor(ITAssetManagement.Web.Services.Interfaces.ILaptopService,ITAssetManagement.Web.Services.IBarcodeService)
+  href: api/ITAssetManagement.Web.Controllers.LaptopsController.html#ITAssetManagement_Web_Controllers_LaptopsController__ctor_ITAssetManagement_Web_Services_Interfaces_ILaptopService_ITAssetManagement_Web_Services_Interfaces_IBarcodeService_
+  commentId: M:ITAssetManagement.Web.Controllers.LaptopsController.#ctor(ITAssetManagement.Web.Services.Interfaces.ILaptopService,ITAssetManagement.Web.Services.Interfaces.IBarcodeService)
   name.vb: New(ILaptopService, IBarcodeService)
-  fullName: ITAssetManagement.Web.Controllers.LaptopsController.LaptopsController(ITAssetManagement.Web.Services.Interfaces.ILaptopService, ITAssetManagement.Web.Services.IBarcodeService)
-  fullName.vb: ITAssetManagement.Web.Controllers.LaptopsController.New(ITAssetManagement.Web.Services.Interfaces.ILaptopService, ITAssetManagement.Web.Services.IBarcodeService)
+  fullName: ITAssetManagement.Web.Controllers.LaptopsController.LaptopsController(ITAssetManagement.Web.Services.Interfaces.ILaptopService, ITAssetManagement.Web.Services.Interfaces.IBarcodeService)
+  fullName.vb: ITAssetManagement.Web.Controllers.LaptopsController.New(ITAssetManagement.Web.Services.Interfaces.ILaptopService, ITAssetManagement.Web.Services.Interfaces.IBarcodeService)
   nameWithType: LaptopsController.LaptopsController(ILaptopService, IBarcodeService)
   nameWithType.vb: LaptopsController.New(ILaptopService, IBarcodeService)
 - uid: ITAssetManagement.Web.Controllers.LaptopsController.#ctor*
@@ -3005,6 +3005,28 @@ references:
   isSpec: "True"
   fullName: ITAssetManagement.Web.Services.Interfaces.IAssignmentService.UpdateAssignmentAsync
   nameWithType: IAssignmentService.UpdateAssignmentAsync
+- uid: ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  name: IBarcodeService
+  href: api/ITAssetManagement.Web.Services.Interfaces.IBarcodeService.html
+  commentId: T:ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  fullName: ITAssetManagement.Web.Services.Interfaces.IBarcodeService
+  nameWithType: IBarcodeService
+- uid: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(System.String)
+  name: GenerateBarcode(string)
+  href: api/ITAssetManagement.Web.Services.Interfaces.IBarcodeService.html#ITAssetManagement_Web_Services_Interfaces_IBarcodeService_GenerateBarcode_System_String_
+  commentId: M:ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(System.String)
+  name.vb: GenerateBarcode(String)
+  fullName: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(string)
+  fullName.vb: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode(String)
+  nameWithType: IBarcodeService.GenerateBarcode(string)
+  nameWithType.vb: IBarcodeService.GenerateBarcode(String)
+- uid: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode*
+  name: GenerateBarcode
+  href: api/ITAssetManagement.Web.Services.Interfaces.IBarcodeService.html#ITAssetManagement_Web_Services_Interfaces_IBarcodeService_GenerateBarcode_
+  commentId: Overload:ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode
+  isSpec: "True"
+  fullName: ITAssetManagement.Web.Services.Interfaces.IBarcodeService.GenerateBarcode
+  nameWithType: IBarcodeService.GenerateBarcode
 - uid: ITAssetManagement.Web.Services.Interfaces.IEmailService
   name: IEmailService
   href: api/ITAssetManagement.Web.Services.Interfaces.IEmailService.html

@@ -8,12 +8,36 @@ using ITAssetManagement.Web.Data;
 
 namespace ITAssetManagement.Web.Services
 {
+    /// <summary>
+    /// Email gönderme ve loglama işlemlerini yöneten servis sınıfı.
+    /// IEmailService arayüzünü implement eder.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Bu servis şu işlevleri sağlar:
+    /// <list type="bullet">
+    /// <item><description>SMTP üzerinden email gönderimi</description></item>
+    /// <item><description>Zimmet hatırlatma bildirimleri</description></item>
+    /// <item><description>Gecikme bildirimleri</description></item>
+    /// <item><description>Email gönderim logları</description></item>
+    /// </list>
+    /// </para>
+    /// </remarks>
     public class EmailService : IEmailService
     {
         private readonly EmailConfiguration _emailConfig;
         private readonly ApplicationDbContext _context;
         private readonly ILogger<EmailService> _logger;
 
+        /// <summary>
+        /// EmailService sınıfının yeni bir instance'ını oluşturur.
+        /// </summary>
+        /// <param name="emailConfig">Email sunucu yapılandırması</param>
+        /// <param name="context">Veritabanı context'i</param>
+        /// <param name="logger">Loglama servisi</param>
+        /// <remarks>
+        /// Dependency injection ile gerekli bağımlılıkları alır.
+        /// </remarks>
         public EmailService(
             IOptions<EmailConfiguration> emailConfig,
             ApplicationDbContext context,
@@ -24,6 +48,26 @@ namespace ITAssetManagement.Web.Services
             _logger = logger;
         }
 
+        /// <summary>
+        /// Email gönderme işlemini gerçekleştirir.
+        /// </summary>
+        /// <param name="to">Alıcı email adresi</param>
+        /// <param name="subject">Email konusu</param>
+        /// <param name="body">Email içeriği (HTML formatında)</param>
+        /// <param name="relatedEntityType">İlişkili varlık tipi (opsiyonel)</param>
+        /// <param name="relatedEntityId">İlişkili varlık ID'si (opsiyonel)</param>
+        /// <returns>Gönderim başarılı ise true</returns>
+        /// <remarks>
+        /// <para>
+        /// Bu metot şu işlemleri gerçekleştirir:
+        /// <list type="bullet">
+        /// <item><description>SMTP bağlantısı kurulması</description></item>
+        /// <item><description>Email formatının hazırlanması</description></item>
+        /// <item><description>Gönderim işlemi</description></item>
+        /// <item><description>Hata yönetimi ve loglama</description></item>
+        /// </list>
+        /// </para>
+        /// </remarks>
         public async Task<bool> SendEmailAsync(string to, string subject, string body, string? relatedEntityType = null, int? relatedEntityId = null)
         {
             try
@@ -58,6 +102,22 @@ namespace ITAssetManagement.Web.Services
             }
         }
 
+        /// <summary>
+        /// Zimmet süresi yaklaşan kullanıcılara hatırlatma emaili gönderir.
+        /// </summary>
+        /// <param name="assignment">İlgili zimmet kaydı</param>
+        /// <returns>Gönderim başarılı ise true</returns>
+        /// <remarks>
+        /// <para>
+        /// Email içeriği şu bilgileri içerir:
+        /// <list type="bullet">
+        /// <item><description>Kalan gün sayısı</description></item>
+        /// <item><description>Laptop bilgileri</description></item>
+        /// <item><description>İade tarihi</description></item>
+        /// <item><description>İletişim bilgileri</description></item>
+        /// </list>
+        /// </para>
+        /// </remarks>
         public async Task<bool> SendAssignmentReminderAsync(Assignment assignment)
         {
             if (assignment.User == null || string.IsNullOrEmpty(assignment.User.Email))
@@ -89,6 +149,22 @@ namespace ITAssetManagement.Web.Services
                 assignment.Id);
         }
 
+        /// <summary>
+        /// Zimmet süresi geçmiş kullanıcılara bildirim emaili gönderir.
+        /// </summary>
+        /// <param name="assignment">İlgili zimmet kaydı</param>
+        /// <returns>Gönderim başarılı ise true</returns>
+        /// <remarks>
+        /// <para>
+        /// Email içeriği şu bilgileri içerir:
+        /// <list type="bullet">
+        /// <item><description>Gecikme süresi</description></item>
+        /// <item><description>Laptop bilgileri</description></item>
+        /// <item><description>Son tarih bilgisi</description></item>
+        /// <item><description>Acil iade talebi</description></item>
+        /// </list>
+        /// </para>
+        /// </remarks>
         public async Task<bool> SendOverdueNotificationAsync(Assignment assignment)
         {
             if (assignment.User == null || string.IsNullOrEmpty(assignment.User.Email))
@@ -121,6 +197,28 @@ namespace ITAssetManagement.Web.Services
                 assignment.Id);
         }
 
+        /// <summary>
+        /// Email gönderim işlemlerini loglar.
+        /// </summary>
+        /// <param name="to">Alıcı email adresi</param>
+        /// <param name="subject">Email konusu</param>
+        /// <param name="body">Email içeriği</param>
+        /// <param name="isSuccess">Gönderim başarılı mı?</param>
+        /// <param name="errorMessage">Hata mesajı (başarısız durumda)</param>
+        /// <param name="relatedEntityType">İlişkili varlık tipi (opsiyonel)</param>
+        /// <param name="relatedEntityId">İlişkili varlık ID'si (opsiyonel)</param>
+        /// <returns>Oluşturulan log kaydı</returns>
+        /// <remarks>
+        /// <para>
+        /// Log kaydında şu bilgiler tutulur:
+        /// <list type="bullet">
+        /// <item><description>Gönderim zamanı ve durumu</description></item>
+        /// <item><description>Alıcı ve içerik bilgileri</description></item>
+        /// <item><description>Hata detayları (varsa)</description></item>
+        /// <item><description>İlişkili varlık referansları</description></item>
+        /// </list>
+        /// </para>
+        /// </remarks>
         public async Task<EmailLog> LogEmailAsync(string to, string subject, string body, bool isSuccess, string? errorMessage = null, string? relatedEntityType = null, int? relatedEntityId = null)
         {
             var log = new EmailLog
