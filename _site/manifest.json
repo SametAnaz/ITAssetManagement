@@ -705,6 +705,36 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/architecture/components.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/architecture/components.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/architecture/implementation-examples.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/architecture/implementation-examples.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/architecture/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/architecture/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/frontend/assets.md",
       "output": {
         ".html": {
