@@ -132,7 +132,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Data.ApplicationDbContext",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Data.ApplicationDbContext.yml\" sourcestartlinenumber=\"1\">Uygulama veritabanı bağlamı</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -160,7 +160,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Data.Repositories.GenericRepository<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Data.Repositories.GenericRepository-1.yml\" sourcestartlinenumber=\"1\">Genel repository sınıfı implementasyonu</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -174,7 +174,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Data.Repositories.IAssignmentRepository",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Data.Repositories.IAssignmentRepository.yml\" sourcestartlinenumber=\"1\">Zimmet repository arayüzü</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -188,7 +188,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Data.Repositories.IGenericRepository<T>",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Data.Repositories.IGenericRepository-1.yml\" sourcestartlinenumber=\"1\">Genel repository arayüzü</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -202,7 +202,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Data.Repositories.ILaptopRepository",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Data.Repositories.ILaptopRepository.yml\" sourcestartlinenumber=\"1\">Laptop repository arayüzü</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -216,7 +216,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Data.Repositories.IUserRepository",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Data.Repositories.IUserRepository.yml\" sourcestartlinenumber=\"1\">Kullanıcı repository arayüzü</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -244,7 +244,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Data.Repositories.UserRepository",
-      "Summary": null
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Data.Repositories.UserRepository.yml\" sourcestartlinenumber=\"1\">Kullanıcı repository sınıfı implementasyonu</p>\n"
     },
     {
       "type": "ManagedReference",
