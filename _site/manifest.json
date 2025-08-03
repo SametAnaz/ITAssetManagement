@@ -342,7 +342,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Models.Assignment",
-      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.Assignment.yml\" sourcestartlinenumber=\"1\">Laptop zimmet işlemlerini temsil eden sınıf</p>\n"
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.Assignment.yml\" sourcestartlinenumber=\"1\">Laptop zimmet işlemlerini temsil eden sınıf.\nBu sınıf, bir laptopun bir kullanıcıya zimmetlenmesi ve iade süreçlerini yönetir.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -398,7 +398,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Models.ErrorViewModel",
-      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.ErrorViewModel.yml\" sourcestartlinenumber=\"1\">Hata sayfalarında kullanılan görünüm modeli</p>\n"
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.ErrorViewModel.yml\" sourcestartlinenumber=\"1\">Uygulama genelinde hata sayfalarında kullanılan görünüm modeli.\nBu model, hata detaylarını ve izleme bilgilerini kullanıcıya göstermek için kullanılır.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -412,7 +412,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Models.Laptop",
-      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.Laptop.yml\" sourcestartlinenumber=\"1\">Sistemdeki laptop varlıklarını temsil eden sınıf</p>\n"
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.Laptop.yml\" sourcestartlinenumber=\"1\">Sistemdeki laptop varlıklarını temsil eden sınıf.\nBu sınıf, şirketin sahip olduğu tüm laptopların yönetimini ve takibini sağlar.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -454,7 +454,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Models.LoginModel",
-      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.LoginModel.yml\" sourcestartlinenumber=\"1\">Kullanıcı girişi için kullanılan model sınıfı</p>\n"
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.LoginModel.yml\" sourcestartlinenumber=\"1\">Kullanıcı girişi için kullanılan model sınıfı.\nBu sınıf, kullanıcı kimlik doğrulama sürecinde form verilerini taşır.</p>\n"
     },
     {
       "type": "ManagedReference",
@@ -468,7 +468,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Models.User",
-      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.User.yml\" sourcestartlinenumber=\"1\">Sistemdeki kullanıcıları temsil eden sınıf</p>\n"
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Models.User.yml\" sourcestartlinenumber=\"1\">Sistemdeki kullanıcıları temsil eden sınıf.\nBu sınıf, IT varlıklarını zimmetinde bulunduran personel bilgilerini yönetir.</p>\n"
     },
     {
       "type": "ManagedReference",
