@@ -10,9 +10,35 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ITAssetManagement.Web.Migrations
 {
+    /// <summary>
+    /// Veritabanı modelinin güncel durumunu temsil eden sınıf.
+    /// </summary>
+    /// <remarks>
+    /// Bu sınıf aşağıdaki işlevlere sahiptir:
+    /// <list type="bullet">
+    /// <item><description>Veritabanı şemasının güncel durumunu saklar</description></item>
+    /// <item><description>Migration'lar arası karşılaştırma için kullanılır</description></item>
+    /// <item><description>Yeni migration'ların oluşturulmasında temel alınır</description></item>
+    /// <item><description>Entity Framework Core tarafından otomatik yönetilir</description></item>
+    /// </list>
+    /// </remarks>
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
+        /// <summary>
+        /// Veritabanı modelini oluşturur ve yapılandırır.
+        /// </summary>
+        /// <param name="modelBuilder">Model yapılandırma nesnesi</param>
+        /// <remarks>
+        /// Bu metot şu yapılandırmaları içerir:
+        /// <list type="bullet">
+        /// <item><description>Entity tanımlamaları ve özellikleri</description></item>
+        /// <item><description>Tablo ilişkileri ve foreign key'ler</description></item>
+        /// <item><description>İndeksler ve kısıtlamalar</description></item>
+        /// <item><description>Veri tipleri ve dönüşümleri</description></item>
+        /// <item><description>Özel konfigürasyonlar</description></item>
+        /// </list>
+        /// </remarks>
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

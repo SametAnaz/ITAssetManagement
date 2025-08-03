@@ -314,7 +314,7 @@
       "Uid": null,
       "IsMRef": true,
       "Title": "ITAssetManagement.Web.Migrations.CreateTables",
-      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Migrations.CreateTables.yml\" sourcestartlinenumber=\"1\">A base class inherited by each EF Core migration.</p>\n"
+      "Summary": "<p sourcefile=\"api/ITAssetManagement.Web.Migrations.CreateTables.yml\" sourcestartlinenumber=\"1\">Veritabanı tablolarını oluşturan ve güncelleyen migration sınıfı.\nBu migration, sistemin temel veri yapısını oluşturur ve veri modelinde yapılan değişiklikleri uygular.</p>\n"
     },
     {
       "type": "ManagedReference",

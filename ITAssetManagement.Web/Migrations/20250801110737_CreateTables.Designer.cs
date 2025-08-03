@@ -11,11 +11,27 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ITAssetManagement.Web.Migrations
 {
+    /// <summary>
+    /// CreateTables migration'ının tasarım zamanı görüntüsünü temsil eden sınıf.
+    /// Bu sınıf, migration uygulandığında oluşturulacak veritabanı modelini tanımlar.
+    /// Entity Framework Core tarafından otomatik olarak oluşturulur.
+    /// </summary>
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20250801110737_CreateTables")]
     partial class CreateTables
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Migration sonrası hedef veritabanı modelini oluşturur.
+        /// Bu metot, migration uygulandıktan sonra veritabanının nasıl görüneceğini tanımlar.
+        /// </summary>
+        /// <param name="modelBuilder">Model oluşturucu nesnesi</param>
+        /// <remarks>
+        /// Bu metot şunları içerir:
+        /// - Tüm entity tipleri ve özellikleri
+        /// - Veritabanı ilişkileri
+        /// - İndeksler ve kısıtlamalar
+        /// - Özel konfigürasyonlar
+        /// </remarks>
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618

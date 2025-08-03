@@ -6,10 +6,53 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ITAssetManagement.Web.Migrations
 {
-    /// <inheritdoc />
+    /// <summary>
+    /// Veritabanı tablolarını oluşturan ve güncelleyen migration sınıfı.
+    /// Bu migration, sistemin temel veri yapısını oluşturur ve veri modelinde yapılan değişiklikleri uygular.
+    /// </summary>
+    /// <remarks>
+    /// Bu migration aşağıdaki işlemleri gerçekleştirir:
+    /// <list type="bullet">
+    /// <item><description>Laptop tablosunun oluşturulması ve güncellenmesi (IsActive, Notes, SilinmeTarihi vb. alanların eklenmesi)</description></item>
+    /// <item><description>User tablosunun oluşturulması ve güncellenmesi (IsActive alanının değiştirilmesi)</description></item>
+    /// <item><description>Assignment tablosunun oluşturulması ve güncellenmesi (AssignmentDate, ReturnDate, IslemTipi alanlarının eklenmesi)</description></item>
+    /// <item><description>LaptopPhoto tablosunun güncellenmesi (UploadDate -> YuklemeTarihi değişimi)</description></item>
+    /// <item><description>LaptopLog tablosunun oluşturulması (Laptop işlem geçmişini takip etmek için)</description></item>
+    /// <item><description>EmailLog tablosunun oluşturulması (Email gönderim kayıtlarını tutmak için)</description></item>
+    /// </list>
+    /// Tüm tablolar için:
+    /// <list type="bullet">
+    /// <item><description>Primary key ve foreign key ilişkileri tanımlanmıştır</description></item>
+    /// <item><description>Uygun veri tipleri ve boyut kısıtlamaları belirlenmiştir</description></item>
+    /// <item><description>Gerekli indeksler oluşturulmuştur</description></item>
+    /// <item><description>Varsayılan değerler ve nullable/required alanlar ayarlanmıştır</description></item>
+    /// </list>
+    /// </remarks>
     public partial class CreateTables : Migration
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Migration'ı uygular ve veritabanı şemasını yükseltir.
+        /// Tüm tabloları, ilişkileri ve kısıtlamaları oluşturur/günceller.
+        /// </summary>
+        /// <param name="migrationBuilder">Migration işlemlerini yönetmek için kullanılan builder nesnesi.</param>
+        /// <remarks>
+        /// Bu metot şu işlemleri sırasıyla gerçekleştirir:
+        /// <list type="bullet">
+        /// <item><description>Eski/kullanılmayan tabloları ve alanları kaldırır (DeletedLaptops tablosu gibi)</description></item>
+        /// <item><description>Mevcut tablolardaki kolonları yeniden adlandırır ve günceller</description></item>
+        /// <item><description>Yeni EmailLogs ve LaptopLogs tablolarını oluşturur</description></item>
+        /// <item><description>İlişkileri ve foreign key'leri günceller/oluşturur</description></item>
+        /// <item><description>Gerekli indeksleri oluşturur (örn: IX_Assignments_LaptopId)</description></item>
+        /// <item><description>Veri bütünlüğü için kısıtlamaları ve varsayılan değerleri ayarlar</description></item>
+        /// </list>
+        /// Önemli Değişiklikler:
+        /// <list type="bullet">
+        /// <item><description>Tüm datetime alanları datetime(6) olarak güncellendi</description></item>
+        /// <item><description>Tüm string alanlar için maksimum uzunluklar belirlendi</description></item>
+        /// <item><description>Identity column stratejisi tüm ID'ler için ayarlandı</description></item>
+        /// <item><description>Utf8mb4 karakter seti tüm string alanlar için tanımlandı</description></item>
+        /// </list>
+        /// </remarks>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
@@ -238,7 +281,29 @@ namespace ITAssetManagement.Web.Migrations
                 column: "LaptopId");
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Migration'ı geri alır ve veritabanı şemasını önceki durumuna döndürür.
+        /// Bu işlem, Up metodunda yapılan tüm değişiklikleri tersine çevirir.
+        /// </summary>
+        /// <param name="migrationBuilder">Migration işlemlerini yönetmek için kullanılan builder nesnesi.</param>
+        /// <remarks>
+        /// Bu metot şu işlemleri sırasıyla gerçekleştirir:
+        /// <list type="bullet">
+        /// <item><description>EmailLogs ve LaptopLogs tablolarını tamamen siler</description></item>
+        /// <item><description>Assignments tablosundaki LaptopId indeksini kaldırır</description></item>
+        /// <item><description>Laptops tablosundan eklenen yeni kolonları (Notes, SilenKullanici vb.) siler</description></item>
+        /// <item><description>Tüm tablolardaki yapısal değişiklikleri geri alır</description></item>
+        /// <item><description>Eklenen kısıtlamaları ve foreign key'leri kaldırır</description></item>
+        /// <item><description>Veritabanı şemasını migration öncesi haline döndürür</description></item>
+        /// </list>
+        /// Önemli Notlar:
+        /// <list type="bullet">
+        /// <item><description>Bu işlem geri alınamaz, tüm veriler silinir</description></item>
+        /// <item><description>EmailLogs ve LaptopLogs tablolarındaki tüm kayıtlar kaybolur</description></item>
+        /// <item><description>Yeni eklenen alanlardaki veriler kaybolur</description></item>
+        /// <item><description>Veri kaybını önlemek için gerekli yedekleme işlemleri önceden yapılmalıdır</description></item>
+        /// </list>
+        /// </remarks>
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
