@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Frontend Varlıkları Dok&#252;mantasyonu </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Frontend Varlıkları Dok&#252;mantasyonu ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="frontend-varlıkları-dokümantasyonu">Frontend Varlıkları Dokümantasyonu</h1>
+
+<p>Bu belge, BT Varlık Yönetimi uygulamasındaki statik varlıklara genel bir bakış sağlar.</p>
+<h2 id="dizin-yapısı">Dizin Yapısı</h2>
+<pre><code>wwwroot/
+├── css/
+│   ├── site.css               # Ana uygulama stilleri
+│   └── bootstrap.min.css      # Bootstrap framework stilleri
+├── js/
+│   ├── site.js               # Ana uygulama scriptleri
+│   ├── jquery.min.js         # jQuery kütüphanesi
+│   ├── bootstrap.bundle.js   # Bootstrap JavaScript
+│   └── qrcode.min.js        # QR kod üretme kütüphanesi
+├── lib/                      # Üçüncü parti kütüphaneler
+│   ├── bootstrap/
+│   ├── jquery/
+│   ├── jquery-validation/
+│   └── jquery-validation-unobtrusive/
+└── images/                   # Uygulama görselleri ve ikonları
+    ├── logo.png
+    └── favicon.ico
+</code></pre>
+<h2 id="css-files">CSS Files</h2>
+<h3 id="sitecss">site.css</h3>
+<p>Main application stylesheet containing custom styles for:</p>
+<ul>
+<li>Layout and navigation</li>
+<li>Forms and inputs</li>
+<li>Tables and lists</li>
+<li>Cards and panels</li>
+<li>Mobile responsiveness</li>
+<li>Custom components</li>
+</ul>
+<h3 id="bootstrap-theme-customizations">Bootstrap Theme Customizations</h3>
+<p>Bootstrap variables and overrides for:</p>
+<ul>
+<li>Primary colors: #007bff</li>
+<li>Secondary colors: #6c757d</li>
+<li>Success: #28a745</li>
+<li>Danger: #dc3545</li>
+<li>Font families: Segoe UI, system-ui</li>
+<li>Border radius: 0.25rem</li>
+<li>Spacing units: 1rem base</li>
+</ul>
+<h2 id="javascript-files">JavaScript Files</h2>
+<h3 id="sitejs">site.js</h3>
+<p>Main application JavaScript containing:</p>
+<ul>
+<li>AJAX form submissions</li>
+<li>Dynamic table sorting</li>
+<li>Search functionality</li>
+<li>QR code generation</li>
+<li>Date picker initialization</li>
+<li>Form validation</li>
+<li>Modal dialogs</li>
+<li>Toast notifications</li>
+</ul>
+<h3 id="third-party-libraries">Third-party Libraries</h3>
+<ul>
+<li>jQuery v3.6.0</li>
+<li>Bootstrap v5.1.0</li>
+<li>QR Code Generator v1.4.4</li>
+<li>jQuery Validation</li>
+<li>jQuery Unobtrusive Validation</li>
+</ul>
+<h2 id="images">Images</h2>
+<h3 id="application-images">Application Images</h3>
+<ul>
+<li>Logo: 200x50px PNG with transparency</li>
+<li>Favicon: 32x32px ICO format</li>
+<li>Default profile picture: 200x200px JPG</li>
+</ul>
+<h2 id="asset-management">Asset Management</h2>
+<h3 id="bundling-and-minification">Bundling and Minification</h3>
+<p>Production builds automatically:</p>
+<ol>
+<li>Minify CSS files</li>
+<li>Minify JavaScript files</li>
+<li>Combine common libraries</li>
+<li>Generate source maps</li>
+</ol>
+<h3 id="cache-busting">Cache Busting</h3>
+<ul>
+<li>Files include version hash in production</li>
+<li>Cache headers set to 1 year for static files</li>
+<li>Version query string added automatically</li>
+</ul>
+<h3 id="cdn-support">CDN Support</h3>
+<p>Production environment uses CDN for:</p>
+<ul>
+<li>Bootstrap</li>
+<li>jQuery</li>
+<li>Font Awesome</li>
+</ul>
+<h3 id="mobile-optimization">Mobile Optimization</h3>
+<ul>
+<li>Responsive images with srcset</li>
+<li>CSS media queries</li>
+<li>Touch-friendly interactions</li>
+<li>Mobile-first design approach</li>
+</ul>
+<h2 id="development-guidelines">Development Guidelines</h2>
+<h3 id="adding-new-styles">Adding New Styles</h3>
+<ol>
+<li>Add new styles to appropriate section in site.css</li>
+<li>Follow BEM naming convention</li>
+<li>Include mobile-first media queries</li>
+<li>Document significant changes</li>
+</ol>
+<h3 id="adding-new-scripts">Adding New Scripts</h3>
+<ol>
+<li>Add new functions to appropriate module in site.js</li>
+<li>Use jQuery noConflict mode</li>
+<li>Document function purpose and parameters</li>
+<li>Add error handling</li>
+</ol>
+<h3 id="image-guidelines">Image Guidelines</h3>
+<ol>
+<li>Optimize all images for web</li>
+<li>Include responsive versions</li>
+<li>Use appropriate format (PNG for transparency, JPG for photos)</li>
+<li>Keep file sizes under 200KB</li>
+</ol>
+<h3 id="performance-considerations">Performance Considerations</h3>
+<ol>
+<li>Lazy load images</li>
+<li>Defer non-critical JavaScript</li>
+<li>Minimize HTTP requests</li>
+<li>Use CSS sprites for icons</li>
+<li>Enable compression</li>
+</ol>
+<h2 id="browser-support">Browser Support</h2>
+<ul>
+<li>Chrome (last 2 versions)</li>
+<li>Firefox (last 2 versions)</li>
+<li>Safari (last 2 versions)</li>
+<li>Edge (last 2 versions)</li>
+<li>iOS Safari</li>
+<li>Chrome for Android</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/frontend/assets.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

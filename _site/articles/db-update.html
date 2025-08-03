@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Veritabanı G&#252;ncellemesi: MySQL&#39;den MS SQL Server&#39;a Ge&#231;iş </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Veritabanı G&#252;ncellemesi: MySQL&#39;den MS SQL Server&#39;a Ge&#231;iş ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="veritabanı-güncellemesi-mysqlden-ms-sql-servera-geçiş">Veritabanı Güncellemesi: MySQL'den MS SQL Server'a Geçiş</h1>
+
+<p>Bu dokümantasyon, IT Varlık Yönetim Sistemi'nin veritabanını MySQL'den MS SQL Server'a geçiş sürecini detaylı olarak anlatmaktadır.</p>
+<h2 id="İçindekiler">İçindekiler</h2>
+<ol>
+<li><a href="#mevcut-veritaban%C4%B1-yap%C4%B1s%C4%B1">Mevcut Veritabanı Yapısı</a></li>
+<li><a href="#ge%C3%A7i%C5%9F-%C3%B6ncesi-haz%C4%B1rl%C4%B1k">Geçiş Öncesi Hazırlık</a></li>
+<li><a href="#ms-sql-server-kurulumu">MS SQL Server Kurulumu</a></li>
+<li><a href="#veritaban%C4%B1-ge%C3%A7i%C5%9Fi">Veritabanı Geçişi</a></li>
+<li><a href="#entity-framework-konfig%C3%BCrasyonu">Entity Framework Konfigürasyonu</a></li>
+<li><a href="#veri-do%C4%9Frulama">Veri Doğrulama</a></li>
+</ol>
+<h2 id="mevcut-veritabanı-yapısı">Mevcut Veritabanı Yapısı</h2>
+<h3 id="temel-tablolar-ve-İlişkileri">Temel Tablolar ve İlişkileri</h3>
+<pre><code class="lang-sql">-- Kullanıcılar Tablosu
+CREATE TABLE Users (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    Username NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) UNIQUE NOT NULL,
+    Department NVARCHAR(50),
+    CreatedDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    IsActive BIT DEFAULT 1
+);
+
+-- Laptoplar Tablosu
+CREATE TABLE Laptops (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    SerialNumber NVARCHAR(50) UNIQUE NOT NULL,
+    Model NVARCHAR(100) NOT NULL,
+    Brand NVARCHAR(50) NOT NULL,
+    PurchaseDate DATETIME,
+    Status INT NOT NULL DEFAULT 1, -- 1: Available, 2: Assigned, 3: In Service
+    LastMaintenanceDate DATETIME,
+    NextMaintenanceDate DATETIME,
+    Notes TEXT
+);
+
+-- Laptop Fotoğrafları Tablosu
+CREATE TABLE LaptopPhotos (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    LaptopId INT NOT NULL,
+    PhotoUrl NVARCHAR(255) NOT NULL,
+    UploadDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (LaptopId) REFERENCES Laptops(Id)
+);
+
+-- Zimmetler Tablosu
+CREATE TABLE Assignments (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    UserId INT NOT NULL,
+    LaptopId INT NOT NULL,
+    AssignmentDate DATETIME NOT NULL,
+    ReturnDate DATETIME,
+    Status INT NOT NULL DEFAULT 1, -- 1: Active, 2: Returned, 3: Overdue
+    Notes TEXT,
+    QRCodeUrl NVARCHAR(255),
+    FOREIGN KEY (UserId) REFERENCES Users(Id),
+    FOREIGN KEY (LaptopId) REFERENCES Laptops(Id)
+);
+
+-- Laptop İşlem Logları
+CREATE TABLE LaptopLogs (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    LaptopId INT NOT NULL,
+    Operation NVARCHAR(50) NOT NULL,
+    Description TEXT,
+    OperationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    OperatedBy INT,
+    FOREIGN KEY (LaptopId) REFERENCES Laptops(Id),
+    FOREIGN KEY (OperatedBy) REFERENCES Users(Id)
+);
+
+-- E-posta Logları
+CREATE TABLE EmailLogs (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    ToAddress NVARCHAR(100) NOT NULL,
+    Subject NVARCHAR(200) NOT NULL,
+    Body TEXT,
+    SentDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Status INT NOT NULL DEFAULT 0, -- 0: Pending, 1: Sent, 2: Failed
+    ErrorMessage TEXT
+);
+</code></pre>
+<h2 id="geçiş-öncesi-hazırlık">Geçiş Öncesi Hazırlık</h2>
+<ol>
+<li><p><strong>Veritabanı Yedekleme</strong></p>
+<pre><code class="lang-bash">mysqldump -u root -p ITAssetManagement &gt; backup.sql
+</code></pre>
+</li>
+<li><p><strong>Veri Doğrulama</strong></p>
+<pre><code class="lang-sql">-- Veri bütünlüğü kontrolü
+SELECT COUNT(*) FROM Users;
+SELECT COUNT(*) FROM Laptops;
+SELECT COUNT(*) FROM Assignments;
+
+-- İlişki kontrolü
+SELECT * FROM Assignments a 
+LEFT JOIN Users u ON a.UserId = u.Id 
+WHERE u.Id IS NULL;
+</code></pre>
+</li>
+</ol>
+<h2 id="ms-sql-server-kurulumu">MS SQL Server Kurulumu</h2>
+<ol>
+<li><p><strong>SQL Server Kurulumu</strong></p>
+<ul>
+<li>SQL Server 2019 Express Edition indirin</li>
+<li>Basic kurulum seçeneğini kullanın</li>
+<li>Windows Authentication modunu seçin</li>
+</ul>
+</li>
+<li><p><strong>Veritabanı Oluşturma</strong></p>
+<pre><code class="lang-sql">CREATE DATABASE ITAssetManagement;
+GO
+
+USE ITAssetManagement;
+GO
+</code></pre>
+</li>
+</ol>
+<h2 id="veritabanı-geçişi">Veritabanı Geçişi</h2>
+<h3 id="ms-sql-server-tablo-yapısı">MS SQL Server Tablo Yapısı</h3>
+<pre><code class="lang-sql">-- Kullanıcılar Tablosu
+CREATE TABLE Users (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Username NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) UNIQUE NOT NULL,
+    Department NVARCHAR(50),
+    CreatedDate DATETIME2 DEFAULT GETDATE(),
+    IsActive BIT DEFAULT 1
+);
+
+-- Laptoplar Tablosu
+CREATE TABLE Laptops (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    SerialNumber NVARCHAR(50) UNIQUE NOT NULL,
+    Model NVARCHAR(100) NOT NULL,
+    Brand NVARCHAR(50) NOT NULL,
+    PurchaseDate DATETIME2,
+    Status INT NOT NULL DEFAULT 1,
+    LastMaintenanceDate DATETIME2,
+    NextMaintenanceDate DATETIME2,
+    Notes NVARCHAR(MAX)
+);
+
+-- Diğer tablolar için benzer dönüşümler...
+</code></pre>
+<h3 id="veri-tipi-dönüşümleri">Veri Tipi Dönüşümleri</h3>
+<table>
+<thead>
+<tr>
+<th>MySQL</th>
+<th>MS SQL Server</th>
+<th>Not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUTO_INCREMENT</td>
+<td>IDENTITY(1,1)</td>
+<td>Primary key için otomatik artış</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>NVARCHAR(MAX)</td>
+<td>Uzun metinler için</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>DATETIME2</td>
+<td>Daha yüksek hassasiyet</td>
+</tr>
+<tr>
+<td>BIT</td>
+<td>BIT</td>
+<td>Aynı kullanım</td>
+</tr>
+<tr>
+<td>FOREIGN KEY</td>
+<td>FOREIGN KEY</td>
+<td>Syntax farklı</td>
+</tr>
+</tbody>
+</table>
+<h2 id="entity-framework-konfigürasyonu">Entity Framework Konfigürasyonu</h2>
+<h3 id="1-connection-string-güncelleme">1. Connection String Güncelleme</h3>
+<pre><code class="lang-json">{
+  &quot;ConnectionStrings&quot;: {
+    &quot;DefaultConnection&quot;: &quot;Server=localhost\\SQLEXPRESS;Database=ITAssetManagement;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True&quot;
+  }
+}
+</code></pre>
+<h3 id="2-dbcontext-güncelleme">2. DbContext Güncelleme</h3>
+<pre><code class="lang-csharp">public class ApplicationDbContext : DbContext
+{
+    public ApplicationDbContext(DbContextOptions&lt;ApplicationDbContext&gt; options)
+        : base(options)
+    {
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            optionsBuilder.UseSqlServer(
+                &quot;Server=localhost\\SQLEXPRESS;Database=ITAssetManagement;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True&quot;,
+                x =&gt; x.MigrationsHistoryTable(&quot;__EFMigrationsHistory&quot;)
+            );
+        }
+    }
+
+    // Mevcut DbSet tanımlamaları aynı kalacak
+    public DbSet&lt;User&gt; Users { get; set; }
+    public DbSet&lt;Laptop&gt; Laptops { get; set; }
+    public DbSet&lt;Assignment&gt; Assignments { get; set; }
+    // ...
+}
+</code></pre>
+<h3 id="3-migration-oluşturma">3. Migration Oluşturma</h3>
+<pre><code class="lang-powershell"># Eski migrasyonları temizle
+Remove-Migration
+
+# Yeni migration oluştur
+Add-Migration InitialCreate
+
+# Veritabanını güncelle
+Update-Database
+</code></pre>
+<h2 id="veri-doğrulama">Veri Doğrulama</h2>
+<h3 id="1-veri-sayımı-kontrolü">1. Veri Sayımı Kontrolü</h3>
+<pre><code class="lang-sql">-- MySQL'deki kayıt sayıları
+SELECT 'Users' as Table_Name, COUNT(*) as Count FROM Users
+UNION ALL
+SELECT 'Laptops', COUNT(*) FROM Laptops
+UNION ALL
+SELECT 'Assignments', COUNT(*) FROM Assignments;
+
+-- MS SQL'deki kayıt sayıları ile karşılaştır
+SELECT 'Users' as Table_Name, COUNT(*) as Count FROM Users
+UNION ALL
+SELECT 'Laptops', COUNT(*) FROM Laptops
+UNION ALL
+SELECT 'Assignments', COUNT(*) FROM Assignments;
+</code></pre>
+<h3 id="2-İlişki-kontrolü">2. İlişki Kontrolü</h3>
+<pre><code class="lang-sql">-- Geçersiz zimmet kaydı kontrolü
+SELECT a.* 
+FROM Assignments a
+LEFT JOIN Users u ON a.UserId = u.Id
+LEFT JOIN Laptops l ON a.LaptopId = l.Id
+WHERE u.Id IS NULL OR l.Id IS NULL;
+</code></pre>
+<h3 id="3-veri-bütünlüğü-testi">3. Veri Bütünlüğü Testi</h3>
+<pre><code class="lang-sql">-- Benzersiz alan kontrolü
+SELECT Email, COUNT(*) 
+FROM Users 
+GROUP BY Email 
+HAVING COUNT(*) &gt; 1;
+
+SELECT SerialNumber, COUNT(*) 
+FROM Laptops 
+GROUP BY SerialNumber 
+HAVING COUNT(*) &gt; 1;
+</code></pre>
+<h2 id="sorun-giderme">Sorun Giderme</h2>
+<h3 id="sık-karşılaşılan-hatalar">Sık Karşılaşılan Hatalar</h3>
+<ol>
+<li><p><strong>Bağlantı Hataları</strong></p>
+<pre><code>&quot;A network-related or instance-specific error occurred...&quot;
+</code></pre>
+<p>Çözüm:</p>
+<ul>
+<li>SQL Server servisinin çalıştığını kontrol edin</li>
+<li>Windows Authentication yetkilerini kontrol edin</li>
+<li>Firewall ayarlarını kontrol edin</li>
+</ul>
+</li>
+<li><p><strong>Migration Hataları</strong></p>
+<pre><code>&quot;There is already an object named 'xxx' in the database.&quot;
+</code></pre>
+<p>Çözüm:</p>
+<pre><code class="lang-sql">-- Tüm tabloları temizle
+EXEC sp_MSforeachtable @command1=&quot;DROP TABLE ?&quot;
+</code></pre>
+</li>
+<li><p><strong>Identity Insert Hataları</strong></p>
+<pre><code>&quot;Cannot insert explicit value for identity column...&quot;
+</code></pre>
+<p>Çözüm:</p>
+<pre><code class="lang-sql">SET IDENTITY_INSERT [TableName] ON;
+-- Insert işlemleri
+SET IDENTITY_INSERT [TableName] OFF;
+</code></pre>
+</li>
+</ol>
+<h2 id="rollback-planı">Rollback Planı</h2>
+<ol>
+<li><p><strong>MySQL Yedeğini Geri Yükleme</strong></p>
+<pre><code class="lang-bash">mysql -u root -p ITAssetManagement &lt; backup.sql
+</code></pre>
+</li>
+<li><p><strong>Connection String Değiştirme</strong></p>
+<pre><code class="lang-json">{
+  &quot;ConnectionStrings&quot;: {
+    &quot;DefaultConnection&quot;: &quot;Server=localhost;Database=ITAssetManagement;User=root;Password=yourpassword;&quot;
+  }
+}
+</code></pre>
+</li>
+<li><p><strong>Uygulama Havuzunu Yeniden Başlatma</strong></p>
+<pre><code class="lang-powershell">Stop-Website &quot;ITAssetManagement&quot;
+Start-Website &quot;ITAssetManagement&quot;
+</code></pre>
+</li>
+</ol>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/db-update.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>View Categories </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="View Categories ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="view-categories">View Categories</h1>
+
+<h2 id="shared-views">Shared Views</h2>
+<h3 id="_layoutcshtml">_Layout.cshtml</h3>
+<p>The main layout template that provides the common structure for all pages.</p>
+<h4 id="features">Features</h4>
+<ul>
+<li>Responsive navigation bar</li>
+<li>Sidebar menu</li>
+<li>Footer</li>
+<li>Common CSS/JS includes</li>
+<li>User session information</li>
+<li>Notification area</li>
+</ul>
+<h4 id="sections">Sections</h4>
+<ul>
+<li>Title</li>
+<li>Styles</li>
+<li>Scripts</li>
+<li>Content</li>
+</ul>
+<h4 id="viewdata-properties">ViewData Properties</h4>
+<ul>
+<li>Title</li>
+<li>ActiveMenu</li>
+<li>UserName</li>
+<li>Notifications</li>
+</ul>
+<h3 id="_validationscriptspartialcshtml">_ValidationScriptsPartial.cshtml</h3>
+<p>Partial view for client-side validation scripts.</p>
+<h4 id="includes">Includes</h4>
+<ul>
+<li>jQuery Validation</li>
+<li>jQuery Unobtrusive Validation</li>
+<li>Custom validation rules</li>
+</ul>
+<h2 id="assignment-views">Assignment Views</h2>
+<h3 id="indexcshtml">Index.cshtml</h3>
+<p>Displays a list of all assignments with filtering and sorting.</p>
+<h4 id="features-1">Features</h4>
+<ul>
+<li>Paginated list</li>
+<li>Search functionality</li>
+<li>Sort by columns</li>
+<li>Quick actions</li>
+<li>Status indicators</li>
+</ul>
+<h4 id="viewdata">ViewData</h4>
+<ul>
+<li>CurrentSort</li>
+<li>SearchString</li>
+<li>PageSize</li>
+</ul>
+<h3 id="createcshtml">Create.cshtml</h3>
+<p>Form for creating new assignments.</p>
+<h4 id="features-2">Features</h4>
+<ul>
+<li>User selection with search</li>
+<li>Laptop selection</li>
+<li>Date range picker</li>
+<li>QR code generation</li>
+<li>File attachments</li>
+</ul>
+<h4 id="javascript-functions">JavaScript Functions</h4>
+<ul>
+<li>generateQRCode()</li>
+<li>validateDates()</li>
+<li>searchUsers()</li>
+<li>searchLaptops()</li>
+</ul>
+<p><a href="assignments.md">View more details about Assignment views</a></p>
+<h2 id="laptop-views">Laptop Views</h2>
+<h3 id="indexcshtml-1">Index.cshtml</h3>
+<p>Displays list of all laptops with inventory management features.</p>
+<h4 id="features-3">Features</h4>
+<ul>
+<li>Stock level tracking</li>
+<li>Search and filter</li>
+<li>Quick actions</li>
+<li>Status indicators</li>
+</ul>
+<h3 id="deletedlaptopscshtml">DeletedLaptops.cshtml</h3>
+<p>Shows soft-deleted laptops with restore options.</p>
+<h4 id="features-4">Features</h4>
+<ul>
+<li>Restore functionality</li>
+<li>Deletion history</li>
+<li>Filter options</li>
+</ul>
+<p><a href="laptops.md">View more details about Laptop views</a></p>
+<h2 id="user-views">User Views</h2>
+<h3 id="indexcshtml-2">Index.cshtml</h3>
+<p>Lists all users with role and assignment information.</p>
+<h4 id="features-5">Features</h4>
+<ul>
+<li>Role indicators</li>
+<li>Active assignments</li>
+<li>Search functionality</li>
+<li>Quick actions</li>
+</ul>
+<h3 id="createcshtml-1">Create.cshtml</h3>
+<p>User creation form with role management.</p>
+<h4 id="features-6">Features</h4>
+<ul>
+<li>Basic info fields</li>
+<li>Role selection</li>
+<li>Department assignment</li>
+<li>Profile photo upload</li>
+</ul>
+<p><a href="users.md">View more details about User views</a></p>
+<h2 id="authentication-views">Authentication Views</h2>
+<h3 id="logincshtml">Login.cshtml</h3>
+<p>User authentication view.</p>
+<h4 id="features-7">Features</h4>
+<ul>
+<li>Username/password form</li>
+<li>Remember me option</li>
+<li>Validation</li>
+<li>Error messages</li>
+<li>Password reset link</li>
+</ul>
+<h2 id="common-view-patterns">Common View Patterns</h2>
+<h3 id="form-handling">Form Handling</h3>
+<pre><code class="lang-cshtml">@model CreateAssignmentViewModel
+
+&lt;form asp-action=&quot;Create&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    &lt;div asp-validation-summary=&quot;ModelOnly&quot; class=&quot;text-danger&quot;&gt;&lt;/div&gt;
+    
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;label asp-for=&quot;UserId&quot;&gt;&lt;/label&gt;
+        &lt;select asp-for=&quot;UserId&quot; asp-items=&quot;@Model.Users&quot; class=&quot;form-control&quot;&gt;
+            &lt;option value=&quot;&quot;&gt;Select User&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;span asp-validation-for=&quot;UserId&quot; class=&quot;text-danger&quot;&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    
+    &lt;!-- Other form fields --&gt;
+&lt;/form&gt;
+</code></pre>
+<h3 id="table-listings">Table Listings</h3>
+<pre><code class="lang-cshtml">&lt;table class=&quot;table table-hover&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;
+                &lt;a asp-action=&quot;Index&quot; asp-route-sortOrder=&quot;@ViewData[&quot;NameSort&quot;]&quot;&gt;
+                    @Html.DisplayNameFor(model =&gt; model.Name)
+                &lt;/a&gt;
+            &lt;/th&gt;
+            &lt;!-- Other headers --&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        @foreach (var item in Model) {
+            &lt;tr&gt;
+                &lt;td&gt;@Html.DisplayFor(modelItem =&gt; item.Name)&lt;/td&gt;
+                &lt;!-- Other cells --&gt;
+            &lt;/tr&gt;
+        }
+    &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
+<h3 id="partial-views">Partial Views</h3>
+<pre><code class="lang-cshtml">@await Html.PartialAsync(&quot;_StatusPartial&quot;, Model.Status)
+</code></pre>
+<h2 id="view-guidelines">View Guidelines</h2>
+<h3 id="naming-conventions">Naming Conventions</h3>
+<ul>
+<li>PascalCase for view names</li>
+<li>Prefix partial views with underscore</li>
+<li>Match controller action names</li>
+<li>Use descriptive suffixes (Create, Edit, Delete)</li>
+</ul>
+<h3 id="code-organization">Code Organization</h3>
+<ul>
+<li>Use tag helpers over HTML helpers</li>
+<li>Keep business logic in controllers</li>
+<li>Use view components for complex UI parts</li>
+<li>Follow single responsibility principle</li>
+</ul>
+<h3 id="performance">Performance</h3>
+<ul>
+<li>Enable bundling and minification</li>
+<li>Use async operations where possible</li>
+<li>Implement lazy loading</li>
+<li>Cache partial views</li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li>Always use model binding</li>
+<li>Implement anti-forgery tokens</li>
+<li>Validate all user input</li>
+<li>Encode output properly</li>
+</ul>
+<h3 id="accessibility">Accessibility</h3>
+<ul>
+<li>Use semantic HTML</li>
+<li>Include ARIA attributes</li>
+<li>Maintain keyboard navigation</li>
+<li>Follow WCAG guidelines</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/views/categories.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

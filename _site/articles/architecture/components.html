@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Sistem Bileşenleri ve İş Akışları </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Sistem Bileşenleri ve İş Akışları ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sistem-bileşenleri-ve-İş-akışları">Sistem Bileşenleri ve İş Akışları</h1>
+
+<h2 id="temel-İş-akışları">Temel İş Akışları</h2>
+<h3 id="1-zimmet-atama-süreci">1. Zimmet Atama Süreci</h3>
+<pre><code class="lang-mermaid">graph TD
+    A[Kullanıcı Seç] --&gt; B[Laptop Seç]
+    B --&gt; C[Zimmet Süresini Belirle]
+    C --&gt; D[QR Kod Oluştur]
+    D --&gt; E[E-posta Bildirimi Gönder]
+    E --&gt; F[Zimmet Kaydı Oluştur]
+</code></pre>
+<h4 id="adımlar">Adımlar:</h4>
+<ol>
+<li>Kullanıcı seçimi ve doğrulama</li>
+<li>Laptop uygunluk kontrolü</li>
+<li>Tarih aralığı doğrulama</li>
+<li>QR kod oluşturma</li>
+<li>E-posta bildirimi</li>
+<li>Veritabanı kaydı oluşturma</li>
+</ol>
+<h3 id="2-zimmet-İade-süreci">2. Zimmet İade Süreci</h3>
+<pre><code class="lang-mermaid">graph TD
+    A[QR Kodu Tara] --&gt; B[Zimmeti Doğrula]
+    B --&gt; C[Cihaz Durumunu Kontrol Et]
+    C --&gt; D[Durumu Güncelle]
+    D --&gt; E[İade Onayı Gönder]
+</code></pre>
+<h3 id="3-e-posta-bildirim-sistemi">3. E-posta Bildirim Sistemi</h3>
+<pre><code class="lang-mermaid">graph TD
+    A[Tetikleyici Olay] --&gt; B[E-posta Oluştur]
+    B --&gt; C[E-posta Kuyruğa Al]
+    C --&gt; D[E-posta Gönder]
+    D --&gt; E[Sonucu Kaydet]
+    E --&gt; F[Başarısızsa Tekrar Dene]
+</code></pre>
+<h2 id="veritabanı-şeması">Veritabanı Şeması</h2>
+<h3 id="temel-tablolar">Temel Tablolar</h3>
+<pre><code class="lang-sql">-- Kullanıcılar Tablosu
+CREATE TABLE Users (
+    Id INT PRIMARY KEY,
+    Username NVARCHAR(100),    -- Kullanıcı Adı
+    Email NVARCHAR(100),       -- E-posta Adresi
+    Department NVARCHAR(50)    -- Departman
+)
+
+-- Laptoplar Tablosu
+CREATE TABLE Laptops (
+    Id INT PRIMARY KEY,
+    SerialNumber NVARCHAR(50), -- Seri Numarası
+    Model NVARCHAR(100),       -- Model Bilgisi
+    Status INT                 -- Durum (Müsait, Zimmette, Serviste vb.)
+)
+
+-- Zimmetler Tablosu
+CREATE TABLE Assignments (
+    Id INT PRIMARY KEY,
+    UserId INT,               -- Kullanıcı ID
+    LaptopId INT,            -- Laptop ID
+    AssignDate DATETIME,     -- Zimmet Tarihi
+    ReturnDate DATETIME,     -- İade Tarihi
+    Status INT               -- Durum (Aktif, İade Edildi vb.)
+)
+</code></pre>
+<h2 id="servis-katmanı-implementasyonu">Servis Katmanı Implementasyonu</h2>
+<h3 id="zimmet-servisi">Zimmet Servisi</h3>
+<pre><code class="lang-csharp">public class AssignmentService : IAssignmentService
+{
+    private readonly IAssignmentRepository _repository;
+    private readonly IEmailService _emailService;
+    private readonly IQRCodeService _qrCodeService;
+
+    public async Task&lt;Assignment&gt; CreateAssignment(AssignmentDto dto)
+    {
+        // Zimmet bilgilerini doğrula
+        await ValidateAssignment(dto);
+
+        // Zimmet kaydı oluştur
+        var assignment = new Assignment(dto);
+
+        // QR kod oluştur
+        var qrCode = await _qrCodeService.Generate(assignment);
+        assignment.QRCodeUrl = qrCode.Url;
+
+        // Veritabanına kaydet
+        await _repository.AddAsync(assignment);
+
+        // E-posta bildirimi gönder
+        await _emailService.SendAssignmentNotification(assignment);
+
+        return assignment;
+    }
+}
+</code></pre>
+<h2 id="authentication-flow">Authentication Flow</h2>
+<pre><code class="lang-mermaid">sequenceDiagram
+    participant U as User
+    participant C as Controller
+    participant A as Auth Service
+    participant D as Database
+
+    U-&gt;&gt;C: Login Request
+    C-&gt;&gt;A: Validate Credentials
+    A-&gt;&gt;D: Check User
+    D--&gt;&gt;A: User Data
+    A--&gt;&gt;C: Auth Result
+    C--&gt;&gt;U: JWT Token/Cookie
+</code></pre>
+<h2 id="notification-system">Notification System</h2>
+<h3 id="email-templates">Email Templates</h3>
+<pre><code class="lang-html">&lt;!-- Assignment Notification --&gt;
+&lt;template&gt;
+    &lt;h2&gt;New Asset Assignment&lt;/h2&gt;
+    &lt;p&gt;Dear {{UserName}},&lt;/p&gt;
+    &lt;p&gt;You have been assigned the following asset:&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Asset: {{LaptopModel}}&lt;/li&gt;
+        &lt;li&gt;Serial: {{SerialNumber}}&lt;/li&gt;
+        &lt;li&gt;Period: {{StartDate}} to {{EndDate}}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;img src=&quot;{{QRCodeUrl}}&quot; alt=&quot;Assignment QR Code&quot;/&gt;
+&lt;/template&gt;
+</code></pre>
+<h2 id="security-implementation">Security Implementation</h2>
+<h3 id="1-authentication">1. Authentication</h3>
+<ul>
+<li>ASP.NET Core Identity configuration</li>
+<li>Password policies</li>
+<li>Multi-factor authentication (optional)</li>
+<li>Session management</li>
+</ul>
+<h3 id="2-authorization">2. Authorization</h3>
+<pre><code class="lang-csharp">[Authorize(Roles = &quot;Admin&quot;)]
+public class AssignmentsController : Controller
+{
+    [Authorize(Policy = &quot;CanManageAssignments&quot;)]
+    public async Task&lt;IActionResult&gt; Create()
+    {
+        // Implementation
+    }
+}
+</code></pre>
+<h3 id="3-data-protection">3. Data Protection</h3>
+<ul>
+<li>Encryption at rest</li>
+<li>TLS for data in transit</li>
+<li>Secure configuration storage</li>
+<li>Audit logging</li>
+</ul>
+<h2 id="performance-optimizations">Performance Optimizations</h2>
+<h3 id="1-caching-strategy">1. Caching Strategy</h3>
+<pre><code class="lang-csharp">public class LaptopService
+{
+    private readonly IMemoryCache _cache;
+    
+    public async Task&lt;IEnumerable&lt;Laptop&gt;&gt; GetAvailableLaptops()
+    {
+        return await _cache.GetOrCreateAsync(
+            &quot;available_laptops&quot;,
+            async entry =&gt;
+            {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5);
+                return await _repository.GetAvailableLaptopsAsync();
+            });
+    }
+}
+</code></pre>
+<h3 id="2-database-optimizations">2. Database Optimizations</h3>
+<ul>
+<li>Indexed views</li>
+<li>Proper indexing strategy</li>
+<li>Query optimization</li>
+<li>Connection pooling</li>
+</ul>
+<h3 id="3-application-optimizations">3. Application Optimizations</h3>
+<ul>
+<li>Async operations</li>
+<li>Resource pooling</li>
+<li>Minimal API responses</li>
+<li>Efficient client-side caching</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/architecture/components.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

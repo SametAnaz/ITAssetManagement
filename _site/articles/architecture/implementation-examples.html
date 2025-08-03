@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Detaylı Uygulama &#214;rnekleri </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Detaylı Uygulama &#214;rnekleri ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="detaylı-uygulama-örnekleri">Detaylı Uygulama Örnekleri</h1>
+
+<h2 id="1-e-posta-bildirim-sistemi-implementasyonu">1. E-posta Bildirim Sistemi Implementasyonu</h2>
+<h3 id="e-posta-servisi">E-posta Servisi</h3>
+<pre><code class="lang-csharp">public class EmailService : IEmailService
+{
+    private readonly EmailConfiguration _config;
+    private readonly ILogger&lt;EmailService&gt; _logger;
+    
+    public async Task SendAssignmentNotification(Assignment assignment)
+    {
+        try
+        {
+            var template = await GetEmailTemplate(&quot;AssignmentNotification&quot;);
+            var emailContent = PrepareEmailContent(template, assignment);
+            
+            await SendEmailAsync(new EmailMessage
+            {
+                To = assignment.User.Email,
+                Subject = &quot;Yeni Zimmet Bildirimi&quot;,
+                Content = emailContent,
+                Attachments = new[] { assignment.QRCodeUrl }
+            });
+            
+            await LogEmailSuccess(assignment.Id);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, &quot;Zimmet bildirimi gönderilemedi&quot;);
+            await LogEmailError(assignment.Id, ex.Message);
+            throw;
+        }
+    }
+}
+</code></pre>
+<h2 id="2-qr-kod-İşlemleri">2. QR Kod İşlemleri</h2>
+<h3 id="qr-kod-servisi">QR Kod Servisi</h3>
+<pre><code class="lang-csharp">public class QRCodeService : IQRCodeService
+{
+    private readonly IConfiguration _config;
+    
+    public async Task&lt;QRCodeResult&gt; Generate(Assignment assignment)
+    {
+        var data = new
+        {
+            AssignmentId = assignment.Id,
+            UserName = assignment.User.Username,
+            LaptopSerial = assignment.Laptop.SerialNumber,
+            ExpiryDate = assignment.ReturnDate
+        };
+        
+        var jsonData = JsonSerializer.Serialize(data);
+        var qrCodeImage = QRCodeGenerator.Generate(jsonData);
+        
+        // QR kodu kaydet ve URL'ini döndür
+        var url = await SaveQRCode(qrCodeImage, assignment.Id);
+        return new QRCodeResult { Url = url };
+    }
+}
+</code></pre>
+<h2 id="3-zimmet-doğrulama-ve-İade-İşlemleri">3. Zimmet Doğrulama ve İade İşlemleri</h2>
+<h3 id="zimmet-İade-servisi">Zimmet İade Servisi</h3>
+<pre><code class="lang-csharp">public class ReturnService : IReturnService
+{
+    private readonly IAssignmentRepository _assignmentRepo;
+    private readonly ILaptopRepository _laptopRepo;
+    
+    public async Task&lt;ReturnResult&gt; ProcessReturn(string qrCode)
+    {
+        // QR kod verisini çöz
+        var assignmentData = DecodeQRCode(qrCode);
+        
+        // Zimmeti bul ve doğrula
+        var assignment = await _assignmentRepo.GetByIdAsync(assignmentData.AssignmentId);
+        if (assignment == null || assignment.Status != AssignmentStatus.Active)
+            throw new InvalidOperationException(&quot;Geçersiz zimmet kaydı&quot;);
+            
+        // İade işlemini gerçekleştir
+        assignment.Status = AssignmentStatus.Returned;
+        assignment.ActualReturnDate = DateTime.UtcNow;
+        
+        // Laptop durumunu güncelle
+        var laptop = await _laptopRepo.GetByIdAsync(assignment.LaptopId);
+        laptop.Status = LaptopStatus.Available;
+        
+        // Değişiklikleri kaydet
+        await _assignmentRepo.UpdateAsync(assignment);
+        await _laptopRepo.UpdateAsync(laptop);
+        
+        return new ReturnResult
+        {
+            Success = true,
+            Message = &quot;Zimmet başarıyla iade edildi&quot;
+        };
+    }
+}
+</code></pre>
+<h2 id="4-otomatik-e-posta-hatırlatmaları">4. Otomatik E-posta Hatırlatmaları</h2>
+<h3 id="hatırlatma-servisi">Hatırlatma Servisi</h3>
+<pre><code class="lang-csharp">public class ReminderService : IReminderService
+{
+    private readonly IAssignmentRepository _repository;
+    private readonly IEmailService _emailService;
+    
+    public async Task SendReturnReminders()
+    {
+        // Yaklaşan iadeleri bul (örn: 7 gün kala)
+        var upcomingReturns = await _repository.GetUpcomingReturns(7);
+        
+        foreach (var assignment in upcomingReturns)
+        {
+            await _emailService.SendReturnReminder(new ReminderEmail
+            {
+                To = assignment.User.Email,
+                Subject = &quot;Zimmet İade Hatırlatması&quot;,
+                DaysLeft = (assignment.ReturnDate - DateTime.UtcNow).Days,
+                LaptopInfo = $&quot;{assignment.Laptop.Model} ({assignment.Laptop.SerialNumber})&quot;,
+                ReturnDate = assignment.ReturnDate
+            });
+        }
+    }
+}
+</code></pre>
+<p>Her servis implementasyonunda aşağıdaki önemli noktalara dikkat edilmiştir:</p>
+<ol>
+<li><strong>Hata Yönetimi</strong>: Try-catch blokları ve loglama</li>
+<li><strong>Async/Await</strong>: Asenkron operasyonlar için doğru kullanım</li>
+<li><strong>Dependency Injection</strong>: Constructor üzerinden bağımlılıkların enjekte edilmesi</li>
+<li><strong>SOLID Prensipleri</strong>: Tek sorumluluk ve interface segregation</li>
+<li><strong>Clean Code</strong>: Açıklayıcı isimlendirmeler ve kod organizasyonu</li>
+</ol>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/architecture/implementation-examples.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

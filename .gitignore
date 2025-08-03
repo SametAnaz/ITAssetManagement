@@ -365,23 +365,32 @@ FodyWeavers.xsd
 # Environment variables
 .env.local
 
-# Unnecessary files
-mssqldatabase.md
-EMAIL_NOTIFICATION_PLAN.md 
-.cursor/
-
+# Build directories
 obj/
 bin/
 scripts/
 
-# Production plans
-EMAIL_NOTIFICATION_PLAN.md
+# Development files
+.cursor/
 
 # DocFX specific
-_site/
-_exported_templates/
-obj/.cache/
-.manifest
+_site/              # Build output directory
+obj/.cache/         # Cache files
+_exported_templates/ # Exported templates that aren't being used
+
+# Keep these files for GitHub Pages
+!CNAME
+!_config.yml
+!favicon.ico
+!logo.svg
+!manifest.json
+!toc.yml
+!*.md
+!articles/
+!api/
+!images/
+!styles/
+!templates/
 
 # IDE specific
 .idea/

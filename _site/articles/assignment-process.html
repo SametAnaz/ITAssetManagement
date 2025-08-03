@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Zimmet İşlemleri </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Zimmet İşlemleri ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="zimmet-İşlemleri">Zimmet İşlemleri</h1>
+
+<p>Bu dokümantasyon IT Varlık Yönetim Sistemi'ndeki zimmet süreçlerini detaylı olarak açıklamaktadır.</p>
+<h2 id="İçindekiler">İçindekiler</h2>
+<ol>
+<li><a href="#zimmet-s%C3%BCreci">Zimmet Süreci</a></li>
+<li><a href="#i%CC%87ade-s%C3%BCreci">İade Süreci</a></li>
+<li><a href="#otomatik-bildirimler">Otomatik Bildirimler</a></li>
+<li><a href="#raporlama">Raporlama</a></li>
+</ol>
+<h2 id="zimmet-süreci">Zimmet Süreci</h2>
+<h3 id="zimmet-oluşturma">Zimmet Oluşturma</h3>
+<ol>
+<li><p><strong>Manuel Zimmet</strong></p>
+<pre><code class="lang-csharp">var assignment = new Assignment
+{
+    UserId = userId,
+    AssetId = assetId,
+    StartDate = DateTime.Now,
+    EndDate = DateTime.Now.AddMonths(6),
+    Notes = &quot;Proje süresince kullanım&quot;
+};
+</code></pre>
+</li>
+<li><p><strong>QR Kod ile Hızlı Zimmet</strong></p>
+<ul>
+<li>Varlık QR kodunu tarama</li>
+<li>Kullanıcı seçimi</li>
+<li>Süre belirleme</li>
+<li>Otomatik kayıt</li>
+</ul>
+</li>
+</ol>
+<h3 id="zimmet-onay-süreci">Zimmet Onay Süreci</h3>
+<ol>
+<li><p><strong>Talep Aşaması</strong></p>
+<ul>
+<li>Kullanıcı talebi</li>
+<li>Yönetici onayı</li>
+<li>IT onayı</li>
+</ul>
+</li>
+<li><p><strong>Teslim Aşaması</strong></p>
+<ul>
+<li>Fiziksel kontrol</li>
+<li>Teslim formu</li>
+<li>QR kod etiketleme</li>
+</ul>
+</li>
+</ol>
+<h2 id="İade-süreci">İade Süreci</h2>
+<h3 id="İade-İşlemi">İade İşlemi</h3>
+<pre><code class="lang-csharp">public async Task&lt;ReturnResult&gt; ProcessReturn(int assignmentId)
+{
+    var assignment = await _assignmentRepo.GetByIdAsync(assignmentId);
+    
+    // Fiziksel kontrol
+    var inspection = await InspectAsset(assignment.AssetId);
+    
+    if (inspection.HasDamage)
+    {
+        await CreateDamageReport(inspection);
+    }
+    
+    assignment.Status = AssignmentStatus.Returned;
+    assignment.ReturnDate = DateTime.Now;
+    
+    await _assignmentRepo.UpdateAsync(assignment);
+    await _emailService.SendReturnConfirmation(assignment);
+    
+    return new ReturnResult { Success = true };
+}
+</code></pre>
+<h3 id="İade-kontrol-listesi">İade Kontrol Listesi</h3>
+<ul>
+<li>[ ] Fiziksel hasar kontrolü</li>
+<li>[ ] Aksesuar kontrolü</li>
+<li>[ ] Yazılım kontrolü</li>
+<li>[ ] Temizlik kontrolü</li>
+</ul>
+<h2 id="otomatik-bildirimler">Otomatik Bildirimler</h2>
+<h3 id="zimmet-bildirimleri">Zimmet Bildirimleri</h3>
+<ol>
+<li><p><strong>Yeni Zimmet</strong></p>
+<ul>
+<li>Kullanıcıya bildirim</li>
+<li>Yöneticiye bildirim</li>
+<li>QR kod paylaşımı</li>
+</ul>
+</li>
+<li><p><strong>Süre Hatırlatmaları</strong></p>
+<ul>
+<li>1 ay kala</li>
+<li>1 hafta kala</li>
+<li>Son gün</li>
+</ul>
+</li>
+</ol>
+<h3 id="İade-bildirimleri">İade Bildirimleri</h3>
+<ul>
+<li>İade onayı</li>
+<li>Hasar raporu</li>
+<li>Geç iade uyarısı</li>
+</ul>
+<h2 id="zimmet-kuralları">Zimmet Kuralları</h2>
+<h3 id="süre-politikaları">Süre Politikaları</h3>
+<ul>
+<li>Minimum süre: 1 ay</li>
+<li>Maksimum süre: 24 ay</li>
+<li>Uzatma koşulları</li>
+</ul>
+<h3 id="sorumluluk-kuralları">Sorumluluk Kuralları</h3>
+<ol>
+<li><p><strong>Kullanıcı Sorumlulukları</strong></p>
+<ul>
+<li>Özenli kullanım</li>
+<li>Zamanında iade</li>
+<li>Hasar bildirimi</li>
+</ul>
+</li>
+<li><p><strong>Departman Sorumlulukları</strong></p>
+<ul>
+<li>Bütçe yönetimi</li>
+<li>Kullanım onayı</li>
+<li>Takip sorumluluğu</li>
+</ul>
+</li>
+</ol>
+<h2 id="raporlama">Raporlama</h2>
+<h3 id="zimmet-raporları">Zimmet Raporları</h3>
+<ul>
+<li>Aktif zimmetler</li>
+<li>Geçmiş zimmetler</li>
+<li>Departman bazlı dağılım</li>
+</ul>
+<h3 id="analiz-raporları">Analiz Raporları</h3>
+<pre><code class="lang-sql">SELECT 
+    d.Name AS Department,
+    COUNT(a.Id) AS ActiveAssignments,
+    AVG(DATEDIFF(day, a.StartDate, a.EndDate)) AS AvgDuration
+FROM Assignments a
+JOIN Users u ON a.UserId = u.Id
+JOIN Departments d ON u.DepartmentId = d.Id
+WHERE a.Status = 'Active'
+GROUP BY d.Name
+</code></pre>
+<h2 id="özel-durumlar">Özel Durumlar</h2>
+<h3 id="acil-zimmet">Acil Zimmet</h3>
+<ul>
+<li>Hızlı onay süreci</li>
+<li>Minimum dokümantasyon</li>
+<li>Sonradan tamamlama</li>
+</ul>
+<h3 id="toplu-zimmet">Toplu Zimmet</h3>
+<ul>
+<li>Excel ile import</li>
+<li>Batch processing</li>
+<li>Toplu bildirim</li>
+</ul>
+<h3 id="geçici-zimmet">Geçici Zimmet</h3>
+<ul>
+<li>Kısa süreli kullanım</li>
+<li>Basitleştirilmiş süreç</li>
+<li>Hızlı iade</li>
+</ul>
+<h2 id="en-İyi-uygulamalar">En İyi Uygulamalar</h2>
+<ol>
+<li><p><strong>Zimmet Oluşturma</strong></p>
+<ul>
+<li>Detaylı dokümanlar</li>
+<li>Net süre belirleme</li>
+<li>Kullanım amacı</li>
+</ul>
+</li>
+<li><p><strong>Takip ve Kontrol</strong></p>
+<ul>
+<li>Düzenli envanter kontrolü</li>
+<li>Süre takibi</li>
+<li>İade planlaması</li>
+</ul>
+</li>
+<li><p><strong>İade Süreci</strong></p>
+<ul>
+<li>Detaylı kontrol</li>
+<li>Belgelendirme</li>
+<li>Hızlı işlem</li>
+</ul>
+</li>
+</ol>
+<h2 id="sorun-giderme">Sorun Giderme</h2>
+<h3 id="sık-karşılaşılan-sorunlar">Sık Karşılaşılan Sorunlar</h3>
+<ol>
+<li><p><strong>Geç İade</strong></p>
+<ul>
+<li>Otomatik uyarılar</li>
+<li>Eskalasyon süreci</li>
+<li>Yaptırım politikası</li>
+</ul>
+</li>
+<li><p><strong>Hasar Durumu</strong></p>
+<ul>
+<li>Hasar tespit</li>
+<li>Sorumluluk belirleme</li>
+<li>Onarım süreci</li>
+</ul>
+</li>
+<li><p><strong>Kayıp/Çalıntı</strong></p>
+<ul>
+<li>Bildirim süreci</li>
+<li>Sigorta işlemleri</li>
+<li>Yasal süreç</li>
+</ul>
+</li>
+</ol>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/assignment-process.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

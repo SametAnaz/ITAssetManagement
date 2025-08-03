@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Kullanıcı Y&#246;netimi </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Kullanıcı Y&#246;netimi ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="kullanıcı-yönetimi">Kullanıcı Yönetimi</h1>
+
+<p>Bu dokümantasyon IT Varlık Yönetim Sistemi'ndeki kullanıcı yönetimi işlemlerini detaylı olarak açıklamaktadır.</p>
+<h2 id="İçindekiler">İçindekiler</h2>
+<ol>
+<li><a href="#kullan%C4%B1c%C4%B1-rolleri">Kullanıcı Rolleri</a></li>
+<li><a href="#kullan%C4%B1c%C4%B1-i%C5%9Flemleri">Kullanıcı İşlemleri</a></li>
+<li><a href="#yetkilendirme">Yetkilendirme</a></li>
+<li><a href="#g%C3%BCvenlik-politikalar%C4%B1">Güvenlik Politikaları</a></li>
+</ol>
+<h2 id="kullanıcı-rolleri">Kullanıcı Rolleri</h2>
+<h3 id="administrator">Administrator</h3>
+<ul>
+<li>Sistem genelinde tam yetki</li>
+<li>Kullanıcı yönetimi</li>
+<li>Rol atama/düzenleme</li>
+<li>Sistem ayarlarını değiştirme</li>
+</ul>
+<h3 id="asset-manager">Asset Manager</h3>
+<ul>
+<li>Varlık ekleme/düzenleme/silme</li>
+<li>Zimmet atama/iade alma</li>
+<li>Raporları görüntüleme</li>
+<li>Kullanıcı listesini görüntüleme</li>
+</ul>
+<h3 id="department-manager">Department Manager</h3>
+<ul>
+<li>Departman bazlı zimmet onaylama</li>
+<li>Departman raporlarını görüntüleme</li>
+<li>Departman kullanıcılarını yönetme</li>
+</ul>
+<h3 id="standard-user">Standard User</h3>
+<ul>
+<li>Zimmet listesini görüntüleme</li>
+<li>Zimmet taleplerini oluşturma</li>
+<li>Kişisel raporları görüntüleme</li>
+</ul>
+<h2 id="kullanıcı-İşlemleri">Kullanıcı İşlemleri</h2>
+<h3 id="yeni-kullanıcı-ekleme">Yeni Kullanıcı Ekleme</h3>
+<ol>
+<li>&quot;Kullanıcılar&quot; menüsünden &quot;Yeni Kullanıcı&quot; butonuna tıklayın</li>
+<li>Gerekli bilgileri doldurun:
+<ul>
+<li>Ad Soyad</li>
+<li>E-posta (kurum e-postası)</li>
+<li>Departman</li>
+<li>Rol</li>
+</ul>
+</li>
+<li>&quot;Kaydet&quot; butonuna tıklayın</li>
+</ol>
+<pre><code class="lang-csharp">// Örnek Kullanıcı Oluşturma Kodu
+var user = new User
+{
+    FirstName = &quot;Ahmet&quot;,
+    LastName = &quot;Yılmaz&quot;,
+    Email = &quot;ahmet.yilmaz@sirket.com&quot;,
+    Department = &quot;IT&quot;,
+    Role = UserRoles.AssetManager
+};
+</code></pre>
+<h3 id="kullanıcı-düzenleme">Kullanıcı Düzenleme</h3>
+<ol>
+<li>Kullanıcı listesinden ilgili kullanıcıyı bulun</li>
+<li>&quot;Düzenle&quot; butonuna tıklayın</li>
+<li>Bilgileri güncelleyin</li>
+<li>&quot;Kaydet&quot; butonuna tıklayın</li>
+</ol>
+<h3 id="kullanıcı-deaktive-etme">Kullanıcı Deaktive Etme</h3>
+<ul>
+<li>Kullanıcılar silinmez, deaktive edilir</li>
+<li>Deaktive edilen kullanıcının zimmetleri otomatik iade sürecine girer</li>
+<li>Geçmiş kayıtlar korunur</li>
+</ul>
+<h2 id="yetkilendirme">Yetkilendirme</h2>
+<h3 id="role-based-access-control-rbac">Role-Based Access Control (RBAC)</h3>
+<pre><code class="lang-csharp">[Authorize(Roles = &quot;Administrator,AssetManager&quot;)]
+public class AssetsController : Controller
+{
+    [Authorize(Roles = &quot;Administrator&quot;)]
+    public IActionResult Delete(int id)
+    {
+        // Silme işlemi
+    }
+}
+</code></pre>
+<h3 id="özel-yetkilendirmeler">Özel Yetkilendirmeler</h3>
+<ul>
+<li>Departman bazlı erişim kısıtlamaları</li>
+<li>İşlem bazlı yetkiler</li>
+<li>IP bazlı erişim kontrolleri</li>
+</ul>
+<h2 id="güvenlik-politikaları">Güvenlik Politikaları</h2>
+<h3 id="şifre-politikası">Şifre Politikası</h3>
+<ul>
+<li>Minimum 8 karakter</li>
+<li>En az 1 büyük harf</li>
+<li>En az 1 küçük harf</li>
+<li>En az 1 rakam</li>
+<li>En az 1 özel karakter</li>
+<li>90 günde bir şifre değişimi</li>
+</ul>
+<h3 id="oturum-güvenliği">Oturum Güvenliği</h3>
+<ul>
+<li>30 dakika inaktivite sonrası otomatik çıkış</li>
+<li>Tek oturum politikası</li>
+<li>Başarısız giriş denemesi limiti (5 deneme)</li>
+</ul>
+<h3 id="İki-faktörlü-doğrulama-2fa">İki Faktörlü Doğrulama (2FA)</h3>
+<ol>
+<li>E-posta ile doğrulama</li>
+<li>SMS ile doğrulama (opsiyonel)</li>
+<li>Authenticator app desteği</li>
+</ol>
+<h2 id="raporlama">Raporlama</h2>
+<h3 id="kullanıcı-aktivite-raporları">Kullanıcı Aktivite Raporları</h3>
+<ul>
+<li>Giriş kayıtları</li>
+<li>İşlem geçmişi</li>
+<li>Zimmet hareketleri</li>
+</ul>
+<h3 id="yönetici-raporları">Yönetici Raporları</h3>
+<ul>
+<li>Kullanıcı listesi</li>
+<li>Rol dağılımları</li>
+<li>Departman bazlı istatistikler</li>
+</ul>
+<h2 id="sorun-giderme">Sorun Giderme</h2>
+<h3 id="sık-karşılaşılan-sorunlar">Sık Karşılaşılan Sorunlar</h3>
+<ol>
+<li><p><strong>Şifremi Unuttum</strong></p>
+<ul>
+<li>Self-servis şifre sıfırlama</li>
+<li>Yönetici üzerinden sıfırlama</li>
+</ul>
+</li>
+<li><p><strong>Hesap Kilitleri</strong></p>
+<ul>
+<li>Otomatik kilit açma süresi</li>
+<li>Yönetici müdahalesi</li>
+</ul>
+</li>
+<li><p><strong>Yetki Sorunları</strong></p>
+<ul>
+<li>Rol kontrolleri</li>
+<li>Cache temizleme</li>
+<li>Oturum yenileme</li>
+</ul>
+</li>
+</ol>
+<h2 id="en-İyi-uygulamalar">En İyi Uygulamalar</h2>
+<ol>
+<li><p><strong>Kullanıcı Oluşturma</strong></p>
+<ul>
+<li>Kurumsal e-posta zorunluluğu</li>
+<li>Departman bilgisi doğruluğu</li>
+<li>Uygun rol ataması</li>
+</ul>
+</li>
+<li><p><strong>Güvenlik</strong></p>
+<ul>
+<li>Düzenli yetki kontrolleri</li>
+<li>Periyodik şifre değişimleri</li>
+<li>Aktivite loglarının takibi</li>
+</ul>
+</li>
+<li><p><strong>Bakım</strong></p>
+<ul>
+<li>Düzenli kullanıcı listesi temizliği</li>
+<li>Deaktive edilmiş hesapların kontrolü</li>
+<li>Yetki dağılımlarının gözden geçirilmesi</li>
+</ul>
+</li>
+</ol>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/user-management.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

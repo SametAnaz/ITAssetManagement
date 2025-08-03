@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Varlık Y&#246;netimi </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Varlık Y&#246;netimi ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="varlık-yönetimi">Varlık Yönetimi</h1>
+
+<p>Bu dokümantasyon IT Varlık Yönetim Sistemi'ndeki varlık (asset) yönetimi işlemlerini detaylı olarak açıklamaktadır.</p>
+<h2 id="İçindekiler">İçindekiler</h2>
+<ol>
+<li><a href="#varl%C4%B1k-kategorileri">Varlık Kategorileri</a></li>
+<li><a href="#varl%C4%B1k-i%C5%9Flemleri">Varlık İşlemleri</a></li>
+<li><a href="#envanter-y%C3%B6netimi">Envanter Yönetimi</a></li>
+<li><a href="#qr-kod-sistemi">QR Kod Sistemi</a></li>
+</ol>
+<h2 id="varlık-kategorileri">Varlık Kategorileri</h2>
+<h3 id="laptoplar">Laptoplar</h3>
+<ul>
+<li>Marka/Model bilgisi</li>
+<li>Seri numarası</li>
+<li>Donanım özellikleri</li>
+<li>Garanti durumu</li>
+</ul>
+<h3 id="masaüstü-bilgisayarlar">Masaüstü Bilgisayarlar</h3>
+<ul>
+<li>Sistem bileşenleri</li>
+<li>Lokasyon bilgisi</li>
+<li>Bağlı ekipmanlar</li>
+</ul>
+<h3 id="ekipmanlar">Ekipmanlar</h3>
+<ul>
+<li>Monitörler</li>
+<li>Yazıcılar</li>
+<li>Ağ cihazları</li>
+<li>Aksesuar ve çevre birimleri</li>
+</ul>
+<h2 id="varlık-İşlemleri">Varlık İşlemleri</h2>
+<h3 id="yeni-varlık-ekleme">Yeni Varlık Ekleme</h3>
+<pre><code class="lang-csharp">var laptop = new Laptop
+{
+    Brand = &quot;Dell&quot;,
+    Model = &quot;Latitude 5520&quot;,
+    SerialNumber = &quot;DL5520X123&quot;,
+    Specifications = new LaptopSpecifications
+    {
+        Processor = &quot;Intel i7 11th Gen&quot;,
+        RAM = &quot;16GB&quot;,
+        Storage = &quot;512GB SSD&quot;,
+        GPU = &quot;Intel Iris Xe&quot;
+    },
+    PurchaseDate = DateTime.Now,
+    WarrantyEndDate = DateTime.Now.AddYears(3)
+};
+</code></pre>
+<h3 id="varlık-durumları">Varlık Durumları</h3>
+<ol>
+<li><p><strong>Müsait</strong></p>
+<ul>
+<li>Zimmete verilebilir</li>
+<li>Stokta mevcut</li>
+</ul>
+</li>
+<li><p><strong>Zimmette</strong></p>
+<ul>
+<li>Aktif kullanımda</li>
+<li>Zimmet sahibi bilgisi</li>
+</ul>
+</li>
+<li><p><strong>Serviste</strong></p>
+<ul>
+<li>Arıza/bakım durumu</li>
+<li>Beklenen dönüş tarihi</li>
+</ul>
+</li>
+<li><p><strong>Emekli</strong></p>
+<ul>
+<li>Kullanım dışı</li>
+<li>Hurda/satış durumu</li>
+</ul>
+</li>
+</ol>
+<h2 id="envanter-yönetimi">Envanter Yönetimi</h2>
+<h3 id="stok-takibi">Stok Takibi</h3>
+<ul>
+<li>Anlık envanter durumu</li>
+<li>Minimum stok uyarıları</li>
+<li>Departman bazlı dağılım</li>
+</ul>
+<h3 id="bakım-planlaması">Bakım Planlaması</h3>
+<ol>
+<li><p><strong>Periyodik Bakımlar</strong></p>
+<ul>
+<li>Bakım takvimi</li>
+<li>Otomatik hatırlatmalar</li>
+<li>Servis geçmişi</li>
+</ul>
+</li>
+<li><p><strong>Garanti Takibi</strong></p>
+<ul>
+<li>Garanti bitiş tarihleri</li>
+<li>Garanti kapsamı</li>
+<li>Servis anlaşmaları</li>
+</ul>
+</li>
+</ol>
+<h2 id="qr-kod-sistemi">QR Kod Sistemi</h2>
+<h3 id="qr-kod-oluşturma">QR Kod Oluşturma</h3>
+<pre><code class="lang-csharp">public async Task&lt;string&gt; GenerateQRCode(Asset asset)
+{
+    var data = new AssetQRData
+    {
+        AssetId = asset.Id,
+        SerialNumber = asset.SerialNumber,
+        Type = asset.Type,
+        LastUpdated = DateTime.UtcNow
+    };
+
+    return await _qrService.GenerateCode(data);
+}
+</code></pre>
+<h3 id="qr-kod-İçeriği">QR Kod İçeriği</h3>
+<ul>
+<li>Varlık ID</li>
+<li>Seri numarası</li>
+<li>Kategori bilgisi</li>
+<li>Son güncelleme tarihi</li>
+</ul>
+<h3 id="qr-kod-kullanımı">QR Kod Kullanımı</h3>
+<ol>
+<li>Zimmet işlemleri</li>
+<li>Hızlı envanter sayımı</li>
+<li>Servis takibi</li>
+</ol>
+<h2 id="raporlama">Raporlama</h2>
+<h3 id="envanter-raporları">Envanter Raporları</h3>
+<ul>
+<li>Toplam varlık listesi</li>
+<li>Kategori bazlı dağılımlar</li>
+<li>Durum bazlı raporlar</li>
+</ul>
+<h3 id="maliyet-analizleri">Maliyet Analizleri</h3>
+<ul>
+<li>Satın alma maliyetleri</li>
+<li>Bakım/onarım giderleri</li>
+<li>Toplam sahip olma maliyeti (TCO)</li>
+</ul>
+<h3 id="kullanım-İstatistikleri">Kullanım İstatistikleri</h3>
+<ul>
+<li>Zimmet süreleri</li>
+<li>Arıza sıklıkları</li>
+<li>Departman bazlı kullanım</li>
+</ul>
+<h2 id="varlık-yaşam-döngüsü">Varlık Yaşam Döngüsü</h2>
+<h3 id="1-tedarik">1. Tedarik</h3>
+<ul>
+<li>Satın alma süreci</li>
+<li>Teslim alma</li>
+<li>İlk kayıt</li>
+</ul>
+<h3 id="2-aktif-kullanım">2. Aktif Kullanım</h3>
+<ul>
+<li>Zimmet işlemleri</li>
+<li>Bakım/onarım</li>
+<li>Yer değişiklikleri</li>
+</ul>
+<h3 id="3-emeklilik">3. Emeklilik</h3>
+<ul>
+<li>Kullanım dışı bırakma</li>
+<li>Hurda/satış işlemleri</li>
+<li>Kayıt silme</li>
+</ul>
+<h2 id="en-İyi-uygulamalar">En İyi Uygulamalar</h2>
+<ol>
+<li><p><strong>Varlık Kaydı</strong></p>
+<ul>
+<li>Detaylı bilgi girişi</li>
+<li>Doğru kategorizasyon</li>
+<li>Belge ve fotoğraf ekleme</li>
+</ul>
+</li>
+<li><p><strong>Envanter Yönetimi</strong></p>
+<ul>
+<li>Düzenli sayım</li>
+<li>Lokasyon takibi</li>
+<li>Durumu güncelleme</li>
+</ul>
+</li>
+<li><p><strong>Bakım Planlaması</strong></p>
+<ul>
+<li>Proaktif bakım takvimi</li>
+<li>Servis geçmişi tutma</li>
+<li>Garanti takibi</li>
+</ul>
+</li>
+</ol>
+<h2 id="sorun-giderme">Sorun Giderme</h2>
+<h3 id="sık-karşılaşılan-sorunlar">Sık Karşılaşılan Sorunlar</h3>
+<ol>
+<li><p><strong>QR Kod Okuma</strong></p>
+<ul>
+<li>Kod kalitesi kontrolü</li>
+<li>Kamera ayarları</li>
+<li>Aydınlatma koşulları</li>
+</ul>
+</li>
+<li><p><strong>Envanter Tutarsızlığı</strong></p>
+<ul>
+<li>Çift kayıt kontrolü</li>
+<li>Zimmet geçmişi kontrolü</li>
+<li>Manuel sayım</li>
+</ul>
+</li>
+</ol>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/asset-management.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

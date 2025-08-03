@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>G&#246;r&#252;n&#252;mler Genel Bakış </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="G&#246;r&#252;n&#252;mler Genel Bakış ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="görünümler-genel-bakış">Görünümler Genel Bakış</h1>
+
+<p>IT Varlık Yönetimi uygulaması, kullanıcı arayüzünü oluşturmak için ASP.NET Core MVC görünümlerini kullanır. Bu bölüm, görünüm yapısını, kurallarını ve özelliklerini belgelemektedir.</p>
+<h2 id="görünüm-yapısı">Görünüm Yapısı</h2>
+<pre><code>Views/
+├── Shared/                     # Paylaşılan layout ve partial'lar
+│   ├── _Layout.cshtml         # Ana layout şablonu
+│   ├── _ValidationScripts.cshtml
+│   └── Error.cshtml
+├── Assignments/               # Zimmet yönetimi görünümleri
+│   ├── Index.cshtml
+│   ├── Create.cshtml
+│   ├── Edit.cshtml
+│   ├── Details.cshtml
+│   └── Delete.cshtml
+├── Laptops/                   # Dizüstü bilgisayar yönetimi görünümleri
+│   ├── Index.cshtml
+│   ├── Create.cshtml
+│   ├── Edit.cshtml
+│   ├── Details.cshtml
+│   ├── Delete.cshtml
+│   └── DeletedLaptops.cshtml
+├── Users/                     # Kullanıcı yönetimi görünümleri
+│   ├── Index.cshtml
+│   ├── Create.cshtml
+│   ├── Edit.cshtml
+│   ├── Details.cshtml
+│   └── Delete.cshtml
+├── Auth/                      # Kimlik doğrulama görünümleri
+│   └── Login.cshtml
+├── EmailTest/                 # E-posta test görünümleri
+│   └── Index.cshtml
+├── Home/                      # Ana sayfa ve panel görünümleri
+│   └── Index.cshtml
+├── _ViewImports.cshtml        # Ortak importlar ve tag helper'lar
+└── _ViewStart.cshtml          # Ortak görünüm yapılandırması
+</code></pre>
+<h2 id="görünüm-özellikleri">Görünüm Özellikleri</h2>
+<ul>
+<li>Bootstrap 5 ile duyarlı tasarım</li>
+<li>İstemci tarafı işlemler için jQuery</li>
+<li>Yerleşik form doğrulama</li>
+<li>Dinamik güncellemeler için AJAX desteği</li>
+<li>QR kod entegrasyonu</li>
+<li>Dosya yükleme işleme</li>
+<li>Toast bildirimleri</li>
+<li>Modal diyaloglar</li>
+</ul>
+<h2 id="görünüm-en-İyi-uygulamaları">Görünüm En İyi Uygulamaları</h2>
+<ul>
+<li>Tüm görünümler _Layout.cshtml'den miras alır</li>
+<li>Tutarlı isimlendirme kuralları</li>
+<li>Yeniden kullanılabilir bileşenler için partial view'lar</li>
+<li>İstemci tarafı doğrulama etkin</li>
+<li>Önce mobil duyarlı tasarım</li>
+<li>Temiz sorumluluk ayrımı</li>
+<li>Uygun model bağlama</li>
+</ul>
+<p><a href="categories.html">Learn more about specific view categories</a></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/views/index.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

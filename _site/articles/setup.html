@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Kurulum Kılavuzu </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Kurulum Kılavuzu ">
+    
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="kurulum-kılavuzu">Kurulum Kılavuzu</h1>
+
+<p>Bu kılavuz, IT Varlık Yönetim Sistemi'nin kurulum ve konfigürasyon adımlarını detaylı olarak anlatmaktadır.</p>
+<h2 id="İçindekiler">İçindekiler</h2>
+<ol>
+<li><a href="#sistem-gereksinimleri">Sistem Gereksinimleri</a></li>
+<li><a href="#geli%C5%9Ftirme-ortam%C4%B1-kurulumu">Geliştirme Ortamı Kurulumu</a></li>
+<li><a href="#veritaban%C4%B1-kurulumu">Veritabanı Kurulumu</a></li>
+<li><a href="#proje-kurulumu">Proje Kurulumu</a></li>
+<li><a href="#konfig%C3%BCrasyon">Konfigürasyon</a></li>
+<li><a href="#ilk-%C3%A7al%C4%B1%C5%9Ft%C4%B1rma">İlk Çalıştırma</a></li>
+</ol>
+<h2 id="sistem-gereksinimleri">Sistem Gereksinimleri</h2>
+<h3 id="minimum-gereksinimler">Minimum Gereksinimler</h3>
+<ul>
+<li><strong>İşletim Sistemi</strong>: Windows 10/11, Linux veya macOS</li>
+<li><strong>RAM</strong>: En az 4GB (8GB önerilen)</li>
+<li><strong>İşlemci</strong>: Dual Core 2.0 GHz veya üzeri</li>
+<li><strong>Disk Alanı</strong>: En az 10GB boş alan</li>
+</ul>
+<h3 id="yazılım-gereksinimleri">Yazılım Gereksinimleri</h3>
+<ul>
+<li><strong>.NET SDK</strong>: 7.0 veya üzeri</li>
+<li><strong>SQL Server</strong>: 2019 veya üzeri (Express Edition yeterli)</li>
+<li><strong>Visual Studio</strong>: 2022 veya üzeri (Community Edition yeterli)</li>
+<li><strong>Git</strong>: En son versiyon</li>
+</ul>
+<h2 id="geliştirme-ortamı-kurulumu">Geliştirme Ortamı Kurulumu</h2>
+<ol>
+<li><p><strong>.NET SDK Kurulumu</strong></p>
+<pre><code class="lang-powershell">winget install Microsoft.DotNet.SDK.7
+</code></pre>
+</li>
+<li><p><strong>Visual Studio Kurulumu</strong></p>
+<ul>
+<li><a href="https://visualstudio.microsoft.com/downloads/">Visual Studio İndirme Sayfası</a></li>
+<li>Kurulum sırasında şu workload'ları seçin:
+<ul>
+<li>ASP.NET and web development</li>
+<li>.NET desktop development</li>
+<li>Data storage and processing</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>SQL Server Kurulumu</strong></p>
+<ul>
+<li><a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">SQL Server Express İndirme</a></li>
+<li>Kurulum sırasında &quot;Basic&quot; kurulum seçeneğini tercih edebilirsiniz</li>
+<li>SQL Server Management Studio'yu da kurmanız önerilir</li>
+</ul>
+</li>
+</ol>
+<h2 id="veritabanı-kurulumu">Veritabanı Kurulumu</h2>
+<ol>
+<li><p><strong>Veritabanı Oluşturma</strong></p>
+<pre><code class="lang-sql">CREATE DATABASE ITAssetManagement;
+GO
+</code></pre>
+</li>
+<li><p><strong>Kullanıcı Oluşturma ve Yetkilendirme</strong></p>
+<pre><code class="lang-sql">USE ITAssetManagement;
+CREATE LOGIN ITAssetUser WITH PASSWORD = 'güçlü-bir-şifre';
+CREATE USER ITAssetUser FOR LOGIN ITAssetUser;
+ALTER ROLE db_owner ADD MEMBER ITAssetUser;
+GO
+</code></pre>
+</li>
+</ol>
+<h2 id="proje-kurulumu">Proje Kurulumu</h2>
+<ol>
+<li><p><strong>Projeyi Klonlama</strong></p>
+<pre><code class="lang-powershell">git clone https://github.com/kullanici/ITAssetManagement.git
+cd ITAssetManagement
+</code></pre>
+</li>
+<li><p><strong>Bağımlılıkları Yükleme</strong></p>
+<pre><code class="lang-powershell">dotnet restore
+</code></pre>
+</li>
+<li><p><strong>Veritabanı Migration</strong></p>
+<pre><code class="lang-powershell">cd ITAssetManagement.Web
+dotnet ef database update
+</code></pre>
+</li>
+</ol>
+<h2 id="konfigürasyon">Konfigürasyon</h2>
+<ol>
+<li><p><strong>appsettings.json Düzenleme</strong></p>
+<pre><code class="lang-json">{
+  &quot;ConnectionStrings&quot;: {
+    &quot;DefaultConnection&quot;: &quot;Server=localhost\\SQLEXPRESS;Database=ITAssetManagement;Trusted_Connection=True;MultipleActiveResultSets=true&quot;
+  },
+  &quot;EmailConfiguration&quot;: {
+    &quot;SmtpServer&quot;: &quot;smtp.sirketiniz.com&quot;,
+    &quot;SmtpPort&quot;: 587,
+    &quot;SmtpUsername&quot;: &quot;bildirim@sirketiniz.com&quot;,
+    &quot;SmtpPassword&quot;: &quot;email-sifresi&quot;
+  }
+}
+</code></pre>
+</li>
+<li><p><strong>Uygulama Ayarları</strong></p>
+<ul>
+<li><code>appsettings.Development.json</code> dosyasını kendi geliştirme ortamınıza göre düzenleyin</li>
+<li>Gerekirse ortama özel appsettings dosyaları oluşturun (örn: <code>appsettings.Production.json</code>)</li>
+</ul>
+</li>
+</ol>
+<h2 id="İlk-çalıştırma">İlk Çalıştırma</h2>
+<ol>
+<li><p><strong>Projeyi Build Etme</strong></p>
+<pre><code class="lang-powershell">dotnet build
+</code></pre>
+</li>
+<li><p><strong>Uygulamayı Çalıştırma</strong></p>
+<pre><code class="lang-powershell">dotnet run
+</code></pre>
+</li>
+<li><p><strong>İlk Kullanıcı Oluşturma</strong></p>
+<ul>
+<li>Tarayıcıda <code>https://localhost:5001</code> adresine gidin</li>
+<li>&quot;Register&quot; sayfasından ilk admin kullanıcıyı oluşturun</li>
+<li>Admin kullanıcı bilgileri:
+<ul>
+<li>Email: admin@sirketiniz.com</li>
+<li>Şifre: güçlü-bir-şifre</li>
+<li>Rol: Administrator</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="sorun-giderme">Sorun Giderme</h2>
+<h3 id="sık-karşılaşılan-hatalar">Sık Karşılaşılan Hatalar</h3>
+<ol>
+<li><p><strong>Veritabanı Bağlantı Hatası</strong></p>
+<ul>
+<li>Connection string'i kontrol edin</li>
+<li>SQL Server servisinin çalıştığından emin olun</li>
+<li>Windows Authentication yetkilerinizi kontrol edin</li>
+</ul>
+</li>
+<li><p><strong>Migration Hataları</strong></p>
+<pre><code class="lang-powershell"># Migration'ları sıfırlama
+dotnet ef database drop
+dotnet ef database update
+</code></pre>
+</li>
+<li><p><strong>Port Çakışması</strong></p>
+<ul>
+<li><code>Properties/launchSettings.json</code> dosyasından port ayarlarını değiştirin</li>
+<li>Kullanılan portların başka uygulamalar tarafından kullanılmadığından emin olun</li>
+</ul>
+</li>
+</ol>
+<h3 id="güvenlik-kontrol-listesi">Güvenlik Kontrol Listesi</h3>
+<ul>
+<li>[ ] Varsayılan şifrelerin değiştirilmesi</li>
+<li>[ ] Güvenlik duvarı kurallarının kontrolü</li>
+<li>[ ] SSL sertifikasının kurulumu</li>
+<li>[ ] Kullanıcı yetkilerinin kontrolü</li>
+<li>[ ] Veritabanı yedekleme planının oluşturulması</li>
+</ul>
+<h2 id="sonraki-adımlar">Sonraki Adımlar</h2>
+<p>Kurulum tamamlandıktan sonra şu dokümanlara göz atmanızı öneririz:</p>
+<ol>
+<li><a href="user-management.html">Kullanıcı Yönetimi</a></li>
+<li><a href="asset-management.html">Varlık Ekleme</a></li>
+<li><a href="assignment-process.html">Zimmet İşlemleri</a></li>
+</ol>
+<h2 id="destek">Destek</h2>
+<p>Kurulum sırasında sorun yaşarsanız:</p>
+<ul>
+<li>📧 Email: support@itasset.com</li>
+<li>💬 GitHub Issues</li>
+<li>📱 Teknik Destek: +90 (xxx) xxx xx xx</li>
+</ul>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/setup.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

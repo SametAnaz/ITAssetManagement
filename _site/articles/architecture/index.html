@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>IT Varlık Y&#246;netimi Sistem Mimarisi </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="IT Varlık Y&#246;netimi Sistem Mimarisi ">
+    
+    
+      <link rel="shortcut icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../../styles/docfx.css">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <meta property="docfx:navrel" content="../../toc.html">
+      <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="it-varlık-yönetimi-sistem-mimarisi">IT Varlık Yönetimi Sistem Mimarisi</h1>
+
+<h2 id="sistem-genel-bakış">Sistem Genel Bakış</h2>
+<p>IT Varlık Yönetimi, temiz mimari prensipleri ve SOLID tasarım desenlerini takip eden ASP.NET Core MVC kullanılarak inşa edilmiştir. Sistem, IT varlıklarını (özellikle dizüstü bilgisayarları) edinimden emekliliğe kadar tüm yaşam döngüsü boyunca yönetmek için tasarlanmıştır.</p>
+<h3 id="temel-tasarım-prensipleri">Temel Tasarım Prensipleri</h3>
+<ol>
+<li><p><strong>Temiz Mimari (Clean Architecture)</strong></p>
+<ul>
+<li>Net sorumluluk ayrımı</li>
+<li>İçe doğru bağımlılıklar</li>
+<li>İş kurallarının UI ve veritabanından izolasyonu</li>
+<li>Kolay test edilebilirlik ve bakım</li>
+</ul>
+</li>
+<li><p><strong>SOLID Prensipleri</strong></p>
+<ul>
+<li><strong>Tek Sorumluluk</strong>: Her sınıfın değişmek için tek bir nedeni olmalı</li>
+<li><strong>Açık/Kapalı</strong>: Genişletmeye açık, değişime kapalı</li>
+<li><strong>Liskov Yerine Geçme</strong>: Türetilmiş sınıflar temel sınıfların yerine geçebilmeli</li>
+<li><strong>Arayüz Ayrımı</strong>: Özel arayüzler genel olanlara tercih edilmeli</li>
+<li><strong>Bağımlılığın Ters Çevrilmesi</strong>: Üst seviye modüller alt seviye modüllere bağımlı olmamalı</li>
+</ul>
+</li>
+<li><p><strong>Domain Odaklı Tasarım (DDD)</strong></p>
+<ul>
+<li>Zengin domain modelleri</li>
+<li>Domain katmanında iş mantığı</li>
+<li>Aggregate kökleri (Varlık, Kullanıcı)</li>
+<li>Değer nesneleri (E-posta, SeriNumarası)</li>
+</ul>
+</li>
+</ol>
+<h3 id="teknoloji-yığını">Teknoloji Yığını</h3>
+<ol>
+<li><p><strong>Backend</strong></p>
+<ul>
+<li>ASP.NET Core 7.0</li>
+<li>C# 11.0</li>
+<li>Entity Framework Core 7.0</li>
+<li>SQL Server 2022</li>
+</ul>
+</li>
+<li><p><strong>Frontend</strong></p>
+<ul>
+<li>ASP.NET Core MVC Views</li>
+<li>Bootstrap 5.2</li>
+<li>jQuery 3.6</li>
+<li>Modern JavaScript (ES6+)</li>
+</ul>
+</li>
+<li><p><strong>Geliştirme Araçları</strong></p>
+<ul>
+<li>Visual Studio 2022</li>
+<li>Azure DevOps</li>
+<li>Git versiyon kontrolü</li>
+<li>DocFX dokümantasyon</li>
+</ul>
+</li>
+</ol>
+<h3 id="altyapı">Altyapı</h3>
+<ol>
+<li><p><strong>Barındırma</strong></p>
+<ul>
+<li>Azure App Service</li>
+<li>Azure SQL Veritabanı</li>
+<li>Azure Key Vault (gizli bilgiler için)</li>
+<li>Azure Storage (dosyalar için)</li>
+</ul>
+</li>
+<li><p><strong>İzleme</strong></p>
+<ul>
+<li>Application Insights</li>
+<li>Log Analytics</li>
+<li>Özel telemetri</li>
+<li>Sağlık kontrolleri</li>
+</ul>
+</li>
+<li><p><strong>Güvenlik</strong></p>
+<ul>
+<li>Azure AD entegrasyonu</li>
+<li>SSL/TLS şifreleme</li>
+<li>SQL Always Encrypted</li>
+<li>Anti-forgery koruması</li>
+</ul>
+</li>
+</ol>
+<h2 id="architecture-layers">Architecture Layers</h2>
+<pre><code>ITAssetManagement/
+├── Presentation Layer (MVC)
+│   ├── Controllers/
+│   ├── Views/
+│   └── wwwroot/
+├── Business Layer
+│   ├── Services/
+│   └── Interfaces/
+├── Data Access Layer
+│   ├── Repositories/
+│   ├── DbContext/
+│   └── Migrations/
+└── Cross-Cutting Concerns
+    ├── Extensions/
+    ├── Helpers/
+    └── Models/
+</code></pre>
+<h3 id="1-presentation-layer-mvc">1. Presentation Layer (MVC)</h3>
+<ul>
+<li><strong>Controllers</strong>: Handle HTTP requests and user interactions</li>
+<li><strong>Views</strong>: Render the UI using Razor syntax</li>
+<li><strong>wwwroot</strong>: Static files (CSS, JS, images)</li>
+</ul>
+<h3 id="2-business-layer">2. Business Layer</h3>
+<ul>
+<li><strong>Services</strong>: Implement business logic</li>
+<li><strong>Interfaces</strong>: Define service contracts</li>
+<li><strong>Validation</strong>: Business rule validation</li>
+</ul>
+<h3 id="3-data-access-layer">3. Data Access Layer</h3>
+<ul>
+<li><strong>Repositories</strong>: Data access patterns</li>
+<li><strong>DbContext</strong>: Entity Framework configuration</li>
+<li><strong>Migrations</strong>: Database schema changes</li>
+</ul>
+<h3 id="4-cross-cutting-concerns">4. Cross-Cutting Concerns</h3>
+<ul>
+<li><strong>Extensions</strong>: Utility extensions</li>
+<li><strong>Helpers</strong>: Common functionality</li>
+<li><strong>Models</strong>: Domain and view models</li>
+</ul>
+<h2 id="key-components">Key Components</h2>
+<h3 id="authentication--authorization">Authentication &amp; Authorization</h3>
+<ul>
+<li>ASP.NET Core Identity</li>
+<li>Role-based access control</li>
+<li>JWT tokens for API access</li>
+</ul>
+<h3 id="database">Database</h3>
+<ul>
+<li>SQL Server</li>
+<li>Entity Framework Core</li>
+<li>Code-first migrations</li>
+<li>Repository pattern</li>
+</ul>
+<h3 id="email-system">Email System</h3>
+<ul>
+<li>SMTP integration</li>
+<li>Email templates</li>
+<li>Queue-based processing</li>
+<li>Retry mechanism</li>
+</ul>
+<h3 id="qr-code-system">QR Code System</h3>
+<ul>
+<li>QR generation</li>
+<li>Scanner integration</li>
+<li>Asset linking</li>
+</ul>
+<p><a href="components.html">Learn more about system components</a></p>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/articles/architecture/index.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

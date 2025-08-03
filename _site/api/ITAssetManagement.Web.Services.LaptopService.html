@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class LaptopService </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class LaptopService ">
+    
+    <meta name="description" content="Laptop varlıklarını y&#246;neten servis sınıfı. ILaptopService aray&#252;z&#252;n&#252; implement eder.">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ITAssetManagement.Web.Services.LaptopService">
+
+
+
+  <h1 id="ITAssetManagement_Web_Services_LaptopService" data-uid="ITAssetManagement.Web.Services.LaptopService" class="text-break">Class LaptopService</h1>
+  <div class="markdown level0 summary"><p>Laptop varlıklarını yöneten servis sınıfı.
+ILaptopService arayüzünü implement eder.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">LaptopService</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="ITAssetManagement.Web.Services.Interfaces.ILaptopService.html">ILaptopService</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="ITAssetManagement.html">ITAssetManagement</a>.<a class="xref" href="ITAssetManagement.Web.html">Web</a>.<a class="xref" href="ITAssetManagement.Web.Services.html">Services</a></h6>
+  <h6><strong>Assembly</strong>: ITAssetManagement.Web.dll</h6>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class LaptopService : ILaptopService</code></pre>
+  </div>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>
+Bu servis şu işlevleri sağlar:
+<ul><li>Laptop envanteri yönetimi</li><li>Zimmet durumu takibi</li><li>Arama ve filtreleme</li><li>Silinen laptopların yönetimi</li></ul>
+
+</div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService__ctor_ITAssetManagement_Web_Data_Repositories_ILaptopRepository_ITAssetManagement_Web_Data_ApplicationDbContext_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.%23ctor(ITAssetManagement.Web.Data.Repositories.ILaptopRepository%2CITAssetManagement.Web.Data.ApplicationDbContext)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L37">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService__ctor_" data-uid="ITAssetManagement.Web.Services.LaptopService.#ctor*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService__ctor_ITAssetManagement_Web_Data_Repositories_ILaptopRepository_ITAssetManagement_Web_Data_ApplicationDbContext_" data-uid="ITAssetManagement.Web.Services.LaptopService.#ctor(ITAssetManagement.Web.Data.Repositories.ILaptopRepository,ITAssetManagement.Web.Data.ApplicationDbContext)">LaptopService(ILaptopRepository, ApplicationDbContext)</h4>
+  <div class="markdown level1 summary"><p>LaptopService sınıfının yeni bir instance'ını oluşturur.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LaptopService(ILaptopRepository laptopRepository, ApplicationDbContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ITAssetManagement.Web.Data.Repositories.ILaptopRepository.html">ILaptopRepository</a></td>
+        <td><span class="parametername">laptopRepository</span></td>
+        <td><p>Laptop repository'si</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="ITAssetManagement.Web.Data.ApplicationDbContext.html">ApplicationDbContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>Veritabanı context'i</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService__ctor_ITAssetManagement_Web_Data_Repositories_ILaptopRepository_ITAssetManagement_Web_Data_ApplicationDbContext__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Dependency injection ile gerekli bağımlılıkları alır.</p>
+</div>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_CreateLaptopAsync_ITAssetManagement_Web_Models_Laptop_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.CreateLaptopAsync(ITAssetManagement.Web.Models.Laptop)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L148">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_CreateLaptopAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.CreateLaptopAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_CreateLaptopAsync_ITAssetManagement_Web_Models_Laptop_" data-uid="ITAssetManagement.Web.Services.LaptopService.CreateLaptopAsync(ITAssetManagement.Web.Models.Laptop)">CreateLaptopAsync(Laptop)</h4>
+  <div class="markdown level1 summary"><p>Yeni laptop kaydı oluşturur.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; CreateLaptopAsync(Laptop laptop)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a></td>
+        <td><span class="parametername">laptop</span></td>
+        <td><p>Oluşturulacak laptop bilgileri</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><p>İşlem başarılı ise true</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_CreateLaptopAsync_ITAssetManagement_Web_Models_Laptop__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Bu metot şu işlemleri gerçekleştirir:
+<ul><li>Veri doğrulama</li><li>Yeni laptop kaydı</li><li>İlişkili koleksiyonların başlatılması</li></ul>
+
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_DeleteLaptopAsync_System_Int32_System_String_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.DeleteLaptopAsync(System.Int32%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L197">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_DeleteLaptopAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.DeleteLaptopAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_DeleteLaptopAsync_System_Int32_System_String_" data-uid="ITAssetManagement.Web.Services.LaptopService.DeleteLaptopAsync(System.Int32,System.String)">DeleteLaptopAsync(int, string?)</h4>
+  <div class="markdown level1 summary"><p>Laptop'u soft delete ile siler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; DeleteLaptopAsync(int id, string? silmeNedeni = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Silinecek laptop ID'si</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">silmeNedeni</span></td>
+        <td><p>Silme nedeni açıklaması</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><p>İşlem başarılı ise true</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_DeleteLaptopAsync_System_Int32_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Bu metot şu işlemleri gerçekleştirir:
+<ul><li>IsActive = false yapılır</li><li>Silme tarihi ve nedeni kaydedilir</li><li>İşlemi yapan kullanıcı bilgisi tutulur</li></ul>
+
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_GetAllLaptopsAsync.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.GetAllLaptopsAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L67">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_GetAllLaptopsAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetAllLaptopsAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_GetAllLaptopsAsync" data-uid="ITAssetManagement.Web.Services.LaptopService.GetAllLaptopsAsync">GetAllLaptopsAsync()</h4>
+  <div class="markdown level1 summary"><p>Tüm aktif laptopları listeler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;Laptop&gt;&gt; GetAllLaptopsAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;&gt;</td>
+        <td><p>Laptop listesi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_GetAllLaptopsAsync_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>GetAllLaptopsQueryable metodunun execute edilmiş hali.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_GetAllLaptopsQueryable.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.GetAllLaptopsQueryable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L52">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_GetAllLaptopsQueryable_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetAllLaptopsQueryable*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_GetAllLaptopsQueryable" data-uid="ITAssetManagement.Web.Services.LaptopService.GetAllLaptopsQueryable">GetAllLaptopsQueryable()</h4>
+  <div class="markdown level1 summary"><p>Tüm aktif laptopları sorgulanabilir şekilde getirir.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IQueryable&lt;Laptop&gt; GetAllLaptopsQueryable()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1">IQueryable</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;</td>
+        <td><p>Sorgulanabilir laptop listesi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_GetAllLaptopsQueryable_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Include edilmiş ilişkiler:</p>
+<ul>
+<li>CurrentAssignment</li>
+<li>User (through CurrentAssignment)</li>
+</ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_GetAvailableLaptopsAsync.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.GetAvailableLaptopsAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L98">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_GetAvailableLaptopsAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetAvailableLaptopsAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_GetAvailableLaptopsAsync" data-uid="ITAssetManagement.Web.Services.LaptopService.GetAvailableLaptopsAsync">GetAvailableLaptopsAsync()</h4>
+  <div class="markdown level1 summary"><p>Zimmetlenmemiş laptopları listeler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;Laptop&gt;&gt; GetAvailableLaptopsAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;&gt;</td>
+        <td><p>Müsait laptop listesi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_GetAvailableLaptopsAsync_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>GetAvailableLaptopsQueryable metodunun execute edilmiş hali.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_GetAvailableLaptopsQueryable.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.GetAvailableLaptopsQueryable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L81">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_GetAvailableLaptopsQueryable_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetAvailableLaptopsQueryable*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_GetAvailableLaptopsQueryable" data-uid="ITAssetManagement.Web.Services.LaptopService.GetAvailableLaptopsQueryable">GetAvailableLaptopsQueryable()</h4>
+  <div class="markdown level1 summary"><p>Zimmetlenmemiş laptopları sorgulanabilir şekilde getirir.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IQueryable&lt;Laptop&gt; GetAvailableLaptopsQueryable()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1">IQueryable</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;</td>
+        <td><p>Sorgulanabilir müsait laptop listesi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_GetAvailableLaptopsQueryable_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Şu koşulları sağlayan laptopları getirir:</p>
+<ul>
+<li>IsActive = true</li>
+<li>Aktif zimmeti olmayan</li>
+</ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_GetDeletedLaptopsAsync.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.GetDeletedLaptopsAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L235">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_GetDeletedLaptopsAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetDeletedLaptopsAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_GetDeletedLaptopsAsync" data-uid="ITAssetManagement.Web.Services.LaptopService.GetDeletedLaptopsAsync">GetDeletedLaptopsAsync()</h4>
+  <div class="markdown level1 summary"><p>Silinmiş laptopları listeler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;Laptop&gt;&gt; GetDeletedLaptopsAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;&gt;</td>
+        <td><p>Silinmiş laptop listesi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_GetDeletedLaptopsAsync_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>GetDeletedLaptopsQueryable metodunun execute edilmiş hali.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_GetDeletedLaptopsQueryable.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.GetDeletedLaptopsQueryable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L222">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_GetDeletedLaptopsQueryable_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetDeletedLaptopsQueryable*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_GetDeletedLaptopsQueryable" data-uid="ITAssetManagement.Web.Services.LaptopService.GetDeletedLaptopsQueryable">GetDeletedLaptopsQueryable()</h4>
+  <div class="markdown level1 summary"><p>Silinen laptopları sorgulanabilir şekilde getirir.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IQueryable&lt;Laptop&gt; GetDeletedLaptopsQueryable()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1">IQueryable</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;</td>
+        <td><p>Sorgulanabilir silinmiş laptop listesi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_GetDeletedLaptopsQueryable_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>IsActive = false olan kayıtları listeler.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_GetLaptopByIdAsync_System_Int32_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.GetLaptopByIdAsync(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L111">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_GetLaptopByIdAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetLaptopByIdAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_GetLaptopByIdAsync_System_Int32_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetLaptopByIdAsync(System.Int32)">GetLaptopByIdAsync(int)</h4>
+  <div class="markdown level1 summary"><p>ID'ye göre laptop getirir.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Laptop?&gt; GetLaptopByIdAsync(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Laptop ID'si</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;</td>
+        <td><p>Bulunan laptop veya null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_GetLaptopByIdAsync_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Temel laptop bilgilerini içerir, ilişkili veriler include edilmez.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_GetLaptopWithDetailsAsync_System_Int32_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.GetLaptopWithDetailsAsync(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L128">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_GetLaptopWithDetailsAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetLaptopWithDetailsAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_GetLaptopWithDetailsAsync_System_Int32_" data-uid="ITAssetManagement.Web.Services.LaptopService.GetLaptopWithDetailsAsync(System.Int32)">GetLaptopWithDetailsAsync(int)</h4>
+  <div class="markdown level1 summary"><p>ID'ye göre laptop'u tüm detaylarıyla getirir.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;Laptop?&gt; GetLaptopWithDetailsAsync(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Laptop ID'si</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;</td>
+        <td><p>Detaylı laptop bilgisi veya null</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_GetLaptopWithDetailsAsync_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Include edilen ilişkiler:</p>
+<ul>
+<li>Photos</li>
+<li>Loglar</li>
+<li>CurrentAssignment</li>
+<li>User (through CurrentAssignment)</li>
+</ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_RestoreLaptopAsync_System_Int32_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.RestoreLaptopAsync(System.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L255">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_RestoreLaptopAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.RestoreLaptopAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_RestoreLaptopAsync_System_Int32_" data-uid="ITAssetManagement.Web.Services.LaptopService.RestoreLaptopAsync(System.Int32)">RestoreLaptopAsync(int)</h4>
+  <div class="markdown level1 summary"><p>Silinmiş bir laptop'u geri yükler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; RestoreLaptopAsync(int id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Geri yüklenecek laptop ID'si</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><p>İşlem başarılı ise true</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_RestoreLaptopAsync_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Bu metot şu işlemleri gerçekleştirir:
+<ul><li>IsActive = true yapılır</li><li>Silme ile ilgili alanlar temizlenir</li><li>Değişiklikler kaydedilir</li></ul>
+
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_SearchLaptopsAsync_System_String_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.SearchLaptopsAsync(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L310">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_SearchLaptopsAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.SearchLaptopsAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_SearchLaptopsAsync_System_String_" data-uid="ITAssetManagement.Web.Services.LaptopService.SearchLaptopsAsync(System.String)">SearchLaptopsAsync(string)</h4>
+  <div class="markdown level1 summary"><p>Laptopları arama terimlerine göre filtreler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;Laptop&gt;&gt; SearchLaptopsAsync(string searchTerm)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">searchTerm</span></td>
+        <td><p>Arama terimi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;&gt;</td>
+        <td><p>Filtrelenmiş laptop listesi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_SearchLaptopsAsync_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>SearchLaptopsQueryable metodunun execute edilmiş hali.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_SearchLaptopsQueryable_System_String_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.SearchLaptopsQueryable(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L286">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_SearchLaptopsQueryable_" data-uid="ITAssetManagement.Web.Services.LaptopService.SearchLaptopsQueryable*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_SearchLaptopsQueryable_System_String_" data-uid="ITAssetManagement.Web.Services.LaptopService.SearchLaptopsQueryable(System.String)">SearchLaptopsQueryable(string)</h4>
+  <div class="markdown level1 summary"><p>Laptopları arama terimlerine göre sorgulanabilir şekilde filtreler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IQueryable&lt;Laptop&gt; SearchLaptopsQueryable(string searchTerm)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">searchTerm</span></td>
+        <td><p>Arama terimi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1">IQueryable</a>&lt;<a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a>&gt;</td>
+        <td><p>Sorgulanabilir filtrelenmiş laptop listesi</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_SearchLaptopsQueryable_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Arama şu alanlarda yapılır:
+<ul><li>Marka</li><li>Model</li><li>ID</li><li>Etiket No</li></ul>
+
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService_UpdateLaptopAsync_ITAssetManagement_Web_Models_Laptop_.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService.UpdateLaptopAsync(ITAssetManagement.Web.Models.Laptop)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Edit this page</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L172">View Source</a>
+  </span>
+  <a id="ITAssetManagement_Web_Services_LaptopService_UpdateLaptopAsync_" data-uid="ITAssetManagement.Web.Services.LaptopService.UpdateLaptopAsync*"></a>
+  <h4 id="ITAssetManagement_Web_Services_LaptopService_UpdateLaptopAsync_ITAssetManagement_Web_Models_Laptop_" data-uid="ITAssetManagement.Web.Services.LaptopService.UpdateLaptopAsync(ITAssetManagement.Web.Models.Laptop)">UpdateLaptopAsync(Laptop)</h4>
+  <div class="markdown level1 summary"><p>Laptop bilgilerini günceller.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; UpdateLaptopAsync(Laptop laptop)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="ITAssetManagement.Web.Models.Laptop.html">Laptop</a></td>
+        <td><span class="parametername">laptop</span></td>
+        <td><p>Güncellenecek laptop bilgileri</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a>&gt;</td>
+        <td><p>İşlem başarılı ise true</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="ITAssetManagement_Web_Services_LaptopService_UpdateLaptopAsync_ITAssetManagement_Web_Models_Laptop__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Bu metot şu işlemleri gerçekleştirir:
+<ul><li>Veri doğrulama</li><li>İlgili alanların güncellenmesi</li><li>Değişikliklerin kaydedilmesi</li></ul>
+
+</div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="ITAssetManagement.Web.Services.Interfaces.ILaptopService.html">ILaptopService</a>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/new/master/apiSpec/new?filename=ITAssetManagement_Web_Services_LaptopService.md&amp;value=---%0Auid%3A%20ITAssetManagement.Web.Services.LaptopService%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Edit this page</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/SametAnaz/ITAssetManagement/blob/master/ITAssetManagement.Web/Services/LaptopService.cs/#L24" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In this article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
