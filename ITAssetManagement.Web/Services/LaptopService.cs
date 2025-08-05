@@ -3,6 +3,9 @@ using ITAssetManagement.Web.Models;
 using ITAssetManagement.Web.Data;
 using ITAssetManagement.Web.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using System.Globalization;
+using OfficeOpenXml;
 
 namespace ITAssetManagement.Web.Services
 {
@@ -345,6 +348,217 @@ namespace ITAssetManagement.Web.Services
         public async Task<IEnumerable<Laptop>> SearchLaptopsAsync(string searchTerm)
         {
             return await SearchLaptopsQueryable(searchTerm).ToListAsync();
+        }
+
+        /// <summary>
+        /// Laptop verilerini Excel formatında export eder
+        /// </summary>
+        /// <returns>Excel dosyası byte array'i</returns>
+        public async Task<byte[]> ExportLaptopsToExcelAsync()
+        {
+            var laptops = await GetAllLaptopsQueryable().ToListAsync();
+            
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            
+            using var package = new ExcelPackage();
+            var worksheet = package.Workbook.Worksheets.Add("Laptops");
+            
+            // Header
+            worksheet.Cells[1, 1].Value = "Etiket No";
+            worksheet.Cells[1, 2].Value = "Marka";
+            worksheet.Cells[1, 3].Value = "Model";
+            worksheet.Cells[1, 4].Value = "Durum";
+            worksheet.Cells[1, 5].Value = "Zimmetli Kullanıcı";
+            worksheet.Cells[1, 6].Value = "Kayıt Tarihi";
+            
+            // Header formatting
+            using (var range = worksheet.Cells[1, 1, 1, 6])
+            {
+                range.Style.Font.Bold = true;
+                range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+            }
+            
+            // Data rows
+            for (int i = 0; i < laptops.Count; i++)
+            {
+                var laptop = laptops[i];
+                var zimmetliKullanici = laptop.CurrentAssignment?.User?.FullName ?? "";
+                
+                worksheet.Cells[i + 2, 1].Value = laptop.EtiketNo;
+                worksheet.Cells[i + 2, 2].Value = laptop.Marka;
+                worksheet.Cells[i + 2, 3].Value = laptop.Model;
+                worksheet.Cells[i + 2, 4].Value = laptop.Durum;
+                worksheet.Cells[i + 2, 5].Value = zimmetliKullanici;
+                worksheet.Cells[i + 2, 6].Value = laptop.KayitTarihi.ToString("dd/MM/yyyy");
+            }
+            
+            // Auto-fit columns
+            worksheet.Cells.AutoFitColumns();
+            
+            return package.GetAsByteArray();
+        }
+
+        /// <summary>
+        /// Laptop verilerini CSV formatında export eder
+        /// </summary>
+        /// <returns>CSV dosyası byte array'i</returns>
+        public async Task<byte[]> ExportLaptopsToCsvAsync()
+        {
+            var laptops = await GetAllLaptopsQueryable().ToListAsync();
+            
+            var csv = new StringBuilder();
+            csv.AppendLine("EtiketNo,Marka,Model,Durum,ZimmetliKullanici,KayitTarihi");
+            
+            foreach (var laptop in laptops)
+            {
+                var zimmetliKullanici = laptop.CurrentAssignment?.User?.FullName ?? "";
+                csv.AppendLine($"{laptop.EtiketNo},{laptop.Marka},{laptop.Model},{laptop.Durum},{zimmetliKullanici},{laptop.KayitTarihi:dd/MM/yyyy}");
+            }
+            
+            return Encoding.UTF8.GetBytes(csv.ToString());
+        }
+
+        /// <summary>
+        /// Upload edilen dosyadan laptop verilerini import eder
+        /// </summary>
+        /// <param name="fileBytes">Dosya byte array'i</param>
+        /// <param name="fileName">Dosya adı</param>
+        /// <returns>Import işlem sonucu</returns>
+        public async Task<(bool Success, string Message, int ImportedCount)> ImportLaptopsFromFileAsync(byte[] fileBytes, string fileName)
+        {
+            try
+            {
+                List<string[]> dataRows;
+
+                if (fileName.EndsWith(".xlsx") || fileName.EndsWith(".xls"))
+                {
+                    // EPPlus ile Excel dosyasını oku
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                    
+                    try
+                    {
+                        using var stream = new MemoryStream(fileBytes);
+                        using var package = new ExcelPackage(stream);
+                        
+                        var worksheet = package.Workbook.Worksheets.FirstOrDefault();
+                        if (worksheet == null)
+                        {
+                            return (false, "Excel dosyasında worksheet bulunamadı", 0);
+                        }
+
+                        var rowCount = worksheet.Dimension?.Rows ?? 0;
+                        var colCount = worksheet.Dimension?.Columns ?? 0;
+
+                        if (rowCount < 2)
+                        {
+                            return (false, "Excel dosyasında veri bulunamadı (en az 2 satır olmalı)", 0);
+                        }
+
+                        dataRows = new List<string[]>();
+                        
+                        // Excel'den verileri oku
+                        for (int row = 1; row <= rowCount; row++)
+                        {
+                            var rowData = new List<string>();
+                            for (int col = 1; col <= Math.Min(colCount, 6); col++) // Max 6 kolon al
+                            {
+                                var cellValue = worksheet.Cells[row, col].Value?.ToString() ?? "";
+                                rowData.Add(cellValue.Trim());
+                            }
+                            
+                            // Boş olmayan satırları ekle
+                            if (rowData.Count > 0 && rowData.Any(cell => !string.IsNullOrWhiteSpace(cell)))
+                            {
+                                dataRows.Add(rowData.ToArray());
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        return (false, $"Excel dosyası okuma hatası: {ex.Message}", 0);
+                    }
+                }
+                else
+                {
+                    // CSV dosyası için
+                    var content = Encoding.UTF8.GetString(fileBytes);
+                    var lines = content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                    
+                    dataRows = new List<string[]>();
+                    foreach (var line in lines)
+                    {
+                        var fields = line.Split(',').Select(f => f.Trim().Trim('"')).ToArray();
+                        if (fields.Length > 0 && !string.IsNullOrWhiteSpace(fields[0]))
+                        {
+                            dataRows.Add(fields);
+                        }
+                    }
+                }
+
+                if (dataRows.Count < 1)
+                {
+                    return (false, $"Dosya boş veya geçersiz format. Bulunan satır sayısı: {dataRows.Count}", 0);
+                }
+
+                if (dataRows.Count < 2)
+                {
+                    return (false, $"Dosyada sadece başlık satırı var. Data satırı bulunamadı. Toplam satır: {dataRows.Count}", 0);
+                }
+
+                var importedCount = 0;
+                var skippedCount = 0;
+                
+                // İlk satır header, atla
+                for (int i = 1; i < dataRows.Count; i++)
+                {
+                    var fields = dataRows[i];
+                    if (fields.Length >= 4 && !string.IsNullOrWhiteSpace(fields[0]))
+                    {
+                        var laptop = new Laptop
+                        {
+                            EtiketNo = fields[0].Trim(),
+                            Marka = fields[1].Trim(),
+                            Model = fields[2].Trim(),
+                            Durum = fields[3].Trim(),
+                            KayitTarihi = DateTime.Now,
+                            IsActive = true
+                        };
+
+                        // Aynı etiket no kontrol et
+                        var existingLaptop = await _context.Laptops
+                            .FirstOrDefaultAsync(l => l.EtiketNo == laptop.EtiketNo);
+                        
+                        if (existingLaptop == null)
+                        {
+                            _context.Laptops.Add(laptop);
+                            importedCount++;
+                        }
+                        else
+                        {
+                            skippedCount++;
+                        }
+                    }
+                    else
+                    {
+                        skippedCount++;
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+                
+                var message = $"{importedCount} laptop başarıyla import edildi";
+                if (skippedCount > 0)
+                {
+                    message += $", {skippedCount} kayıt atlandı (mevcut veya geçersiz)";
+                }
+                
+                return (true, message, importedCount);
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Import sırasında hata: {ex.Message}. StackTrace: {ex.StackTrace}", 0);
+            }
         }
     }
 }

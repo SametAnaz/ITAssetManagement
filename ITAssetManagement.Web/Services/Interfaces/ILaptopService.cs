@@ -101,5 +101,25 @@ namespace ITAssetManagement.Web.Services.Interfaces
         /// <param name="searchTerm">Arama terimi</param>
         /// <returns>Sorgulanabilir filtrelenmiş silinmiş laptop listesi</returns>
         IQueryable<Laptop> SearchDeletedLaptopsQueryable(string searchTerm);
+
+        /// <summary>
+        /// Laptop verilerini Excel formatında export eder
+        /// </summary>
+        /// <returns>Excel dosyası byte array'i</returns>
+        Task<byte[]> ExportLaptopsToExcelAsync();
+
+        /// <summary>
+        /// Laptop verilerini CSV formatında export eder
+        /// </summary>
+        /// <returns>CSV dosyası byte array'i</returns>
+        Task<byte[]> ExportLaptopsToCsvAsync();
+
+        /// <summary>
+        /// Upload edilen dosyadan laptop verilerini import eder
+        /// </summary>
+        /// <param name="fileBytes">Dosya byte array'i</param>
+        /// <param name="fileName">Dosya adı</param>
+        /// <returns>Import işlem sonucu</returns>
+        Task<(bool Success, string Message, int ImportedCount)> ImportLaptopsFromFileAsync(byte[] fileBytes, string fileName);
     }
 }
