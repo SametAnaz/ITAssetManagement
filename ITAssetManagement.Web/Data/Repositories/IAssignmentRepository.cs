@@ -8,6 +8,12 @@ namespace ITAssetManagement.Web.Data.Repositories
     public interface IAssignmentRepository : IGenericRepository<Assignment>
     {
         /// <summary>
+        /// Tüm zimmetleri ilişkili verilerle birlikte sorgulanabilir şekilde getirir
+        /// </summary>
+        /// <returns>Sorgulanabilir zimmet listesi</returns>
+        IQueryable<Assignment> GetAllWithDetailsQueryable();
+
+        /// <summary>
         /// Tüm zimmetleri ilişkili verilerle birlikte getirir
         /// </summary>
         /// <returns>Detaylı zimmet listesi</returns>

@@ -36,22 +36,39 @@ namespace ITAssetManagement.Web.Services
         }
 
         /// <summary>
-        /// Tüm zimmet kayıtlarını ilişkili detaylarıyla birlikte getirir.
+        /// Tüm zimmet kayıtlarını sorgulanabilir şekilde getirir.
         /// </summary>
-        /// <returns>Zimmet kayıtlarının listesi</returns>
+        /// <returns>Sorgulanabilir zimmet listesi</returns>
         /// <remarks>
-        /// <para>
-        /// Bu metot şu detayları içerir:
-        /// <list type="bullet">
-        /// <item><description>Laptop bilgileri</description></item>
-        /// <item><description>Kullanıcı bilgileri</description></item>
-        /// <item><description>Zimmet tarihleri</description></item>
-        /// </list>
-        /// </para>
+        /// Bu metot aktif ve geçmiş tüm zimmetleri içerir.
+        /// Sonuçlar tarihe göre azalan sırada döner.
         /// </remarks>
-        public async Task<IEnumerable<Assignment>> GetAllAssignmentsAsync()
+        public IQueryable<Assignment> GetAllAssignmentsQueryable()
         {
-            return await _assignmentRepository.GetAllWithDetailsAsync();
+            return _assignmentRepository.GetAllWithDetailsQueryable();
+        }
+
+        /// <summary>
+        /// Belirtilen arama terimine göre zimmet kayıtlarını filtreleyerek getirir.
+        /// </summary>
+        /// <param name="searchTerm">Arama terimi</param>
+        /// <returns>Filtrelenmiş zimmet listesi</returns>
+        public IQueryable<Assignment> SearchAssignmentsQueryable(string searchTerm)
+        {
+            var query = GetAllAssignmentsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                searchTerm = searchTerm.ToLower();
+                query = query.Where(a =>
+                    (a.Laptop != null && a.Laptop.Marka.ToLower().Contains(searchTerm)) ||
+                    (a.Laptop != null && a.Laptop.Model.ToLower().Contains(searchTerm)) ||
+                    (a.User != null && a.User.FullName.ToLower().Contains(searchTerm)) ||
+                    (a.Id.ToString() == searchTerm)
+                ).OrderByDescending(a => a.AssignmentDate);
+            }
+
+            return query;
         }
 
         /// <summary>

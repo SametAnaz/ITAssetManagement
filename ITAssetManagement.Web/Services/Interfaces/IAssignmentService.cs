@@ -20,14 +20,21 @@ namespace ITAssetManagement.Web.Services.Interfaces
     public interface IAssignmentService
     {
         /// <summary>
-        /// Tüm zimmet kayıtlarını getirir.
+        /// Tüm zimmet kayıtlarını sorgulanabilir şekilde getirir.
         /// </summary>
-        /// <returns>Zimmet kayıtlarının listesi</returns>
+        /// <returns>Sorgulanabilir zimmet listesi</returns>
         /// <remarks>
         /// Bu metot aktif ve geçmiş tüm zimmetleri içerir.
         /// Sonuçlar tarihe göre azalan sırada döner.
         /// </remarks>
-        Task<IEnumerable<Assignment>> GetAllAssignmentsAsync();
+        IQueryable<Assignment> GetAllAssignmentsQueryable();
+
+        /// <summary>
+        /// Belirtilen arama terimine göre zimmet kayıtlarını filtreleyerek getirir.
+        /// </summary>
+        /// <param name="searchTerm">Arama terimi</param>
+        /// <returns>Filtrelenmiş zimmet listesi</returns>
+        IQueryable<Assignment> SearchAssignmentsQueryable(string searchTerm);
 
         /// <summary>
         /// Belirtilen ID'ye sahip zimmet kaydını getirir.

@@ -12,6 +12,15 @@ namespace ITAssetManagement.Web.Data.Repositories
             _context = context;
         }
 
+        public IQueryable<Assignment> GetAllWithDetailsQueryable()
+        {
+            return _context.Assignments
+                .Include(a => a.User)
+                .Include(a => a.Laptop)
+                .OrderByDescending(a => a.AssignmentDate)
+                .AsNoTracking();
+        }
+
         public async Task<IEnumerable<Assignment>> GetAllWithDetailsAsync()
         {
             return await _context.Assignments

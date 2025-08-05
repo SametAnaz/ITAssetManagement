@@ -33,13 +33,39 @@ namespace ITAssetManagement.Web.Controllers
         }
 
         /// <summary>
-        /// Tüm zimmet kayıtlarını listeler
+        /// Tüm zimmet kayıtlarını sayfalı şekilde listeler
         /// </summary>
-        /// <returns>Zimmet listesi view'i</returns>
-        public async Task<IActionResult> Index()
+        /// <param name="searchTerm">Arama terimi</param>
+        /// <param name="pageNumber">Sayfa numarası</param>
+        /// <param name="pageSize">Sayfa başına kayıt sayısı</param>
+        /// <returns>Sayfalanmış zimmet listesi view'i</returns>
+        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize)
         {
-            var assignments = await _assignmentService.GetAllAssignmentsAsync();
-            return View(assignments);
+            // Sayfa başına kayıt sayısı seçenekleri
+            var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
+            ViewBag.PageSizeOptions = pageSizeOptions;
+            
+            // Seçilen sayfa başına kayıt sayısı veya varsayılan değer (10)
+            int currentPageSize = pageSize ?? 10;
+            ViewBag.CurrentPageSize = currentPageSize;
+
+            // Sayfa numarası veya varsayılan değer (1)
+            int currentPageNumber = pageNumber ?? 1;
+
+            // Arama terimini ViewBag'e ekle
+            ViewData["CurrentFilter"] = searchTerm;
+            ViewData["CurrentSearch"] = searchTerm; // URL'lerde kullanmak için
+
+            // Sorguyu oluştur
+            var assignmentsQuery = string.IsNullOrEmpty(searchTerm) 
+                ? _assignmentService.GetAllAssignmentsQueryable()
+                : _assignmentService.SearchAssignmentsQueryable(searchTerm);
+
+            // Sayfalama yap
+            return View(await PaginatedList<Assignment>.CreateAsync(
+                assignmentsQuery,
+                currentPageNumber,
+                currentPageSize));
         }
 
         /// <summary>
