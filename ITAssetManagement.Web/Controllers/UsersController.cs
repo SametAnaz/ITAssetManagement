@@ -21,12 +21,27 @@ namespace ITAssetManagement.Web.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index(string searchTerm, int? pageNumber)
+        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize)
         {
-            var usersQuery = _userService.SearchUsersQueryable(searchTerm ?? string.Empty);
+            // Sayfa başına kayıt sayısı seçenekleri
+            var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
+            ViewBag.PageSizeOptions = pageSizeOptions;
+            
+            // Seçilen sayfa başına kayıt sayısı veya varsayılan değer (10)
+            int currentPageSize = pageSize ?? 10;
+            ViewBag.CurrentPageSize = currentPageSize;
+
+            // Sayfa numarası veya varsayılan değer (1)
+            int currentPageNumber = pageNumber ?? 1;
+
+            // Arama terimini ViewBag'e ekle
             ViewData["CurrentFilter"] = searchTerm;
-            int pageSize = 10;
-            return View(await PaginatedList<User>.CreateAsync(usersQuery, pageNumber ?? 1, pageSize));
+            ViewData["CurrentSearch"] = searchTerm; // URL'lerde kullanmak için
+
+            // Sorguyu oluştur
+            var usersQuery = _userService.SearchUsersQueryable(searchTerm ?? string.Empty);
+
+            return View(await PaginatedList<User>.CreateAsync(usersQuery, currentPageNumber, currentPageSize));
         }
 
         // GET: Users/Details/5

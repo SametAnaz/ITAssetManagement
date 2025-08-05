@@ -25,8 +25,9 @@
 }
 
 <div class="row mb-3">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <form asp-action="Index" method="get" class="d-flex" id="searchForm">
+            <input type="hidden" name="pageSize" value="@ViewBag.CurrentPageSize" />
             <input type="text" name="searchTerm" id="searchInput" class="form-control me-2" value="@ViewData["CurrentFilter"]" 
                    placeholder="Ad, email, departman veya pozisyon ile arama yapın..." />
             <button type="submit" class="btn btn-primary me-2">
@@ -34,13 +35,32 @@
             </button>
             @if (ViewData["CurrentFilter"]?.ToString() is string filter && !string.IsNullOrEmpty(filter))
             {
-                <a asp-action="Index" class="btn btn-secondary">
+                <a asp-action="Index" asp-route-pageSize="@ViewBag.CurrentPageSize" class="btn btn-secondary">
                     <i class="fas fa-times me-1"></i>Temizle
                 </a>
             }
         </form>
     </div>
-    <div class="col-md-6 text-end">
+    <div class="col-md-4">
+        <div class="d-flex align-items-center">
+            <label class="me-2">Sayfa başına:</label>
+            <select id="pageSize" class="form-select form-select-sm" style="width: auto;" 
+                    onchange="window.location.href='@Url.Action("Index", new { pageNumber = 1, pageSize = "__ps__", searchTerm = ViewData["CurrentSearch"] })'.replace('__ps__', this.value)">
+                @foreach (var size in ViewBag.PageSizeOptions)
+                {
+                    if (size == ViewBag.CurrentPageSize)
+                    {
+                        <option value="@size" selected="selected">@size</option>
+                    }
+                    else
+                    {
+                        <option value="@size">@size</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4 text-end">
         <a asp-action="Create" class="btn btn-success">
             <i class="fas fa-user-plus me-1"></i>Yeni Kullanıcı Ekle
         </a>
@@ -98,24 +118,35 @@
 
 <nav aria-label="Page navigation" class="mt-4">
     <div class="d-flex justify-content-between align-items-center">
-        <div>
-            <a asp-action="Index"
-               asp-route-pageNumber="@(Model.PageIndex - 1)"
-               asp-route-searchTerm="@ViewData["CurrentFilter"]"
-               class="btn btn-outline-primary @prevDisabled">
-                <i class="fas fa-chevron-left me-1"></i>
-                Önceki
-            </a>
-            <a asp-action="Index"
-               asp-route-pageNumber="@(Model.PageIndex + 1)"
-               asp-route-searchTerm="@ViewData["CurrentFilter"]"
-               class="btn btn-outline-primary @nextDisabled">
-                Sonraki
-                <i class="fas fa-chevron-right ms-1"></i>
-            </a>
-        </div>
         <div class="text-muted">
-            Sayfa @Model.PageIndex / @Model.TotalPages
+            Toplam @Model.TotalItems kayıttan @((Model.PageIndex - 1) * ViewBag.CurrentPageSize + 1) - @(Math.Min(Model.PageIndex * ViewBag.CurrentPageSize, Model.TotalItems)) arası gösteriliyor
         </div>
+        <ul class="pagination mb-0">
+            <li class="page-item @prevDisabled">
+                <a class="page-link" asp-action="Index" 
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                   asp-route-searchTerm="@ViewData["CurrentSearch"]">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            </li>
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                <li class="page-item @(i == Model.PageIndex ? "active" : "")">
+                    <a class="page-link" asp-action="Index" 
+                       asp-route-pageNumber="@i"
+                       asp-route-pageSize="@ViewBag.CurrentPageSize"
+                       asp-route-searchTerm="@ViewData["CurrentSearch"]">@i</a>
+                </li>
+            }
+            <li class="page-item @nextDisabled">
+                <a class="page-link" asp-action="Index" 
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                   asp-route-searchTerm="@ViewData["CurrentSearch"]">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
