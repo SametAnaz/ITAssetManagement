@@ -94,5 +94,12 @@ namespace ITAssetManagement.Web.Services.Interfaces
         /// <param name="searchTerm">Arama terimi</param>
         /// <returns>Sorgulanabilir filtrelenmiş laptop listesi</returns>
         IQueryable<Laptop> SearchLaptopsQueryable(string searchTerm);
+
+        /// <summary>
+        /// Silinmiş laptop'ları arama terimlerine göre sorgulanabilir şekilde filtreler
+        /// </summary>
+        /// <param name="searchTerm">Arama terimi</param>
+        /// <returns>Sorgulanabilir filtrelenmiş silinmiş laptop listesi</returns>
+        IQueryable<Laptop> SearchDeletedLaptopsQueryable(string searchTerm);
     }
 }

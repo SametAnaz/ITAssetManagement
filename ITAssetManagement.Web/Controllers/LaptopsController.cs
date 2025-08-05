@@ -193,7 +193,7 @@ namespace ITAssetManagement.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> DeletedLaptops(int? pageNumber, int? pageSize)
+        public async Task<IActionResult> DeletedLaptops(string searchTerm, int? pageNumber, int? pageSize)
         {
             // Sayfa başına kayıt sayısı seçenekleri
             var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
@@ -206,8 +206,15 @@ namespace ITAssetManagement.Web.Controllers
             // Sayfa numarası veya varsayılan değer (1)
             int currentPageNumber = pageNumber ?? 1;
 
-            // Sorguyu oluştur ve sayfalama yap
-            var deletedLaptopsQuery = _laptopService.GetDeletedLaptopsQueryable();
+            // Arama terimini ViewBag'e ekle
+            ViewData["CurrentFilter"] = searchTerm;
+            ViewData["CurrentSearch"] = searchTerm; // URL'lerde kullanmak için
+
+            // Sorguyu oluştur
+            var deletedLaptopsQuery = string.IsNullOrEmpty(searchTerm) 
+                ? _laptopService.GetDeletedLaptopsQueryable()
+                : _laptopService.SearchDeletedLaptopsQueryable(searchTerm);
+
             var paginatedLaptops = await PaginatedList<Laptop>.CreateAsync(
                 deletedLaptopsQuery,
                 currentPageNumber,

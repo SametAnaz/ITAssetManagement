@@ -300,6 +300,41 @@ namespace ITAssetManagement.Web.Services
         }
 
         /// <summary>
+        /// Silinmiş laptopları arama terimlerine göre sorgulanabilir şekilde filtreler.
+        /// </summary>
+        /// <param name="searchTerm">Arama terimi</param>
+        /// <returns>Sorgulanabilir filtrelenmiş silinmiş laptop listesi</returns>
+        /// <remarks>
+        /// <para>
+        /// Arama şu alanlarda yapılır:
+        /// <list type="bullet">
+        /// <item><description>Marka</description></item>
+        /// <item><description>Model</description></item>
+        /// <item><description>ID</description></item>
+        /// <item><description>Etiket No</description></item>
+        /// <item><description>Silme Nedeni</description></item>
+        /// <item><description>Silen Kullanıcı</description></item>
+        /// </list>
+        /// </para>
+        /// </remarks>
+        public IQueryable<Laptop> SearchDeletedLaptopsQueryable(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+                return GetDeletedLaptopsQueryable();
+
+            searchTerm = searchTerm.ToLower();
+            return _context.Laptops
+                .Where(l => !l.IsActive &&
+                    (l.Marka.ToLower().Contains(searchTerm) ||
+                     l.Model.ToLower().Contains(searchTerm) ||
+                     l.Id.ToString() == searchTerm ||
+                     l.EtiketNo.ToLower().Contains(searchTerm) ||
+                     (!string.IsNullOrEmpty(l.SilmeNedeni) && l.SilmeNedeni.ToLower().Contains(searchTerm)) ||
+                     (!string.IsNullOrEmpty(l.SilenKullanici) && l.SilenKullanici.ToLower().Contains(searchTerm))))
+                .OrderByDescending(l => l.SilinmeTarihi);
+        }
+
+        /// <summary>
         /// Laptopları arama terimlerine göre filtreler.
         /// </summary>
         /// <param name="searchTerm">Arama terimi</param>
