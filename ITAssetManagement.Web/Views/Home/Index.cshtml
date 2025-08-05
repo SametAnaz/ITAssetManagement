@@ -15,7 +15,29 @@
     <div class="col-md-12">
         <h2>Son Eklenen Varlıklar</h2>
         <hr />
-        <!-- List of laptops will go here -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <label class="me-2">Sayfa başına kayıt:</label>
+                <select id="pageSize" class="form-select form-select-sm d-inline-block" style="width: auto;" 
+                        onchange="window.location.href='@Url.Action("Index", new { pageNumber = 1, pageSize = "__ps__" })'.replace('__ps__', this.value)">
+                    @foreach (var size in ViewBag.PageSizeOptions)
+                    {
+                        if (size == ViewBag.CurrentPageSize)
+                        {
+                            <option value="@size" selected="selected">@size</option>
+                        }
+                        else
+                        {
+                            <option value="@size">@size</option>
+                        }
+                    }
+                </select>
+            </div>
+            <div>
+                Toplam @Model.TotalItems kayıttan @((Model.PageIndex - 1) * ViewBag.CurrentPageSize + 1) - @(Math.Min(Model.PageIndex * ViewBag.CurrentPageSize, Model.TotalItems)) arası gösteriliyor
+            </div>
+        </div>
+
         @if (Model?.Count > 0)
         {
             <div class="table-responsive">
@@ -57,18 +79,24 @@
                     </div>
                     <ul class="pagination mb-0">
                         <li class="page-item @prevDisabled">
-                            <a class="page-link" asp-action="Index" asp-route-page="@(Model.PageIndex - 1)">
+                            <a class="page-link" asp-action="Index" 
+                               asp-route-pageNumber="@(Model.PageIndex - 1)"
+                               asp-route-pageSize="@ViewBag.CurrentPageSize">
                                 <i class="fas fa-chevron-left"></i>
                             </a>
                         </li>
                         @for (int i = 1; i <= Model.TotalPages; i++)
                         {
                             <li class="page-item @(i == Model.PageIndex ? "active" : "")">
-                                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                                <a class="page-link" asp-action="Index" 
+                                   asp-route-pageNumber="@i"
+                                   asp-route-pageSize="@ViewBag.CurrentPageSize">@i</a>
                             </li>
                         }
                         <li class="page-item @nextDisabled">
-                            <a class="page-link" asp-action="Index" asp-route-page="@(Model.PageIndex + 1)">
+                            <a class="page-link" asp-action="Index" 
+                               asp-route-pageNumber="@(Model.PageIndex + 1)"
+                               asp-route-pageSize="@ViewBag.CurrentPageSize">
                                 <i class="fas fa-chevron-right"></i>
                             </a>
                         </li>

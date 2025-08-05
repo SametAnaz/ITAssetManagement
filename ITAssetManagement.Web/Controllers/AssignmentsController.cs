@@ -2,6 +2,7 @@ using ITAssetManagement.Web.Models;
 using ITAssetManagement.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ITAssetManagement.Web.Extensions;
 
 namespace ITAssetManagement.Web.Controllers
 {

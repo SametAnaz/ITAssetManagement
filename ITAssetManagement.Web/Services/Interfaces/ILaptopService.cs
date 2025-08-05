@@ -63,6 +63,12 @@ namespace ITAssetManagement.Web.Services.Interfaces
         Task<IEnumerable<Laptop>> GetDeletedLaptopsAsync();
 
         /// <summary>
+        /// Silinmiş laptopları sorgulanabilir şekilde getirir
+        /// </summary>
+        /// <returns>Sorgulanabilir silinmiş laptop listesi</returns>
+        IQueryable<Laptop> GetDeletedLaptopsQueryable();
+
+        /// <summary>
         /// Silinmiş laptop'u geri yükler
         /// </summary>
         /// <param name="id">Laptop ID</param>

@@ -33,15 +33,33 @@ namespace ITAssetManagement.Web.Controllers
         /// <param name="searchTerm">Arama terimi</param>
         /// <param name="pageNumber">Sayfa numarası</param>
         /// <returns>Sayfalanmış laptop listesi view'i</returns>
-        public async Task<IActionResult> Index(string searchTerm, int? pageNumber)
+        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize)
         {
+            // Sayfa başına kayıt sayısı seçenekleri
+            var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
+            ViewBag.PageSizeOptions = pageSizeOptions;
+            
+            // Seçilen sayfa başına kayıt sayısı veya varsayılan değer (10)
+            int currentPageSize = pageSize ?? 10;
+            ViewBag.CurrentPageSize = currentPageSize;
+
+            // Sayfa numarası veya varsayılan değer (1)
+            int currentPageNumber = pageNumber ?? 1;
+
+            // Arama terimini ViewBag'e ekle
+            ViewData["CurrentFilter"] = searchTerm;
+            ViewData["CurrentSearch"] = searchTerm; // URL'lerde kullanmak için
+
+            // Sorguyu oluştur
             var laptopsQuery = string.IsNullOrEmpty(searchTerm)
                 ? _laptopService.GetAllLaptopsQueryable()
                 : _laptopService.SearchLaptopsQueryable(searchTerm);
 
-            ViewData["CurrentFilter"] = searchTerm;
-            int pageSize = 10;
-            return View(await PaginatedList<Laptop>.CreateAsync(laptopsQuery.Where(l => l.IsActive), pageNumber ?? 1, pageSize));
+            // Sadece aktif laptopları göster ve sayfalama yap
+            return View(await PaginatedList<Laptop>.CreateAsync(
+                laptopsQuery.Where(l => l.IsActive), 
+                currentPageNumber,
+                currentPageSize));
         }
 
         /// <summary>
@@ -175,10 +193,28 @@ namespace ITAssetManagement.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> DeletedLaptops()
+        public async Task<IActionResult> DeletedLaptops(int? pageNumber, int? pageSize)
         {
-            var deletedLaptops = await _laptopService.GetDeletedLaptopsAsync();
-            return View(deletedLaptops);
+            // Sayfa başına kayıt sayısı seçenekleri
+            var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
+            ViewBag.PageSizeOptions = pageSizeOptions;
+            
+            // Seçilen sayfa başına kayıt sayısı veya varsayılan değer (10)
+            int currentPageSize = pageSize ?? 10;
+            ViewBag.CurrentPageSize = currentPageSize;
+
+            // Sayfa numarası veya varsayılan değer (1)
+            int currentPageNumber = pageNumber ?? 1;
+
+            // Sorguyu oluştur ve sayfalama yap
+            var deletedLaptopsQuery = _laptopService.GetDeletedLaptopsQueryable();
+            var paginatedLaptops = await PaginatedList<Laptop>.CreateAsync(
+                deletedLaptopsQuery,
+                currentPageNumber,
+                currentPageSize
+            );
+
+            return View(paginatedLaptops);
         }
 
         [HttpPost]
