@@ -427,11 +427,7 @@ vendor/
 
 
 # Test and coverage reports
-test-results/
-test-coverage/
-test-reports/
-test-results.xml
-test*
+
 Coverlet*
 coveragereports/
 coverage*
