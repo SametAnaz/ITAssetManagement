@@ -19,7 +19,7 @@
             <div>
                 <label class="me-2">Sayfa başına kayıt:</label>
                 <select id="pageSize" class="form-select form-select-sm d-inline-block" style="width: auto;" 
-                        onchange="window.location.href='@Url.Action("Index", new { pageNumber = 1, pageSize = "__ps__" })'.replace('__ps__', this.value)">
+                        onchange="window.location.href='@Url.Action("Index", new { pageNumber = 1, pageSize = "__ps__", sortBy = ViewBag.CurrentSortBy, sortDirection = ViewBag.CurrentSortDirection })'.replace('__ps__', this.value)">
                     @foreach (var size in ViewBag.PageSizeOptions)
                     {
                         if (size == ViewBag.CurrentPageSize)
@@ -44,11 +44,156 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>Etiket No</th>
-                            <th>Marka</th>
-                            <th>Model</th>
-                            <th>Durum</th>
-                            <th>Kayıt Tarihi</th>
+                            <th>
+                                <a asp-action="Index" 
+                                   asp-route-pageNumber="1"
+                                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                                   asp-route-sortBy="Id"
+                                   asp-route-sortDirection="@ViewBag.IdSort"
+                                   class="text-decoration-none d-flex align-items-center sortable-header">
+                                    ID
+                                    @if (ViewBag.CurrentSortBy == "Id")
+                                    {
+                                        @if (ViewBag.CurrentSortDirection == "asc")
+                                        {
+                                            <i class="fas fa-sort-up ms-1"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-sort-down ms-1"></i>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-sort ms-1 text-muted"></i>
+                                    }
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" 
+                                   asp-route-pageNumber="1"
+                                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                                   asp-route-sortBy="EtiketNo"
+                                   asp-route-sortDirection="@ViewBag.EtiketNoSort"
+                                   class="text-decoration-none d-flex align-items-center sortable-header">
+                                    Etiket No
+                                    @if (ViewBag.CurrentSortBy == "EtiketNo")
+                                    {
+                                        @if (ViewBag.CurrentSortDirection == "asc")
+                                        {
+                                            <i class="fas fa-sort-up ms-1"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-sort-down ms-1"></i>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-sort ms-1 text-muted"></i>
+                                    }
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" 
+                                   asp-route-pageNumber="1"
+                                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                                   asp-route-sortBy="Marka"
+                                   asp-route-sortDirection="@ViewBag.MarkaSort"
+                                   class="text-decoration-none d-flex align-items-center sortable-header">
+                                    Marka
+                                    @if (ViewBag.CurrentSortBy == "Marka")
+                                    {
+                                        @if (ViewBag.CurrentSortDirection == "asc")
+                                        {
+                                            <i class="fas fa-sort-up ms-1"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-sort-down ms-1"></i>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-sort ms-1 text-muted"></i>
+                                    }
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" 
+                                   asp-route-pageNumber="1"
+                                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                                   asp-route-sortBy="Model"
+                                   asp-route-sortDirection="@ViewBag.ModelSort"
+                                   class="text-decoration-none d-flex align-items-center sortable-header">
+                                    Model
+                                    @if (ViewBag.CurrentSortBy == "Model")
+                                    {
+                                        @if (ViewBag.CurrentSortDirection == "asc")
+                                        {
+                                            <i class="fas fa-sort-up ms-1"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-sort-down ms-1"></i>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-sort ms-1 text-muted"></i>
+                                    }
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" 
+                                   asp-route-pageNumber="1"
+                                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                                   asp-route-sortBy="Durum"
+                                   asp-route-sortDirection="@ViewBag.DurumSort"
+                                   class="text-decoration-none d-flex align-items-center sortable-header">
+                                    Durum
+                                    @if (ViewBag.CurrentSortBy == "Durum")
+                                    {
+                                        @if (ViewBag.CurrentSortDirection == "asc")
+                                        {
+                                            <i class="fas fa-sort-up ms-1"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-sort-down ms-1"></i>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-sort ms-1 text-muted"></i>
+                                    }
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" 
+                                   asp-route-pageNumber="1"
+                                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                                   asp-route-sortBy="KayitTarihi"
+                                   asp-route-sortDirection="@ViewBag.KayitTarihiSort"
+                                   class="text-decoration-none d-flex align-items-center sortable-header">
+                                    Kayıt Tarihi
+                                    @if (ViewBag.CurrentSortBy == "KayitTarihi")
+                                    {
+                                        @if (ViewBag.CurrentSortDirection == "asc")
+                                        {
+                                            <i class="fas fa-sort-up ms-1"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-sort-down ms-1"></i>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <i class="fas fa-sort ms-1 text-muted"></i>
+                                    }
+                                </a>
+                            </th>
                             <th>İşlemler</th>
                         </tr>
                     </thead>
@@ -56,6 +201,7 @@
                         @foreach (var laptop in Model!)
                         {
                             <tr>
+                                <td>@laptop.Id</td>
                                 <td>@laptop.EtiketNo</td>
                                 <td>@laptop.Marka</td>
                                 <td>@laptop.Model</td>
@@ -81,7 +227,9 @@
                         <li class="page-item @prevDisabled">
                             <a class="page-link" asp-action="Index" 
                                asp-route-pageNumber="@(Model.PageIndex - 1)"
-                               asp-route-pageSize="@ViewBag.CurrentPageSize">
+                               asp-route-pageSize="@ViewBag.CurrentPageSize"
+                               asp-route-sortBy="@ViewBag.CurrentSortBy"
+                               asp-route-sortDirection="@ViewBag.CurrentSortDirection">
                                 <i class="fas fa-chevron-left"></i>
                             </a>
                         </li>
@@ -90,13 +238,17 @@
                             <li class="page-item @(i == Model.PageIndex ? "active" : "")">
                                 <a class="page-link" asp-action="Index" 
                                    asp-route-pageNumber="@i"
-                                   asp-route-pageSize="@ViewBag.CurrentPageSize">@i</a>
+                                   asp-route-pageSize="@ViewBag.CurrentPageSize"
+                                   asp-route-sortBy="@ViewBag.CurrentSortBy"
+                                   asp-route-sortDirection="@ViewBag.CurrentSortDirection">@i</a>
                             </li>
                         }
                         <li class="page-item @nextDisabled">
                             <a class="page-link" asp-action="Index" 
                                asp-route-pageNumber="@(Model.PageIndex + 1)"
-                               asp-route-pageSize="@ViewBag.CurrentPageSize">
+                               asp-route-pageSize="@ViewBag.CurrentPageSize"
+                               asp-route-sortBy="@ViewBag.CurrentSortBy"
+                               asp-route-sortDirection="@ViewBag.CurrentSortDirection">
                                 <i class="fas fa-chevron-right"></i>
                             </a>
                         </li>
@@ -113,3 +265,47 @@
         }
     </div>
 </div>
+
+<style>
+    .table th a {
+        cursor: pointer;
+    }
+    
+    .table th a:hover {
+        color: #0056b3 !important;
+    }
+    
+    .table th a:hover i {
+        color: #0056b3 !important;
+    }
+    
+    .table th {
+        user-select: none;
+    }
+
+    /* Açık tema için */
+    [data-bs-theme="light"] .table th a {
+        color: #212529 !important;
+    }
+
+    [data-bs-theme="light"] .table th a:hover {
+        color: #0056b3 !important;
+    }
+
+    /* Karanlık tema için */
+    [data-bs-theme="dark"] .table th a {
+        color: #ffffff !important;
+    }
+
+    [data-bs-theme="dark"] .table th a:hover {
+        color: #6ea8fe !important;
+    }
+
+    [data-bs-theme="dark"] .table th a:hover i {
+        color: #6ea8fe !important;
+    }
+
+    [data-bs-theme="dark"] .table th a i {
+        color: #ffffff !important;
+    }
+</style>
