@@ -33,6 +33,8 @@ namespace ITAssetManagement.Web.Data.Repositories
                 .Include(l => l.Brand)
                 .Include(l => l.Photos)
                 .Include(l => l.Loglar)
+                .Include(l => l.CurrentAssignment!)
+                    .ThenInclude(a => a.User)
                 .FirstOrDefaultAsync(l => l.Id == id && l.IsActive);
         }
 
@@ -42,6 +44,8 @@ namespace ITAssetManagement.Web.Data.Repositories
                 .Include(l => l.Brand)
                 .Include(l => l.Photos)
                 .Include(l => l.Loglar)
+                .Include(l => l.CurrentAssignment!)
+                    .ThenInclude(a => a.User)
                 .Where(l => l.IsActive)
                 .ToListAsync();
         }
