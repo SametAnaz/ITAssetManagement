@@ -38,8 +38,10 @@ namespace ITAssetManagement.Web.Controllers
         /// <param name="searchTerm">Arama terimi</param>
         /// <param name="pageNumber">Sayfa numarası</param>
         /// <param name="pageSize">Sayfa başına kayıt sayısı</param>
+        /// <param name="sortBy">Sıralama yapılacak alan</param>
+        /// <param name="sortDirection">Sıralama yönü (asc/desc)</param>
         /// <returns>Sayfalanmış zimmet listesi view'i</returns>
-        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize)
+        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize, string? sortBy, string? sortDirection)
         {
             // Sayfa başına kayıt sayısı seçenekleri
             var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
@@ -52,6 +54,20 @@ namespace ITAssetManagement.Web.Controllers
             // Sayfa numarası veya varsayılan değer (1)
             int currentPageNumber = pageNumber ?? 1;
 
+            // Sıralama parametreleri
+            var currentSortBy = sortBy ?? "AssignmentDate";
+            var currentSortDirection = sortDirection ?? "desc";
+            
+            ViewBag.CurrentSortBy = currentSortBy;
+            ViewBag.CurrentSortDirection = currentSortDirection;
+
+            // Sıralama için ViewBag'e değerleri gönder
+            ViewBag.IdSort = currentSortBy == "Id" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.UserSort = currentSortBy == "User" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.LaptopSort = currentSortBy == "Laptop" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.AssignmentDateSort = currentSortBy == "AssignmentDate" ? (currentSortDirection == "asc" ? "desc" : "asc") : "desc";
+            ViewBag.ReturnDateSort = currentSortBy == "ReturnDate" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+
             // Arama terimini ViewBag'e ekle
             ViewData["CurrentFilter"] = searchTerm;
             ViewData["CurrentSearch"] = searchTerm; // URL'lerde kullanmak için
@@ -60,6 +76,9 @@ namespace ITAssetManagement.Web.Controllers
             var assignmentsQuery = string.IsNullOrEmpty(searchTerm) 
                 ? _assignmentService.GetAllAssignmentsQueryable()
                 : _assignmentService.SearchAssignmentsQueryable(searchTerm);
+
+            // Sıralama işlemi
+            assignmentsQuery = ApplyAssignmentsSorting(assignmentsQuery, currentSortBy, currentSortDirection);
 
             // Sayfalama yap
             return View(await PaginatedList<Assignment>.CreateAsync(
@@ -437,6 +456,28 @@ namespace ITAssetManagement.Web.Controllers
             {
                 return BadRequest(new { success = false, message = "Laptop bilgileri alınırken hata oluştu: " + ex.Message });
             }
+        }
+
+        /// <summary>
+        /// Assignment listesine sıralama uygular
+        /// </summary>
+        /// <param name="query">Sıralanacak IQueryable</param>
+        /// <param name="sortBy">Sıralama yapılacak alan</param>
+        /// <param name="sortDirection">Sıralama yönü</param>
+        /// <returns>Sıralanmış IQueryable</returns>
+        private IQueryable<Assignment> ApplyAssignmentsSorting(IQueryable<Assignment> query, string sortBy, string sortDirection)
+        {
+            var isDescending = sortDirection.ToLower() == "desc";
+
+            return sortBy.ToLower() switch
+            {
+                "id" => isDescending ? query.OrderByDescending(a => a.Id) : query.OrderBy(a => a.Id),
+                "user" => isDescending ? query.OrderByDescending(a => a.User!.FullName) : query.OrderBy(a => a.User!.FullName),
+                "laptop" => isDescending ? query.OrderByDescending(a => a.Laptop!.Marka + " " + a.Laptop.Model) : query.OrderBy(a => a.Laptop!.Marka + " " + a.Laptop.Model),
+                "assignmentdate" => isDescending ? query.OrderByDescending(a => a.AssignmentDate) : query.OrderBy(a => a.AssignmentDate),
+                "returndate" => isDescending ? query.OrderByDescending(a => a.ReturnDate) : query.OrderBy(a => a.ReturnDate),
+                _ => query.OrderByDescending(a => a.AssignmentDate) // Varsayılan sıralama Atama Tarihi'ne göre azalan
+            };
         }
     }
 }

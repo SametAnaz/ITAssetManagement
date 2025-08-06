@@ -35,8 +35,11 @@ namespace ITAssetManagement.Web.Controllers
         /// </summary>
         /// <param name="searchTerm">Arama terimi</param>
         /// <param name="pageNumber">Sayfa numarası</param>
+        /// <param name="pageSize">Sayfa başına kayıt sayısı</param>
+        /// <param name="sortBy">Sıralama yapılacak alan</param>
+        /// <param name="sortDirection">Sıralama yönü (asc/desc)</param>
         /// <returns>Sayfalanmış laptop listesi view'i</returns>
-        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize)
+        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize, string? sortBy, string? sortDirection)
         {
             // Sayfa başına kayıt sayısı seçenekleri
             var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
@@ -49,6 +52,21 @@ namespace ITAssetManagement.Web.Controllers
             // Sayfa numarası veya varsayılan değer (1)
             int currentPageNumber = pageNumber ?? 1;
 
+            // Sıralama parametreleri
+            var currentSortBy = sortBy ?? "Id";
+            var currentSortDirection = sortDirection ?? "asc";
+            
+            ViewBag.CurrentSortBy = currentSortBy;
+            ViewBag.CurrentSortDirection = currentSortDirection;
+
+            // Sıralama için ViewBag'e değerleri gönder
+            ViewBag.IdSort = currentSortBy == "Id" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.EtiketNoSort = currentSortBy == "EtiketNo" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.MarkaSort = currentSortBy == "Marka" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.ModelSort = currentSortBy == "Model" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.DurumSort = currentSortBy == "Durum" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.KayitTarihiSort = currentSortBy == "KayitTarihi" ? (currentSortDirection == "asc" ? "desc" : "asc") : "desc";
+
             // Arama terimini ViewBag'e ekle
             ViewData["CurrentFilter"] = searchTerm;
             ViewData["CurrentSearch"] = searchTerm; // URL'lerde kullanmak için
@@ -57,6 +75,9 @@ namespace ITAssetManagement.Web.Controllers
             var laptopsQuery = string.IsNullOrEmpty(searchTerm)
                 ? _laptopService.GetAllLaptopsQueryable()
                 : _laptopService.SearchLaptopsQueryable(searchTerm);
+
+            // Sıralama işlemi
+            laptopsQuery = ApplySorting(laptopsQuery, currentSortBy, currentSortDirection);
 
             // Sadece aktif laptopları göster ve sayfalama yap
             return View(await PaginatedList<Laptop>.CreateAsync(
@@ -233,7 +254,7 @@ namespace ITAssetManagement.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> DeletedLaptops(string searchTerm, int? pageNumber, int? pageSize)
+        public async Task<IActionResult> DeletedLaptops(string searchTerm, int? pageNumber, int? pageSize, string? sortBy, string? sortDirection)
         {
             // Sayfa başına kayıt sayısı seçenekleri
             var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
@@ -246,6 +267,24 @@ namespace ITAssetManagement.Web.Controllers
             // Sayfa numarası veya varsayılan değer (1)
             int currentPageNumber = pageNumber ?? 1;
 
+            // Sıralama parametreleri
+            var currentSortBy = sortBy ?? "SilinmeTarihi";
+            var currentSortDirection = sortDirection ?? "desc";
+            
+            ViewBag.CurrentSortBy = currentSortBy;
+            ViewBag.CurrentSortDirection = currentSortDirection;
+
+            // Sıralama için ViewBag'e değerleri gönder
+            ViewBag.IdSort = currentSortBy == "Id" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.EtiketNoSort = currentSortBy == "EtiketNo" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.MarkaSort = currentSortBy == "Marka" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.ModelSort = currentSortBy == "Model" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.DurumSort = currentSortBy == "Durum" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.KayitTarihiSort = currentSortBy == "KayitTarihi" ? (currentSortDirection == "asc" ? "desc" : "asc") : "desc";
+            ViewBag.SilinmeTarihiSort = currentSortBy == "SilinmeTarihi" ? (currentSortDirection == "asc" ? "desc" : "asc") : "desc";
+            ViewBag.SilmeNedeniSort = currentSortBy == "SilmeNedeni" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.SilenKullaniciSort = currentSortBy == "SilenKullanici" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+
             // Arama terimini ViewBag'e ekle
             ViewData["CurrentFilter"] = searchTerm;
             ViewData["CurrentSearch"] = searchTerm; // URL'lerde kullanmak için
@@ -254,6 +293,9 @@ namespace ITAssetManagement.Web.Controllers
             var deletedLaptopsQuery = string.IsNullOrEmpty(searchTerm) 
                 ? _laptopService.GetDeletedLaptopsQueryable()
                 : _laptopService.SearchDeletedLaptopsQueryable(searchTerm);
+
+            // Sıralama işlemi
+            deletedLaptopsQuery = ApplyDeletedLaptopsSorting(deletedLaptopsQuery, currentSortBy, currentSortDirection);
 
             var paginatedLaptops = await PaginatedList<Laptop>.CreateAsync(
                 deletedLaptopsQuery,
@@ -403,6 +445,55 @@ namespace ITAssetManagement.Web.Controllers
             {
                 return Json(new { success = false, message = $"Hata: {ex.Message}" });
             }
+        }
+
+        /// <summary>
+        /// Laptop listesine sıralama uygular
+        /// </summary>
+        /// <param name="query">Sıralanacak IQueryable</param>
+        /// <param name="sortBy">Sıralama yapılacak alan</param>
+        /// <param name="sortDirection">Sıralama yönü</param>
+        /// <returns>Sıralanmış IQueryable</returns>
+        private IQueryable<Laptop> ApplySorting(IQueryable<Laptop> query, string sortBy, string sortDirection)
+        {
+            var isDescending = sortDirection.ToLower() == "desc";
+
+            return sortBy.ToLower() switch
+            {
+                "id" => isDescending ? query.OrderByDescending(l => l.Id) : query.OrderBy(l => l.Id),
+                "etiketno" => isDescending ? query.OrderByDescending(l => l.EtiketNo) : query.OrderBy(l => l.EtiketNo),
+                "marka" => isDescending ? query.OrderByDescending(l => l.Marka) : query.OrderBy(l => l.Marka),
+                "model" => isDescending ? query.OrderByDescending(l => l.Model) : query.OrderBy(l => l.Model),
+                "durum" => isDescending ? query.OrderByDescending(l => l.Durum) : query.OrderBy(l => l.Durum),
+                "kayittarihi" => isDescending ? query.OrderByDescending(l => l.KayitTarihi) : query.OrderBy(l => l.KayitTarihi),
+                _ => query.OrderBy(l => l.Id) // Varsayılan sıralama ID'ye göre artan
+            };
+        }
+
+        /// <summary>
+        /// Silinmiş laptop listesine sıralama uygular
+        /// </summary>
+        /// <param name="query">Sıralanacak IQueryable</param>
+        /// <param name="sortBy">Sıralama yapılacak alan</param>
+        /// <param name="sortDirection">Sıralama yönü</param>
+        /// <returns>Sıralanmış IQueryable</returns>
+        private IQueryable<Laptop> ApplyDeletedLaptopsSorting(IQueryable<Laptop> query, string sortBy, string sortDirection)
+        {
+            var isDescending = sortDirection.ToLower() == "desc";
+
+            return sortBy.ToLower() switch
+            {
+                "id" => isDescending ? query.OrderByDescending(l => l.Id) : query.OrderBy(l => l.Id),
+                "etiketno" => isDescending ? query.OrderByDescending(l => l.EtiketNo) : query.OrderBy(l => l.EtiketNo),
+                "marka" => isDescending ? query.OrderByDescending(l => l.Marka) : query.OrderBy(l => l.Marka),
+                "model" => isDescending ? query.OrderByDescending(l => l.Model) : query.OrderBy(l => l.Model),
+                "durum" => isDescending ? query.OrderByDescending(l => l.Durum) : query.OrderBy(l => l.Durum),
+                "kayittarihi" => isDescending ? query.OrderByDescending(l => l.KayitTarihi) : query.OrderBy(l => l.KayitTarihi),
+                "silinmetarihi" => isDescending ? query.OrderByDescending(l => l.SilinmeTarihi) : query.OrderBy(l => l.SilinmeTarihi),
+                "silmenedeni" => isDescending ? query.OrderByDescending(l => l.SilmeNedeni) : query.OrderBy(l => l.SilmeNedeni),
+                "silenkullanici" => isDescending ? query.OrderByDescending(l => l.SilenKullanici) : query.OrderBy(l => l.SilenKullanici),
+                _ => query.OrderByDescending(l => l.SilinmeTarihi) // Varsayılan sıralama Silinme Tarihi'ne göre azalan
+            };
         }
     }
 }

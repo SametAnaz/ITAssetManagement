@@ -21,7 +21,7 @@ namespace ITAssetManagement.Web.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize)
+        public async Task<IActionResult> Index(string searchTerm, int? pageNumber, int? pageSize, string? sortBy, string? sortDirection)
         {
             // Sayfa başına kayıt sayısı seçenekleri
             var pageSizeOptions = new List<int> { 5, 10, 25, 50 };
@@ -34,12 +34,30 @@ namespace ITAssetManagement.Web.Controllers
             // Sayfa numarası veya varsayılan değer (1)
             int currentPageNumber = pageNumber ?? 1;
 
+            // Sıralama parametreleri
+            var currentSortBy = sortBy ?? "Id";
+            var currentSortDirection = sortDirection ?? "asc";
+            
+            ViewBag.CurrentSortBy = currentSortBy;
+            ViewBag.CurrentSortDirection = currentSortDirection;
+
+            // Sıralama için ViewBag'e değerleri gönder
+            ViewBag.IdSort = currentSortBy == "Id" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.FullNameSort = currentSortBy == "FullName" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.EmailSort = currentSortBy == "Email" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.DepartmentSort = currentSortBy == "Department" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.PositionSort = currentSortBy == "Position" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+            ViewBag.PhoneSort = currentSortBy == "Phone" ? (currentSortDirection == "asc" ? "desc" : "asc") : "asc";
+
             // Arama terimini ViewBag'e ekle
             ViewData["CurrentFilter"] = searchTerm;
             ViewData["CurrentSearch"] = searchTerm; // URL'lerde kullanmak için
 
             // Sorguyu oluştur
             var usersQuery = _userService.SearchUsersQueryable(searchTerm ?? string.Empty);
+
+            // Sıralama işlemi
+            usersQuery = ApplySorting(usersQuery, currentSortBy, currentSortDirection);
 
             return View(await PaginatedList<User>.CreateAsync(usersQuery, currentPageNumber, currentPageSize));
         }
@@ -228,6 +246,29 @@ namespace ITAssetManagement.Web.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        /// <summary>
+        /// Kullanıcı listesine sıralama uygular
+        /// </summary>
+        /// <param name="query">Sıralanacak IQueryable</param>
+        /// <param name="sortBy">Sıralama yapılacak alan</param>
+        /// <param name="sortDirection">Sıralama yönü</param>
+        /// <returns>Sıralanmış IQueryable</returns>
+        private IQueryable<User> ApplySorting(IQueryable<User> query, string sortBy, string sortDirection)
+        {
+            var isDescending = sortDirection.ToLower() == "desc";
+
+            return sortBy.ToLower() switch
+            {
+                "id" => isDescending ? query.OrderByDescending(u => u.Id) : query.OrderBy(u => u.Id),
+                "fullname" => isDescending ? query.OrderByDescending(u => u.FullName) : query.OrderBy(u => u.FullName),
+                "email" => isDescending ? query.OrderByDescending(u => u.Email) : query.OrderBy(u => u.Email),
+                "department" => isDescending ? query.OrderByDescending(u => u.Department) : query.OrderBy(u => u.Department),
+                "position" => isDescending ? query.OrderByDescending(u => u.Position) : query.OrderBy(u => u.Position),
+                "phone" => isDescending ? query.OrderByDescending(u => u.Phone) : query.OrderBy(u => u.Phone),
+                _ => query.OrderBy(u => u.Id) // Varsayılan sıralama ID'ye göre artan
+            };
         }
     }
 }
