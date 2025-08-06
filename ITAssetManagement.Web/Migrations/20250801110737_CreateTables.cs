@@ -55,9 +55,6 @@ namespace ITAssetManagement.Web.Migrations
         /// </remarks>
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "DeletedLaptops");
-
             migrationBuilder.DropIndex(
                 name: "IX_Assignments_LaptopId",
                 table: "Assignments");

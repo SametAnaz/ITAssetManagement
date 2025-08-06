@@ -38,6 +38,11 @@ namespace ITAssetManagement.Web.Data
         public DbSet<User> Users { get; set; }
 
         /// <summary>
+        /// Markalar veritabanı tablosu
+        /// </summary>
+        public DbSet<Brand> Brands { get; set; }
+
+        /// <summary>
         /// Zimmet kayıtları veritabanı tablosu
         /// </summary>
         public DbSet<Assignment> Assignments { get; set; }
@@ -67,6 +72,13 @@ namespace ITAssetManagement.Web.Data
                 .WithOne(log => log.Laptop)
                 .HasForeignKey(log => log.LaptopId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            // Brand-Laptop relationship
+            modelBuilder.Entity<Laptop>()
+                .HasOne(l => l.Brand)
+                .WithMany(b => b.Laptops)
+                .HasForeignKey(l => l.BrandId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

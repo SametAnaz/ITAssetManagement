@@ -65,6 +65,7 @@ builder.Services.AddScoped<ILaptopService, LaptopService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAssignmentService, AssignmentService>();
 builder.Services.AddScoped<IBarcodeService, BarcodeService>();
+builder.Services.AddScoped<IBrandService, BrandService>();
 
 // Configure Email Service
 builder.Services.Configure<EmailConfiguration>(

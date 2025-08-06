@@ -23,9 +23,19 @@
             </div>
 
             <div class="mb-3">
-                <label asp-for="Marka" class="form-label">Marka</label>
-                <input asp-for="Marka" class="form-control" />
-                <span asp-validation-for="Marka" class="text-danger"></span>
+                <label asp-for="BrandId" class="form-label">Marka</label>
+                <div class="input-group">
+                    <select asp-for="BrandId" class="form-control select2-brand" 
+                        asp-items="@(new SelectList(ViewBag.Brands, "Id", "Name"))"
+                        data-placeholder="Marka seçin veya yazın...">
+                        <option value="">-- Marka Seçin --</option>
+                    </select>
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addBrandModal" title="Yeni marka ekle">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <span asp-validation-for="BrandId" class="text-danger"></span>
+                <small class="form-text text-muted">Marka adını yazmaya başlayın, otomatik filtreleme yapılacaktır.</small>
             </div>
 
             <div class="mb-3">
@@ -69,8 +79,52 @@
     </div>
 </div>
 
+<!-- Yeni Marka Ekleme Modal -->
+<div class="modal fade" id="addBrandModal" tabindex="-1" aria-labelledby="addBrandModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="addBrandModalLabel">
+                    <i class="fas fa-plus me-2"></i>Yeni Marka Ekle
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-info">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <small>Yeni eklenen marka otomatik olarak seçilecektir.</small>
+                </div>
+                <div class="mb-3">
+                    <label for="newBrandName" class="form-label">
+                        <i class="fas fa-tag me-1"></i>Marka Adı
+                    </label>
+                    <input type="text" class="form-control form-control-lg" id="newBrandName" 
+                           placeholder="Örn: Apple, Samsung, Asus..." autocomplete="off">
+                    <div class="invalid-feedback" id="brandNameError"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>İptal
+                </button>
+                <button type="button" class="btn btn-success" id="saveBrandBtn">
+                    <i class="fas fa-save me-1"></i>Kaydet
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+    
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
     <script src="https://unpkg.com/html5-qrcode"></script>
     <script>
         let html5QrcodeScanner = null;
@@ -151,6 +205,186 @@
 
         // Clean up when leaving the page
         window.addEventListener('beforeunload', stopScanning);
+
+        // Select2 ve Brand işlemleri
+        $(document).ready(function() {
+            // Başarı bildirimi gösterme fonksiyonu
+            function showSuccessNotification(title, message) {
+                // Mevcut bildirimleri temizle
+                $('.custom-notification').remove();
+                
+                const notification = $(`
+                    <div class="custom-notification position-fixed top-0 end-0 m-3" style="z-index: 9999;">
+                        <div class="alert alert-success alert-dismissible fade show shadow-lg" role="alert">
+                            <strong>${title}</strong><br>
+                            <small>${message}</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    </div>
+                `);
+                
+                $('body').append(notification);
+                
+                // 4 saniye sonra otomatik kapat
+                setTimeout(() => {
+                    notification.find('.alert').alert('close');
+                }, 4000);
+            }
+
+            // Brand dropdown'ını Select2 ile başlat
+            $('.select2-brand').select2({
+                theme: 'bootstrap-5',
+                placeholder: 'Marka seçin veya yazın...',
+                allowClear: true,
+                width: '100%',
+                dropdownAutoWidth: true,
+                language: {
+                    noResults: function() {
+                        return "Aradığınız marka bulunamadı";
+                    },
+                    searching: function() {
+                        return "Aranıyor...";
+                    },
+                    inputTooShort: function() {
+                        return "En az 1 karakter girin";
+                    },
+                    errorLoading: function() {
+                        return "Sonuçlar yüklenemedi";
+                    }
+                },
+                escapeMarkup: function(markup) {
+                    return markup;
+                }
+            });
+
+            // Yeni marka ekleme modal işlemleri
+            $('#saveBrandBtn').click(function() {
+                const brandName = $('#newBrandName').val().trim();
+                const saveBtn = $(this);
+                const errorDiv = $('#brandNameError');
+                
+                // Reset error state
+                $('#newBrandName').removeClass('is-invalid');
+                errorDiv.text('');
+                
+                if (!brandName) {
+                    $('#newBrandName').addClass('is-invalid');
+                    errorDiv.text('Marka adı boş olamaz.');
+                    return;
+                }
+                
+                // Disable button during request
+                saveBtn.prop('disabled', true);
+                saveBtn.html('<i class="fas fa-spinner fa-spin me-1"></i>Kaydediliyor...');
+                
+                // AJAX ile yeni marka ekleme
+                $.ajax({
+                    url: '@Url.Action("AddBrand", "Laptops")',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(brandName),
+                    success: function(response) {
+                        if (response.success) {
+                            // Yeni markayı dropdown'a ekle
+                            const newOption = new Option(response.brand.name, response.brand.id, true, true);
+                            $('.select2-brand').append(newOption).trigger('change');
+                            
+                            // Modal'ı kapat ve formu temizle
+                            $('#addBrandModal').modal('hide');
+                            $('#newBrandName').val('');
+                            
+                            // Başarı mesajı - güzel bir bildirim
+                            showSuccessNotification('✅ ' + response.message, response.brand.name + ' markası başarıyla eklendi ve seçildi.');
+                        } else {
+                            $('#newBrandName').addClass('is-invalid');
+                            errorDiv.text(response.message);
+                        }
+                    },
+                    error: function() {
+                        $('#newBrandName').addClass('is-invalid');
+                        errorDiv.text('Bir hata oluştu. Lütfen tekrar deneyin.');
+                    },
+                    complete: function() {
+                        // Re-enable button
+                        saveBtn.prop('disabled', false);
+                        saveBtn.html('<i class="fas fa-save me-1"></i>Kaydet');
+                    }
+                });
+            });
+
+            // Modal kapanırken formu temizle
+            $('#addBrandModal').on('hidden.bs.modal', function() {
+                $('#newBrandName').val('').removeClass('is-invalid');
+                $('#brandNameError').text('');
+            });
+
+            // Modal açılırken input'a focus ver
+            $('#addBrandModal').on('shown.bs.modal', function() {
+                $('#newBrandName').focus();
+            });
+
+            // Enter tuşu ile kaydetme
+            $('#newBrandName').on('keypress', function(e) {
+                if (e.which === 13) { // Enter tuşu
+                    e.preventDefault();
+                    $('#saveBrandBtn').click();
+                }
+            });
+
+            // Form submit edildiğinde Select2'yi temizle
+            $('form').on('submit', function() {
+                $('.select2-brand').select2('destroy');
+            });
+        });
     </script>
+    
+    <style>
+        /* Select2 özelleştirmeleri */
+        .select2-container--bootstrap-5 .select2-selection {
+            min-height: 38px;
+            border-color: #dee2e6;
+        }
+        
+        .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered {
+            padding-top: 6px;
+            color: #495057;
+        }
+        
+        .select2-container--bootstrap-5 .select2-selection--single .select2-selection__arrow {
+            top: 6px;
+        }
+        
+        .select2-container--bootstrap-5.select2-container--focus .select2-selection {
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+        }
+        
+        /* Input group ile Select2 uyumluluğu */
+        .input-group .select2-container {
+            flex: 1 1 auto;
+        }
+        
+        .input-group .select2-container .select2-selection {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .input-group .btn {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        
+        /* Modal animasyonları */
+        .modal.fade .modal-dialog {
+            transition: transform 0.3s ease-out;
+        }
+        
+        /* Alert stillerinin iyileştirilmesi */
+        .alert-info {
+            background-color: #e7f3ff;
+            border-color: #b8daff;
+            color: #055160;
+        }
+    </style>
 }
 

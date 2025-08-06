@@ -76,12 +76,23 @@ namespace ITAssetManagement.Web.Models
         /// </remarks>
         /// <example>"Dell Latitude 5520 (LP001)"</example>
         [NotMapped]
-        public string DisplayName => $"{Marka} {Model} ({EtiketNo})";
+        public string DisplayName => $"{(Brand?.Name ?? Marka)} {Model} ({EtiketNo})";
 
         /// <summary>
-        /// Laptopun markası
+        /// Marka tablosuna referans
         /// </summary>
-        [Required]
+        [Display(Name = "Brand")]
+        public int? BrandId { get; set; }
+
+        /// <summary>
+        /// Marka bilgisi (navigation property)
+        /// </summary>
+        [Display(Name = "Brand")]
+        public virtual Brand? Brand { get; set; }
+
+        /// <summary>
+        /// Laptopun markası (backward compatibility için korunuyor)
+        /// </summary>
         [StringLength(100)]
         [Display(Name = "Brand")]
         public string Marka { get; set; } = string.Empty;

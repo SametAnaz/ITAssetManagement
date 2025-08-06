@@ -15,16 +15,19 @@ namespace ITAssetManagement.Web.Controllers
     {
         private readonly ILaptopService _laptopService;
         private readonly IBarcodeService _barcodeService;
+        private readonly IBrandService _brandService;
 
         /// <summary>
         /// LaptopsController constructor
         /// </summary>
         /// <param name="laptopService">Laptop işlemleri servisi</param>
         /// <param name="barcodeService">Barkod işlemleri servisi</param>
-        public LaptopsController(ILaptopService laptopService, IBarcodeService barcodeService)
+        /// <param name="brandService">Marka işlemleri servisi</param>
+        public LaptopsController(ILaptopService laptopService, IBarcodeService barcodeService, IBrandService brandService)
         {
             _laptopService = laptopService;
             _barcodeService = barcodeService;
+            _brandService = brandService;
         }
 
         /// <summary>
@@ -81,8 +84,10 @@ namespace ITAssetManagement.Web.Controllers
         /// Yeni laptop ekleme formunu gösterir
         /// </summary>
         /// <returns>Laptop ekleme view'i</returns>
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var brands = await _brandService.GetAllActiveBrandsAsync();
+            ViewBag.Brands = brands;
             return View();
         }
 
@@ -101,6 +106,8 @@ namespace ITAssetManagement.Web.Controllers
                 if (string.IsNullOrWhiteSpace(laptop.EtiketNo))
                 {
                     ModelState.AddModelError("EtiketNo", "Etiket numarası gereklidir.");
+                    var brands = await _brandService.GetAllActiveBrandsAsync();
+                    ViewBag.Brands = brands;
                     return View(laptop);
                 }
 
@@ -109,6 +116,8 @@ namespace ITAssetManagement.Web.Controllers
                 if (existingLaptop.Any(l => l.EtiketNo.Equals(laptop.EtiketNo, StringComparison.OrdinalIgnoreCase)))
                 {
                     ModelState.AddModelError("EtiketNo", "Bu etiket numarası zaten kullanımda.");
+                    var brands = await _brandService.GetAllActiveBrandsAsync();
+                    ViewBag.Brands = brands;
                     return View(laptop);
                 }
                 
@@ -116,6 +125,8 @@ namespace ITAssetManagement.Web.Controllers
                 TempData["SuccessMessage"] = "Laptop başarıyla eklendi.";
                 return RedirectToAction(nameof(Index));
             }
+            var brandsForError = await _brandService.GetAllActiveBrandsAsync();
+            ViewBag.Brands = brandsForError;
             return View(laptop);
         }
 
@@ -322,6 +333,47 @@ namespace ITAssetManagement.Web.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        /// <summary>
+        /// Yeni marka ekler (AJAX endpoint)
+        /// </summary>
+        /// <param name="name">Marka adı</param>
+        /// <returns>JSON sonuç</returns>
+        [HttpPost]
+        public async Task<IActionResult> AddBrand([FromBody] string name)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    return Json(new { success = false, message = "Marka adı boş olamaz." });
+                }
+
+                var brand = new Brand
+                {
+                    Name = name.Trim(),
+                    IsActive = true
+                };
+
+                var result = await _brandService.CreateBrandAsync(brand);
+                if (result)
+                {
+                    return Json(new { 
+                        success = true, 
+                        message = "Marka başarıyla eklendi.",
+                        brand = new { id = brand.Id, name = brand.Name }
+                    });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Bu marka adı zaten kullanımda." });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Hata: {ex.Message}" });
+            }
         }
     }
 }
