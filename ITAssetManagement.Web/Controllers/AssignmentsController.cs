@@ -338,5 +338,105 @@ namespace ITAssetManagement.Web.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        /// <summary>
+        /// Kullanıcı detay bilgilerini AJAX ile döndürür
+        /// </summary>
+        /// <param name="userId">Kullanıcı ID</param>
+        /// <returns>JSON formatında kullanıcı detayları</returns>
+        [HttpGet]
+        public async Task<IActionResult> GetUserInfo(int userId)
+        {
+            try
+            {
+                var user = await _userService.GetUserByIdAsync(userId);
+                if (user == null)
+                {
+                    return NotFound(new { success = false, message = "Kullanıcı bulunamadı." });
+                }
+
+                // Kullanıcının zimmet sayısını hesapla
+                var allAssignments = _assignmentService.GetAllAssignmentsQueryable()
+                    .Where(a => a.UserId == userId);
+                var activeAssignments = allAssignments.Where(a => a.ReturnDate == null).Count();
+                var totalAssignments = allAssignments.Count();
+                var lastAssignment = allAssignments.OrderByDescending(a => a.AssignmentDate).FirstOrDefault();
+
+                var userInfo = new
+                {
+                    success = true,
+                    user = new
+                    {
+                        id = user.Id,
+                        fullName = user.FullName,
+                        email = user.Email,
+                        phone = user.Phone,
+                        department = user.Department,
+                        position = user.Position,
+                        activeAssignmentsCount = activeAssignments,
+                        totalAssignmentsCount = totalAssignments,
+                        lastAssignmentDate = lastAssignment?.AssignmentDate.ToString("dd.MM.yyyy") ?? "Hiç zimmet yok"
+                    }
+                };
+
+                return Json(userInfo);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = "Kullanıcı bilgileri alınırken hata oluştu: " + ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Laptop detay bilgilerini AJAX ile döndürür
+        /// </summary>
+        /// <param name="laptopId">Laptop ID</param>
+        /// <returns>JSON formatında laptop detayları</returns>
+        [HttpGet]
+        public async Task<IActionResult> GetLaptopInfo(int laptopId)
+        {
+            try
+            {
+                var laptop = await _laptopService.GetLaptopWithDetailsAsync(laptopId);
+                if (laptop == null)
+                {
+                    return NotFound(new { success = false, message = "Laptop bulunamadı." });
+                }
+
+                // Laptop'ın zimmet geçmişini hesapla
+                var allAssignments = _assignmentService.GetAllAssignmentsQueryable()
+                    .Where(a => a.LaptopId == laptopId);
+                var activeAssignment = allAssignments.FirstOrDefault(a => a.ReturnDate == null);
+                var totalAssignments = allAssignments.Count();
+                var lastAssignment = allAssignments.OrderByDescending(a => a.AssignmentDate).FirstOrDefault();
+
+                var laptopInfo = new
+                {
+                    success = true,
+                    laptop = new
+                    {
+                        id = laptop.Id,
+                        etiketNo = laptop.EtiketNo,
+                        marka = laptop.Marka,
+                        model = laptop.Model,
+                        ozellikler = laptop.Ozellikler,
+                        durum = laptop.Durum,
+                        notes = laptop.Notes,
+                        isActive = laptop.IsActive,
+                        displayName = laptop.DisplayName,
+                        isAssigned = activeAssignment != null,
+                        currentAssignedUser = activeAssignment?.User?.FullName ?? "Kimseye zimmetli değil",
+                        totalAssignmentsCount = totalAssignments,
+                        lastAssignmentDate = lastAssignment?.AssignmentDate.ToString("dd.MM.yyyy") ?? "Hiç zimmet yok"
+                    }
+                };
+
+                return Json(laptopInfo);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = "Laptop bilgileri alınırken hata oluştu: " + ex.Message });
+            }
+        }
     }
 }

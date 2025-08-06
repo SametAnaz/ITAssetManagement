@@ -9,10 +9,26 @@
 <div>
     <dl class="row">
         <dt class="col-sm-3">Kullanıcı</dt>
-        <dd class="col-sm-9">@(Model.User?.FullName ?? "-")</dd>
+        <dd class="col-sm-9">
+            @(Model.User?.FullName ?? "-")
+            @if (Model.User != null)
+            {
+                <button type="button" class="btn btn-outline-info btn-sm ms-2" onclick="showUserInfo()" title="Kullanıcı detaylarını görüntüle">
+                    <i class="fas fa-info-circle"></i> Detaylar
+                </button>
+            }
+        </dd>
 
         <dt class="col-sm-3">Laptop</dt>
-        <dd class="col-sm-9">@(Model.Laptop != null ? $"{Model.Laptop.Marka} {Model.Laptop.Model}" : "-")</dd>
+        <dd class="col-sm-9">
+            @(Model.Laptop != null ? $"{Model.Laptop.Marka} {Model.Laptop.Model}" : "-")
+            @if (Model.Laptop != null)
+            {
+                <button type="button" class="btn btn-outline-info btn-sm ms-2" onclick="showLaptopInfo()" title="Laptop detaylarını görüntüle">
+                    <i class="fas fa-info-circle"></i> Detaylar
+                </button>
+            }
+        </dd>
 
         <dt class="col-sm-3">Atama Tarihi</dt>
         <dd class="col-sm-9">@Model.AssignmentDate.ToShortDateString()</dd>
@@ -21,7 +37,199 @@
         <dd class="col-sm-9">@(Model.ReturnDate?.ToShortDateString() ?? "-")</dd>
     </dl>
 </div>
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Düzenle</a>
     <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
 </div>
+
+<!-- User Info Modal -->
+<div class="modal fade" id="userInfoModal" tabindex="-1" aria-labelledby="userInfoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="userInfoModalLabel">
+                    <i class="fas fa-user me-2"></i>Kullanıcı Detayları
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="userInfoContent">
+                <div class="text-center">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Yükleniyor...</span>
+                    </div>
+                    <p class="mt-2">Kullanıcı bilgileri yükleniyor...</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Laptop Info Modal -->
+<div class="modal fade" id="laptopInfoModal" tabindex="-1" aria-labelledby="laptopInfoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="laptopInfoModalLabel">
+                    <i class="fas fa-laptop me-2"></i>Laptop Detayları
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="laptopInfoContent">
+                <div class="text-center">
+                    <div class="spinner-border text-success" role="status">
+                        <span class="visually-hidden">Yükleniyor...</span>
+                    </div>
+                    <p class="mt-2">Laptop bilgileri yükleniyor...</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // User data from server
+        var userData = @Html.Raw(Model.User != null ? Json.Serialize(new {
+            id = Model.User.Id,
+            fullName = Model.User.FullName,
+            email = Model.User.Email,
+            phone = Model.User.Phone,
+            department = Model.User.Department
+        }) : "null");
+
+        // Laptop data from server
+        var laptopData = @Html.Raw(Model.Laptop != null ? Json.Serialize(new {
+            id = Model.Laptop.Id,
+            marka = Model.Laptop.Marka,
+            model = Model.Laptop.Model,
+            etiketNo = Model.Laptop.EtiketNo,
+            ozellikler = Model.Laptop.Ozellikler,
+            durum = Model.Laptop.Durum,
+            notes = Model.Laptop.Notes,
+            isAssigned = (Model.Laptop.CurrentAssignment != null)
+        }) : "null");
+
+        function showUserInfo() {
+            if (!userData) {
+                return;
+            }
+
+            // Show modal
+            var modal = new bootstrap.Modal(document.getElementById('userInfoModal'));
+            modal.show();
+
+            // Load user info
+            document.getElementById('userInfoContent').innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-primary"><i class="fas fa-user me-2"></i>Kişisel Bilgiler</h6>
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>ID:</strong></td>
+                                <td><span class="badge bg-secondary">${userData.id}</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ad Soyad:</strong></td>
+                                <td>${userData.fullName || '-'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Email:</strong></td>
+                                <td>${userData.email || '-'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Telefon:</strong></td>
+                                <td>${userData.phone || '-'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bölüm:</strong></td>
+                                <td>${userData.department || '-'}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-primary"><i class="fas fa-info-circle me-2"></i>Durum</h6>
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>Bu Atama:</strong></td>
+                                <td><span class="badge bg-info">Aktif</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            `;
+        }
+
+        function showLaptopInfo() {
+            if (!laptopData) {
+                return;
+            }
+
+            // Show modal
+            var modal = new bootstrap.Modal(document.getElementById('laptopInfoModal'));
+            modal.show();
+
+            // Load laptop info
+            document.getElementById('laptopInfoContent').innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-success"><i class="fas fa-laptop me-2"></i>Genel Bilgiler</h6>
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>ID:</strong></td>
+                                <td><span class="badge bg-secondary">${laptopData.id}</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Marka:</strong></td>
+                                <td>${laptopData.marka || '-'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Model:</strong></td>
+                                <td>${laptopData.model || '-'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Etiket No:</strong></td>
+                                <td>${laptopData.etiketNo || '-'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Durum:</strong></td>
+                                <td>
+                                    <span class="badge ${laptopData.isAssigned ? 'bg-warning' : 'bg-success'}">
+                                        ${laptopData.isAssigned ? 'Atanmış' : 'Müsait'}
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-success"><i class="fas fa-cogs me-2"></i>Teknik Özellikler</h6>
+                        <table class="table table-sm">
+                            <tr>
+                                <td><strong>Sistem Durumu:</strong></td>
+                                <td>${laptopData.durum || '-'}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Özellikler:</strong></td>
+                                <td>${laptopData.ozellikler || '-'}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                ${laptopData.notes ? `
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <h6 class="text-success"><i class="fas fa-file-alt me-2"></i>Notlar</h6>
+                            <p class="text-muted">${laptopData.notes}</p>
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+        }
+    </script>
+}
