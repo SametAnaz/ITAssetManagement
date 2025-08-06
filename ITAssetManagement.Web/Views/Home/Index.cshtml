@@ -48,11 +48,11 @@
                                 <a asp-action="Index" 
                                    asp-route-pageNumber="1"
                                    asp-route-pageSize="@ViewBag.CurrentPageSize"
-                                   asp-route-sortBy="Id"
+                                   asp-route-sortBy="id"
                                    asp-route-sortDirection="@ViewBag.IdSort"
                                    class="text-decoration-none d-flex align-items-center sortable-header">
                                     ID
-                                    @if (ViewBag.CurrentSortBy == "Id")
+                                    @if (ViewBag.CurrentSortBy?.ToString().ToLower() == "id")
                                     {
                                         @if (ViewBag.CurrentSortDirection == "asc")
                                         {
