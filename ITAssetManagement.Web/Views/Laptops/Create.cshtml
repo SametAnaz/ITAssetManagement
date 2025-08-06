@@ -15,7 +15,16 @@
                 <label asp-for="EtiketNo" class="form-label">Etiket No</label>
                 <div class="input-group">
                     <input asp-for="EtiketNo" class="form-control" id="etiketNoInput" />
-                    <button type="button" class="btn btn-outline-secondary" onclick="startScanning()">
+                    <button type="button" class="btn btn-outline-secon            // Form submit edildiğinde son kontrolü yap
+            $('form').on('submit', function() {
+                if ($('#configMode').is(':checked')) {
+                    updateConfigPreview(); // Son bir kez güncelle
+                } else {
+                    // Manuel modda, manuel textarea'nın değerini ana form alanına kopyala
+                    const manualValue = $('#manualOzellikler').val();
+                    $('#finalOzellikler').val(manualValue);
+                }
+            });ick="startScanning()">
                         <i class="fas fa-camera"></i>
                     </button>
                 </div>
@@ -47,8 +56,249 @@
 
             <div class="mb-3">
                 <label asp-for="Ozellikler" class="form-label">Özellikler</label>
-                <textarea asp-for="Ozellikler" class="form-control" rows="3"></textarea>
+                
+                <!-- Mod seçimi -->
+                <div class="mb-2">
+                    <div class="btn-group" role="group" aria-label="Özellik giriş modu">
+                        <input type="radio" class="btn-check" name="ozellikMode" id="configMode" checked>
+                        <label class="btn btn-outline-primary btn-sm" for="configMode">
+                            <i class="fas fa-cogs me-1"></i>Konfigürasyon Seçimi
+                        </label>
+                        
+                        <input type="radio" class="btn-check" name="ozellikMode" id="manualMode">
+                        <label class="btn btn-outline-secondary btn-sm" for="manualMode">
+                            <i class="fas fa-edit me-1"></i>Manuel Giriş
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Konfigürasyon dropdown'ları -->
+                <div id="configurationSection" class="border rounded p-3 bg-light">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">İşlemci</label>
+                            <select class="form-control config-select" id="processorSelect" data-placeholder="İşlemci seçin...">
+                                <option value="">-- Seçin --</option>
+                                <!-- Intel i3 İşlemciler -->
+                                <option value="Intel i3 4th Gen">Intel i3 4th Gen </option>
+                                <option value="Intel i3 5th Gen">Intel i3 5th Gen </option>
+                                <option value="Intel i3 6th Gen">Intel i3 6th Gen </option>
+                                <option value="Intel i3 7th Gen">Intel i3 7th Gen</option>
+                                <option value="Intel i3 8th Gen">Intel i3 8th Gen</option>
+                                <option value="Intel i3 9th Gen">Intel i3 9th Gen</option>
+                                <option value="Intel i3 10th Gen">Intel i3 10th Gen</option>
+                                <option value="Intel i3 11th Gen">Intel i3 11th Gen</option>
+                                <option value="Intel i3 12th Gen">Intel i3 12th Gen</option>
+                                <option value="Intel i3 13th Gen">Intel i3 13th Gen</option>
+                                <option value="Intel i3 14th Gen">Intel i3 14th Gen</option>
+                                <!-- Intel i5 İşlemciler -->
+                                <option value="Intel i5 4th Gen">Intel i5 4th Gen</option>
+                                <option value="Intel i5 5th Gen">Intel i5 5th Gen</option>
+                                <option value="Intel i5 6th Gen">Intel i5 6th Gen</option>
+                                <option value="Intel i5 7th Gen">Intel i5 7th Gen</option>
+                                <option value="Intel i5 8th Gen">Intel i5 8th Gen</option>
+                                <option value="Intel i5 9th Gen">Intel i5 9th Gen</option>
+                                <option value="Intel i5 10th Gen">Intel i5 10th Gen</option>
+                                <option value="Intel i5 11th Gen">Intel i5 11th Gen</option>
+                                <option value="Intel i5 12th Gen">Intel i5 12th Gen</option>
+                                <option value="Intel i5 13th Gen">Intel i5 13th Gen</option>
+                                <option value="Intel i5 14th Gen">Intel i5 14th Gen</option>
+                                <!-- Intel i7 İşlemciler -->
+                                <option value="Intel i7 4th Gen">Intel i7 4th Gen</option>
+                                <option value="Intel i7 5th Gen">Intel i7 5th Gen</option>
+                                <option value="Intel i7 6th Gen">Intel i7 6th Gen</option>
+                                <option value="Intel i7 7th Gen">Intel i7 7th Gen</option>
+                                <option value="Intel i7 8th Gen">Intel i7 8th Gen</option>
+                                <option value="Intel i7 9th Gen">Intel i7 9th Gen</option>
+                                <option value="Intel i7 10th Gen">Intel i7 10th Gen</option>
+                                <option value="Intel i7 11th Gen">Intel i7 11th Gen</option>
+                                <option value="Intel i7 12th Gen">Intel i7 12th Gen</option>
+                                <option value="Intel i7 13th Gen">Intel i7 13th Gen</option>
+                                <option value="Intel i7 14th Gen">Intel i7 14th Gen</option>
+                                <!-- Intel i9 İşlemciler -->
+                                <option value="Intel i9 9th Gen">Intel i9 9th Gen</option>
+                                <option value="Intel i9 10th Gen">Intel i9 10th Gen</option>
+                                <option value="Intel i9 11th Gen">Intel i9 11th Gen</option>
+                                <option value="Intel i9 12th Gen">Intel i9 12th Gen</option>
+                                <option value="Intel i9 13th Gen">Intel i9 13th Gen</option>
+                                <option value="Intel i9 14th Gen">Intel i9 14th Gen</option>
+                                <!-- AMD İşlemciler -->
+                                <option value="AMD Ryzen 3">AMD Ryzen 3</option>
+                                <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+                                <option value="AMD Ryzen 7">AMD Ryzen 7</option>
+                                <option value="AMD Ryzen 9">AMD Ryzen 9</option>
+                                <option value="custom">Diğer (Manuel Gir)</option>
+                            </select>
+                            <input type="text" class="form-control mt-2 custom-input" id="processorCustom" placeholder="Özel işlemci girin..." style="display: none;">
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">RAM</label>
+                            <select class="form-control config-select" id="ramSelect" data-placeholder="RAM seçin...">
+                                <option value="">-- Seçin --</option>
+                                <!-- DDR3 RAM Seçenekleri -->
+                                <option value="2GB DDR3">2GB DDR3</option>
+                                <option value="4GB DDR3">4GB DDR3</option>
+                                <option value="8GB DDR3">8GB DDR3</option>
+                                <option value="12GB DDR3">12GB DDR3</option>
+                                <option value="16GB DDR3">16GB DDR3</option>
+                                <option value="24GB DDR3">24GB DDR3</option>
+                                <option value="32GB DDR3">32GB DDR3</option>
+                                <!-- DDR4 RAM Seçenekleri -->
+                                <option value="4GB DDR4">4GB DDR4</option>
+                                <option value="8GB DDR4">8GB DDR4</option>
+                                <option value="12GB DDR4">12GB DDR4</option>
+                                <option value="16GB DDR4">16GB DDR4</option>
+                                <option value="24GB DDR4">24GB DDR4</option>
+                                <option value="32GB DDR4">32GB DDR4</option>
+                                <option value="48GB DDR4">48GB DDR4</option>
+                                <option value="64GB DDR4">64GB DDR4</option>
+                                <!-- DDR5 RAM Seçenekleri -->
+                                <option value="8GB DDR5">8GB DDR5</option>
+                                <option value="16GB DDR5">16GB DDR5</option>
+                                <option value="24GB DDR5">24GB DDR5</option>
+                                <option value="32GB DDR5">32GB DDR5</option>
+                                <option value="48GB DDR5">48GB DDR5</option>
+                                <option value="64GB DDR5">64GB DDR5</option>
+                                <option value="128GB DDR5">128GB DDR5</option>
+                                <option value="custom">Diğer (Manuel Gir)</option>
+                            </select>
+                            <input type="text" class="form-control mt-2 custom-input" id="ramCustom" placeholder="Özel RAM girin..." style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Depolama</label>
+                            <select class="form-control config-select" id="storageSelect" data-placeholder="Depolama seçin...">
+                                <option value="">-- Seçin --</option>
+                                <!-- SATA SSD Seçenekleri -->
+                                <option value="128GB SSD">128GB SSD</option>
+                                <option value="256GB SSD">256GB SSD</option>
+                                <option value="512GB SSD">512GB SSD</option>
+                                <option value="1TB SSD">1TB SSD</option>
+                                <option value="2TB SSD">2TB SSD</option>
+                                <option value="4TB SSD">4TB SSD</option>
+                                <!-- M.2 NVMe SSD Seçenekleri -->
+                                <option value="128GB M.2 NVMe SSD">128GB M.2 NVMe SSD</option>
+                                <option value="256GB M.2 NVMe SSD">256GB M.2 NVMe SSD</option>
+                                <option value="512GB M.2 NVMe SSD">512GB M.2 NVMe SSD</option>
+                                <option value="1TB M.2 NVMe SSD">1TB M.2 NVMe SSD</option>
+                                <option value="2TB M.2 NVMe SSD">2TB M.2 NVMe SSD</option>
+                                <option value="4TB M.2 NVMe SSD">4TB M.2 NVMe SSD</option>
+                                <!-- M.2 SATA SSD Seçenekleri -->
+                                <option value="128GB M.2 SATA SSD">128GB M.2 SATA SSD</option>
+                                <option value="256GB M.2 SATA SSD">256GB M.2 SATA SSD</option>
+                                <option value="512GB M.2 SATA SSD">512GB M.2 SATA SSD</option>
+                                <option value="1TB M.2 SATA SSD">1TB M.2 SATA SSD</option>
+                                <option value="2TB M.2 SATA SSD">2TB M.2 SATA SSD</option>
+                                <!-- HDD Seçenekleri -->
+                                <option value="128GB HDD">128GB HDD</option>
+                                <option value="256GB HDD">256GB HDD</option>
+                                <option value="320GB HDD">320GB HDD</option>
+                                <option value="500GB HDD">500GB HDD</option>
+                                <option value="750GB HDD">750GB HDD</option>
+                                <option value="1TB HDD">1TB HDD</option>
+                                <option value="2TB HDD">2TB HDD</option>
+                                <option value="4TB HDD">4TB HDD</option>
+                                <!-- Hibrit/Dual Depolama Seçenekleri -->
+                                <option value="128GB SSD + 1TB HDD">128GB SSD + 1TB HDD</option>
+                                <option value="256GB SSD + 1TB HDD">256GB SSD + 1TB HDD</option>
+                                <option value="256GB SSD + 2TB HDD">256GB SSD + 2TB HDD</option>
+                                <option value="512GB SSD + 1TB HDD">512GB SSD + 1TB HDD</option>
+                                <option value="512GB SSD + 2TB HDD">512GB SSD + 2TB HDD</option>
+                                <option value="1TB SSD + 1TB HDD">1TB SSD + 1TB HDD</option>
+                                <option value="1TB SSD + 2TB HDD">1TB SSD + 2TB HDD</option>
+                                <!-- M.2 + HDD Kombinasyonları -->
+                                <option value="256GB M.2 SSD + 1TB HDD">256GB M.2 SSD + 1TB HDD</option>
+                                <option value="512GB M.2 SSD + 1TB HDD">512GB M.2 SSD + 1TB HDD</option>
+                                <option value="512GB M.2 SSD + 2TB HDD">512GB M.2 SSD + 2TB HDD</option>
+                                <option value="1TB M.2 SSD + 1TB HDD">1TB M.2 SSD + 1TB HDD</option>
+                                <option value="1TB M.2 SSD + 2TB HDD">1TB M.2 SSD + 2TB HDD</option>
+                                <option value="custom">Diğer (Manuel Gir)</option>
+                            </select>
+                            <input type="text" class="form-control mt-2 custom-input" id="storageCustom" placeholder="Özel depolama girin..." style="display: none;">
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Ekran Kartı</label>
+                            <select class="form-control config-select" id="gpuSelect" data-placeholder="Ekran kartı seçin...">
+                                <option value="">-- Seçin --</option>
+                                <option value="Intel UHD Graphics">Intel UHD Graphics</option>
+                                <option value="Intel Iris Xe">Intel Iris Xe</option>
+                                <option value="AMD Radeon Graphics">AMD Radeon Graphics</option>
+                                <option value="NVIDIA GeForce MX450">NVIDIA GeForce MX450</option>
+                                <option value="NVIDIA GeForce GTX 1650">NVIDIA GeForce GTX 1650</option>
+                                <option value="NVIDIA GeForce RTX 3050">NVIDIA GeForce RTX 3050</option>
+                                <option value="NVIDIA GeForce RTX 3060">NVIDIA GeForce RTX 3060</option>
+                                <option value="NVIDIA GeForce RTX 3070">NVIDIA GeForce RTX 3070</option>
+                                <option value="NVIDIA GeForce RTX 4050">NVIDIA GeForce RTX 4050</option>
+                                <option value="NVIDIA GeForce RTX 4060">NVIDIA GeForce RTX 4060</option>
+                                <option value="custom">Diğer (Manuel Gir)</option>
+                            </select>
+                            <input type="text" class="form-control mt-2 custom-input" id="gpuCustom" placeholder="Özel ekran kartı girin..." style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">İşletim Sistemi</label>
+                            <select class="form-control config-select" id="osSelect" data-placeholder="İşletim sistemi seçin...">
+                                <option value="">-- Seçin --</option>
+                                <option value="Windows 10 Home">Windows 10 Home</option>
+                                <option value="Windows 10 Pro">Windows 10 Pro</option>
+                                <option value="Windows 11 Home">Windows 11 Home</option>
+                                <option value="Windows 11 Pro">Windows 11 Pro</option>
+                                <option value="macOS Monterey">macOS Monterey</option>
+                                <option value="macOS Ventura">macOS Ventura</option>
+                                <option value="macOS Sonoma">macOS Sonoma</option>
+                                <option value="Ubuntu 20.04 LTS">Ubuntu 20.04 LTS</option>
+                                <option value="Ubuntu 22.04 LTS">Ubuntu 22.04 LTS</option>
+                                <option value="Linux Mint">Linux Mint</option>
+                                <option value="FreeDOS">FreeDOS</option>
+                                <option value="custom">Diğer (Manuel Gir)</option>
+                            </select>
+                            <input type="text" class="form-control mt-2 custom-input" id="osCustom" placeholder="Özel işletim sistemi girin..." style="display: none;">
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">Ekran Boyutu</label>
+                            <select class="form-control config-select" id="screenSelect" data-placeholder="Ekran boyutu seçin...">
+                                <option value="">-- Seçin --</option>
+                                <option value="13.3 inch">13.3"</option>
+                                <option value="14 inch">14"</option>
+                                <option value="15.6 inch">15.6"</option>
+                                <option value="16 inch">16"</option>
+                                <option value="17.3 inch">17.3"</option>
+                                <option value="custom">Diğer (Manuel Gir)</option>
+                            </select>
+                            <input type="text" class="form-control mt-2 custom-input" id="screenCustom" placeholder="Özel ekran boyutu girin..." style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <!-- Preview alanı -->
+                    <div class="mt-3">
+                        <label class="form-label fw-semibold text-primary">
+                            <i class="fas fa-eye me-1"></i>Oluşturulan Özellik Metni:
+                        </label>
+                        <div id="configPreview" class="p-2 border rounded bg-white font-monospace small">
+                            <em class="text-muted">Yukarıdaki alanlardan seçim yapın, özellik metni burada görünecek...</em>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manuel giriş alanı -->
+                <div id="manualSection" style="display: none;">
+                    <textarea id="manualOzellikler" class="form-control" rows="4" placeholder="Örnek: Intel i7 11th Gen, 16GB DDR4 RAM, 512GB SSD, NVIDIA RTX 3060, Windows 11 Pro"></textarea>
+                </div>
+                
+                <!-- Asıl form alanı (her iki mod için) -->
+                <textarea asp-for="Ozellikler" id="finalOzellikler" style="display: none;"></textarea>
+                
                 <span asp-validation-for="Ozellikler" class="text-danger"></span>
+                <small class="form-text text-muted">
+                    Konfigürasyon modunda dropdown'lardan seçim yapın veya manuel modda direkt yazın.
+                </small>
             </div>
 
             <div class="mb-3">
@@ -63,7 +313,8 @@
                     <option value="Aktif">Aktif</option>
                     <option value="Bakımda">Bakımda</option>
                     <option value="Arızalı">Arızalı</option>
-                    <option value="Depo">Depo</option>
+                    <option value="Depo">Havuz</option>
+                    <option value="Depo">Serviste</option>
                 </select>
                 <span asp-validation-for="Durum" class="text-danger"></span>
             </div>
@@ -340,56 +591,343 @@
                     $('#saveBrandBtn').click();
                 }
             });
+
+            // =============================================================================
+            // CONFIGURATION SYSTEM - Özellik Konfigürasyonu
+            // =============================================================================
+
+            // Configuration dropdownlarını Select2 ile başlat
+            $('.config-select').each(function() {
+                $(this).select2({
+                    theme: 'bootstrap-5',
+                    placeholder: $(this).data('placeholder'),
+                    allowClear: true,
+                    width: '100%'
+                });
+            });
+
+            // Mod değişimi (Konfigürasyon vs Manuel)
+            $('input[name="ozellikMode"]').change(function() {
+                if (this.id === 'configMode') {
+                    $('#configurationSection').show();
+                    $('#manualSection').hide();
+                    updateConfigPreview(); // Preview'i güncelle
+                } else {
+                    $('#configurationSection').hide();
+                    $('#manualSection').show();
+                    // Manuel mod aktifken manuel textarea ile ana form alanını senkronize et
+                    $('#manualOzellikler').on('input', function() {
+                        $('#finalOzellikler').val($(this).val());
+                    });
+                    // Varsa önceki değeri manuel alana kopyala
+                    const currentValue = $('#finalOzellikler').val();
+                    if (currentValue) {
+                        $('#manualOzellikler').val(currentValue);
+                    }
+                }
+            });
+
+            // Configuration dropdown değişimlerini dinle
+            $('.config-select').on('select2:select select2:clear', function() {
+                handleCustomInput(this);
+                updateConfigPreview();
+            });
+
+            // Custom input değişimlerini dinle
+            $('.custom-input').on('input', function() {
+                updateConfigPreview();
+            });
+
+            // Custom input göster/gizle
+            function handleCustomInput(selectElement) {
+                const $select = $(selectElement);
+                const selectedValue = $select.val();
+                const customInputId = $select.attr('id').replace('Select', 'Custom');
+                const $customInput = $('#' + customInputId);
+
+                if (selectedValue === 'custom') {
+                    $customInput.show().focus();
+                } else {
+                    $customInput.hide().val('');
+                }
+            }
+
+            // Configuration preview'ini güncelle
+            function updateConfigPreview() {
+                const configs = [];
+
+                // İşlemci
+                const processor = getConfigValue('processorSelect', 'processorCustom');
+                if (processor) configs.push(processor);
+
+                // RAM
+                const ram = getConfigValue('ramSelect', 'ramCustom');
+                if (ram) configs.push(ram);
+
+                // Depolama
+                const storage = getConfigValue('storageSelect', 'storageCustom');
+                if (storage) configs.push(storage);
+
+                // Ekran Kartı
+                const gpu = getConfigValue('gpuSelect', 'gpuCustom');
+                if (gpu) configs.push(gpu);
+
+                // İşletim Sistemi
+                const os = getConfigValue('osSelect', 'osCustom');
+                if (os) configs.push(os);
+
+                // Ekran Boyutu
+                const screen = getConfigValue('screenSelect', 'screenCustom');
+                if (screen) configs.push(screen);
+
+                // Final text oluştur
+                const finalText = configs.length > 0 ? configs.join(', ') : '';
+                
+                // Preview'i güncelle
+                const $preview = $('#configPreview');
+                if (finalText) {
+                    $preview.html(finalText);
+                    $preview.removeClass('text-muted').addClass('text-dark');
+                } else {
+                    $preview.html('<em class="text-muted">Yukarıdaki alanlardan seçim yapın, özellik metni burada görünecek...</em>');
+                    $preview.removeClass('text-dark').addClass('text-muted');
+                }
+
+                // Ana form alanını güncelle
+                $('#finalOzellikler').val(finalText);
+            }
+
+            // Config değeri al (dropdown veya custom input'tan)
+            function getConfigValue(selectId, customInputId) {
+                const $select = $('#' + selectId);
+                const selectedValue = $select.val();
+                
+                if (selectedValue === 'custom') {
+                    return $('#' + customInputId).val().trim();
+                }
+                
+                return selectedValue || '';
+            }
+
+            // Form submit edildiğinde son kontrolü yap
+            $('form').on('submit', function() {
+                if ($('#configMode').is(':checked')) {
+                    updateConfigPreview(); // Son bir kez güncelle
+                } else {
+                    // Manuel modda, manuel textarea'nın değerini gizli alana kopyala
+                    const manualValue = $('#manualSection textarea').val();
+                    $('#hiddenOzellikler').val(manualValue);
+                }
+            });
+
+            // Sayfa yüklendiğinde başlangıç durumu
+            updateConfigPreview();
         });
     </script>
-    
-    <style>
-        /* Select2 özelleştirmeleri */
-        .select2-container--bootstrap-5 .select2-selection {
-            min-height: 38px;
-            border-color: #dee2e6;
-        }
-        
-        .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered {
-            padding-top: 6px;
-            color: #495057;
-        }
-        
-        .select2-container--bootstrap-5 .select2-selection--single .select2-selection__arrow {
-            top: 6px;
-        }
-        
-        .select2-container--bootstrap-5.select2-container--focus .select2-selection {
-            border-color: #86b7fe;
-            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-        }
-        
-        /* Input group ile Select2 uyumluluğu */
-        .input-group .select2-container {
-            flex: 1 1 auto;
-        }
-        
-        .input-group .select2-container .select2-selection {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-        
-        .input-group .btn {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-        
-        /* Modal animasyonları */
-        .modal.fade .modal-dialog {
-            transition: transform 0.3s ease-out;
-        }
-        
-        /* Alert stillerinin iyileştirilmesi */
-        .alert-info {
-            background-color: #e7f3ff;
-            border-color: #b8daff;
-            color: #055160;
-        }
-    </style>
 }
+
+<style>
+    /* Select2 özelleştirmeleri */
+    .select2-container--bootstrap-5 .select2-selection {
+        min-height: 38px;
+        border-color: #dee2e6;
+    }
+    
+    .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered {
+        padding-top: 6px;
+        color: #495057;
+    }
+    
+    .select2-container--bootstrap-5 .select2-selection--single .select2-selection__arrow {
+        top: 6px;
+    }
+    
+    .select2-container--bootstrap-5.select2-container--focus .select2-selection {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+    
+    /* Input group ile Select2 uyumluluğu */
+    .input-group .select2-container {
+        flex: 1 1 auto;
+    }
+    
+    .input-group .select2-container .select2-selection {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    
+    .input-group .btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    
+    /* Modal animasyonları */
+    .modal.fade .modal-dialog {
+        transition: transform 0.3s ease-out;
+    }
+    
+    /* Alert stillerinin iyileştirilmesi */
+    .alert-info {
+        background-color: #e7f3ff;
+        border-color: #b8daff;
+        color: #055160;
+    }
+
+    /* =============================================================================
+       CONFIGURATION SYSTEM STYLES - Özellik Konfigürasyon Stilleri
+       ============================================================================= */
+    
+    /* Mod seçimi butonları */
+    .btn-check:checked + .btn-outline-primary {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        color: white;
+    }
+    
+    .btn-check:checked + .btn-outline-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+    }
+    
+    /* Configuration section */
+    #configurationSection {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border: 2px solid #dee2e6;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+    
+    #configurationSection:hover {
+        border-color: #0d6efd;
+        box-shadow: 0 4px 15px rgba(13, 110, 253, 0.1);
+    }
+    
+    /* Configuration labels */
+    #configurationSection .form-label.fw-semibold {
+        color: #495057;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    #configurationSection .form-label.fw-semibold:before {
+        content: "⚙️";
+        margin-right: 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Configuration dropdowns */
+    .config-select {
+        border-radius: 8px;
+        border: 1px solid #ced4da;
+        transition: all 0.2s ease;
+    }
+    
+    .config-select:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    }
+    
+    /* Custom inputs */
+    .custom-input {
+        border-radius: 6px;
+        border: 1px solid #28a745;
+        background-color: #f8fff9;
+        transition: all 0.2s ease;
+    }
+    
+    .custom-input:focus {
+        border-color: #20c997;
+        box-shadow: 0 0 0 0.2rem rgba(32, 201, 151, 0.25);
+        background-color: #ffffff;
+    }
+    
+    .custom-input::placeholder {
+        color: #28a745;
+        font-style: italic;
+    }
+    
+    /* Preview area */
+    #configPreview {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        border: 2px dashed #0d6efd;
+        border-radius: 8px;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #configPreview:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(13, 110, 253, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+    
+    #configPreview:hover:before {
+        left: 100%;
+    }
+    
+    #configPreview.text-dark {
+        border-color: #28a745;
+        background: linear-gradient(135deg, #f8fff9 0%, #e6ffed 100%);
+    }
+    
+    /* Preview label */
+    .text-primary {
+        color: #0d6efd !important;
+    }
+    
+    /* Manuel section */
+    #manualSection textarea {
+        border-radius: 8px;
+        border: 2px solid #6c757d;
+        background-color: #f8f9fa;
+        transition: all 0.3s ease;
+        resize: vertical;
+    }
+    
+    #manualSection textarea:focus {
+        border-color: #495057;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 0.3rem rgba(108, 117, 125, 0.25);
+    }
+    
+    /* Select2 override for config selects */
+    .select2-container--bootstrap-5 .select2-selection--single {
+        height: 38px !important;
+        border-radius: 8px;
+    }
+    
+    .select2-container--bootstrap-5 .select2-selection--single .select2-selection__rendered {
+        line-height: 36px !important;
+        padding-left: 12px;
+    }
+    
+    .select2-container--bootstrap-5 .select2-selection--single .select2-selection__arrow {
+        height: 36px !important;
+        top: 1px !important;
+        right: 10px !important;
+    }
+    
+    /* Basic responsive improvements */
+    .config-select {
+        width: 100%;
+    }
+    
+    .custom-input {
+        width: 100%;
+    }
+</style>
 
