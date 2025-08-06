@@ -15,20 +15,20 @@
                 <label asp-for="EtiketNo" class="form-label">Etiket No</label>
                 <div class="input-group">
                     <input asp-for="EtiketNo" class="form-control" id="etiketNoInput" />
-                    <button type="button" class="btn btn-outline-secon            // Form submit edildiğinde son kontrolü yap
-            $('form').on('submit', function() {
-                if ($('#configMode').is(':checked')) {
-                    updateConfigPreview(); // Son bir kez güncelle
-                } else {
-                    // Manuel modda, manuel textarea'nın değerini ana form alanına kopyala
-                    const manualValue = $('#manualOzellikler').val();
-                    $('#finalOzellikler').val(manualValue);
-                }
-            });ick="startScanning()">
+                    <button type="button" class="btn btn-outline-secondary" onclick="startScanning()" title="Barkod okut">
                         <i class="fas fa-camera"></i>
                     </button>
                 </div>
                 <span asp-validation-for="EtiketNo" class="text-danger"></span>
+                
+                <!-- Barkod okuyucu bölümü -->
+                <div id="scannerStatus" class="alert alert-info mt-2" style="display: none;">
+                    Kamera başlatılıyor...
+                </div>
+                <div id="reader" style="display: none; width: 100%; max-width: 400px; margin: 10px 0;"></div>
+                <button type="button" id="stopScannerBtn" class="btn btn-sm btn-danger mt-2" style="display: none;" onclick="stopScanning()">
+                    <i class="fas fa-stop"></i> Taramayı Durdur
+                </button>
             </div>
 
             <div class="mb-3">
@@ -382,53 +382,62 @@
             try {
                 const scannerDiv = document.getElementById('reader');
                 const statusDiv = document.getElementById('scannerStatus');
+                const stopBtn = document.getElementById('stopScannerBtn');
                 
                 // Show the scanner elements
                 scannerDiv.style.display = 'block';
                 statusDiv.style.display = 'block';
+                stopBtn.style.display = 'inline-block';
+                statusDiv.className = 'alert alert-info mt-2';
                 statusDiv.textContent = 'Kamera başlatılıyor...';
 
                 // Request camera permission first
                 await navigator.mediaDevices.getUserMedia({ video: true });
 
-                // Initialize scanner if not already initialized
-                if (!html5QrcodeScanner) {
-                    html5QrcodeScanner = new Html5Qrcode("reader");
-
-                    const config = {
-                        fps: 10,
-                        qrbox: { width: 250, height: 250 },
-                        aspectRatio: 1.0,
-                        formatsToSupport: [
-                            Html5QrcodeSupportedFormats.QR_CODE,
-                            Html5QrcodeSupportedFormats.EAN_13,
-                            Html5QrcodeSupportedFormats.EAN_8,
-                            Html5QrcodeSupportedFormats.CODE_128,
-                            Html5QrcodeSupportedFormats.CODE_39,
-                            Html5QrcodeSupportedFormats.UPC_A,
-                            Html5QrcodeSupportedFormats.UPC_E,
-                        ]
-                    };
-
-                    await html5QrcodeScanner.start(
-                        { facingMode: "environment" },
-                        config,
-                        onScanSuccess,
-                        onScanError
-                    );
-
-                    statusDiv.textContent = 'Kamera hazır, barkodu okutun...';
+                // Stop existing scanner if running
+                if (html5QrcodeScanner) {
+                    await html5QrcodeScanner.stop();
+                    html5QrcodeScanner = null;
                 }
+
+                // Initialize new scanner
+                html5QrcodeScanner = new Html5Qrcode("reader");
+
+                const config = {
+                    fps: 10,
+                    qrbox: { width: 250, height: 250 },
+                    aspectRatio: 1.0
+                };
+
+                await html5QrcodeScanner.start(
+                    { facingMode: "environment" },
+                    config,
+                    onScanSuccess,
+                    onScanError
+                );
+
+                statusDiv.textContent = 'Kamera hazır, barkodu okutun...';
             } catch (err) {
                 const statusDiv = document.getElementById('scannerStatus');
-                statusDiv.className = 'alert alert-danger';
+                statusDiv.className = 'alert alert-danger mt-2';
+                statusDiv.style.display = 'block';
                 statusDiv.textContent = 'Kamera başlatılamadı: ' + (err.message || 'Bilinmeyen hata');
                 console.error('Kamera hatası:', err);
+                
+                // Hide other elements if error
+                document.getElementById('reader').style.display = 'none';
+                document.getElementById('stopScannerBtn').style.display = 'none';
             }
         }
 
         function onScanSuccess(decodedText) {
             document.getElementById('etiketNoInput').value = decodedText;
+            
+            // Başarı mesajı göster
+            const statusDiv = document.getElementById('scannerStatus');
+            statusDiv.className = 'alert alert-success mt-2';
+            statusDiv.textContent = 'Barkod başarıyla okundu: ' + decodedText;
+            
             stopScanning();
         }
 
@@ -446,6 +455,7 @@
                     // Hide the scanner elements
                     document.getElementById('reader').style.display = 'none';
                     document.getElementById('scannerStatus').style.display = 'none';
+                    document.getElementById('stopScannerBtn').style.display = 'none';
                 } catch (err) {
                     console.error('Kamera kapatma hatası:', err);
                 }
