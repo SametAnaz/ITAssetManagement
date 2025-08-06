@@ -1,6 +1,9 @@
 using ITAssetManagement.Web.Data.Repositories;
 using ITAssetManagement.Web.Models;
 using ITAssetManagement.Web.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System.Text;
+using OfficeOpenXml;
 
 namespace ITAssetManagement.Web.Services
 {
@@ -145,6 +148,96 @@ namespace ITAssetManagement.Web.Services
             {
                 _assignmentRepository.Delete(assignment);
                 await _assignmentRepository.SaveChangesAsync();
+            }
+        }
+
+        /// <summary>
+        /// Zimmet verilerini Excel formatında export eder
+        /// </summary>
+        /// <returns>Excel dosyası byte array'i</returns>
+        public async Task<byte[]> ExportAssignmentsToExcelAsync()
+        {
+            var assignments = await GetAllAssignmentsQueryable().ToListAsync();
+            
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            
+            using var package = new ExcelPackage();
+            var worksheet = package.Workbook.Worksheets.Add("Assignments");
+            
+            // Header
+            worksheet.Cells[1, 1].Value = "Zimmet ID";
+            worksheet.Cells[1, 2].Value = "Kullanıcı";
+            worksheet.Cells[1, 3].Value = "Laptop";
+            worksheet.Cells[1, 4].Value = "Zimmet Tarihi";
+            worksheet.Cells[1, 5].Value = "İade Tarihi";
+            worksheet.Cells[1, 6].Value = "İşlem Tipi";
+            
+            // Header formatting
+            using (var range = worksheet.Cells[1, 1, 1, 6])
+            {
+                range.Style.Font.Bold = true;
+                range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+            }
+            
+            // Data rows
+            for (int i = 0; i < assignments.Count; i++)
+            {
+                var assignment = assignments[i];
+                
+                worksheet.Cells[i + 2, 1].Value = assignment.Id;
+                worksheet.Cells[i + 2, 2].Value = assignment.User?.FullName ?? "";
+                worksheet.Cells[i + 2, 3].Value = $"{assignment.Laptop?.Marka} {assignment.Laptop?.Model} ({assignment.Laptop?.EtiketNo})";
+                worksheet.Cells[i + 2, 4].Value = assignment.AssignmentDate.ToString("dd/MM/yyyy");
+                worksheet.Cells[i + 2, 5].Value = assignment.ReturnDate?.ToString("dd/MM/yyyy") ?? "Devam Ediyor";
+                worksheet.Cells[i + 2, 6].Value = assignment.IslemTipi;
+            }
+            
+            // Auto-fit columns
+            worksheet.Cells.AutoFitColumns();
+            
+            return package.GetAsByteArray();
+        }
+
+        /// <summary>
+        /// Zimmet verilerini CSV formatında export eder
+        /// </summary>
+        /// <returns>CSV dosyası byte array'i</returns>
+        public async Task<byte[]> ExportAssignmentsToCsvAsync()
+        {
+            var assignments = await GetAllAssignmentsQueryable().ToListAsync();
+            
+            var csv = new StringBuilder();
+            csv.AppendLine("ZimmetID,Kullanici,Laptop,ZimmetTarihi,IadeTarihi,IslemTipi");
+            
+            foreach (var assignment in assignments)
+            {
+                var kullanici = assignment.User?.FullName ?? "";
+                var laptop = $"{assignment.Laptop?.Marka} {assignment.Laptop?.Model} ({assignment.Laptop?.EtiketNo})";
+                var iadeTarihi = assignment.ReturnDate?.ToString("dd/MM/yyyy") ?? "Devam Ediyor";
+                
+                csv.AppendLine($"{assignment.Id},{kullanici},{laptop},{assignment.AssignmentDate:dd/MM/yyyy},{iadeTarihi},{assignment.IslemTipi}");
+            }
+            
+            return Encoding.UTF8.GetBytes(csv.ToString());
+        }
+
+        /// <summary>
+        /// Upload edilen dosyadan zimmet verilerini import eder
+        /// </summary>
+        /// <param name="fileBytes">Dosya byte array'i</param>
+        /// <param name="fileName">Dosya adı</param>
+        /// <returns>Import işlem sonucu</returns>
+        public Task<(bool Success, string Message, int ImportedCount)> ImportAssignmentsFromFileAsync(byte[] fileBytes, string fileName)
+        {
+            try
+            {
+                // Not: Zimmet import'u daha karmaşık olduğu için şimdilik sadece export'u destekliyoruz
+                return Task.FromResult((false, "Zimmet import özelliği henüz desteklenmiyor. Lütfen sadece export işlemini kullanın.", 0));
+            }
+            catch (Exception ex)
+            {
+                return Task.FromResult((false, $"Import sırasında hata: {ex.Message}", 0));
             }
         }
     }

@@ -96,5 +96,25 @@ namespace ITAssetManagement.Web.Services.Interfaces
         /// </para>
         /// </remarks>
         Task DeleteAssignmentAsync(int id);
+
+        /// <summary>
+        /// Zimmet verilerini Excel formatında export eder
+        /// </summary>
+        /// <returns>Excel dosyası byte array'i</returns>
+        Task<byte[]> ExportAssignmentsToExcelAsync();
+
+        /// <summary>
+        /// Zimmet verilerini CSV formatında export eder
+        /// </summary>
+        /// <returns>CSV dosyası byte array'i</returns>
+        Task<byte[]> ExportAssignmentsToCsvAsync();
+
+        /// <summary>
+        /// Upload edilen dosyadan zimmet verilerini import eder
+        /// </summary>
+        /// <param name="fileBytes">Dosya byte array'i</param>
+        /// <param name="fileName">Dosya adı</param>
+        /// <returns>Import işlem sonucu</returns>
+        Task<(bool Success, string Message, int ImportedCount)> ImportAssignmentsFromFileAsync(byte[] fileBytes, string fileName);
     }
 }
