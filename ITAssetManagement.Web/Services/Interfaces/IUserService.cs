@@ -136,5 +136,25 @@ namespace ITAssetManagement.Web.Services.Interfaces
         /// SearchUsersQueryable metodunun execute edilmiş halidir.
         /// </remarks>
         Task<IEnumerable<User>> SearchUsersAsync(string searchTerm);
+
+        /// <summary>
+        /// Kullanıcı verilerini Excel formatında export eder
+        /// </summary>
+        /// <returns>Excel dosyası byte array'i</returns>
+        Task<byte[]> ExportUsersToExcelAsync();
+
+        /// <summary>
+        /// Kullanıcı verilerini CSV formatında export eder
+        /// </summary>
+        /// <returns>CSV dosyası byte array'i</returns>
+        Task<byte[]> ExportUsersToCsvAsync();
+
+        /// <summary>
+        /// Upload edilen dosyadan kullanıcı verilerini import eder
+        /// </summary>
+        /// <param name="fileBytes">Dosya byte array'i</param>
+        /// <param name="fileName">Dosya adı</param>
+        /// <returns>Import işlem sonucu</returns>
+        Task<(bool Success, string Message, int ImportedCount)> ImportUsersFromFileAsync(byte[] fileBytes, string fileName);
     }
 }

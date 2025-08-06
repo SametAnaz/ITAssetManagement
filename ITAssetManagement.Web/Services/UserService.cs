@@ -3,6 +3,8 @@ using ITAssetManagement.Web.Models;
 using ITAssetManagement.Web.Data.Repositories;
 using ITAssetManagement.Web.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Text;
+using OfficeOpenXml;
 
 namespace ITAssetManagement.Web.Services
 {
@@ -213,6 +215,180 @@ namespace ITAssetManagement.Web.Services
         public async Task<IEnumerable<User>> SearchUsersAsync(string searchTerm)
         {
             return await SearchUsersQueryable(searchTerm).ToListAsync();
+        }
+
+        /// <summary>
+        /// Kullanıcı verilerini Excel formatında export eder
+        /// </summary>
+        /// <returns>Excel dosyası byte array'i</returns>
+        public async Task<byte[]> ExportUsersToExcelAsync()
+        {
+            var users = await GetAllUsersAsync();
+            
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            
+            using var package = new ExcelPackage();
+            var worksheet = package.Workbook.Worksheets.Add("Users");
+            
+            // Header
+            worksheet.Cells[1, 1].Value = "Ad Soyad";
+            worksheet.Cells[1, 2].Value = "Email";
+            worksheet.Cells[1, 3].Value = "Telefon";
+            worksheet.Cells[1, 4].Value = "Departman";
+            worksheet.Cells[1, 5].Value = "Pozisyon";
+            
+            // Header formatting
+            using (var range = worksheet.Cells[1, 1, 1, 5])
+            {
+                range.Style.Font.Bold = true;
+                range.Style.Fill.PatternType = OfficeOpenXml.Style.ExcelFillStyle.Solid;
+                range.Style.Fill.BackgroundColor.SetColor(System.Drawing.Color.LightGray);
+            }
+            
+            // Data rows
+            var userList = users.ToList();
+            for (int i = 0; i < userList.Count; i++)
+            {
+                var user = userList[i];
+                
+                worksheet.Cells[i + 2, 1].Value = user.FullName;
+                worksheet.Cells[i + 2, 2].Value = user.Email;
+                worksheet.Cells[i + 2, 3].Value = user.Phone ?? "";
+                worksheet.Cells[i + 2, 4].Value = user.Department ?? "";
+                worksheet.Cells[i + 2, 5].Value = user.Position ?? "";
+            }
+            
+            // Auto-fit columns
+            worksheet.Cells.AutoFitColumns();
+            
+            return package.GetAsByteArray();
+        }
+
+        /// <summary>
+        /// Kullanıcı verilerini CSV formatında export eder
+        /// </summary>
+        /// <returns>CSV dosyası byte array'i</returns>
+        public async Task<byte[]> ExportUsersToCsvAsync()
+        {
+            var users = await GetAllUsersAsync();
+            
+            var csv = new StringBuilder();
+            csv.AppendLine("AdSoyad,Email,Telefon,Departman,Pozisyon");
+            
+            foreach (var user in users)
+            {
+                csv.AppendLine($"{user.FullName},{user.Email},{user.Phone ?? ""},{user.Department ?? ""},{user.Position ?? ""}");
+            }
+            
+            return Encoding.UTF8.GetBytes(csv.ToString());
+        }
+
+        /// <summary>
+        /// Upload edilen dosyadan kullanıcı verilerini import eder
+        /// </summary>
+        /// <param name="fileBytes">Dosya byte array'i</param>
+        /// <param name="fileName">Dosya adı</param>
+        /// <returns>Import işlem sonucu</returns>
+        public async Task<(bool Success, string Message, int ImportedCount)> ImportUsersFromFileAsync(byte[] fileBytes, string fileName)
+        {
+            try
+            {
+                List<string[]> dataRows = new List<string[]>();
+
+                if (fileName.EndsWith(".xlsx") || fileName.EndsWith(".xls"))
+                {
+                    // EPPlus ile Excel dosyasını oku
+                    ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+                    
+                    using var stream = new MemoryStream(fileBytes);
+                    using var package = new ExcelPackage(stream);
+                    
+                    var worksheet = package.Workbook.Worksheets.FirstOrDefault();
+                    if (worksheet == null)
+                    {
+                        return (false, "Excel dosyasında worksheet bulunamadı", 0);
+                    }
+
+                    var rowCount = worksheet.Dimension?.Rows ?? 0;
+                    var colCount = worksheet.Dimension?.Columns ?? 0;
+
+                    if (rowCount < 2)
+                    {
+                        return (false, "Excel dosyasında veri bulunamadı", 0);
+                    }
+
+                    // Excel'den verileri oku
+                    for (int row = 1; row <= rowCount; row++)
+                    {
+                        var rowData = new List<string>();
+                        for (int col = 1; col <= Math.Min(colCount, 5); col++) // Max 5 kolon al
+                        {
+                            var cellValue = worksheet.Cells[row, col].Value?.ToString() ?? "";
+                            rowData.Add(cellValue.Trim());
+                        }
+                        
+                        if (rowData.Count > 0 && !string.IsNullOrWhiteSpace(rowData[0]))
+                        {
+                            dataRows.Add(rowData.ToArray());
+                        }
+                    }
+                }
+                else
+                {
+                    // CSV dosyası için
+                    var content = Encoding.UTF8.GetString(fileBytes);
+                    var lines = content.Split('\n', StringSplitOptions.RemoveEmptyEntries);
+                    
+                    foreach (var line in lines)
+                    {
+                        var fields = line.Split(',').Select(f => f.Trim().Trim('"')).ToArray();
+                        if (fields.Length > 0 && !string.IsNullOrWhiteSpace(fields[0]))
+                        {
+                            dataRows.Add(fields);
+                        }
+                    }
+                }
+
+                if (dataRows.Count < 2)
+                {
+                    return (false, $"Dosyada yeterli veri bulunamadı. Bulunan satır sayısı: {dataRows.Count}", 0);
+                }
+
+                var importedCount = 0;
+                // İlk satır header olarak kabul ediliyor, atla
+                for (int i = 1; i < dataRows.Count; i++)
+                {
+                    var fields = dataRows[i];
+                    if (fields.Length >= 2 && !string.IsNullOrWhiteSpace(fields[0]) && !string.IsNullOrWhiteSpace(fields[1]))
+                    {
+                        var user = new User
+                        {
+                            FullName = fields[0].Trim(),
+                            Email = fields[1].Trim(),
+                            Phone = fields.Length > 2 ? fields[2].Trim() : "",
+                            Department = fields.Length > 3 ? fields[3].Trim() : "",
+                            Position = fields.Length > 4 ? fields[4].Trim() : ""
+                        };
+
+                        // Aynı email kontrol et
+                        var existingUser = await _context.Users
+                            .FirstOrDefaultAsync(u => u.Email == user.Email);
+                        
+                        if (existingUser == null)
+                        {
+                            _context.Users.Add(user);
+                            importedCount++;
+                        }
+                    }
+                }
+
+                await _context.SaveChangesAsync();
+                return (true, $"{importedCount} kullanıcı başarıyla import edildi. Toplam {dataRows.Count - 1} satır işlendi.", importedCount);
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Import sırasında hata: {ex.Message}", 0);
+            }
         }
     }
 }

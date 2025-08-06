@@ -61,9 +61,27 @@
         </div>
     </div>
     <div class="col-md-4 text-end">
-        <a asp-action="Create" class="btn btn-success">
-            <i class="fas fa-user-plus me-1"></i>Yeni Kullanıcı Ekle
-        </a>
+        <div class="btn-group">
+            <a asp-action="Create" class="btn btn-success">
+                <i class="fas fa-user-plus me-1"></i>Yeni Kullanıcı Ekle
+            </a>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-upload me-1"></i>Export
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" asp-action="ExportToExcel">
+                        <i class="fas fa-file-excel me-2"></i>Excel Format
+                    </a></li>
+                    <li><a class="dropdown-item" asp-action="ExportToCsv">
+                        <i class="fas fa-file-csv me-2"></i>CSV Format
+                    </a></li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#importModal">
+                <i class="fas fa-download me-1"></i>Import
+            </button>
+        </div>
     </div>
 </div>
 
@@ -150,3 +168,48 @@
         </ul>
     </div>
 </nav>
+
+<!-- Import Modal -->
+<div class="modal fade" id="importModal" tabindex="-1" aria-labelledby="importModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="importModalLabel">
+                    <i class="fas fa-download me-2"></i>Kullanıcı Verilerini Import Et
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Import" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="importFile" class="form-label">Dosya Seçin</label>
+                        <input type="file" class="form-control" id="importFile" name="file" accept=".csv,.xlsx" required>
+                        <div class="form-text">
+                            <strong>Desteklenen formatlar:</strong> CSV (.csv) ve Excel (.xlsx)<br>
+                            <strong>Gerekli kolonlar:</strong> AdSoyad, Email, Telefon, Departman, Pozisyon<br>
+                            <strong>Excel Import:</strong> Gerçek Excel dosyaları (.xlsx) desteklenir!
+                        </div>
+                    </div>
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>En İyi Sonuç İçin:</strong><br>
+                        1. Bu sayfadan "Export → CSV Format" ile veri indirin<br>
+                        2. CSV dosyasını düzenleyin<br>
+                        3. Aynı CSV dosyasını import edin
+                    </div>
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Dikkat:</strong> Import işlemi sırasında mevcut veriler korunur. 
+                        Aynı email adresine sahip kayıtlar güncellenmez, yeni kayıtlar eklenir.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-download me-1"></i>Import Et
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -146,5 +146,88 @@ namespace ITAssetManagement.Web.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        /// <summary>
+        /// Kullanıcı verilerini Excel formatında export eder
+        /// </summary>
+        /// <returns>Excel dosyası</returns>
+        public async Task<IActionResult> ExportToExcel()
+        {
+            try
+            {
+                var excelData = await _userService.ExportUsersToExcelAsync();
+                var fileName = $"Users_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+                return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Export sırasında hata oluştu: {ex.Message}";
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+        /// <summary>
+        /// Kullanıcı verilerini CSV formatında export eder
+        /// </summary>
+        /// <returns>CSV dosyası</returns>
+        public async Task<IActionResult> ExportToCsv()
+        {
+            try
+            {
+                var csvData = await _userService.ExportUsersToCsvAsync();
+                var fileName = $"Users_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
+                return File(csvData, "text/csv", fileName);
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Export sırasında hata oluştu: {ex.Message}";
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+        /// <summary>
+        /// Kullanıcı verilerini dosyadan import eder
+        /// </summary>
+        /// <param name="file">Upload edilen dosya</param>
+        /// <returns>Import sonucu</returns>
+        [HttpPost]
+        public async Task<IActionResult> Import(IFormFile file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                TempData["ErrorMessage"] = "Lütfen geçerli bir dosya seçin.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            if (!file.FileName.EndsWith(".csv") && !file.FileName.EndsWith(".xlsx"))
+            {
+                TempData["ErrorMessage"] = "Sadece CSV ve Excel dosyaları desteklenir.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            try
+            {
+                using var memoryStream = new MemoryStream();
+                await file.CopyToAsync(memoryStream);
+                var fileBytes = memoryStream.ToArray();
+
+                var result = await _userService.ImportUsersFromFileAsync(fileBytes, file.FileName);
+                
+                if (result.Success)
+                {
+                    TempData["SuccessMessage"] = result.Message;
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = result.Message;
+                }
+            }
+            catch (Exception ex)
+            {
+                TempData["ErrorMessage"] = $"Import sırasında hata oluştu: {ex.Message}";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
