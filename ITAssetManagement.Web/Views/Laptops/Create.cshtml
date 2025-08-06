@@ -27,7 +27,8 @@
                 <div class="input-group">
                     <select asp-for="BrandId" class="form-control select2-brand" 
                         asp-items="@(new SelectList(ViewBag.Brands, "Id", "Name"))"
-                        data-placeholder="Marka seçin veya yazın...">
+                        data-placeholder="Marka seçin veya yazın..."
+                        name="BrandId">
                         <option value="">-- Marka Seçin --</option>
                     </select>
                     <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addBrandModal" title="Yeni marka ekle">
@@ -257,6 +258,15 @@
                 }
             });
 
+            // Select2 değişikliklerini orijinal select'e aktar
+            $('.select2-brand').on('select2:select', function (e) {
+                $(this).trigger('change');
+            });
+
+            $('.select2-brand').on('select2:clear', function (e) {
+                $(this).trigger('change');
+            });
+
             // Yeni marka ekleme modal işlemleri
             $('#saveBrandBtn').click(function() {
                 const brandName = $('#newBrandName').val().trim();
@@ -329,11 +339,6 @@
                     e.preventDefault();
                     $('#saveBrandBtn').click();
                 }
-            });
-
-            // Form submit edildiğinde Select2'yi temizle
-            $('form').on('submit', function() {
-                $('.select2-brand').select2('destroy');
             });
         });
     </script>

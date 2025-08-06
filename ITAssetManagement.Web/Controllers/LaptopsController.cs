@@ -121,6 +121,21 @@ namespace ITAssetManagement.Web.Controllers
                     return View(laptop);
                 }
                 
+                // BrandId seçildiyse, Brand adını string Marka alanına da kopyala (backward compatibility için)
+                if (laptop.BrandId.HasValue && laptop.BrandId.Value > 0)
+                {
+                    var selectedBrand = await _brandService.GetBrandByIdAsync(laptop.BrandId.Value);
+                    if (selectedBrand != null)
+                    {
+                        laptop.Marka = selectedBrand.Name;
+                    }
+                }
+                else
+                {
+                    // BrandId yoksa veya 0 ise, boş string koy
+                    laptop.Marka = string.Empty;
+                }
+                
                 await _laptopService.CreateLaptopAsync(laptop);
                 TempData["SuccessMessage"] = "Laptop başarıyla eklendi.";
                 return RedirectToAction(nameof(Index));
@@ -150,6 +165,8 @@ namespace ITAssetManagement.Web.Controllers
             {
                 return NotFound();
             }
+            var brands = await _brandService.GetAllActiveBrandsAsync();
+            ViewBag.Brands = brands;
             return View(laptop);
         }
 
@@ -164,10 +181,22 @@ namespace ITAssetManagement.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                // BrandId seçildiyse, Brand adını string Marka alanına da kopyala (backward compatibility için)
+                if (laptop.BrandId.HasValue)
+                {
+                    var selectedBrand = await _brandService.GetBrandByIdAsync(laptop.BrandId.Value);
+                    if (selectedBrand != null)
+                    {
+                        laptop.Marka = selectedBrand.Name;
+                    }
+                }
+                
                 await _laptopService.UpdateLaptopAsync(laptop);
                 TempData["SuccessMessage"] = "Laptop başarıyla güncellendi.";
                 return RedirectToAction(nameof(Index));
             }
+            var brands = await _brandService.GetAllActiveBrandsAsync();
+            ViewBag.Brands = brands;
             return View(laptop);
         }
 

@@ -10,24 +10,27 @@ namespace ITAssetManagement.Web.Data.Repositories
         {
         }
 
-        // Override GetAllAsync to return only active laptops
+        // Override GetAllAsync to return only active laptops with Brand navigation property
         public new async Task<IEnumerable<Laptop>> GetAllAsync()
         {
             return await _context.Laptops
+                .Include(l => l.Brand)
                 .Where(l => l.IsActive)
                 .ToListAsync();
         }
 
-        // Override GetByIdAsync to return only active laptops
+        // Override GetByIdAsync to return only active laptops with Brand navigation property
         public new async Task<Laptop?> GetByIdAsync(int id)
         {
             return await _context.Laptops
+                .Include(l => l.Brand)
                 .FirstOrDefaultAsync(l => l.Id == id && l.IsActive);
         }
 
         public async Task<Laptop?> GetLaptopWithDetailsAsync(int id)
         {
             return await _context.Laptops
+                .Include(l => l.Brand)
                 .Include(l => l.Photos)
                 .Include(l => l.Loglar)
                 .FirstOrDefaultAsync(l => l.Id == id && l.IsActive);
@@ -36,6 +39,7 @@ namespace ITAssetManagement.Web.Data.Repositories
         public async Task<IEnumerable<Laptop>> GetLaptopsWithDetailsAsync()
         {
             return await _context.Laptops
+                .Include(l => l.Brand)
                 .Include(l => l.Photos)
                 .Include(l => l.Loglar)
                 .Where(l => l.IsActive)
